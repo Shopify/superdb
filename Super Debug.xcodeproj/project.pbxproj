@@ -1,0 +1,301 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CDD65BB415A8D03000505C37 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDD65BB315A8D03000505C37 /* Cocoa.framework */; };
+		CDD65BBE15A8D03000505C37 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CDD65BBC15A8D03000505C37 /* InfoPlist.strings */; };
+		CDD65BC015A8D03000505C37 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD65BBF15A8D03000505C37 /* main.m */; };
+		CDD65BC415A8D03000505C37 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = CDD65BC215A8D03000505C37 /* Credits.rtf */; };
+		CDD65BC715A8D03000505C37 /* JBAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD65BC615A8D03000505C37 /* JBAppDelegate.m */; };
+		CDD65BCA15A8D03000505C37 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDD65BC815A8D03000505C37 /* MainMenu.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		CDD65BAF15A8D03000505C37 /* Super Debug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Super Debug.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CDD65BB315A8D03000505C37 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
+		CDD65BB615A8D03000505C37 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		CDD65BB715A8D03000505C37 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		CDD65BB815A8D03000505C37 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		CDD65BBB15A8D03000505C37 /* Super Debug-Info.plist */ = {isa = PBXFileReference; path = "Super Debug-Info.plist"; sourceTree = "<group>"; };
+		CDD65BBD15A8D03000505C37 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		CDD65BBF15A8D03000505C37 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		CDD65BC115A8D03000505C37 /* Super Debug-Prefix.pch */ = {isa = PBXFileReference; path = "Super Debug-Prefix.pch"; sourceTree = "<group>"; };
+		CDD65BC315A8D03000505C37 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
+		CDD65BC515A8D03000505C37 /* JBAppDelegate.h */ = {isa = PBXFileReference; path = JBAppDelegate.h; sourceTree = "<group>"; };
+		CDD65BC615A8D03000505C37 /* JBAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JBAppDelegate.m; sourceTree = "<group>"; };
+		CDD65BC915A8D03000505C37 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CDD65BAC15A8D03000505C37 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CDD65BB415A8D03000505C37 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CDD65BA415A8D03000505C37 = {
+			isa = PBXGroup;
+			children = (
+				CDD65BB915A8D03000505C37 /* Super Debug */,
+				CDD65BB215A8D03000505C37 /* Frameworks */,
+				CDD65BB015A8D03000505C37 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CDD65BB015A8D03000505C37 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CDD65BAF15A8D03000505C37 /* Super Debug.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CDD65BB215A8D03000505C37 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CDD65BB315A8D03000505C37 /* Cocoa.framework */,
+				CDD65BB515A8D03000505C37 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CDD65BB515A8D03000505C37 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CDD65BB615A8D03000505C37 /* AppKit.framework */,
+				CDD65BB715A8D03000505C37 /* CoreData.framework */,
+				CDD65BB815A8D03000505C37 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		CDD65BB915A8D03000505C37 /* Super Debug */ = {
+			isa = PBXGroup;
+			children = (
+				CDD65BC515A8D03000505C37 /* JBAppDelegate.h */,
+				CDD65BC615A8D03000505C37 /* JBAppDelegate.m */,
+				CDD65BC815A8D03000505C37 /* MainMenu.xib */,
+				CDD65BBA15A8D03000505C37 /* Supporting Files */,
+			);
+			path = "Super Debug";
+			sourceTree = "<group>";
+		};
+		CDD65BBA15A8D03000505C37 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CDD65BBB15A8D03000505C37 /* Super Debug-Info.plist */,
+				CDD65BBC15A8D03000505C37 /* InfoPlist.strings */,
+				CDD65BBF15A8D03000505C37 /* main.m */,
+				CDD65BC115A8D03000505C37 /* Super Debug-Prefix.pch */,
+				CDD65BC215A8D03000505C37 /* Credits.rtf */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CDD65BAE15A8D03000505C37 /* Super Debug */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CDD65BCD15A8D03000505C37 /* Build configuration list for PBXNativeTarget "Super Debug" */;
+			buildPhases = (
+				CDD65BAB15A8D03000505C37 /* Sources */,
+				CDD65BAC15A8D03000505C37 /* Frameworks */,
+				CDD65BAD15A8D03000505C37 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Super Debug";
+			productName = "Super Debug";
+			productReference = CDD65BAF15A8D03000505C37 /* Super Debug.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CDD65BA615A8D03000505C37 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = JB;
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = "Jason Brennan";
+			};
+			buildConfigurationList = CDD65BA915A8D03000505C37 /* Build configuration list for PBXProject "Super Debug" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = CDD65BA415A8D03000505C37;
+			productRefGroup = CDD65BB015A8D03000505C37 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CDD65BAE15A8D03000505C37 /* Super Debug */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CDD65BAD15A8D03000505C37 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CDD65BBE15A8D03000505C37 /* InfoPlist.strings in Resources */,
+				CDD65BC415A8D03000505C37 /* Credits.rtf in Resources */,
+				CDD65BCA15A8D03000505C37 /* MainMenu.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CDD65BAB15A8D03000505C37 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CDD65BC015A8D03000505C37 /* main.m in Sources */,
+				CDD65BC715A8D03000505C37 /* JBAppDelegate.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		CDD65BBC15A8D03000505C37 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CDD65BBD15A8D03000505C37 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		CDD65BC215A8D03000505C37 /* Credits.rtf */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CDD65BC315A8D03000505C37 /* en */,
+			);
+			name = Credits.rtf;
+			sourceTree = "<group>";
+		};
+		CDD65BC815A8D03000505C37 /* MainMenu.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CDD65BC915A8D03000505C37 /* en */,
+			);
+			name = MainMenu.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CDD65BCB15A8D03000505C37 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		CDD65BCC15A8D03000505C37 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COMBINE_HIDPI_IMAGES = YES;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+		CDD65BCE15A8D03000505C37 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Super Debug/Super Debug-Prefix.pch";
+				INFOPLIST_FILE = "Super Debug/Super Debug-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		CDD65BCF15A8D03000505C37 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Super Debug/Super Debug-Prefix.pch";
+				INFOPLIST_FILE = "Super Debug/Super Debug-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CDD65BA915A8D03000505C37 /* Build configuration list for PBXProject "Super Debug" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CDD65BCB15A8D03000505C37 /* Debug */,
+				CDD65BCC15A8D03000505C37 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CDD65BCD15A8D03000505C37 /* Build configuration list for PBXNativeTarget "Super Debug" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CDD65BCE15A8D03000505C37 /* Debug */,
+				CDD65BCF15A8D03000505C37 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CDD65BA615A8D03000505C37 /* Project object */;
+}
