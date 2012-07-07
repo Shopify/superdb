@@ -1,0 +1,238 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CDF1AAA615A8D7760038EAB7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDF1AAA515A8D7760038EAB7 /* Foundation.framework */; };
+		CDF1AAAB15A8D7760038EAB7 /* SuperDBCore.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CDF1AAAA15A8D7760038EAB7 /* SuperDBCore.h */; };
+		CDF1AAAD15A8D7760038EAB7 /* SuperDBCore.m in Sources */ = {isa = PBXBuildFile; fileRef = CDF1AAAC15A8D7760038EAB7 /* SuperDBCore.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		CDF1AAA015A8D7760038EAB7 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/${PRODUCT_NAME}";
+			dstSubfolderSpec = 16;
+			files = (
+				CDF1AAAB15A8D7760038EAB7 /* SuperDBCore.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		CDF1AAA215A8D7760038EAB7 /* libSuperDBCore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSuperDBCore.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		CDF1AAA515A8D7760038EAB7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		CDF1AAA915A8D7760038EAB7 /* SuperDBCore-Prefix.pch */ = {isa = PBXFileReference; path = "SuperDBCore-Prefix.pch"; sourceTree = "<group>"; };
+		CDF1AAAA15A8D7760038EAB7 /* SuperDBCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SuperDBCore.h; sourceTree = "<group>"; };
+		CDF1AAAC15A8D7760038EAB7 /* SuperDBCore.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SuperDBCore.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CDF1AA9F15A8D7760038EAB7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CDF1AAA615A8D7760038EAB7 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CDF1AA9715A8D7760038EAB7 = {
+			isa = PBXGroup;
+			children = (
+				CDF1AAA715A8D7760038EAB7 /* SuperDBCore */,
+				CDF1AAA415A8D7760038EAB7 /* Frameworks */,
+				CDF1AAA315A8D7760038EAB7 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CDF1AAA315A8D7760038EAB7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CDF1AAA215A8D7760038EAB7 /* libSuperDBCore.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CDF1AAA415A8D7760038EAB7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CDF1AAA515A8D7760038EAB7 /* Foundation.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CDF1AAA715A8D7760038EAB7 /* SuperDBCore */ = {
+			isa = PBXGroup;
+			children = (
+				CDF1AAAA15A8D7760038EAB7 /* SuperDBCore.h */,
+				CDF1AAAC15A8D7760038EAB7 /* SuperDBCore.m */,
+				CDF1AAA815A8D7760038EAB7 /* Supporting Files */,
+			);
+			path = SuperDBCore;
+			sourceTree = "<group>";
+		};
+		CDF1AAA815A8D7760038EAB7 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CDF1AAA915A8D7760038EAB7 /* SuperDBCore-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CDF1AAA115A8D7760038EAB7 /* SuperDBCore */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CDF1AAB015A8D7760038EAB7 /* Build configuration list for PBXNativeTarget "SuperDBCore" */;
+			buildPhases = (
+				CDF1AA9E15A8D7760038EAB7 /* Sources */,
+				CDF1AA9F15A8D7760038EAB7 /* Frameworks */,
+				CDF1AAA015A8D7760038EAB7 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SuperDBCore;
+			productName = SuperDBCore;
+			productReference = CDF1AAA215A8D7760038EAB7 /* libSuperDBCore.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CDF1AA9915A8D7760038EAB7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = "Jason Brennan";
+			};
+			buildConfigurationList = CDF1AA9C15A8D7760038EAB7 /* Build configuration list for PBXProject "SuperDBCore" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = CDF1AA9715A8D7760038EAB7;
+			productRefGroup = CDF1AAA315A8D7760038EAB7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CDF1AAA115A8D7760038EAB7 /* SuperDBCore */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CDF1AA9E15A8D7760038EAB7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CDF1AAAD15A8D7760038EAB7 /* SuperDBCore.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		CDF1AAAE15A8D7760038EAB7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		CDF1AAAF15A8D7760038EAB7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CDF1AAB115A8D7760038EAB7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/SuperDBCore.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SuperDBCore/SuperDBCore-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		CDF1AAB215A8D7760038EAB7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/SuperDBCore.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SuperDBCore/SuperDBCore-Prefix.pch";
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CDF1AA9C15A8D7760038EAB7 /* Build configuration list for PBXProject "SuperDBCore" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CDF1AAAE15A8D7760038EAB7 /* Debug */,
+				CDF1AAAF15A8D7760038EAB7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CDF1AAB015A8D7760038EAB7 /* Build configuration list for PBXNativeTarget "SuperDBCore" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CDF1AAB115A8D7760038EAB7 /* Debug */,
+				CDF1AAB215A8D7760038EAB7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CDF1AA9915A8D7760038EAB7 /* Project object */;
+}
