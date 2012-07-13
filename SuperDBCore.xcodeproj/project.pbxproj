@@ -7,9 +7,23 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CDCD46A015A8DD140070D05C /* JBServicesBrowser.h in Headers */ = {isa = PBXBuildFile; fileRef = CDCD469615A8DD140070D05C /* JBServicesBrowser.h */; };
+		CDCD46A115A8DD140070D05C /* JBServicesBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = CDCD469715A8DD140070D05C /* JBServicesBrowser.m */; };
+		CDCD46A215A8DD140070D05C /* JBAuctionServer.h in Headers */ = {isa = PBXBuildFile; fileRef = CDCD469815A8DD140070D05C /* JBAuctionServer.h */; };
+		CDCD46A315A8DD140070D05C /* JBAuctionServer.m in Sources */ = {isa = PBXBuildFile; fileRef = CDCD469915A8DD140070D05C /* JBAuctionServer.m */; };
+		CDCD46A415A8DD140070D05C /* JBAuctionClient.h in Headers */ = {isa = PBXBuildFile; fileRef = CDCD469A15A8DD140070D05C /* JBAuctionClient.h */; };
+		CDCD46A515A8DD140070D05C /* JBAuctionClient.m in Sources */ = {isa = PBXBuildFile; fileRef = CDCD469B15A8DD140070D05C /* JBAuctionClient.m */; };
+		CDCD46A615A8DD140070D05C /* JBMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = CDCD469C15A8DD140070D05C /* JBMessage.h */; };
+		CDCD46A715A8DD140070D05C /* JBMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = CDCD469D15A8DD140070D05C /* JBMessage.m */; };
+		CDCD46A815A8DD140070D05C /* GCDAsyncSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = CDCD469E15A8DD140070D05C /* GCDAsyncSocket.h */; };
+		CDCD46A915A8DD140070D05C /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = CDCD469F15A8DD140070D05C /* GCDAsyncSocket.m */; };
 		CDF1AAA615A8D7760038EAB7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDF1AAA515A8D7760038EAB7 /* Foundation.framework */; };
 		CDF1AAAB15A8D7760038EAB7 /* SuperDBCore.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CDF1AAAA15A8D7760038EAB7 /* SuperDBCore.h */; };
 		CDF1AAAD15A8D7760038EAB7 /* SuperDBCore.m in Sources */ = {isa = PBXBuildFile; fileRef = CDF1AAAC15A8D7760038EAB7 /* SuperDBCore.m */; };
+		CDF1AABE15A8D9240038EAB7 /* SuperDBCore.h in Headers */ = {isa = PBXBuildFile; fileRef = CDF1AAAA15A8D7760038EAB7 /* SuperDBCore.h */; };
+		CDF1AAC515A8D9C30038EAB7 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDF1AAC415A8D9C30038EAB7 /* Cocoa.framework */; };
+		CDF1AACF15A8D9C30038EAB7 /* SuperDBCoreMac.m in Sources */ = {isa = PBXBuildFile; fileRef = CDF1AACE15A8D9C30038EAB7 /* SuperDBCoreMac.m */; };
+		CDF1AAD315A8D9DE0038EAB7 /* SuperDBCoreMac.h in Headers */ = {isa = PBXBuildFile; fileRef = CDF1AACD15A8D9C30038EAB7 /* SuperDBCoreMac.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -26,11 +40,29 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		CDCD469615A8DD140070D05C /* JBServicesBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBServicesBrowser.h; sourceTree = "<group>"; };
+		CDCD469715A8DD140070D05C /* JBServicesBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBServicesBrowser.m; sourceTree = "<group>"; };
+		CDCD469815A8DD140070D05C /* JBAuctionServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBAuctionServer.h; sourceTree = "<group>"; };
+		CDCD469915A8DD140070D05C /* JBAuctionServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBAuctionServer.m; sourceTree = "<group>"; };
+		CDCD469A15A8DD140070D05C /* JBAuctionClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBAuctionClient.h; sourceTree = "<group>"; };
+		CDCD469B15A8DD140070D05C /* JBAuctionClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBAuctionClient.m; sourceTree = "<group>"; };
+		CDCD469C15A8DD140070D05C /* JBMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBMessage.h; sourceTree = "<group>"; };
+		CDCD469D15A8DD140070D05C /* JBMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBMessage.m; sourceTree = "<group>"; };
+		CDCD469E15A8DD140070D05C /* GCDAsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncSocket.h; sourceTree = "<group>"; };
+		CDCD469F15A8DD140070D05C /* GCDAsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncSocket.m; sourceTree = "<group>"; };
 		CDF1AAA215A8D7760038EAB7 /* libSuperDBCore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSuperDBCore.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDF1AAA515A8D7760038EAB7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
-		CDF1AAA915A8D7760038EAB7 /* SuperDBCore-Prefix.pch */ = {isa = PBXFileReference; path = "SuperDBCore-Prefix.pch"; sourceTree = "<group>"; };
+		CDF1AAA915A8D7760038EAB7 /* SuperDBCore-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SuperDBCore-Prefix.pch"; sourceTree = "<group>"; };
 		CDF1AAAA15A8D7760038EAB7 /* SuperDBCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SuperDBCore.h; sourceTree = "<group>"; };
 		CDF1AAAC15A8D7760038EAB7 /* SuperDBCore.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SuperDBCore.m; sourceTree = "<group>"; };
+		CDF1AAC315A8D9C30038EAB7 /* libSuperDBCoreMac.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSuperDBCoreMac.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		CDF1AAC415A8D9C30038EAB7 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
+		CDF1AAC715A8D9C30038EAB7 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		CDF1AAC815A8D9C30038EAB7 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		CDF1AAC915A8D9C30038EAB7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		CDF1AACC15A8D9C30038EAB7 /* SuperDBCoreMac-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SuperDBCoreMac-Prefix.pch"; sourceTree = "<group>"; };
+		CDF1AACD15A8D9C30038EAB7 /* SuperDBCoreMac.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SuperDBCoreMac.h; sourceTree = "<group>"; };
+		CDF1AACE15A8D9C30038EAB7 /* SuperDBCoreMac.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SuperDBCoreMac.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -42,13 +74,39 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		CDF1AAC015A8D9C30038EAB7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CDF1AAC515A8D9C30038EAB7 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CDCD46AC15A8DD390070D05C /* Network layer */ = {
+			isa = PBXGroup;
+			children = (
+				CDCD469615A8DD140070D05C /* JBServicesBrowser.h */,
+				CDCD469715A8DD140070D05C /* JBServicesBrowser.m */,
+				CDCD469815A8DD140070D05C /* JBAuctionServer.h */,
+				CDCD469915A8DD140070D05C /* JBAuctionServer.m */,
+				CDCD469A15A8DD140070D05C /* JBAuctionClient.h */,
+				CDCD469B15A8DD140070D05C /* JBAuctionClient.m */,
+				CDCD469C15A8DD140070D05C /* JBMessage.h */,
+				CDCD469D15A8DD140070D05C /* JBMessage.m */,
+				CDCD469E15A8DD140070D05C /* GCDAsyncSocket.h */,
+				CDCD469F15A8DD140070D05C /* GCDAsyncSocket.m */,
+			);
+			name = "Network layer";
+			sourceTree = "<group>";
+		};
 		CDF1AA9715A8D7760038EAB7 = {
 			isa = PBXGroup;
 			children = (
 				CDF1AAA715A8D7760038EAB7 /* SuperDBCore */,
+				CDF1AACA15A8D9C30038EAB7 /* SuperDBCoreMac */,
 				CDF1AAA415A8D7760038EAB7 /* Frameworks */,
 				CDF1AAA315A8D7760038EAB7 /* Products */,
 			);
@@ -58,6 +116,7 @@
 			isa = PBXGroup;
 			children = (
 				CDF1AAA215A8D7760038EAB7 /* libSuperDBCore.a */,
+				CDF1AAC315A8D9C30038EAB7 /* libSuperDBCoreMac.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -66,6 +125,8 @@
 			isa = PBXGroup;
 			children = (
 				CDF1AAA515A8D7760038EAB7 /* Foundation.framework */,
+				CDF1AAC415A8D9C30038EAB7 /* Cocoa.framework */,
+				CDF1AAC615A8D9C30038EAB7 /* Other Frameworks */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -75,6 +136,7 @@
 			children = (
 				CDF1AAAA15A8D7760038EAB7 /* SuperDBCore.h */,
 				CDF1AAAC15A8D7760038EAB7 /* SuperDBCore.m */,
+				CDCD46AC15A8DD390070D05C /* Network layer */,
 				CDF1AAA815A8D7760038EAB7 /* Supporting Files */,
 			);
 			path = SuperDBCore;
@@ -88,7 +150,59 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		CDF1AAC615A8D9C30038EAB7 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CDF1AAC715A8D9C30038EAB7 /* AppKit.framework */,
+				CDF1AAC815A8D9C30038EAB7 /* CoreData.framework */,
+				CDF1AAC915A8D9C30038EAB7 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		CDF1AACA15A8D9C30038EAB7 /* SuperDBCoreMac */ = {
+			isa = PBXGroup;
+			children = (
+				CDF1AACD15A8D9C30038EAB7 /* SuperDBCoreMac.h */,
+				CDF1AACE15A8D9C30038EAB7 /* SuperDBCoreMac.m */,
+				CDF1AACB15A8D9C30038EAB7 /* Supporting Files */,
+			);
+			path = SuperDBCoreMac;
+			sourceTree = "<group>";
+		};
+		CDF1AACB15A8D9C30038EAB7 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CDF1AACC15A8D9C30038EAB7 /* SuperDBCoreMac-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		CDF1AABD15A8D91A0038EAB7 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CDF1AABE15A8D9240038EAB7 /* SuperDBCore.h in Headers */,
+				CDCD46A015A8DD140070D05C /* JBServicesBrowser.h in Headers */,
+				CDCD46A215A8DD140070D05C /* JBAuctionServer.h in Headers */,
+				CDCD46A415A8DD140070D05C /* JBAuctionClient.h in Headers */,
+				CDCD46A615A8DD140070D05C /* JBMessage.h in Headers */,
+				CDCD46A815A8DD140070D05C /* GCDAsyncSocket.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CDF1AAC115A8D9C30038EAB7 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CDF1AAD315A8D9DE0038EAB7 /* SuperDBCoreMac.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
 		CDF1AAA115A8D7760038EAB7 /* SuperDBCore */ = {
@@ -98,6 +212,7 @@
 				CDF1AA9E15A8D7760038EAB7 /* Sources */,
 				CDF1AA9F15A8D7760038EAB7 /* Frameworks */,
 				CDF1AAA015A8D7760038EAB7 /* CopyFiles */,
+				CDF1AABD15A8D91A0038EAB7 /* Headers */,
 			);
 			buildRules = (
 			);
@@ -106,6 +221,23 @@
 			name = SuperDBCore;
 			productName = SuperDBCore;
 			productReference = CDF1AAA215A8D7760038EAB7 /* libSuperDBCore.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		CDF1AAC215A8D9C30038EAB7 /* SuperDBCoreMac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CDF1AAD015A8D9C30038EAB7 /* Build configuration list for PBXNativeTarget "SuperDBCoreMac" */;
+			buildPhases = (
+				CDF1AABF15A8D9C30038EAB7 /* Sources */,
+				CDF1AAC015A8D9C30038EAB7 /* Frameworks */,
+				CDF1AAC115A8D9C30038EAB7 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SuperDBCoreMac;
+			productName = SuperDBCoreMac;
+			productReference = CDF1AAC315A8D9C30038EAB7 /* libSuperDBCoreMac.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -130,6 +262,7 @@
 			projectRoot = "";
 			targets = (
 				CDF1AAA115A8D7760038EAB7 /* SuperDBCore */,
+				CDF1AAC215A8D9C30038EAB7 /* SuperDBCoreMac */,
 			);
 		};
 /* End PBXProject section */
@@ -140,6 +273,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				CDF1AAAD15A8D7760038EAB7 /* SuperDBCore.m in Sources */,
+				CDCD46A115A8DD140070D05C /* JBServicesBrowser.m in Sources */,
+				CDCD46A315A8DD140070D05C /* JBAuctionServer.m in Sources */,
+				CDCD46A515A8DD140070D05C /* JBAuctionClient.m in Sources */,
+				CDCD46A715A8DD140070D05C /* JBMessage.m in Sources */,
+				CDCD46A915A8DD140070D05C /* GCDAsyncSocket.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CDF1AABF15A8D9C30038EAB7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CDF1AACF15A8D9C30038EAB7 /* SuperDBCoreMac.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -212,6 +358,44 @@
 			};
 			name = Release;
 		};
+		CDF1AAD115A8D9C30038EAB7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SYSTEM_APPS_DIR)/Xcode45-DP1.app/Contents/Developer/Library/Frameworks\"",
+				);
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SuperDBCoreMac/SuperDBCoreMac-Prefix.pch";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		CDF1AAD215A8D9C30038EAB7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SYSTEM_APPS_DIR)/Xcode45-DP1.app/Contents/Developer/Library/Frameworks\"",
+				);
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SuperDBCoreMac/SuperDBCoreMac-Prefix.pch";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -231,6 +415,16 @@
 				CDF1AAB215A8D7760038EAB7 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CDF1AAD015A8D9C30038EAB7 /* Build configuration list for PBXNativeTarget "SuperDBCoreMac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CDF1AAD115A8D9C30038EAB7 /* Debug */,
+				CDF1AAD215A8D9C30038EAB7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
