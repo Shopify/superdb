@@ -9,6 +9,7 @@
 #import "JBAppDelegate.h"
 #import "JBDeviceSelectionWindowController.h"
 
+
 @interface JBAppDelegate ()
 @property (nonatomic, strong) JBDeviceSelectionWindowController *deviceWindow;
 @end
@@ -20,6 +21,7 @@
 	// Insert code here to initialize your application
 	self.deviceWindow = [[JBDeviceSelectionWindowController alloc] initWithWindowNibName:@"JBDeviceSelectionWindowController"];
 	[self.deviceWindow showWindow:nil];
+	
 }
 
 @end

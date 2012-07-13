@@ -10,7 +10,7 @@
 #import <SuperDBCore/SuperDBCore.h>
 
 @interface JBDeviceSelectionWindowController ()
-
+@property (strong) JBServicesBrowser *servicesBrowser;
 @end
 
 @implementation JBDeviceSelectionWindowController
@@ -31,6 +31,10 @@
     
     // Implement this method to handle any initialization after your window controller's window has been loaded from its nib file.
 	[self.tableView setRowHeight:44.0f];
+	
+	self.servicesBrowser = [[JBServicesBrowser alloc] initWithServicesCallback:^(id servicesFound, BOOL moreComing, NSDictionary *error) {
+		NSLog(@"Found services: %@", servicesFound);
+	}];
 	
 }
 
