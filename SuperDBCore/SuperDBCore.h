@@ -8,6 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #define SOMETHING YES
-@interface SuperDBCore : NSObject
 
-@end
+#import "JBServicesBrowser.h"
+

@@ -8,7 +8,7 @@
 
 #import "JBServicesBrowser.h"
 
-
+#define DEFAULT_PORT 4789
 
 @interface JBServicesBrowser () <NSNetServiceDelegate, NSNetServiceBrowserDelegate>
 
@@ -44,31 +44,31 @@ NSString *kIMServiceDomain = @"local"; // If I leave this blank, then the Simula
 }
 
 
-- (void)publishServiceForUsername:(NSString *)serviceName publicationCallback:(JBServicesBrowserPublishedServiceCallback)publicationCallback {
-	
-	if (_alreadyConnected)
-		return;
-	
-	_alreadyConnected = YES;
-	
-	self.publishedServiceCallback = publicationCallback;
-	
-	
-	[self setupNetworkService];
-	
-	self.publishedService = [[NSNetService alloc] initWithDomain:kIMServiceDomain type:kIMServiceName name:serviceName port:DEFAULT_PORT];
-	
-	if (nil == self.publishedService) {
-		NSLog(@"There was an error publishing the service!");
-		self.publishedServiceCallback(nil, [NSDictionary dictionaryWithObject:@"The publication failed" forKey:@"reason"]);
-		return;
-	}
-	
-	[self.publishedService scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
-	[self.publishedService setDelegate:self];
-	
-	[self.publishedService publish];
-}
+//- (void)publishServiceForUsername:(NSString *)serviceName publicationCallback:(JBServicesBrowserPublishedServiceCallback)publicationCallback {
+//	
+//	if (_alreadyConnected)
+//		return;
+//	
+//	_alreadyConnected = YES;
+//	
+//	self.publishedServiceCallback = publicationCallback;
+//	
+//	
+//	[self setupNetworkService];
+//	
+//	self.publishedService = [[NSNetService alloc] initWithDomain:kIMServiceDomain type:kIMServiceName name:serviceName port:DEFAULT_PORT];
+//	
+//	if (nil == self.publishedService) {
+//		NSLog(@"There was an error publishing the service!");
+//		self.publishedServiceCallback(nil, [NSDictionary dictionaryWithObject:@"The publication failed" forKey:@"reason"]);
+//		return;
+//	}
+//	
+//	[self.publishedService scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
+//	[self.publishedService setDelegate:self];
+//	
+//	[self.publishedService publish];
+//}
 
 
 - (void)startBrowsingForServices {
@@ -92,8 +92,8 @@ NSString *kIMServiceDomain = @"local"; // If I leave this blank, then the Simula
  */
 - (void)netService:(NSNetService *)sender didNotPublish:(NSDictionary *)errorDict {
 	
-	if (sender != self.publishedService)
-		return;
+//	if (sender != self.publishedService)
+//		return;
 	
 	
 	[self teardownNetworkService];
@@ -107,21 +107,21 @@ NSString *kIMServiceDomain = @"local"; // If I leave this blank, then the Simula
 
 
 - (void)unpublishService {
-	[self.publishedService stop];
-	[self.publishedService removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
-	self.publishedService = nil;
+//	[self.publishedService stop];
+//	[self.publishedService removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
+//	self.publishedService = nil;
 }
 
 
 - (void)setupNetworkService {
-	self.hostedService = [[JBAuctionServer alloc] init];
-	[self.hostedService startServer];
+//	self.hostedService = [[JBAuctionServer alloc] init];
+//	[self.hostedService startServer];
 	
 }
 
 
 - (void)teardownNetworkService {
-	[self.hostedService stopServer];
+//	[self.hostedService stopServer];
 }
 
 
