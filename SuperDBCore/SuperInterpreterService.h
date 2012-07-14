@@ -11,7 +11,11 @@
 
 @interface SuperInterpreterService : NSObject
 
+@property (nonatomic, assign) NSUInteger maximumConnectedClients; // defaults to NSUIntegerMax
+
 - (void)startServer;
 - (void)stopServer;
+
+
 
 @end

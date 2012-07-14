@@ -7,8 +7,7 @@
 //
 
 #import "JBServicesBrowser.h"
-
-#define DEFAULT_PORT 4789
+#import "SuperDBCore.h"
 
 @interface JBServicesBrowser () <NSNetServiceDelegate, NSNetServiceBrowserDelegate>
 

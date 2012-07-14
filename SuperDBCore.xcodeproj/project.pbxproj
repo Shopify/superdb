@@ -7,10 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CD23B45815B1045A00564FEA /* GCDAsyncSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = CD23B45615B1045A00564FEA /* GCDAsyncSocket.h */; };
+		CD23B45915B1045A00564FEA /* GCDAsyncSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = CD23B45615B1045A00564FEA /* GCDAsyncSocket.h */; };
+		CD23B45A15B1045A00564FEA /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = CD23B45715B1045A00564FEA /* GCDAsyncSocket.m */; };
+		CD23B45B15B1045A00564FEA /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = CD23B45715B1045A00564FEA /* GCDAsyncSocket.m */; };
 		CDCD46A015A8DD140070D05C /* JBServicesBrowser.h in Headers */ = {isa = PBXBuildFile; fileRef = CDCD469615A8DD140070D05C /* JBServicesBrowser.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		CDCD46A115A8DD140070D05C /* JBServicesBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = CDCD469715A8DD140070D05C /* JBServicesBrowser.m */; };
-		CDCD46A815A8DD140070D05C /* GCDAsyncSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = CDCD469E15A8DD140070D05C /* GCDAsyncSocket.h */; };
-		CDCD46A915A8DD140070D05C /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = CDCD469F15A8DD140070D05C /* GCDAsyncSocket.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		CDF1AAA615A8D7760038EAB7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDF1AAA515A8D7760038EAB7 /* Foundation.framework */; };
 		CDF1AAAB15A8D7760038EAB7 /* SuperDBCore.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CDF1AAAA15A8D7760038EAB7 /* SuperDBCore.h */; };
 		CDF1AABE15A8D9240038EAB7 /* SuperDBCore.h in Headers */ = {isa = PBXBuildFile; fileRef = CDF1AAAA15A8D7760038EAB7 /* SuperDBCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -38,6 +40,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		CD23B45615B1045A00564FEA /* GCDAsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncSocket.h; sourceTree = "<group>"; };
+		CD23B45715B1045A00564FEA /* GCDAsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncSocket.m; sourceTree = "<group>"; };
 		CDCD469615A8DD140070D05C /* JBServicesBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBServicesBrowser.h; sourceTree = "<group>"; };
 		CDCD469715A8DD140070D05C /* JBServicesBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBServicesBrowser.m; sourceTree = "<group>"; };
 		CDCD469815A8DD140070D05C /* JBAuctionServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBAuctionServer.h; sourceTree = "<group>"; };
@@ -46,8 +50,6 @@
 		CDCD469B15A8DD140070D05C /* JBAuctionClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBAuctionClient.m; sourceTree = "<group>"; };
 		CDCD469C15A8DD140070D05C /* JBMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBMessage.h; sourceTree = "<group>"; };
 		CDCD469D15A8DD140070D05C /* JBMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBMessage.m; sourceTree = "<group>"; };
-		CDCD469E15A8DD140070D05C /* GCDAsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncSocket.h; sourceTree = "<group>"; };
-		CDCD469F15A8DD140070D05C /* GCDAsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncSocket.m; sourceTree = "<group>"; };
 		CDF1AAA215A8D7760038EAB7 /* libSuperDBCore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSuperDBCore.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDF1AAA515A8D7760038EAB7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		CDF1AAA915A8D7760038EAB7 /* SuperDBCore-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SuperDBCore-Prefix.pch"; sourceTree = "<group>"; };
@@ -95,8 +97,8 @@
 				CDCD469B15A8DD140070D05C /* JBAuctionClient.m */,
 				CDCD469C15A8DD140070D05C /* JBMessage.h */,
 				CDCD469D15A8DD140070D05C /* JBMessage.m */,
-				CDCD469E15A8DD140070D05C /* GCDAsyncSocket.h */,
-				CDCD469F15A8DD140070D05C /* GCDAsyncSocket.m */,
+				CD23B45615B1045A00564FEA /* GCDAsyncSocket.h */,
+				CD23B45715B1045A00564FEA /* GCDAsyncSocket.m */,
 				CDF1CD1515B0CDE900D36F16 /* SuperInterpreterService.h */,
 				CDF1CD1615B0CDE900D36F16 /* SuperInterpreterService.m */,
 			);
@@ -187,8 +189,8 @@
 			files = (
 				CDF1AABE15A8D9240038EAB7 /* SuperDBCore.h in Headers */,
 				CDCD46A015A8DD140070D05C /* JBServicesBrowser.h in Headers */,
-				CDCD46A815A8DD140070D05C /* GCDAsyncSocket.h in Headers */,
 				CDF1CD1715B0CDE900D36F16 /* SuperInterpreterService.h in Headers */,
+				CD23B45815B1045A00564FEA /* GCDAsyncSocket.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -199,6 +201,7 @@
 				CDF1CCEA15B0C83900D36F16 /* SuperDBCore.h in Headers */,
 				CDF1CCEC15B0C9F800D36F16 /* JBServicesBrowser.h in Headers */,
 				CDF1CD1815B0CDE900D36F16 /* SuperInterpreterService.h in Headers */,
+				CD23B45915B1045A00564FEA /* GCDAsyncSocket.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -273,8 +276,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				CDCD46A115A8DD140070D05C /* JBServicesBrowser.m in Sources */,
-				CDCD46A915A8DD140070D05C /* GCDAsyncSocket.m in Sources */,
 				CDF1CD1915B0CDE900D36F16 /* SuperInterpreterService.m in Sources */,
+				CD23B45A15B1045A00564FEA /* GCDAsyncSocket.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,6 +287,7 @@
 			files = (
 				CDF1CCEB15B0C9F000D36F16 /* JBServicesBrowser.m in Sources */,
 				CDF1CD1A15B0CDE900D36F16 /* SuperInterpreterService.m in Sources */,
+				CD23B45B15B1045A00564FEA /* GCDAsyncSocket.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

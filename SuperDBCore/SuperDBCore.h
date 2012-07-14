@@ -9,5 +9,7 @@
 #import <Foundation/Foundation.h>
 #define SOMETHING YES
 
+#define DEFAULT_PORT 4789
+
 #import "JBServicesBrowser.h"
 
