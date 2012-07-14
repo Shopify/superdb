@@ -10,10 +10,16 @@
 #import "GCDAsyncSocket.h"
 #import "SuperDBCore.h"
 
+#if TARGET_OS_IPHONE
+#import <UIKit/UIKit.h>
+#endif
 
-@interface SuperInterpreterService () <GCDAsyncSocketDelegate>
+
+@interface SuperInterpreterService () <GCDAsyncSocketDelegate, NSNetServiceDelegate>
 @property (nonatomic, strong) GCDAsyncSocket *listenSocket;
 @property (nonatomic, strong) NSMutableArray *connectedClients;
+@property (nonatomic, strong) SuperInterpreterServicePublishedServiceCallback publishedServiceCallback;
+@property (nonatomic, strong) NSNetService *publishedService;
 @end
 
 
@@ -50,6 +56,46 @@
 	[self.connectedClients removeAllObjects];
 	[self.listenSocket disconnect];
 	self.listenSocket = nil;
+}
+
+
+- (void)publishServiceWithCallback:(SuperInterpreterServicePublishedServiceCallback)callback {
+	self.publishedServiceCallback = callback;
+	
+	self.publishedService = [[NSNetService alloc] initWithDomain:kNetServiceDomain type:kNetServiceName name:[self serviceName] port:DEFAULT_PORT];
+	
+	if (nil ==  self.publishedService) {
+		NSLog(@"There was an error publishing the network service.");
+		self.publishedServiceCallback(nil, @{ @"reason" : @"The publication failed" });
+		return;
+	}
+	
+	[self.publishedService scheduleInRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
+	[self.publishedService setDelegate:self];
+	[self.publishedService publish];
+}
+
+
+- (NSString *)serviceName {
+#if !TARGET_OS_IPHONE
+	return [[NSHost currentHost] localizedName];
+#elif TARGET_OS_IPHONE
+	return [[UIDevice currentDevice] name];
+#endif
+}
+
+
+#pragma mark - NSNetServiceDelegate methods
+
+- (void)netServiceDidPublish:(NSNetService *)sender {
+	self.publishedServiceCallback(@"The service was successfully published", nil);
+}
+
+
+- (void)netService:(NSNetService *)sender didNotPublish:(NSDictionary *)errorDict {
+	[self stopServer];
+	//[self unpublishService];
+	self.publishedServiceCallback(nil, errorDict);
 }
 
 

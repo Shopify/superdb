@@ -18,8 +18,7 @@
 
 @end
 
-NSString *kIMServiceName = @"superdebug._tcp.";
-NSString *kIMServiceDomain = @"local"; // If I leave this blank, then the Simulator finds 2 entries.. One for the local domain, and one for the iCloud domain (BTMM = Back To My Mac)... WE DON'T WANT THAT.
+
 
 @implementation JBServicesBrowser {
 	BOOL _alreadyConnected;
@@ -74,7 +73,7 @@ NSString *kIMServiceDomain = @"local"; // If I leave this blank, then the Simula
 	self.servicesBrowser = [[NSNetServiceBrowser alloc] init];
 	
 	[self.servicesBrowser setDelegate:self];
-	[self.servicesBrowser searchForServicesOfType:kIMServiceName inDomain:kIMServiceDomain];
+	//[self.servicesBrowser searchForServicesOfType:kIMServiceName inDomain:kIMServiceDomain];
 }
 
 
