@@ -167,7 +167,7 @@
 	SuperNetworkMessage *response = nil;
 	if ([message messageType] == SuperNetworkMessageTypeRequestResponse) {
 		SuperInterpreterServiceRequestHandler handler = [self.requestHandlers objectForKey:[message resource]];
-		
+		NSLog(@"[SERVER]: Going to let a handler try...");
 		if (nil != handler) {
 			response = handler(message);
 		} else {
@@ -176,6 +176,7 @@
 		
 	} else {
 		// Let the delegate process the message and return a response
+		NSLog(@"[SERVER]: Going to let the delegate try...");
 		response = [self.delegate responseMessageByProcessingRequestMessage:message];
 	}
 	

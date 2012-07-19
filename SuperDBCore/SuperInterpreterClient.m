@@ -68,7 +68,7 @@
 	long identifierTag = arc4random() % kIdentifierLimit;
 	[self.messageResponseHandlers setObject:[responseHandler copy] forKey:@(identifierTag)];
 	[self.clientSocket readDataWithTimeout:-1 tag:identifierTag];
-	NSLog(@"[CLIENT] Writing message with identifier tag: %lu", identifierTag);
+	NSLog(@"[CLIENT] Writing message of type: %@ with identifier tag: %lu", [message header], identifierTag);
 }
 
 

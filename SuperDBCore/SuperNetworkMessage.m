@@ -89,7 +89,14 @@ NSString *kSuperNetworkMessageResourceSymbolTable = @"smybol_table";
 
 
 - (SuperNetworkMessageType)messageType {
-	return (SuperNetworkMessageType)[headerTypes indexOfObjectIdenticalTo:[[self header] objectForKey:kHeaderTypeKey]];
+	
+	for (NSUInteger i = 0; i < [headerTypes count]; i++) {
+		if ([[headerTypes objectAtIndex:i] isEqualToString:[[self header] objectForKey:kHeaderTypeKey]])
+			return (NSInteger)i;
+	}
+	
+	return 0;
+	//return (SuperNetworkMessageType)[headerTypes indexOfObjectIdenticalTo:[[self header] objectForKey:kHeaderTypeKey]];
 }
 
 

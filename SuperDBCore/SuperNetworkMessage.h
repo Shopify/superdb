@@ -31,7 +31,7 @@ typedef enum {
 extern NSString *kSuperNetworkMessageBodyStatusKey;
 extern NSString *kSuperNetworkMessageBodyStatusOK;
 extern NSString *kSuperNetworkMessageBodyStatusError;
-extern NSString *kSuperNetworkMessageBodyErrorMessage;
+extern NSString *kSuperNetworkMessageBodyErrorMessageKey;
 extern NSString *kSuperNetworkMessageBodyErrorRange;
 extern NSString *kSuperNetworkMessageBodyInputKey;
 extern NSString *kSuperNetworkMessageBodyOutputKey;
