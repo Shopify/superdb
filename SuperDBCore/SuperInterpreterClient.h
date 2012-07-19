@@ -12,6 +12,10 @@
 typedef void(^SuperInterpreterClientResponseHandler)(SuperNetworkMessage *response);
 
 @interface SuperInterpreterClient : NSObject
+
 - (id)initWithHostData:(NSData *)hostData;
 - (void)startNetworkConnectionWithResponseHandler:(SuperInterpreterClientResponseHandler)responseHandler;
+
+- (void)requestWithStringToEvaluate:(NSString *)input responseHandler:(SuperInterpreterClientResponseHandler)responseHandler;
+
 @end

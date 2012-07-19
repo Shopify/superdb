@@ -24,6 +24,7 @@
 @property (nonatomic, strong) NSMutableArray *connectedClients;
 @property (nonatomic, strong) SuperInterpreterServicePublishedServiceCallback publishedServiceCallback;
 @property (nonatomic, strong) NSNetService *publishedService;
+@property (nonatomic, strong) NSMutableDictionary *requestHandlers;
 
 - (void)writeResponse:(SuperNetworkMessage *)response toClient:(GCDAsyncSocket *)clientSocket;
 
@@ -52,6 +53,7 @@
 	}
 	
 	self.connectedClients = [@[] mutableCopy];
+	self.requestHandlers = [@{} mutableCopy];
 	
 	dispatch_queue_t d = dispatch_get_main_queue();
 	
@@ -113,6 +115,18 @@
 }
 
 
+- (void)addRequestHandlerForResource:(NSString *)resource requestHandler:(SuperInterpreterServiceRequestHandler)requestHandler {
+	if (nil == requestHandler) {
+		NSLog(@"Attempted to add a nil request handler for resource: %@", resource);
+		return;
+	}
+	
+	
+	[self.requestHandlers setObject:[requestHandler copy] forKey:resource];
+	
+}
+
+
 #pragma mark - NSNetServiceDelegate methods
 
 - (void)netServiceDidPublish:(NSNetService *)sender {
@@ -150,8 +164,20 @@
 	// Read the object
 	SuperNetworkMessage *message = [SuperNetworkMessage messageWithJSONData:data];
 	
-	// Let the delegate process the message and return a response
-	SuperNetworkMessage *response = [self.delegate responseMessageByProcessingRequestMessage:message];
+	SuperNetworkMessage *response = nil;
+	if ([message messageType] == SuperNetworkMessageTypeRequestResponse) {
+		SuperInterpreterServiceRequestHandler handler = [self.requestHandlers objectForKey:[message resource]];
+		
+		if (nil != handler) {
+			response = handler(message);
+		} else {
+			NSLog(@"[SERVER]: No handler for the resource: %@", [message resource]);
+		}
+		
+	} else {
+		// Let the delegate process the message and return a response
+		response = [self.delegate responseMessageByProcessingRequestMessage:message];
+	}
 	
 	[self writeResponse:response toClient:sock];
 	

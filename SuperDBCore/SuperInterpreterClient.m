@@ -48,6 +48,15 @@
 }
 
 
+
+- (void)requestWithStringToEvaluate:(NSString *)input responseHandler:(SuperInterpreterClientResponseHandler)responseHandler {
+	
+	SuperNetworkMessage *message = [SuperNetworkMessage messageWithResource:kSuperNetworkMessageResourceInterpreter body:@{ kSuperNetworkMessageBodyInputKey : input }];
+	
+	[self sendMessage:message responseHandler:responseHandler];
+}
+
+
 #pragma mark - Private API
 
 - (void)sendMessage:(SuperNetworkMessage *)message responseHandler:(SuperInterpreterClientResponseHandler)responseHandler {

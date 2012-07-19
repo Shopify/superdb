@@ -18,6 +18,7 @@
 
 
 typedef void(^SuperInterpreterServicePublishedServiceCallback)(id success, NSDictionary *errorDictionary);
+typedef SuperNetworkMessage *(^SuperInterpreterServiceRequestHandler)(SuperNetworkMessage *request);
 
 @interface SuperInterpreterService : NSObject
 
@@ -29,5 +30,7 @@ typedef void(^SuperInterpreterServicePublishedServiceCallback)(id success, NSDic
 
 - (void)publishServiceWithCallback:(SuperInterpreterServicePublishedServiceCallback)callback;
 - (NSString *)serviceName;
+
+- (void)addRequestHandlerForResource:(NSString *)resource requestHandler:(SuperInterpreterServiceRequestHandler)requestHandler;
 
 @end

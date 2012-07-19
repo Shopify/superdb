@@ -13,8 +13,21 @@
 #define kHeaderKey @"header"
 
 #define kHeaderTypeKey @"type"
+#define kHeaderResourceKey @"resource"
 
 static NSArray *headerTypes = nil;
+
+NSString *kSuperNetworkMessageBodyStatusKey = @"status";
+NSString *kSuperNetworkMessageBodyStatusOK = @"OK";
+NSString *kSuperNetworkMessageBodyStatusError = @"Error";
+NSString *kSuperNetworkMessageBodyErrorMessageKey = @"error_message";
+NSString *kSuperNetworkMessageBodyErrorRange = @"error_range";
+NSString *kSuperNetworkMessageBodyInputKey = @"input";
+NSString *kSuperNetworkMessageBodyOutputKey = @"output";
+
+
+NSString *kSuperNetworkMessageResourceInterpreter = @"interpreter";
+NSString *kSuperNetworkMessageResourceSymbolTable = @"smybol_table";
 
 
 @interface SuperNetworkMessage ()
@@ -25,7 +38,8 @@ static NSArray *headerTypes = nil;
 
 
 + (void)initialize {
-	headerTypes = @[ @"SuperNetworkMessageTypeHandshake" ];
+	headerTypes = @[ @"SuperNetworkMessageTypeHandshake",
+					 @"SuperNetworkMessageTypeRequestResponse" ];
 }
 
 
@@ -73,12 +87,29 @@ static NSArray *headerTypes = nil;
 	NSLog(@"%@", self.storage);
 }
 
+
+- (SuperNetworkMessageType)messageType {
+	return (SuperNetworkMessageType)[headerTypes indexOfObjectIdenticalTo:[[self header] objectForKey:kHeaderTypeKey]];
+}
+
+
+- (NSString *)resource {
+	return [[self header] objectForKey:kHeaderResourceKey];
+}
+
 #pragma mark - Public API
 
 + (instancetype)messageWithType:(SuperNetworkMessageType)messageType body:(NSDictionary *)body {
 	
 	NSString *typeString = [headerTypes objectAtIndex:messageType];
 	NSDictionary *header = @{ kHeaderTypeKey : typeString };
+	
+	return [self messageWithHeader:header body:body];
+}
+
++ (instancetype)messageWithResource:(NSString *)resource body:(NSDictionary *)body {
+	NSString *typeString = [headerTypes objectAtIndex:SuperNetworkMessageTypeRequestResponse];
+	NSDictionary *header = @{ kHeaderTypeKey : typeString, kHeaderResourceKey : resource };
 	
 	return [self messageWithHeader:header body:body];
 }
