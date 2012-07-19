@@ -42,7 +42,7 @@
 }
 
 
-+ (NSString *)netServiceName {
++ (NSString *)netServiceType {
 	return @"_superdebug._tcp.";
 }
 
@@ -84,7 +84,7 @@
 	self.servicesBrowser = [[NSNetServiceBrowser alloc] init];
 	
 	[self.servicesBrowser setDelegate:self];
-	//[self.servicesBrowser searchForServicesOfType:kIMServiceName inDomain:kIMServiceDomain];
+	[self.servicesBrowser searchForServicesOfType:[[self class] netServiceType] inDomain:[[self class] netServiceDomain]];
 }
 
 

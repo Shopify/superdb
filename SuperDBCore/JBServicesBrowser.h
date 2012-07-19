@@ -19,7 +19,7 @@ typedef void(^JBServicesBrowserPublishedServiceCallback)(id success, NSDictionar
 - (id)initWithServicesCallback:(JBServicesBrowserCallback)callback;
 - (void)publishServiceForUsername:(NSString *)serviceName publicationCallback:(JBServicesBrowserPublishedServiceCallback)publicationCallback;
 
-+ (NSString *)netServiceName;
++ (NSString *)netServiceType;
 + (NSString *)netServiceDomain;
 
 

@@ -71,7 +71,7 @@
 	self.publishedServiceCallback = callback;
 	
 	self.publishedService = [[NSNetService alloc] initWithDomain:[JBServicesBrowser netServiceDomain]
-															type:[JBServicesBrowser netServiceName]
+															type:[JBServicesBrowser netServiceType]
 															name:[self serviceName]
 															port:DEFAULT_PORT];
 	
