@@ -63,8 +63,10 @@
  */
 - (NSView *)tableView:(NSTableView *)tableView viewForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
 	NSTableCellView *rowView = [tableView makeViewWithIdentifier:[tableColumn identifier] owner:self];
-	[rowView.textField setStringValue:@"A ROW!!"];
-	NSLog(@"%d", SOMETHING);
+	
+	NSNetService *service = [self.foundServices objectAtIndex:row];
+	
+	[rowView.textField setStringValue:[service name]];
 	return rowView;
 }
 
