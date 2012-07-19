@@ -9,5 +9,5 @@
 #import <Cocoa/Cocoa.h>
 
 @interface SuperDebugAreaWindowController : NSWindowController
-
+@property (nonatomic, strong) NSNetService *netService;
 @end
