@@ -8,8 +8,9 @@
 
 #import "SuperDebugAreaWindowController.h"
 
-@interface SuperDebugAreaWindowController () <NSNetServiceDelegate>
 
+@interface SuperDebugAreaWindowController () <NSNetServiceDelegate>
+@property (nonatomic, strong) SuperInterpreterClient *networkClient;
 @end
 
 @implementation SuperDebugAreaWindowController
@@ -52,8 +53,10 @@
 	NSArray *addresses = [sender addresses];
 	NSData *info = [addresses objectAtIndex:0];
 	
-	//self.networkClient = [[JBAuctionClient alloc] initWithHost:info];
-	
+	self.networkClient = [[SuperInterpreterClient alloc] initWithHostData:info];
+	[self.networkClient startNetworkConnectionWithResponseHandler:^(SuperNetworkMessage *response) {
+		[response log];
+	}];
 	
 	// Generate a random username, just so I can properly test this between the Simulator and my device
 //	NSInteger num = arc4random() % 1000;
@@ -159,6 +162,9 @@
 	
 	NSLog(@"Room could not resolve a connection! %@", errorDict);
 }
+
+
+
 
 
 @end

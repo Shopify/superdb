@@ -7,11 +7,13 @@
 //
 
 #import "JBDeviceSelectionWindowController.h"
+#import "SuperDebugAreaWindowController.h"
 
 
 @interface JBDeviceSelectionWindowController ()
 @property (strong) JBServicesBrowser *servicesBrowser;
 @property (nonatomic, strong) NSArray *foundServices;
+@property (nonatomic, strong) NSMutableDictionary *deviceWindowControllers;
 @end
 
 @implementation JBDeviceSelectionWindowController
@@ -21,7 +23,7 @@
     self = [super initWithWindow:window];
     if (self) {
         // Initialization code here.
-		
+		self.deviceWindowControllers = [@{} mutableCopy];
     }
     
     return self;
@@ -39,7 +41,8 @@
 		self.foundServices = servicesFound;
 		[self.tableView reloadData];
 	}];
-	
+	[self.tableView setTarget:self];
+	[self.tableView setDoubleAction:@selector(doubleClicked:)];
 }
 
 #pragma mark - NSTableViewDataSource methods
@@ -64,5 +67,24 @@
 	NSLog(@"%d", SOMETHING);
 	return rowView;
 }
+
+
+- (void)doubleClicked:(id)sender {
+	NSInteger row = [self.tableView clickedRow];
+	NSNetService *service = [self.foundServices objectAtIndex:row];
+	
+	SuperDebugAreaWindowController *controller = [self.deviceWindowControllers objectForKey:[service name]];
+	if (nil == controller) {
+		// create it and store it away for future reference
+		controller = [[SuperDebugAreaWindowController alloc] initWithWindowNibName:@"SuperDebugAreaWindowController"];
+		controller.netService = service;
+		[self.deviceWindowControllers setObject:controller forKey:[service name]];
+	}
+	
+	[[controller window] makeKeyAndOrderFront:self];
+	
+}
+
+
 
 @end

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		CD0D94D215B84482003A0D8B /* SuperDebugAreaWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0D94D015B84482003A0D8B /* SuperDebugAreaWindowController.m */; };
 		CD0D94D315B84482003A0D8B /* SuperDebugAreaWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD0D94D115B84482003A0D8B /* SuperDebugAreaWindowController.xib */; };
+		CD0D94E115B859C4003A0D8B /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD0D94E015B859C4003A0D8B /* Security.framework */; };
 		CDD65BB415A8D03000505C37 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDD65BB315A8D03000505C37 /* Cocoa.framework */; };
 		CDD65BBE15A8D03000505C37 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CDD65BBC15A8D03000505C37 /* InfoPlist.strings */; };
 		CDD65BC015A8D03000505C37 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD65BBF15A8D03000505C37 /* main.m */; };
@@ -24,6 +25,7 @@
 		CD0D94CF15B84482003A0D8B /* SuperDebugAreaWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuperDebugAreaWindowController.h; sourceTree = "<group>"; };
 		CD0D94D015B84482003A0D8B /* SuperDebugAreaWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuperDebugAreaWindowController.m; sourceTree = "<group>"; };
 		CD0D94D115B84482003A0D8B /* SuperDebugAreaWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SuperDebugAreaWindowController.xib; sourceTree = "<group>"; };
+		CD0D94E015B859C4003A0D8B /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		CDD65BAF15A8D03000505C37 /* Super Debug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Super Debug.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDD65BB315A8D03000505C37 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		CDD65BB615A8D03000505C37 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -48,6 +50,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD0D94E115B859C4003A0D8B /* Security.framework in Frameworks */,
 				CDF1AAD515A8D9F20038EAB7 /* libSuperDBCoreMac.a in Frameworks */,
 				CDD65BB415A8D03000505C37 /* Cocoa.framework in Frameworks */,
 			);
@@ -59,6 +62,7 @@
 		CDD65BA415A8D03000505C37 = {
 			isa = PBXGroup;
 			children = (
+				CD0D94E015B859C4003A0D8B /* Security.framework */,
 				CDF1AAD415A8D9F20038EAB7 /* libSuperDBCoreMac.a */,
 				CDD65BB915A8D03000505C37 /* Super Debug */,
 				CDD65BB215A8D03000505C37 /* Frameworks */,
