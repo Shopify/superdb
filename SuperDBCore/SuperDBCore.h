@@ -12,3 +12,5 @@
 
 #import "JBServicesBrowser.h"
 #import "SuperInterpreterService.h"
+#import "SuperInterpreterClient.h"
+#import "SuperNetworkMessage.h"

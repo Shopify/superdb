@@ -8,12 +8,15 @@
 
 #import "SuperInterpreterService.h"
 #import "GCDAsyncSocket.h"
-//#import "SuperDBCore.h"
 #import "JBServicesBrowser.h"
-#import <dispatch/dispatch.h>
+#import "SuperNetworkMessage.h"
+
 #if TARGET_OS_IPHONE
 #import <UIKit/UIKit.h>
 #endif
+
+#define kClientSocketReadTag 8000
+#define kClientSocketWriteTag 8001
 
 
 @interface SuperInterpreterService () <GCDAsyncSocketDelegate, NSNetServiceDelegate>
@@ -21,6 +24,9 @@
 @property (nonatomic, strong) NSMutableArray *connectedClients;
 @property (nonatomic, strong) SuperInterpreterServicePublishedServiceCallback publishedServiceCallback;
 @property (nonatomic, strong) NSNetService *publishedService;
+
+- (void)writeResponse:(SuperNetworkMessage *)response toClient:(GCDAsyncSocket *)clientSocket;
+
 @end
 
 
@@ -39,6 +45,12 @@
 #pragma mark - Public API
 
 - (BOOL)startServer {
+	
+	if (nil == self.delegate) {
+		NSLog(@"Delegate cannot be nil! Aborting");
+		abort();
+	}
+	
 	self.connectedClients = [@[] mutableCopy];
 	
 	dispatch_queue_t d = dispatch_get_main_queue();
@@ -55,7 +67,7 @@
 		return NO;
 	}
 	
-	NSLog(@"Server socket started");
+	NSLog(@"Server socket started..........");
 	return YES;
 }
 
@@ -96,6 +108,11 @@
 }
 
 
+- (void)writeResponse:(SuperNetworkMessage *)response toClient:(GCDAsyncSocket *)clientSocket {
+	[clientSocket writeData:[response JSONData] withTimeout:-1 tag:kClientSocketWriteTag];
+}
+
+
 #pragma mark - NSNetServiceDelegate methods
 
 - (void)netServiceDidPublish:(NSNetService *)sender {
@@ -113,19 +130,39 @@
 #pragma mark - GCDAsyncSocketDelegate methods
 - (void)socket:(GCDAsyncSocket *)sock didAcceptNewSocket:(GCDAsyncSocket *)newSocket {
 	
-	NSLog(@"Server: Accepted new client socket.");
+	NSLog(@"Server: Accepted new client socketoooooooo2.");
 	
-	if ([self.connectedClients count] <= self.maximumConnectedClients) {
-		[self.connectedClients addObject:newSocket];
-	} else {
-		[newSocket disconnect];
-	}
+	[self.connectedClients addObject:newSocket];
+	NSLog(@"Server: Reading from new client socket.");
+	[newSocket readDataWithTimeout:-1 tag:kClientSocketReadTag];
 	
 }
 
 
 - (void)socket:(GCDAsyncSocket *)sock didReadData:(NSData *)data withTag:(long)tag {
+	if (tag != kClientSocketReadTag) {
+		NSLog(@"[SERVER]: Trying to read for an unknown tag...returning: %lu", tag);
+		return;
+	}
 	
+	NSLog(@"[SERVER]: Going to read socket data!");
+	
+	// Read the object
+	SuperNetworkMessage *message = [SuperNetworkMessage messageWithJSONData:data];
+	
+	// Let the delegate process the message and return a response
+	SuperNetworkMessage *response = [self.delegate responseMessageByProcessingRequestMessage:message];
+	
+	[self writeResponse:response toClient:sock];
+	
+	// Queue up the next read
+	[sock readDataWithTimeout:-1 tag:kClientSocketReadTag];
+	
+}
+
+
+- (void)socket:(GCDAsyncSocket *)sock didWriteDataWithTag:(long)tag {
+	NSLog(@"[SERVER]: Socket did WRITE data with tag: %lu", tag);
 }
 
 
