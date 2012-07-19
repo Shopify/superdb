@@ -12,6 +12,7 @@
 @interface JBShellView () <NSTextViewDelegate>
 @property (nonatomic, assign) NSUInteger commandStart;
 @property (nonatomic, assign) NSUInteger lastCommandStart;
+@property (assign) BOOL delayedOutputMode;
 @end
 
 @implementation JBShellView
@@ -101,7 +102,7 @@
 	if ([self shouldChangeTextInRange:errorRange replacementString:nil]) {
 		NSTextStorage *textStorage = [self textStorage];
 		[textStorage beginEditing];
-		NSColor *errorColor = kJBShellViewSuccessColor;
+		NSColor *errorColor = kJBShellViewErrorColor;
 		NSDictionary *attributes = @{ NSForegroundColorAttributeName : [NSColor whiteColor], NSBackgroundColorAttributeName : errorColor };
 		[textStorage addAttributes:attributes range:errorRange];
 		[textStorage endEditing];
@@ -122,6 +123,19 @@
 
 
 - (void)appendAttributedOutputWithNewLines:(NSAttributedString *)attributedOutput {
+	
+}
+
+
+- (void)beginDelayedOutputMode {
+	self.delayedOutputMode = YES;
+}
+
+
+- (void)endDelayedOutputMode {
+	
+	self.delayedOutputMode = NO;
+	[self finishOutput];
 	
 }
 
@@ -308,17 +322,27 @@
 	if (nil != self.inputHandler) {
 		self.inputHandler(input, self);
 	}
-	[self insertNewlineIgnoringFieldEditor:self];
-	[self insertPrompt];
-	[self scrollRangeToVisible:[self selectedRange]];
-	self.commandStart = [[self string] length];
-	[[self undoManager] removeAllActions];
+	
+	if (self.delayedOutputMode) {
+		return; // The output will be finished when -endDelayedOutputMode is called
+	}
+	
+	[self finishOutput];
 	
 }
 
 
 - (void)insertPrompt {
 	[super insertText:self.prompt];
+}
+
+
+- (void)finishOutput {
+	[self insertNewlineIgnoringFieldEditor:self];
+	[self insertPrompt];
+	[self scrollRangeToVisible:[self selectedRange]];
+	self.commandStart = [[self string] length];
+	[[self undoManager] removeAllActions];
 }
 
 @end

@@ -35,6 +35,9 @@
    	CGRect bounds = [[self.window contentView] bounds];
 	NSString *prompt = [NSString stringWithFormat:@"%@> ", [self.netService name]];
     self.shellContainer = [[JBShellContainerView alloc] initWithFrame:bounds prompt:prompt shellInputProcessingHandler:^(NSString *input, JBShellView *sender) {
+		
+		[sender beginDelayedOutputMode];
+		
 		[self.networkClient requestWithStringToEvaluate:input responseHandler:^(SuperNetworkMessage *response) {
 			if ([[[response body] objectForKey:kSuperNetworkMessageBodyStatusKey] isEqualToString:kSuperNetworkMessageBodyStatusOK]) {
 				NSString *output = [[response body] objectForKey:kSuperNetworkMessageBodyOutputKey];
@@ -47,6 +50,7 @@
 				
 				[sender showErrorOutput:errorMessage errorRange:range];
 			}
+			[sender endDelayedOutputMode];
 		}];
 	}];
 	[[[self window] contentView] addSubview:self.shellContainer];

@@ -31,4 +31,10 @@
 + (NSColor *)errorColor;
 + (NSColor *)successColor;
 
+
+// Delayed output mode allows you to return from the inputHandler while still waiting for a task to complete, like a network operation.
+// This way, tasks can be run asynchronously and the prompt won't be added until -endDelayedOutputMode is called.
+- (void)beginDelayedOutputMode;
+- (void)endDelayedOutputMode;
+
 @end
