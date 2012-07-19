@@ -424,6 +424,7 @@
 		CD0D975015B874DB003A0D8B /* FScriptDict.dic in Resources */ = {isa = PBXBuildFile; fileRef = CD0D956115B8734E003A0D8B /* FScriptDict.dic */; };
 		CD0D975215B87747003A0D8B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD0D975115B87747003A0D8B /* CoreGraphics.framework */; };
 		CD0D975415B87A38003A0D8B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD0D975315B87A37003A0D8B /* UIKit.framework */; };
+		CD0D975615B87E66003A0D8B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD0D975515B87E66003A0D8B /* CoreData.framework */; };
 		CDCD46A015A8DD140070D05C /* JBServicesBrowser.h in Headers */ = {isa = PBXBuildFile; fileRef = CDCD469615A8DD140070D05C /* JBServicesBrowser.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		CDCD46A115A8DD140070D05C /* JBServicesBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = CDCD469715A8DD140070D05C /* JBServicesBrowser.m */; };
 		CDF1AAA615A8D7760038EAB7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDF1AAA515A8D7760038EAB7 /* Foundation.framework */; };
@@ -673,6 +674,7 @@
 		CD0D974B15B873A1003A0D8B /* iOS-glue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "iOS-glue.m"; sourceTree = "<group>"; };
 		CD0D975115B87747003A0D8B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		CD0D975315B87A37003A0D8B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		CD0D975515B87E66003A0D8B /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		CDCD469615A8DD140070D05C /* JBServicesBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBServicesBrowser.h; sourceTree = "<group>"; };
 		CDCD469715A8DD140070D05C /* JBServicesBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBServicesBrowser.m; sourceTree = "<group>"; };
 		CDCD469815A8DD140070D05C /* JBAuctionServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBAuctionServer.h; sourceTree = "<group>"; };
@@ -702,6 +704,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD0D975615B87E66003A0D8B /* CoreData.framework in Frameworks */,
 				CD0D975415B87A38003A0D8B /* UIKit.framework in Frameworks */,
 				CD0D975215B87747003A0D8B /* CoreGraphics.framework in Frameworks */,
 				CD0D94C215B8389A003A0D8B /* Security.framework in Frameworks */,
@@ -980,6 +983,7 @@
 		CDF1AA9715A8D7760038EAB7 = {
 			isa = PBXGroup;
 			children = (
+				CD0D975515B87E66003A0D8B /* CoreData.framework */,
 				CD0D975315B87A37003A0D8B /* UIKit.framework */,
 				CD0D975115B87747003A0D8B /* CoreGraphics.framework */,
 				CD0D94C115B8389A003A0D8B /* Security.framework */,

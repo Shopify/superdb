@@ -33,6 +33,7 @@
 
 #include <stdlib.h>
 #include <string.h>
+#include <libkern/OSCacheControl.h>
 
 /* ffi_prep_args is called by the assembly routine once stack space
    has been allocated for the function's arguments */
@@ -287,8 +288,11 @@ ffi_prep_incoming_args_SYSV(char *stack, void **rvalue,
    *(unsigned int*) &__tramp[8] = 0xe59ff000; /* ldr pc, [pc] */	\
    *(unsigned int*) &__tramp[12] = __ctx;				\
    *(unsigned int*) &__tramp[16] = __fun;				\
-   __clear_cache((&__tramp[0]), (&__tramp[19]));			\
+   /*__clear_cache((&__tramp[0]), (&__tramp[19]));			\ */ \
+   sys_icache_invalidate((&__tramp[0]),((&__tramp[19]) - (&__tramp[0]))); \
  })
+
+// ^^^^ For the sys_icache_invalidate line, c.f.: https://llvm.org/svn/llvm-project/compiler-rt/trunk/lib/clear_cache.c
 
 
 /* the cif must already be prep'ed */

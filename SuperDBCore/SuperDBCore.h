@@ -14,3 +14,6 @@
 #import "SuperInterpreterService.h"
 #import "SuperInterpreterClient.h"
 #import "SuperNetworkMessage.h"
+
+#import "FSInterpreter.h"
+#import "FSInterpreterResult.h"
