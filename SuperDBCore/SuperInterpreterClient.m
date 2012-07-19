@@ -8,6 +8,7 @@
 
 #import "SuperInterpreterClient.h"
 #import "GCDAsyncSocket.h"
+#import "SuperNetworkMessage.h"
 
 
 @interface SuperInterpreterClient () <GCDAsyncSocketDelegate>
