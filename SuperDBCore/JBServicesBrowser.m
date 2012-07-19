@@ -43,7 +43,7 @@
 
 
 + (NSString *)netServiceName {
-	return @"superdebug._tcp.";
+	return @"_superdebug._tcp.";
 }
 
 

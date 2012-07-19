@@ -15,7 +15,7 @@ typedef void(^SuperInterpreterServicePublishedServiceCallback)(id success, NSDic
 
 @property (nonatomic, assign) NSUInteger maximumConnectedClients; // defaults to NSUIntegerMax
 
-- (void)startServer;
+- (BOOL)startServer;
 - (void)stopServer;
 
 - (void)publishServiceWithCallback:(SuperInterpreterServicePublishedServiceCallback)callback;

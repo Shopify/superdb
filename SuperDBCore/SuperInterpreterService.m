@@ -10,6 +10,7 @@
 #import "GCDAsyncSocket.h"
 //#import "SuperDBCore.h"
 #import "JBServicesBrowser.h"
+#import <dispatch/dispatch.h>
 #if TARGET_OS_IPHONE
 #import <UIKit/UIKit.h>
 #endif
@@ -37,18 +38,25 @@
 
 #pragma mark - Public API
 
-- (void)startServer {
+- (BOOL)startServer {
 	self.connectedClients = [@[] mutableCopy];
+	
+	dispatch_queue_t d = dispatch_get_main_queue();
+	
+	if (NULL == d) {
+		NSLog(@"the dispatch q was null?");
+		return NO;
+	}
 	
 	self.listenSocket = [[GCDAsyncSocket alloc] initWithDelegate:self delegateQueue:dispatch_get_main_queue()];
 	NSError *error = nil;
 	if (![self.listenSocket acceptOnPort:DEFAULT_PORT error:&error]) {
 		NSLog(@"Error starting the Server socket: %@", [error userInfo]);
-		return;
+		return NO;
 	}
 	
 	NSLog(@"Server socket started");
-	
+	return YES;
 }
 
 
@@ -62,7 +70,10 @@
 - (void)publishServiceWithCallback:(SuperInterpreterServicePublishedServiceCallback)callback {
 	self.publishedServiceCallback = callback;
 	
-	self.publishedService = [[NSNetService alloc] initWithDomain:[JBServicesBrowser netServiceDomain] type:[JBServicesBrowser netServiceName] name:[self serviceName] port:DEFAULT_PORT];
+	self.publishedService = [[NSNetService alloc] initWithDomain:[JBServicesBrowser netServiceDomain]
+															type:[JBServicesBrowser netServiceName]
+															name:[self serviceName]
+															port:DEFAULT_PORT];
 	
 	if (nil ==  self.publishedService) {
 		NSLog(@"There was an error publishing the network service.");
