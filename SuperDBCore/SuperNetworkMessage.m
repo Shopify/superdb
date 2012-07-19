@@ -69,6 +69,10 @@ static NSArray *headerTypes = nil;
 }
 
 
+- (void)log {
+	NSLog(@"%@", self.storage);
+}
+
 #pragma mark - Public API
 
 + (instancetype)messageWithType:(SuperNetworkMessageType)messageType body:(NSDictionary *)body {

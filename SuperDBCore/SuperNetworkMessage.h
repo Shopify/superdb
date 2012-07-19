@@ -20,6 +20,7 @@ typedef enum {
 + (id)messageWithHeader:(NSDictionary *)header body:(NSDictionary *)body;
 + (id)messageWithJSONData:(NSData *)data;
 - (NSData *)JSONData;
+- (void)log;
 
 
 // Specialized methods
