@@ -4,4 +4,9 @@
 
 #ifdef __OBJC__
 	#import <Foundation/Foundation.h>
+#if TARGET_OS_IPHONE
+#import <UIKit/UIKit.h>
+#import <CoreGraphics/CoreGraphics.h>
+#import "iOS-glue.h"
+#endif
 #endif
