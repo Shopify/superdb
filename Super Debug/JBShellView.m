@@ -27,6 +27,7 @@
 		
 		self.prompt = prompt;
 		self.inputHandler = [inputHandler copy];
+		[self setContinuousSpellCheckingEnabled:NO];
 		
 		[self setFont:[NSFont fontWithName:@"Menlo" size:18.0f]];
 		[self setTextContainerInset:CGSizeMake(5.0f, 5.0f)];
@@ -181,6 +182,11 @@
 				break;
 		}
 	}
+}
+
+
+- (NSArray *)readablePasteboardTypes {
+	return @[ NSPasteboardTypeString ];
 }
 
 
