@@ -7,7 +7,7 @@
 //
 
 #import "JBServicesBrowser.h"
-#import "SuperDBCore.h"
+
 
 @interface JBServicesBrowser () <NSNetServiceDelegate, NSNetServiceBrowserDelegate>
 
@@ -39,6 +39,17 @@
 	}
 	
     return self;
+}
+
+
++ (NSString *)netServiceName {
+	return @"superdebug._tcp.";
+}
+
+
++ (NSString *)netServiceDomain {
+	// If I leave this blank, then the Simulator finds 2 entries.. One for the local domain, and one for the iCloud domain (BTMM = Back To My Mac)... WE DON'T WANT THAT.
+	return @"local";
 }
 
 

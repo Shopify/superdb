@@ -8,8 +8,8 @@
 
 #import "SuperInterpreterService.h"
 #import "GCDAsyncSocket.h"
-#import "SuperDBCore.h"
-
+//#import "SuperDBCore.h"
+#import "JBServicesBrowser.h"
 #if TARGET_OS_IPHONE
 #import <UIKit/UIKit.h>
 #endif
@@ -62,7 +62,7 @@
 - (void)publishServiceWithCallback:(SuperInterpreterServicePublishedServiceCallback)callback {
 	self.publishedServiceCallback = callback;
 	
-	self.publishedService = [[NSNetService alloc] initWithDomain:kNetServiceDomain type:kNetServiceName name:[self serviceName] port:DEFAULT_PORT];
+	self.publishedService = [[NSNetService alloc] initWithDomain:[JBServicesBrowser netServiceDomain] type:[JBServicesBrowser netServiceName] name:[self serviceName] port:DEFAULT_PORT];
 	
 	if (nil ==  self.publishedService) {
 		NSLog(@"There was an error publishing the network service.");

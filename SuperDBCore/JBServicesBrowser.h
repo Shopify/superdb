@@ -8,7 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-extern NSString *kIMServiceName;
+//extern NSString *kIMServiceName;
+#define DEFAULT_PORT 4789
 
 typedef void(^JBServicesBrowserCallback)(id servicesFound, BOOL moreComing, NSDictionary *error);
 typedef void(^JBServicesBrowserPublishedServiceCallback)(id success, NSDictionary *errorDictionary);
@@ -17,5 +18,10 @@ typedef void(^JBServicesBrowserPublishedServiceCallback)(id success, NSDictionar
 
 - (id)initWithServicesCallback:(JBServicesBrowserCallback)callback;
 - (void)publishServiceForUsername:(NSString *)serviceName publicationCallback:(JBServicesBrowserPublishedServiceCallback)publicationCallback;
+
++ (NSString *)netServiceName;
++ (NSString *)netServiceDomain;
+
+
 
 @end
