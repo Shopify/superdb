@@ -7,10 +7,11 @@
 //
 
 #import "JBDeviceSelectionWindowController.h"
-#import <SuperDBCore/SuperDBCore.h>
+
 
 @interface JBDeviceSelectionWindowController ()
 @property (strong) JBServicesBrowser *servicesBrowser;
+@property (nonatomic, strong) NSArray *foundServices;
 @end
 
 @implementation JBDeviceSelectionWindowController
@@ -20,6 +21,7 @@
     self = [super initWithWindow:window];
     if (self) {
         // Initialization code here.
+		
     }
     
     return self;
@@ -34,13 +36,15 @@
 	
 	self.servicesBrowser = [[JBServicesBrowser alloc] initWithServicesCallback:^(id servicesFound, BOOL moreComing, NSDictionary *error) {
 		NSLog(@"Found services: %@", servicesFound);
+		self.foundServices = servicesFound;
+		[self.tableView reloadData];
 	}];
 	
 }
 
 #pragma mark - NSTableViewDataSource methods
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
-	return 5;
+	return [self.foundServices count];
 }
 
 //- (id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {

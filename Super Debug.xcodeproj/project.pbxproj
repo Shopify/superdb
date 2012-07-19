@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CD0D94D215B84482003A0D8B /* SuperDebugAreaWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0D94D015B84482003A0D8B /* SuperDebugAreaWindowController.m */; };
+		CD0D94D315B84482003A0D8B /* SuperDebugAreaWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD0D94D115B84482003A0D8B /* SuperDebugAreaWindowController.xib */; };
 		CDD65BB415A8D03000505C37 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDD65BB315A8D03000505C37 /* Cocoa.framework */; };
 		CDD65BBE15A8D03000505C37 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CDD65BBC15A8D03000505C37 /* InfoPlist.strings */; };
 		CDD65BC015A8D03000505C37 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD65BBF15A8D03000505C37 /* main.m */; };
@@ -19,6 +21,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		CD0D94CF15B84482003A0D8B /* SuperDebugAreaWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuperDebugAreaWindowController.h; sourceTree = "<group>"; };
+		CD0D94D015B84482003A0D8B /* SuperDebugAreaWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuperDebugAreaWindowController.m; sourceTree = "<group>"; };
+		CD0D94D115B84482003A0D8B /* SuperDebugAreaWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SuperDebugAreaWindowController.xib; sourceTree = "<group>"; };
 		CDD65BAF15A8D03000505C37 /* Super Debug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Super Debug.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDD65BB315A8D03000505C37 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		CDD65BB615A8D03000505C37 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -35,7 +40,7 @@
 		CDD65BD015A8D07800505C37 /* JBDeviceSelectionWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBDeviceSelectionWindowController.h; sourceTree = "<group>"; };
 		CDD65BD115A8D07800505C37 /* JBDeviceSelectionWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBDeviceSelectionWindowController.m; sourceTree = "<group>"; };
 		CDD65BD215A8D07800505C37 /* JBDeviceSelectionWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JBDeviceSelectionWindowController.xib; sourceTree = "<group>"; };
-		CDF1AAD415A8D9F20038EAB7 /* libSuperDBCoreMac.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = libSuperDBCoreMac.a; path = ../SuperDBCore/build/Release/libSuperDBCoreMac.a; sourceTree = "<group>"; };
+		CDF1AAD415A8D9F20038EAB7 /* libSuperDBCoreMac.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSuperDBCoreMac.a; path = ../SuperDBCore/build/Release/libSuperDBCoreMac.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +100,9 @@
 				CDD65BC615A8D03000505C37 /* JBAppDelegate.m */,
 				CDD65BD015A8D07800505C37 /* JBDeviceSelectionWindowController.h */,
 				CDD65BD115A8D07800505C37 /* JBDeviceSelectionWindowController.m */,
+				CD0D94CF15B84482003A0D8B /* SuperDebugAreaWindowController.h */,
+				CD0D94D015B84482003A0D8B /* SuperDebugAreaWindowController.m */,
+				CD0D94D115B84482003A0D8B /* SuperDebugAreaWindowController.xib */,
 				CDD65BD215A8D07800505C37 /* JBDeviceSelectionWindowController.xib */,
 				CDD65BC815A8D03000505C37 /* MainMenu.xib */,
 				CDD65BBA15A8D03000505C37 /* Supporting Files */,
@@ -170,6 +178,7 @@
 				CDD65BC415A8D03000505C37 /* Credits.rtf in Resources */,
 				CDD65BCA15A8D03000505C37 /* MainMenu.xib in Resources */,
 				CDD65BD415A8D07800505C37 /* JBDeviceSelectionWindowController.xib in Resources */,
+				CD0D94D315B84482003A0D8B /* SuperDebugAreaWindowController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -183,6 +192,7 @@
 				CDD65BC015A8D03000505C37 /* main.m in Sources */,
 				CDD65BC715A8D03000505C37 /* JBAppDelegate.m in Sources */,
 				CDD65BD315A8D07800505C37 /* JBDeviceSelectionWindowController.m in Sources */,
+				CD0D94D215B84482003A0D8B /* SuperDebugAreaWindowController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
