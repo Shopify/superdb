@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
-@interface SuperInterpreterClient : NSObject
+typedef void(^SuperInterpreterClientResponseHandler)(id response);
 
+@interface SuperInterpreterClient : NSObject
+- (id)initWithHostData:(NSData *)hostData;
+- (void)startNetworkConnectionWithResponseHandler:(SuperInterpreterClientResponseHandler)responseHandler;
 @end
