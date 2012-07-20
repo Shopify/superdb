@@ -16,6 +16,9 @@
 @property (assign) BOOL delayedOutputMode;
 @property (assign) BOOL userEnteredText;
 @property (nonatomic, strong) JBShellCommandHistory *commandHistory;
+@property (assign) CGPoint initialDragPoint;
+@property (copy) NSString *initialString;
+@property (strong) NSNumber *initialNumber;
 @end
 
 @implementation JBShellView
@@ -42,7 +45,7 @@
 		
 		self.commandStart = [[self string] length];
 		self.commandHistory = [[JBShellCommandHistory alloc] init];
-		
+		self.initialDragPoint = CGPointZero;
 
     }
     
@@ -273,6 +276,111 @@
 		[self saveEditedCommand];
 		[self replaceCurrentCommandWith:[[self.commandHistory moveToNextHistoryCommand] currentCommand]];
 	}
+}
+
+
+//- (BOOL)dragSelectionWithEvent:(NSEvent *)event offset:(NSSize)mouseOffset slideBack:(BOOL)slideBack {
+//	NSLog(@"%@ %@", [[self string] substringWithRange:[self selectedRange]], NSStringFromSize(mouseOffset));
+//	
+//	return YES;
+//}
+
+
+/* Declares what types of operations the source allows to be performed. Apple may provide more specific "within" values in the future. To account for this, for unrecongized localities, return the operation mask for the most specific context that you are concerned with. For example:
+ switch(context) {
+ case NSDraggingContextOutsideApplication:
+ return ...
+ break;
+ 
+ case NSDraggingContextWithinApplication:
+ default:
+ return ...
+ break;
+ }
+ */
+- (NSDragOperation)draggingSession:(NSDraggingSession *)session sourceOperationMaskForDraggingContext:(NSDraggingContext)context {
+	switch (context) {
+		case NSDraggingContextWithinApplication: {
+			return NSDragOperationNone;
+			break;
+		}
+			
+			
+		default:
+			return NSDragOperationNone;
+	}
+}
+
+- (void)draggingSession:(NSDraggingSession *)session willBeginAtPoint:(NSPoint)screenPoint {
+	self.initialDragPoint = screenPoint;
+	self.initialString = [[self string] substringWithRange:[self selectedRange]];
+	self.initialNumber = [self numberFromString:self.initialString];
+}
+
+
+- (void)draggingSession:(NSDraggingSession *)session movedToPoint:(NSPoint)screenPoint {
+	//NSLog(@"dragged");
+	
+	NSString *selection = [[self string] substringWithRange:[self selectedRange]];
+	
+	if ([selection length] < 1) {
+		return;
+	}
+	
+	NSNumber *number = [self numberFromString:selection];
+	if (nil == number) {
+		return;
+	}
+	
+	//NSLog(@"%@", number);
+	
+	CGFloat x = screenPoint.x - self.initialDragPoint.x;
+	CGFloat y = screenPoint.y - self.initialDragPoint.y;
+	CGSize offset = CGSizeMake(x, y);
+	
+	
+	[self numberWasDragged:number toOffset:offset];
+	
+}
+
+
+- (void)draggingSession:(NSDraggingSession *)session endedAtPoint:(NSPoint)screenPoint operation:(NSDragOperation)operation {
+	session.animatesToStartingPositionsOnCancelOrFail = NO;
+	self.initialDragPoint = CGPointZero;
+	self.initialString = nil;
+	self.initialNumber = nil;
+}
+
+
+- (NSNumber *)numberFromString:(NSString *)string {
+	static NSNumberFormatter *formatter = nil;
+	if (nil == formatter) {
+		formatter = [[NSNumberFormatter alloc] init];
+		[formatter setAllowsFloats:YES];
+	}
+	return [formatter numberFromString:string];
+}
+
+
+- (void)numberWasDragged:(NSNumber *)number toOffset:(CGSize)offset {
+	// For now, we're just going to take an integer value out of the number
+	// This will still work for floating point numbers but obviously we'll miss some of the precision
+	
+	// Maybe apply some kind of exponential growth (or something non-linear) to the x offset
+	NSInteger offsetValue = [self.initialNumber integerValue] + (NSInteger)offset.width;
+	NSNumber *updatedNumber = [NSNumber numberWithInteger:offsetValue];
+	NSString *updatedString = [updatedNumber stringValue];
+	NSString *numberString = [number stringValue];
+	
+	NSRange originalRange = [self selectedRange];
+	if (originalRange.length < [updatedString length]) {
+		originalRange.length = [updatedString length];
+	} else if (originalRange.length > [updatedString length]) {
+		originalRange.length = [numberString length];
+	}
+		
+	[self insertText:updatedString replacementRange:originalRange];
+	[self setSelectedRange:originalRange];
 }
 
 
