@@ -7,12 +7,15 @@
 //
 
 #import "JBShellView.h"
+#import "JBShellCommandHistory.h"
 
 
 @interface JBShellView () <NSTextViewDelegate>
 @property (nonatomic, assign) NSUInteger commandStart;
 @property (nonatomic, assign) NSUInteger lastCommandStart;
 @property (assign) BOOL delayedOutputMode;
+@property (assign) BOOL userEnteredText;
+@property (nonatomic, strong) JBShellCommandHistory *commandHistory;
 @end
 
 @implementation JBShellView
@@ -38,6 +41,7 @@
 		[self insertPrompt];
 		
 		self.commandStart = [[self string] length];
+		self.commandHistory = [[JBShellCommandHistory alloc] init];
 		
 
     }
@@ -177,10 +181,10 @@
 				[self delete:self];
 				break;
 			case NSUpArrowFunctionKey:
-				[self replaceCurrentCommandWith:nil];
+				[self replaceCurrentCommandWith:[[self.commandHistory moveToPreviousCommand] currentCommand]];
 				break;
 			case NSDownArrowFunctionKey:
-				[self replaceCurrentCommandWith:nil];
+				[self replaceCurrentCommandWith:[[self.commandHistory moveToNextHistoryCommand] currentCommand]];
 				break;
 			default:
 				[super keyDown:theEvent];
@@ -243,7 +247,7 @@
 	if ([self selectedRange].location < self.commandStart || [self selectedRange].location == oldLocation) {
 		// moved before the start of command entry OR not moved because we are on the first line of the text view
 		
-		NSUInteger promptBottomLocation = self.commandStart = [self.prompt length];
+		NSUInteger promptBottomLocation = self.commandStart - [self.prompt length];
 		NSUInteger promptEndLocation = self.commandStart;
 		NSUInteger insertionLocation = [self selectedRange].location;
 		
@@ -251,8 +255,8 @@
 			// Insertion point is on the prompt, so move to the start of the current command.
 			[self setSelectedRange:[self commandStartRange]];
 		} else {
-			[self saveEditedCommand:self];
-			[self replaceCurrentCommandWith:nil];
+			[self saveEditedCommand];
+			[self replaceCurrentCommandWith:[[self.commandHistory moveToPreviousCommand] currentCommand]];
 		}
 	}
 }
@@ -266,8 +270,8 @@
 	
 	if ([self selectedRange].location == oldLocation || [self selectedRange].location == [[self string] length]) {
 		// no movement OR move to end of the document because we are on the last line
-		[self saveEditedCommand:self];
-		[self replaceCurrentCommandWith:nil];
+		[self saveEditedCommand];
+		[self replaceCurrentCommandWith:[[self.commandHistory moveToNextHistoryCommand] currentCommand]];
 	}
 }
 
@@ -280,6 +284,7 @@
 		NSBeep();
 		return NO;
 	} else {
+		self.userEnteredText = YES;
 		return YES;
 	}
 }
@@ -292,12 +297,24 @@
 }
 
 
-- (void)saveEditedCommand:sender {
-	NSLog(@"saving edited command");
+- (void)saveEditedCommand {
+	if (!_userEnteredText) {
+		return;
+	}
+	
+	NSString *input = [[self string] substringFromIndex:_commandStart];
+	if ([input length] > 0 && ![input isEqualToString:[self.commandHistory topCommand]]) {
+		[self.commandHistory addCommand:input];
+		[self.commandHistory moveToPreviousCommand];
+	}
 }
 
-- (void)replaceCurrentCommandWith:string {
-	NSLog(@"Replacing command!");
+- (void)replaceCurrentCommandWith:(NSString *)command {
+	[self setSelectedRange:NSMakeRange(self.commandStart, [[self string] length])];
+	[self insertText:command];
+	[self moveToEndOfDocument:self];
+	[self scrollRangeToVisible:[self selectedRange]];
+	self.userEnteredText = NO;
 }
 
 
@@ -307,11 +324,11 @@
 	
 	self.lastCommandStart = self.commandStart;
 	// Check to see if the command has a length and that it was NOT the last item in the history, and add it
-	if ([input length] > 0 /*&& ![input isEqualToString:[history mostRecentlyInsertedCommand]] */) {
-		//[history addCommand:input];
+	if ([input length] > 0 && ![input isEqualToString:[self.commandHistory topCommand]]) {
+		[self.commandHistory addCommand:input];
 	}
 	
-	//[history goToLast];
+	[self.commandHistory moveToLast];
 	[self moveToEndOfDocument:self];
 	[self insertNewlineIgnoringFieldEditor:self];
 //	NSString *output = @"";
@@ -342,6 +359,7 @@
 	[self insertPrompt];
 	[self scrollRangeToVisible:[self selectedRange]];
 	self.commandStart = [[self string] length];
+	self.userEnteredText = NO;
 	[[self undoManager] removeAllActions];
 }
 
