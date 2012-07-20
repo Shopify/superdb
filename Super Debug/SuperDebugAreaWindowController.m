@@ -9,6 +9,7 @@
 #import "SuperDebugAreaWindowController.h"
 #import "JBShellContainerView.h"
 #import "JBShellView.h"
+#import "JBShellViewBlockTypedefs.h"
 
 
 @interface SuperDebugAreaWindowController () <NSNetServiceDelegate>
@@ -53,6 +54,15 @@
 			[sender endDelayedOutputMode];
 		}];
 	}];
+	
+	[self.shellContainer.shellView setNumberDragHandler:^(id draggedItem) {
+		[self.networkClient requestWithStringToEvaluate:draggedItem responseHandler:^(SuperNetworkMessage *response) {
+			NSLog(@"%@", draggedItem);
+			[response log];
+		}];
+	}];
+	
+	
 	[[[self window] contentView] addSubview:self.shellContainer];
 	[self.window makeFirstResponder:self.shellContainer.shellView];
 }

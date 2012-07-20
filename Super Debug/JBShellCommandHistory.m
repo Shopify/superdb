@@ -8,6 +8,9 @@
 
 #import "JBShellCommandHistory.h"
 
+#define kCommandKey @"command"
+#define kRangeKey @"range"
+
 @implementation JBShellCommandHistory {
 	NSUInteger _head, _currentCommand;
 	NSMutableArray *_stack;
@@ -23,8 +26,11 @@
 }
 
 
-- (void)addCommand:(NSString *)command {
-	[_stack addObject:command];
+- (void)addCommand:(NSString *)command forRange:(NSRange)commandRange {
+	
+	NSDictionary *d = @{ kCommandKey : command, kRangeKey : NSStringFromRange(commandRange) };
+	
+	[_stack addObject:d];
 }
 
 
@@ -57,12 +63,42 @@
 
 
 - (NSString *)topCommand {
-	return [_stack lastObject];
+	return [[_stack lastObject] objectForKey:kCommandKey];
 }
 
 
 - (NSString *)currentCommand {
-	return _currentCommand < [_stack count] ? [_stack objectAtIndex:_currentCommand] : @"";
+	return _currentCommand < [_stack count] ? [[_stack objectAtIndex:_currentCommand] objectForKey:kCommandKey] : @"";
+}
+
+
+- (NSString *)commandAtIndex:(NSUInteger)index {
+	if (index < [_stack count]) {
+		return nil;
+	}
+	
+	return [[_stack objectAtIndex:index] objectForKey:kCommandKey];
+}
+
+
+- (NSString *)commandForRange:(NSRange)range {
+	for (NSDictionary *dictionary in _stack) {
+		
+		NSRange cRange = NSRangeFromString([dictionary objectForKey:kRangeKey]);
+		if (RangeContainsRange(cRange, range)) {
+			return [dictionary objectForKey:kCommandKey];
+		}
+		
+		if ([[dictionary objectForKey:kRangeKey] isEqualToString:NSStringFromRange(range)]) {
+			return [dictionary objectForKey:kCommandKey];
+		}
+	}
+	return nil;
+}
+
+
+BOOL RangeContainsRange(NSRange a, NSRange b) {
+	return (a.location <= b.location && NSMaxRange(a) >= NSMaxRange(b));
 }
 
 

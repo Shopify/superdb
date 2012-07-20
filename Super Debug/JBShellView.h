@@ -19,6 +19,9 @@
 @property (nonatomic, strong) NSString *prompt;
 @property (nonatomic, copy) JBShellViewInputProcessingHandler inputHandler;
 
+@property (nonatomic, copy) JBShellViewDragHandler numberDragHandler;
+@property (nonatomic, copy) JBShellViewDragHandler colorPickerDragHandler;
+
 - (id)initWithFrame:(CGRect)frame prompt:(NSString *)prompt inputHandler:(JBShellViewInputProcessingHandler)inputHandler;
 
 - (void)appendOutput:(NSString *)output; // used for finer-grained control of output

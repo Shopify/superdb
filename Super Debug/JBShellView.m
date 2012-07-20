@@ -381,6 +381,69 @@
 		
 	[self insertText:updatedString replacementRange:originalRange];
 	[self setSelectedRange:originalRange];
+	
+	if (self.numberDragHandler) {
+		self.numberDragHandler([self tryAgainForRange:originalRange]);
+	}
+}
+
+
+- (NSString *)commandFromHistoryForRange:(NSRange)range {
+	// Look backwards starting at range.location and count how many ocurrences of the prompt string we find.
+	// That's the index of where we need to look in the command history
+	// Obviously this will fail if `prompt` appears elsewhere in the output, but for now that's avoidable.
+	NSString *upToRange = [[self string] substringToIndex:range.location];
+	
+	NSUInteger count = 0, length = [upToRange length];
+	NSRange searchRange = NSMakeRange(0, length);
+	NSRange lastFound = searchRange;
+	
+	while(searchRange.location != NSNotFound) {
+		searchRange = [upToRange rangeOfString:self.prompt options:0 range:searchRange];
+		
+		if(searchRange.location != NSNotFound) {
+			searchRange = NSMakeRange(searchRange.location + searchRange.length, length - (searchRange.location + searchRange.length));
+			count++;
+			lastFound = NSMakeRange(searchRange.location, searchRange.length);
+		}
+	}
+	NSLog(@"Last found instance was %@", NSStringFromRange(searchRange));
+	return [self.commandHistory commandAtIndex:count];
+}
+
+
+- (NSString *)tryAgainForRange:(NSRange)range {
+	
+	NSString *untilEnd = [[self string] substringFromIndex:range.location];
+	NSRange newlineRange = [untilEnd rangeOfString:@"\n" options:kNilOptions];
+	if (newlineRange.location == NSNotFound) {
+		// We're on the last line of the document so there's nothing entered after us. Return everything from commandStart -> end of string
+		return [[self string] substringFromIndex:self.commandStart];
+	}
+	
+	
+	
+	
+	return [self.commandHistory commandForRange:range];
+	
+	
+	
+	
+	
+	// There's been a return somewhere, which means there are existing commands, so we need to
+	NSString *upTo = [[self string] substringToIndex:range.location];
+	
+	// Find the next newline
+
+	NSRange found = [upTo rangeOfString:self.prompt options:NSBackwardsSearch];
+	newlineRange = [[self string] rangeOfString:@"\n" options:kNilOptions range:NSMakeRange(NSMaxRange(found), [[self string] length] - NSMaxRange(found))];
+	
+	NSLog(@"start: %lu, loc: %lu, all length: %lu", found.location, newlineRange.location, [[self string] length]);
+	
+	NSString *result = [[self string] substringWithRange:NSMakeRange(NSMaxRange(found), newlineRange.location)];
+	return result;
+	
+	
 }
 
 
@@ -411,8 +474,12 @@
 	}
 	
 	NSString *input = [[self string] substringFromIndex:_commandStart];
-	if ([input length] > 0 && ![input isEqualToString:[self.commandHistory topCommand]]) {
-		[self.commandHistory addCommand:input];
+	if ([input length] > 0  /* && ![input isEqualToString:[self.commandHistory topCommand]] */) {
+		NSRange range;
+		
+		range = NSMakeRange(_commandStart, [[self string] length] - _commandStart);
+		
+		[self.commandHistory addCommand:input forRange:range];
 		[self.commandHistory moveToPreviousCommand];
 	}
 }
@@ -432,8 +499,8 @@
 	
 	self.lastCommandStart = self.commandStart;
 	// Check to see if the command has a length and that it was NOT the last item in the history, and add it
-	if ([input length] > 0 && ![input isEqualToString:[self.commandHistory topCommand]]) {
-		[self.commandHistory addCommand:input];
+	if ([input length] > 0 /*&& ![input isEqualToString:[self.commandHistory topCommand]]*/) {
+		[self.commandHistory addCommand:input forRange:NSMakeRange(self.commandStart, [[self string] length] - self.commandStart)];
 	}
 	
 	[self.commandHistory moveToLast];
@@ -444,6 +511,7 @@
 //		output = self.inputHandler(input);
 //	}
 //	[self insertText:output];
+	[self insertText:@"\n"];
 	if (nil != self.inputHandler) {
 		self.inputHandler(input, self);
 	}
