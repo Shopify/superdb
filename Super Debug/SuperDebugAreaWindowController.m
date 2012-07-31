@@ -15,6 +15,7 @@
 @interface SuperDebugAreaWindowController () <NSNetServiceDelegate>
 @property (nonatomic, strong) SuperInterpreterClient *networkClient;
 @property (nonatomic, strong) JBShellContainerView *shellContainer;
+@property (nonatomic, strong) NSColorPanel *colorPanel;
 @end
 
 @implementation SuperDebugAreaWindowController
@@ -65,8 +66,29 @@
 	
 	[[[self window] contentView] addSubview:self.shellContainer];
 	[self.window makeFirstResponder:self.shellContainer.shellView];
+	
+	
+	self.colorPanel = [NSColorPanel sharedColorPanel];
+	[self.colorPanel setTarget:self];
+	[self.colorPanel setAction:@selector(updateColor:)];
+	[self.colorPanel setContinuous:YES];
+	[self.colorPanel orderFront:self];
+	
 }
 
+
+- (void)updateColor:(NSColorPanel *)sender {
+	//NSLog(@"Color: %@", [sender color]);
+	CGFloat r, g, b, a;
+	[[sender color] getRed:&r green:&g blue:&b alpha:&a];
+	NSLog(@"%f %f %f %f", r, g, b, a);
+	
+	NSString *colorCommand = [NSString stringWithFormat:@"UIApplication sharedApplication delegate window setBackgroundColor:(UIColor colorWithRed:%f green:%f blue:%f alpha:%f)", r, g, b, a];
+	[self.networkClient requestWithStringToEvaluate:colorCommand responseHandler:^(SuperNetworkMessage *response) {
+		
+	}];
+	
+}
 
 - (void)setNetService:(NSNetService *)netService {
 	if (netService == _netService)

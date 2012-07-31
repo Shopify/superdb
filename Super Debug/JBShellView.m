@@ -17,6 +17,7 @@
 @property (assign) BOOL userEnteredText;
 @property (nonatomic, strong) JBShellCommandHistory *commandHistory;
 @property (assign) CGPoint initialDragPoint;
+@property (assign) NSRange initialDragRangeInOriginalCommand;
 @property (copy) NSString *initialString;
 @property (strong) NSNumber *initialNumber;
 @end
@@ -46,6 +47,7 @@
 		self.commandStart = [[self string] length];
 		self.commandHistory = [[JBShellCommandHistory alloc] init];
 		self.initialDragPoint = CGPointZero;
+		[self resetInitialDragRange];
 
     }
     
@@ -311,10 +313,19 @@
 	}
 }
 
+#pragma mark - Dragging
+
 - (void)draggingSession:(NSDraggingSession *)session willBeginAtPoint:(NSPoint)screenPoint {
 	self.initialDragPoint = screenPoint;
 	self.initialString = [[self string] substringWithRange:[self selectedRange]];
 	self.initialNumber = [self numberFromString:self.initialString];
+	
+	NSString *wholeText = [self string];
+	NSString *originalCommand = [self commandFromHistoryForRange:[self selectedRange]];
+	NSRange originalCommandRange = [wholeText rangeOfString:originalCommand options:kNilOptions];
+	self.initialDragRangeInOriginalCommand = NSMakeRange([self selectedRange].location - originalCommandRange.location, [self selectedRange].length);
+	
+	//self.initialDragRangeInOriginalCommand = [originalCommand rangeOfString:self.initialString options:kNilOptions range:<#(NSRange)#>];
 }
 
 
@@ -349,6 +360,7 @@
 	self.initialDragPoint = CGPointZero;
 	self.initialString = nil;
 	self.initialNumber = nil;
+	[self resetInitialDragRange];
 }
 
 
@@ -362,13 +374,18 @@
 }
 
 
+- (void)resetInitialDragRange {
+	self.initialDragRangeInOriginalCommand = NSMakeRange(NSUIntegerMax, NSUIntegerMax);
+}
+
+
 - (void)numberWasDragged:(NSNumber *)number toOffset:(CGSize)offset {
 	// For now, we're just going to take an integer value out of the number
 	// This will still work for floating point numbers but obviously we'll miss some of the precision
 	
 	// Maybe apply some kind of exponential growth (or something non-linear) to the x offset
 	NSInteger offsetValue = [self.initialNumber integerValue] + (NSInteger)offset.width;
-	NSNumber *updatedNumber = [NSNumber numberWithInteger:offsetValue];
+	NSNumber *updatedNumber = @(offsetValue);
 	NSString *updatedString = [updatedNumber stringValue];
 	NSString *numberString = [number stringValue];
 	
@@ -383,12 +400,18 @@
 	[self setSelectedRange:originalRange];
 	
 	if (self.numberDragHandler) {
-		self.numberDragHandler([self tryAgainForRange:originalRange]);
+		
+		// The problem is: This will just repeatedly send the original command over and over
+		// We're trying to send the original command PLUS the updated numeric value.
+		
+		NSString *originalCommand = [self commandFromHistoryForRange:originalRange];
+		NSString *updatedCommand = [originalCommand stringByReplacingCharactersInRange:self.initialDragRangeInOriginalCommand withString:updatedString];
+		self.numberDragHandler(updatedCommand);
 	}
 }
 
 
-- (NSString *)commandFromHistoryForRange:(NSRange)range {
+- (NSString *)__unused_commandFromHistoryForRange:(NSRange)range {
 	// Look backwards starting at range.location and count how many ocurrences of the prompt string we find.
 	// That's the index of where we need to look in the command history
 	// Obviously this will fail if `prompt` appears elsewhere in the output, but for now that's avoidable.
@@ -412,7 +435,7 @@
 }
 
 
-- (NSString *)tryAgainForRange:(NSRange)range {
+- (NSString *)commandFromHistoryForRange:(NSRange)range {
 	
 	NSString *untilEnd = [[self string] substringFromIndex:range.location];
 	NSRange newlineRange = [untilEnd rangeOfString:@"\n" options:kNilOptions];
@@ -451,6 +474,11 @@
 
 - (BOOL)textView:(NSTextView *)textView shouldChangeTextInRange:(NSRange)affectedCharRange replacementString:(NSString *)replacementString {
 	// Do not accept a modification outside the current command start
+	if (_initialNumber != nil) {
+		return YES;
+	}
+	
+	
 	if (replacementString && affectedCharRange.location < self.commandStart) {
 		NSBeep();
 		return NO;
