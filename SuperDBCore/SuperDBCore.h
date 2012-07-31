@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#define SOMETHING YES
+#define SOMETHING NO
 
 
 #import "JBServicesBrowser.h"
