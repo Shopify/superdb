@@ -8,6 +8,10 @@
 
 #import <Cocoa/Cocoa.h>
 
+@class JBShellView;
 @interface SuperDebugAreaWindowController : NSWindowController
+@property (nonatomic, strong, readonly) JBShellView *shellView;
 @property (nonatomic, strong) NSNetService *netService;
+@property (copy) NSString *prompt;
+@property (assign) BOOL disconnectedShell;
 @end

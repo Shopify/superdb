@@ -8,6 +8,7 @@
 
 #import "JBDeviceSelectionWindowController.h"
 #import "SuperDebugAreaWindowController.h"
+#import "JBShellView.h"
 
 
 @interface JBDeviceSelectionWindowController ()
@@ -78,7 +79,7 @@
 	SuperDebugAreaWindowController *controller = [self.deviceWindowControllers objectForKey:[service name]];
 	if (nil == controller) {
 		// create it and store it away for future reference
-		controller = [[SuperDebugAreaWindowController alloc] initWithWindowNibName:@"SuperDebugAreaWindowController"];
+		controller = [SuperDebugAreaWindowController new];
 		controller.netService = service;
 		[self.deviceWindowControllers setObject:controller forKey:[service name]];
 	}
@@ -87,6 +88,14 @@
 	
 }
 
+
+
+- (IBAction)showNewShell:(NSButton *)sender {
+	SuperDebugAreaWindowController *controller = [SuperDebugAreaWindowController new];
+	controller.disconnectedShell = YES;
+	[[controller window] makeKeyAndOrderFront:self];
+	
+}
 
 
 @end

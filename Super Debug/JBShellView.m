@@ -35,7 +35,7 @@
     if (self) {
         // Initialization code here.
 		
-		self.prompt = prompt;
+		self.prompt = prompt?: @"> ";
 		self.inputHandler = [inputHandler copy];
 		self.textProcessor = [JBTextEditorProcessor new];
 		
@@ -87,6 +87,12 @@
 
 + (NSColor *)successColor {
 	return [NSColor colorWithCalibratedRed:0.376 green:0.780 blue:0.000 alpha:1.000];
+}
+
+
+- (void)setInputHandler:(JBShellViewInputProcessingHandler)inputHandler {
+	_inputHandler = [inputHandler copy];
+	NSLog(@"SET");
 }
 
 - (void)appendOutput:(NSString *)output {

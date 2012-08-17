@@ -10,4 +10,5 @@
 
 @interface JBDeviceSelectionWindowController : NSWindowController <NSTableViewDataSource, NSTableViewDelegate>
 @property (nonatomic, strong) IBOutlet NSTableView *tableView;
+- (IBAction)showNewShell:(NSButton *)sender;
 @end

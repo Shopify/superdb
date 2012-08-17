@@ -20,6 +20,12 @@
 
 @implementation SuperDebugAreaWindowController
 
+
++ (id)new {
+	return [[[self class] alloc] initWithWindowNibName:@"SuperDebugAreaWindowController"];
+}
+
+
 - (id)initWithWindow:(NSWindow *)window
 {
     self = [super initWithWindow:window];
@@ -35,7 +41,8 @@
     [super windowDidLoad];
     
    	CGRect bounds = [[self.window contentView] bounds];
-	NSString *prompt = [NSString stringWithFormat:@"%@> ", [self.netService name]];
+	NSString *prompt = [NSString stringWithFormat:@"%@> ", [self.netService name]?: @""];
+	
     self.shellContainer = [[JBShellContainerView alloc] initWithFrame:bounds prompt:prompt shellInputProcessingHandler:^(NSString *input, JBShellView *sender) {
 		
 		[sender beginDelayedOutputMode];
@@ -64,11 +71,16 @@
 	}];
 	
 	
+	if (self.disconnectedShell) {
+		[self configureDisconnectedShell];
+	}
+	
+	
 	[[[self window] contentView] addSubview:self.shellContainer];
 	[self.window makeFirstResponder:self.shellContainer.shellView];
 	
 	
-	self.colorPanel = [NSColorPanel sharedColorPanel];
+	//self.colorPanel = [NSColorPanel sharedColorPanel];
 	[self.colorPanel setTarget:self];
 	[self.colorPanel setAction:@selector(updateColor:)];
 	[self.colorPanel setContinuous:YES];
@@ -89,6 +101,30 @@
 	}];
 	
 }
+
+
+- (void)configureDisconnectedShell {
+	self.prompt = @"> ";
+	[self.shellView setInputHandler:^(NSString *input, JBShellView *sender) {
+		NSLog(input);
+	}];
+}
+
+
+- (JBShellView *)shellView {
+	return self.shellContainer.shellView;
+}
+
+
+- (void)setPrompt:(NSString *)prompt {
+	self.shellContainer.shellView.prompt = prompt;
+}
+
+
+- (NSString *)prompt {
+	return self.shellContainer.shellView.prompt;
+}
+
 
 - (void)setNetService:(NSNetService *)netService {
 	if (netService == _netService)
