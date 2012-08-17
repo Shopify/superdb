@@ -8,6 +8,7 @@
 
 #import "JBShellView.h"
 #import "JBShellCommandHistory.h"
+#import "JBTextEditorProcessor.h"
 
 
 @interface JBShellView () <NSTextViewDelegate>
@@ -20,6 +21,7 @@
 @property (assign) NSRange initialDragRangeInOriginalCommand;
 @property (copy) NSString *initialString;
 @property (strong) NSNumber *initialNumber;
+@property (strong) JBTextEditorProcessor *textProcessor;
 @end
 
 @implementation JBShellView
@@ -35,6 +37,8 @@
 		
 		self.prompt = prompt;
 		self.inputHandler = [inputHandler copy];
+		self.textProcessor = [JBTextEditorProcessor new];
+		
 		[self setContinuousSpellCheckingEnabled:NO];
 		
 		[self setFont:[NSFont fontWithName:@"Menlo" size:18.0f]];
@@ -401,9 +405,6 @@
 	
 	if (self.numberDragHandler) {
 		
-		// The problem is: This will just repeatedly send the original command over and over
-		// We're trying to send the original command PLUS the updated numeric value.
-		
 		NSString *originalCommand = [self commandFromHistoryForRange:originalRange];
 		NSString *updatedCommand = [originalCommand stringByReplacingCharactersInRange:self.initialDragRangeInOriginalCommand withString:updatedString];
 		self.numberDragHandler(updatedCommand);
@@ -467,6 +468,15 @@
 	return result;
 	
 	
+}
+
+
+- (void)deleteBackward:(id)sender {
+	NSLog(@"delete backward, %@", [[[self textStorage] string] substringWithRange:[self selectedRange]]);
+	
+	
+	
+	[super deleteBackward:sender];
 }
 
 

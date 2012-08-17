@@ -68,7 +68,7 @@
 
 
 - (NSString *)currentCommand {
-	return _currentCommand < [_stack count] ? [[_stack objectAtIndex:_currentCommand] objectForKey:kCommandKey] : @"";
+	return _currentCommand < [_stack count] ? [_stack[_currentCommand] objectForKey:kCommandKey] : @"";
 }
 
 
@@ -77,7 +77,7 @@
 		return nil;
 	}
 	
-	return [[_stack objectAtIndex:index] objectForKey:kCommandKey];
+	return [_stack[index] objectForKey:kCommandKey];
 }
 
 
