@@ -106,7 +106,7 @@
 - (void)configureDisconnectedShell {
 	self.prompt = @"> ";
 	[self.shellView setInputHandler:^(NSString *input, JBShellView *sender) {
-		NSLog(input);
+		
 	}];
 }
 

@@ -478,11 +478,34 @@
 
 
 - (void)deleteBackward:(id)sender {
-	NSLog(@"delete backward, %@", [[[self textStorage] string] substringWithRange:[self selectedRange]]);
 	
+	NSRange range = [self selectedRange];
+	if (![self textView:self shouldChangeTextInRange:NSMakeRange(range.location - 1, range.length) replacementString:@""]) {
+		return;
+	}
 	
+	NSString *input = [self inputString];
 	
-	[super deleteBackward:sender];
+	NSString *deletedText = [[self string] substringWithRange:range];
+	if (range.length < 1) {
+		deletedText = [[self string] substringWithRange:NSMakeRange(range.location - 1, 1)];
+		range.length = 1;
+		range.location -= 1;
+	}
+	
+	range.location -= self.commandStart;
+	
+	[self.textProcessor processString:input
+				changedSelectionRange:range
+						deletedString:deletedText
+					   insertedString:@""
+					completionHandler:^(NSString *processedText, NSRange newSelectedRange) {
+						
+						[self replaceCurrentCommandWith:processedText];
+						
+						newSelectedRange.location += self.commandStart;
+						[self setSelectedRange:newSelectedRange];
+	}];
 }
 
 
@@ -539,7 +562,7 @@
 
 - (void)acceptInput {
 	NSLog(@"Accepting input!");
-	NSString *input = [[self string] substringFromIndex:self.commandStart];
+	NSString *input = [self inputString];
 	
 	self.lastCommandStart = self.commandStart;
 	// Check to see if the command has a length and that it was NOT the last item in the history, and add it
@@ -566,6 +589,11 @@
 	
 	[self finishOutput];
 	
+}
+
+
+- (NSString *)inputString {
+	return [[self string] substringFromIndex:self.commandStart];
 }
 
 
