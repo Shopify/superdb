@@ -503,9 +503,6 @@
 						newSelectedRange.location += self.commandStart;
 						[self setSelectedRange:newSelectedRange];
 	}];
-	
-	
-	//[super insertText:insertString];
 }
 
 
