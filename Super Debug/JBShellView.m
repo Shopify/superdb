@@ -512,7 +512,11 @@
 - (void)deleteBackward:(id)sender {
 	
 	NSRange range = [self selectedRange];
-	if (![self textView:self shouldChangeTextInRange:NSMakeRange(range.location - 1, range.length) replacementString:@""]) {
+	NSRange backwardRange = range;
+	if (!backwardRange.length) {
+		backwardRange.location -= 1;
+	}
+	if (![self textView:self shouldChangeTextInRange:backwardRange replacementString:@""]) {
 		return;
 	}
 	
