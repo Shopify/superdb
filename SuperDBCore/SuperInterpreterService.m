@@ -105,7 +105,8 @@
 #if !TARGET_OS_IPHONE
 	return [[NSHost currentHost] localizedName];
 #elif TARGET_OS_IPHONE
-	return [[UIDevice currentDevice] name];
+	return [NSString stringWithFormat:@"%@: %@",[[UIDevice currentDevice] name], [[NSBundle mainBundle] objectForInfoDictionaryKey:@"CFBundleDisplayName"]];
+;
 #endif
 }
 
