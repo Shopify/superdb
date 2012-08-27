@@ -97,7 +97,7 @@
 
 - (void)appendOutput:(NSString *)output {
 	[self moveToEndOfDocument:self];
-	[self insertText:output];
+	[super insertText:output];
 	self.commandStart = [[self string] length];
 	[self scrollRangeToVisible:[self selectedRange]];
 }
@@ -406,7 +406,7 @@
 		originalRange.length = [numberString length];
 	}
 		
-	[self insertText:updatedString replacementRange:originalRange];
+	[super insertText:updatedString replacementRange:originalRange];
 	[self setSelectedRange:originalRange];
 	
 	if (self.numberDragHandler) {
@@ -474,6 +474,38 @@
 	return result;
 	
 	
+}
+
+
+- (void)insertText:(id)insertString {
+	NSLog(@"inserting: %@", insertString);
+	
+	NSRange range = [self selectedRange];
+	if (![self textView:self shouldChangeTextInRange:NSMakeRange(range.location, range.length) replacementString:@""]) {
+		return;
+	}
+	
+	NSString *input = [self inputString];
+	
+	NSString *deletedText = @"";
+	if (range.length > 0) {
+		deletedText = [[self string] substringWithRange:range];
+	}
+	range.location -= self.commandStart;
+	[self.textProcessor processString:input
+				changedSelectionRange:range
+						deletedString:deletedText
+					   insertedString:insertString
+					completionHandler:^(NSString *processedText, NSRange newSelectedRange) {
+						NSLog(@"Processed: %@", processedText);
+						[self replaceCurrentCommandWith:processedText];
+						
+						newSelectedRange.location += self.commandStart;
+						[self setSelectedRange:newSelectedRange];
+	}];
+	
+	
+	//[super insertText:insertString];
 }
 
 
@@ -553,7 +585,7 @@
 
 - (void)replaceCurrentCommandWith:(NSString *)command {
 	[self setSelectedRange:NSMakeRange(self.commandStart, [[self string] length])];
-	[self insertText:command];
+	[super insertText:command];
 	[self moveToEndOfDocument:self];
 	[self scrollRangeToVisible:[self selectedRange]];
 	self.userEnteredText = NO;
@@ -578,7 +610,7 @@
 //		output = self.inputHandler(input);
 //	}
 //	[self insertText:output];
-	[self insertText:@"\n"];
+	[super insertText:@"\n"];
 	if (nil != self.inputHandler) {
 		self.inputHandler(input, self);
 	}
