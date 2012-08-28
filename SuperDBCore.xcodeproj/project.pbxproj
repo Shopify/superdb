@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CD0C658B15ECF981006DE7F3 /* SuperInterpreter.h in Headers */ = {isa = PBXBuildFile; fileRef = CD0C658915ECF981006DE7F3 /* SuperInterpreter.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD0C658C15ECF981006DE7F3 /* SuperInterpreter.h in Headers */ = {isa = PBXBuildFile; fileRef = CD0C658915ECF981006DE7F3 /* SuperInterpreter.h */; };
+		CD0C658D15ECF981006DE7F3 /* SuperInterpreter.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0C658A15ECF981006DE7F3 /* SuperInterpreter.m */; };
+		CD0C658E15ECF981006DE7F3 /* SuperInterpreter.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0C658A15ECF981006DE7F3 /* SuperInterpreter.m */; };
+		CD0C659115ECFADF006DE7F3 /* SuperNetworkMessageTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = CD0C659015ECFADF006DE7F3 /* SuperNetworkMessageTypes.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD0C659215ECFADF006DE7F3 /* SuperNetworkMessageTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = CD0C659015ECFADF006DE7F3 /* SuperNetworkMessageTypes.h */; };
 		CD0D94BF15B83893003A0D8B /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD0D94BE15B83893003A0D8B /* CFNetwork.framework */; };
 		CD0D94C215B8389A003A0D8B /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD0D94C115B8389A003A0D8B /* Security.framework */; };
 		CD0D94CA15B83D1F003A0D8B /* GCDAsyncSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = CD0D94C815B83D1F003A0D8B /* GCDAsyncSocket.h */; settings = {ATTRIBUTES = (Private, ); }; };
@@ -366,6 +372,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		CD0C658915ECF981006DE7F3 /* SuperInterpreter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuperInterpreter.h; sourceTree = "<group>"; };
+		CD0C658A15ECF981006DE7F3 /* SuperInterpreter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuperInterpreter.m; sourceTree = "<group>"; };
+		CD0C659015ECFADF006DE7F3 /* SuperNetworkMessageTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuperNetworkMessageTypes.h; sourceTree = "<group>"; };
 		CD0D94BE15B83893003A0D8B /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		CD0D94C115B8389A003A0D8B /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		CD0D94C815B83D1F003A0D8B /* GCDAsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncSocket.h; sourceTree = "<group>"; };
@@ -888,6 +897,9 @@
 				CD0D94D515B84683003A0D8B /* SuperInterpreterClient.m */,
 				CD0D94DA15B84C21003A0D8B /* SuperNetworkMessage.h */,
 				CD0D94DB15B84C21003A0D8B /* SuperNetworkMessage.m */,
+				CD0C658915ECF981006DE7F3 /* SuperInterpreter.h */,
+				CD0C658A15ECF981006DE7F3 /* SuperInterpreter.m */,
+				CD0C659015ECFADF006DE7F3 /* SuperNetworkMessageTypes.h */,
 			);
 			name = "Network layer";
 			sourceTree = "<group>";
@@ -1098,6 +1110,8 @@
 				CD0D974415B8734F003A0D8B /* PointerPrivate.h in Headers */,
 				CD0D974615B8734F003A0D8B /* Space.h in Headers */,
 				CD0D974C15B873A1003A0D8B /* iOS-glue.h in Headers */,
+				CD0C658B15ECF981006DE7F3 /* SuperInterpreter.h in Headers */,
+				CD0C659115ECFADF006DE7F3 /* SuperNetworkMessageTypes.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1214,6 +1228,8 @@
 				CD0D974115B8734F003A0D8B /* Pointer.h in Headers */,
 				CD0D974515B8734F003A0D8B /* PointerPrivate.h in Headers */,
 				CD0D974715B8734F003A0D8B /* Space.h in Headers */,
+				CD0C658C15ECF981006DE7F3 /* SuperInterpreter.h in Headers */,
+				CD0C659215ECFADF006DE7F3 /* SuperNetworkMessageTypes.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1401,6 +1417,7 @@
 				CD0D950815B8727A003A0D8B /* raw_api.c in Sources */,
 				CD0D950915B8727A003A0D8B /* types.c in Sources */,
 				CD0D974D15B873A1003A0D8B /* iOS-glue.m in Sources */,
+				CD0C658D15ECF981006DE7F3 /* SuperInterpreter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1413,6 +1430,7 @@
 				CD0D94CD15B83D1F003A0D8B /* GCDAsyncSocket.m in Sources */,
 				CD0D94D915B84683003A0D8B /* SuperInterpreterClient.m in Sources */,
 				CD0D94DF15B84C21003A0D8B /* SuperNetworkMessage.m in Sources */,
+				CD0C658E15ECF981006DE7F3 /* SuperInterpreter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

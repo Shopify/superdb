@@ -21,23 +21,9 @@
 
 
 #import <Foundation/Foundation.h>
-
-typedef enum {
-	SuperNetworkMessageTypeHandshake,
-	SuperNetworkMessageTypeRequestResponse
-} SuperNetworkMessageType;
+#import "SuperNetworkMessageTypes.h"
 
 
-extern NSString *kSuperNetworkMessageBodyStatusKey;
-extern NSString *kSuperNetworkMessageBodyStatusOK;
-extern NSString *kSuperNetworkMessageBodyStatusError;
-extern NSString *kSuperNetworkMessageBodyErrorMessageKey;
-extern NSString *kSuperNetworkMessageBodyErrorRange;
-extern NSString *kSuperNetworkMessageBodyInputKey;
-extern NSString *kSuperNetworkMessageBodyOutputKey;
-
-extern NSString *kSuperNetworkMessageResourceInterpreter;
-extern NSString *kSuperNetworkMessageResourceSymbolTable;
 
 @interface SuperNetworkMessage : NSObject
 @property (nonatomic, strong) NSDictionary *header;

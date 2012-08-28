@@ -18,7 +18,7 @@
 
 
 typedef void(^SuperInterpreterServicePublishedServiceCallback)(id success, NSDictionary *errorDictionary);
-typedef SuperNetworkMessage *(^SuperInterpreterServiceRequestHandler)(SuperNetworkMessage *request);
+
 
 @interface SuperInterpreterService : NSObject
 
