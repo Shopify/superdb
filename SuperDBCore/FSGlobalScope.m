@@ -21,7 +21,7 @@ void __attribute__ ((constructor)) initializeFSGlobalScope(void)
 
 @implementation FSGlobalScope
 
-+ (FSGlobalScope *) sharedGlobalScope
++ (instancetype)sharedGlobalScope;
 {
   return FSSharedGlobalScope;
 }

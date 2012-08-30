@@ -166,4 +166,9 @@
 - (BOOL)shouldJournal
 { return [executor shouldJournal]; }
 
+
+- (FSExecutor *)executor {
+	return executor;
+}
+
 @end

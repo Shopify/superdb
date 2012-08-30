@@ -12,6 +12,7 @@ extern FSGlobalScope *FSSharedGlobalScope;
   NSMutableDictionary *globals;
 }
 
++ (instancetype)sharedGlobalScope;
 - (id) objectForSymbol:(NSString *)symbol found:(BOOL *)found; // found may be passed as NULL
 - (void) setObject:(id)object forSymbol:(NSString *)symbol;    // object must ne non-nil (current implementation does not support storing nil in the global scope)
 

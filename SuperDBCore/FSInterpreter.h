@@ -24,5 +24,6 @@
 - (BOOL) setJournalName:(NSString *)filename;
 - (void) setShouldJournal:(BOOL)shouldJournal;
 - (BOOL) shouldJournal;
+- (FSExecutor *)executor;
 
 @end

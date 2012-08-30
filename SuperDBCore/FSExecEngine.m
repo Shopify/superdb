@@ -1305,7 +1305,7 @@ id execute_rec(FSCNBase *codeNode, FSSymbolTable *localSymbolTable, NSInteger *e
       }
       
       // Look up globals
-      value = [FSSharedGlobalScope objectForSymbol:identifierString found:&found];
+      value = [[FSGlobalScope sharedGlobalScope] objectForSymbol:identifierString found:&found];
       if (found) return value;
       
       // Look up class names
