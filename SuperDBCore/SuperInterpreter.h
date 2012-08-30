@@ -11,8 +11,6 @@
 
 @class SuperNetworkMessage;
 
-typedef SuperNetworkMessage *(^SuperInterpreterServiceRequestHandler)(SuperNetworkMessage *request);
-
 @interface SuperInterpreter : NSObject
 - (SuperNetworkMessage *)responseForRequest:(SuperNetworkMessage *)requestMessage;
 @end

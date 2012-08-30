@@ -28,6 +28,7 @@ NSString *kSuperNetworkMessageBodyOutputKey = @"output";
 
 NSString *kSuperNetworkMessageResourceInterpreter = @"interpreter";
 NSString *kSuperNetworkMessageResourceSymbolTable = @"smybol_table";
+NSString *kSuperNetworkMessageResourceClassList = @"class_list";
 
 
 @interface SuperNetworkMessage ()

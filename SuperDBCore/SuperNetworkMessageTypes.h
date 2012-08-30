@@ -14,6 +14,10 @@ typedef enum {
 	SuperNetworkMessageTypeRequestResponse
 } SuperNetworkMessageType;
 
+@class SuperNetworkMessage;
+typedef SuperNetworkMessage *(^SuperInterpreterServiceRequestHandler)(SuperNetworkMessage *request);
+
+#pragma mark - Message keys
 
 extern NSString *kSuperNetworkMessageBodyStatusKey;
 extern NSString *kSuperNetworkMessageBodyStatusOK;
@@ -23,7 +27,12 @@ extern NSString *kSuperNetworkMessageBodyErrorRange;
 extern NSString *kSuperNetworkMessageBodyInputKey;
 extern NSString *kSuperNetworkMessageBodyOutputKey;
 
+
+#pragma mark - Resource paths
+
 extern NSString *kSuperNetworkMessageResourceInterpreter;
 extern NSString *kSuperNetworkMessageResourceSymbolTable;
+extern NSString *kSuperNetworkMessageResourceClassList;
+
 
 #endif

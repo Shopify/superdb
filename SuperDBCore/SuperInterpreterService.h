@@ -8,6 +8,8 @@
 //  The main network service
 
 #import <Foundation/Foundation.h>
+#import "SuperNetworkMessageTypes.h"
+
 
 @class SuperInterpreterService;
 @class SuperNetworkMessage;
