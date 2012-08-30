@@ -10,6 +10,8 @@
 #import "GCDAsyncSocket.h"
 #import "JBServicesBrowser.h"
 #import "SuperNetworkMessage.h"
+#import "SuperInterpreter.h"
+
 
 #if TARGET_OS_IPHONE
 #import <UIKit/UIKit.h>
@@ -24,7 +26,7 @@
 @property (nonatomic, strong) NSMutableArray *connectedClients;
 @property (nonatomic, strong) SuperInterpreterServicePublishedServiceCallback publishedServiceCallback;
 @property (nonatomic, strong) NSNetService *publishedService;
-@property (nonatomic, strong) NSMutableDictionary *requestHandlers;
+@property (nonatomic, strong) SuperInterpreter *interpreter;
 
 - (void)writeResponse:(SuperNetworkMessage *)response toClient:(GCDAsyncSocket *)clientSocket;
 
@@ -53,7 +55,6 @@
 	}
 	
 	self.connectedClients = [@[] mutableCopy];
-	self.requestHandlers = [@{} mutableCopy];
 	
 	dispatch_queue_t d = dispatch_get_main_queue();
 	
@@ -116,21 +117,11 @@
 }
 
 
-- (void)addRequestHandlerForResource:(NSString *)resource requestHandler:(SuperInterpreterServiceRequestHandler)requestHandler {
-	if (nil == requestHandler) {
-		NSLog(@"Attempted to add a nil request handler for resource: %@", resource);
-		return;
-	}
-	
-	
-	[self.requestHandlers setObject:[requestHandler copy] forKey:resource];
-	
-}
-
 
 #pragma mark - NSNetServiceDelegate methods
 
 - (void)netServiceDidPublish:(NSNetService *)sender {
+	self.interpreter = [SuperInterpreter new];
 	self.publishedServiceCallback(@"The service was successfully published", nil);
 }
 
@@ -167,13 +158,8 @@
 	
 	SuperNetworkMessage *response = nil;
 	if ([message messageType] == SuperNetworkMessageTypeRequestResponse) {
-		SuperInterpreterServiceRequestHandler handler = [self.requestHandlers objectForKey:[message resource]];
-		NSLog(@"[SERVER]: Going to let a handler try...");
-		if (nil != handler) {
-			response = handler(message);
-		} else {
-			NSLog(@"[SERVER]: No handler for the resource: %@", [message resource]);
-		}
+		
+		response = [self.interpreter responseForRequest:message];
 		
 	} else {
 		// Let the delegate process the message and return a response

@@ -33,6 +33,5 @@ typedef void(^SuperInterpreterServicePublishedServiceCallback)(id success, NSDic
 - (void)publishServiceWithCallback:(SuperInterpreterServicePublishedServiceCallback)callback;
 - (NSString *)serviceName;
 
-- (void)addRequestHandlerForResource:(NSString *)resource requestHandler:(SuperInterpreterServiceRequestHandler)requestHandler;
 
 @end
