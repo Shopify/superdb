@@ -81,6 +81,7 @@
 	
 	[self addRequestHandlerForResource:kSuperNetworkMessageResourceClassList requestHandler:^SuperNetworkMessage *(SuperNetworkMessage *request) {
 		NSArray *classList = classNames();
+		return nil;
 	}];
 }
 
