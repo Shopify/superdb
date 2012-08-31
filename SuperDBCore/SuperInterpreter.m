@@ -13,6 +13,7 @@
 #import "SuperNetworkMessage.h"
 #import "FSInterpreter.h"
 #import "FSMiscTools.h"
+#import "SuperInterpreterObjectBrowser.h"
 
 
 @interface SuperInterpreter ()
@@ -82,6 +83,35 @@
 	[self addRequestHandlerForResource:kSuperNetworkMessageResourceClassList requestHandler:^SuperNetworkMessage *(SuperNetworkMessage *request) {
 		NSArray *classList = classNames();
 		return nil;
+	}];
+	
+	[self addRequestHandlerForResource:kSuperNetworkMessageResourcePropertyList requestHandler:^SuperNetworkMessage *(SuperNetworkMessage *request) {
+		NSMutableDictionary *body = [@{} mutableCopy];
+		NSString *input = [[request body] objectForKey:kSuperNetworkMessageBodyInputKey];
+		SuperInterpreterObjectBrowser *objectBrowser = [SuperInterpreterObjectBrowser new];
+		
+		FSInterpreterResult *result = [weakSelf.interpreter execute:input];
+		
+		
+		
+		
+		if ([result isOK]) {
+			NSLog(@"FSOK: %@", [result result]);
+			id object = [result result];
+			NSArray *properties = [objectBrowser propertiesForObject:object];
+			[body setObject:kSuperNetworkMessageBodyStatusOK forKey:kSuperNetworkMessageBodyStatusKey];
+			[body setObject:properties forKey:kSuperNetworkMessageBodyOutputKey];
+		} else {
+			NSLog(@"FSBAD: %@", [result errorMessage]);
+			[body setObject:kSuperNetworkMessageBodyStatusError forKey:kSuperNetworkMessageBodyStatusKey];
+			[body setObject:[result errorMessage] forKey:kSuperNetworkMessageBodyErrorMessageKey];
+			
+			NSRange range = [result errorRange];
+			[body setObject:NSStringFromRange(range) forKey:kSuperNetworkMessageBodyErrorRange];
+		}
+		
+		SuperNetworkMessage *response = [SuperNetworkMessage messageWithHeader:request.header body:body];
+		return response;
 	}];
 }
 

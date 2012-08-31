@@ -33,6 +33,7 @@ extern NSString *kSuperNetworkMessageBodyOutputKey;
 extern NSString *kSuperNetworkMessageResourceInterpreter;
 extern NSString *kSuperNetworkMessageResourceSymbolTable;
 extern NSString *kSuperNetworkMessageResourceClassList;
+extern NSString *kSuperNetworkMessageResourcePropertyList;
 
 
 #endif
