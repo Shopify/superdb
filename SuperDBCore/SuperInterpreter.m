@@ -41,6 +41,15 @@
 	// Get the app delegate, get its class name, then search that string until "App" is found.
 	// The preceding substring could be the project prefix.
 	// This will be useful for figuring out which classes (likely) belong to the given project.
+	id delegate = [[UIApplication sharedApplication] delegate];
+	NSString *delegateClassName = NSStringFromClass([delegate class]);
+	NSRange appDelegateRange = [delegateClassName rangeOfString:@"App"];
+	
+	if (appDelegateRange.location != NSNotFound) {
+		self.projectPrefix = [delegateClassName substringToIndex:appDelegateRange.location];
+	}
+	
+	NSLog(@"The Project prefix is guessed to be: %@", self.projectPrefix);
 }
 
 
