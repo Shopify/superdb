@@ -48,9 +48,11 @@
 		[sender beginDelayedOutputMode];
 		
 		
-		if ([self isPropertyCommand:input]) {
-			input = [input stringByReplacingOccurrencesOfString:@".prop " withString:@""]; // gross hack until I get real command syntax
-			[self.networkClient requestWithSymbolForProperties:input responseHandler:^(SuperNetworkMessage *response) {
+		if ([self isCommand:input]) {
+			NSString *choppedInput = [self inputFromCommand:input];
+			NSString *choppedCommand = [self commandFromCommand:input];
+			
+			[self.networkClient requestWithCommand:choppedCommand input:choppedInput responseHandler:^(SuperNetworkMessage *response) {
 				if ([[[response body] objectForKey:kSuperNetworkMessageBodyStatusKey] isEqualToString:kSuperNetworkMessageBodyStatusOK]) {
 					NSString *output = [[response body] objectForKey:kSuperNetworkMessageBodyOutputKey];
 					[sender appendOutputWithNewlines:[output description]];
@@ -112,8 +114,19 @@
 }
 
 
-- (BOOL)isPropertyCommand:(NSString *)input {
-	return [input hasPrefix:@".prop"];
+
+- (BOOL)isCommand:(NSString *)input {
+	return [input hasPrefix:@"."];
+}
+
+
+- (NSString *)inputFromCommand:(NSString *)inputCommand {
+	return [inputCommand substringFromIndex:[inputCommand rangeOfString:@" "].location];
+}
+
+
+- (NSString *)commandFromCommand:(NSString *)inputCommand {
+	return [inputCommand substringToIndex:[inputCommand rangeOfString:@" "].location];
 }
 
 
