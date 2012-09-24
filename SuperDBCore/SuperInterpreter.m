@@ -41,7 +41,13 @@
 	// Get the app delegate, get its class name, then search that string until "App" is found.
 	// The preceding substring could be the project prefix.
 	// This will be useful for figuring out which classes (likely) belong to the given project.
-	id delegate = [[UIApplication sharedApplication] delegate];
+	id application = nil;
+#if !TARGET_OS_IPHONE
+	application = [NSApplication sharedApplication];
+#elif TARGET_OS_IPHONE
+	application = [UIApplication sharedApplication];
+#endif
+	id delegate = [application delegate];
 	NSString *delegateClassName = NSStringFromClass([delegate class]);
 	NSRange appDelegateRange = [delegateClassName rangeOfString:@"App"];
 	
@@ -100,7 +106,18 @@
 	
 	[self addRequestHandlerForResource:kSuperNetworkMessageResourceClassList requestHandler:^SuperNetworkMessage *(SuperNetworkMessage *request) {
 		NSArray *classList = classNames();
-		return nil;
+		if ([self.projectPrefix length])
+			classList = [classList filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF like[c] %@", [NSString stringWithFormat:@"%@*", self.projectPrefix]]];
+		
+		NSMutableDictionary *body = [@{} mutableCopy];
+		
+		[body setObject:kSuperNetworkMessageBodyStatusOK forKey:kSuperNetworkMessageBodyStatusKey];
+		[body setObject:classList forKey:kSuperNetworkMessageBodyOutputKey];
+		
+		
+		SuperNetworkMessage *response = [SuperNetworkMessage messageWithHeader:request.header body:body];
+		return response;
+
 	}];
 	
 	[self addRequestHandlerForResource:kSuperNetworkMessageResourcePropertyList requestHandler:^SuperNetworkMessage *(SuperNetworkMessage *request) {

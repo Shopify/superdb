@@ -16,6 +16,7 @@
 #define kHeaderResourceKey @"resource"
 
 static NSArray *headerTypes = nil;
+static NSDictionary *resourceTypes = nil;
 
 NSString *kSuperNetworkMessageBodyStatusKey = @"status";
 NSString *kSuperNetworkMessageBodyStatusOK = @"OK";
@@ -42,6 +43,7 @@ NSString *kSuperNetworkMessageResourcePropertyList = @"property_list";
 + (void)initialize {
 	headerTypes = @[ @"SuperNetworkMessageTypeHandshake",
 					 @"SuperNetworkMessageTypeRequestResponse" ];
+	resourceTypes = @{@".prop" : kSuperNetworkMessageResourcePropertyList, @".classes" : kSuperNetworkMessageResourceClassList};
 }
 
 
@@ -121,6 +123,11 @@ NSString *kSuperNetworkMessageResourcePropertyList = @"property_list";
 	NSDictionary *header = @{ kHeaderTypeKey : typeString, kHeaderResourceKey : resource };
 	
 	return [self messageWithHeader:header body:body];
+}
+
+
++ (NSString *)messageResourceTypeForCommand:(NSString *)command {
+	return resourceTypes[command];
 }
 
 

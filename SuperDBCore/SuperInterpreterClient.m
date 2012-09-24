@@ -57,8 +57,9 @@
 }
 
 
-- (void)requestWithSymbolForProperties:(NSString *)input responseHandler:(SuperInterpreterClientResponseHandler)responseHandler {
-	SuperNetworkMessage *message = [SuperNetworkMessage messageWithResource:kSuperNetworkMessageResourcePropertyList body:@{ kSuperNetworkMessageBodyInputKey : input }];
+- (void)requestWithCommand:(NSString *)command input:(NSString *)input responseHandler:(SuperInterpreterClientResponseHandler)responseHandler {
+	NSString *messageResource = [SuperNetworkMessage messageResourceTypeForCommand:command];
+	SuperNetworkMessage *message = [SuperNetworkMessage messageWithResource:messageResource body:@{ kSuperNetworkMessageBodyInputKey : input }];
 	
 	[self sendMessage:message responseHandler:responseHandler];
 }

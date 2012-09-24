@@ -43,4 +43,6 @@
 + (instancetype)messageWithType:(SuperNetworkMessageType)messageType body:(NSDictionary *)body;
 + (instancetype)messageWithResource:(NSString *)resource body:(NSDictionary *)body;
 
++ (NSString *)messageResourceTypeForCommand:(NSString *)command;
+
 @end
