@@ -57,6 +57,13 @@
 }
 
 
+- (void)requestWithSymbolForProperties:(NSString *)input responseHandler:(SuperInterpreterClientResponseHandler)responseHandler {
+	SuperNetworkMessage *message = [SuperNetworkMessage messageWithResource:kSuperNetworkMessageResourcePropertyList body:@{ kSuperNetworkMessageBodyInputKey : input }];
+	
+	[self sendMessage:message responseHandler:responseHandler];
+}
+
+
 #pragma mark - Private API
 
 - (void)sendMessage:(SuperNetworkMessage *)message responseHandler:(SuperInterpreterClientResponseHandler)responseHandler {

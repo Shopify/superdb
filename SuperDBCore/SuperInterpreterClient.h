@@ -17,5 +17,6 @@ typedef void(^SuperInterpreterClientResponseHandler)(SuperNetworkMessage *respon
 - (void)startNetworkConnectionWithResponseHandler:(SuperInterpreterClientResponseHandler)responseHandler;
 
 - (void)requestWithStringToEvaluate:(NSString *)input responseHandler:(SuperInterpreterClientResponseHandler)responseHandler;
+- (void)requestWithSymbolForProperties:(NSString *)input responseHandler:(SuperInterpreterClientResponseHandler)responseHandler;
 
 @end

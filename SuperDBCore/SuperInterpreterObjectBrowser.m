@@ -15,19 +15,19 @@
 
 - (NSArray *)propertiesForObject:(id)object {
 	NSMutableArray *allProperties = [@[] mutableCopy];
-	Class class = [object classOrMetaclass];
+	Class class = [self classOrMetaClassForObject:object];
 	
 	while (class) {
-		NSUInteger classCount, index;
-		objc_property_t *properties = class_copyPropertyList(class, &classCount);
+		NSUInteger propertyCount, index;
+		objc_property_t *properties = class_copyPropertyList(class, &propertyCount);
 		
 		if (NULL != properties) {
 			
-			for (index = 0; index < classCount; index++) {
+			for (index = 0; index < propertyCount; index++) {
 				NSString *propertyName = [NSString stringWithUTF8String:property_getName(properties[index])];
-				
+				NSLog(@"Adding property for class: %@ %@", NSStringFromClass(class), propertyName);
 				// Property value, currently ignored (might want to use these some day, and instead return a dictionary
-				id propertyValue = [object valueForKey:propertyName];
+				//id propertyValue = [object valueForKey:propertyName];
 				[allProperties addObject:propertyName];
 			}
 			
@@ -39,6 +39,12 @@
 			class = [class superclass];
 		}
 	}
+	return allProperties;
+}
+
+
+- (Class)classOrMetaClassForObject:object {
+	return object_getClass(object);
 }
 
 @end

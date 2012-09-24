@@ -31,6 +31,7 @@
 		self.interpreter = [[FSInterpreter alloc] init];
 		[self guessProjectPrefix];
         [self setupResponseHandlers];
+		[self setupInterpreterEnvironment];
     }
     return self;
 }
@@ -40,6 +41,14 @@
 	// Get the app delegate, get its class name, then search that string until "App" is found.
 	// The preceding substring could be the project prefix.
 	// This will be useful for figuring out which classes (likely) belong to the given project.
+}
+
+
+- (void)setupInterpreterEnvironment {
+	FSInterpreterResult *result = [self.interpreter execute:@"del := UIApplication sharedApplication delegate"];
+	if (![result isOK]) {
+		NSLog(@"ERROR setting up environment: %@", [result errorMessage]);
+	}
 }
 
 
@@ -93,7 +102,7 @@
 		FSInterpreterResult *result = [weakSelf.interpreter execute:input];
 		
 		
-		
+		NSLog(@"[SERVER]: Loading properties for input: %@", input);
 		
 		if ([result isOK]) {
 			NSLog(@"FSOK: %@", [result result]);

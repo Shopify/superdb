@@ -19,7 +19,7 @@
 		CD0D94CB15B83D1F003A0D8B /* GCDAsyncSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = CD0D94C815B83D1F003A0D8B /* GCDAsyncSocket.h */; };
 		CD0D94CC15B83D1F003A0D8B /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0D94C915B83D1F003A0D8B /* GCDAsyncSocket.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		CD0D94CD15B83D1F003A0D8B /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0D94C915B83D1F003A0D8B /* GCDAsyncSocket.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		CD0D94D615B84683003A0D8B /* SuperInterpreterClient.h in Headers */ = {isa = PBXBuildFile; fileRef = CD0D94D415B84683003A0D8B /* SuperInterpreterClient.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CD0D94D615B84683003A0D8B /* SuperInterpreterClient.h in Headers */ = {isa = PBXBuildFile; fileRef = CD0D94D415B84683003A0D8B /* SuperInterpreterClient.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		CD0D94D715B84683003A0D8B /* SuperInterpreterClient.h in Headers */ = {isa = PBXBuildFile; fileRef = CD0D94D415B84683003A0D8B /* SuperInterpreterClient.h */; };
 		CD0D94D815B84683003A0D8B /* SuperInterpreterClient.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0D94D515B84683003A0D8B /* SuperInterpreterClient.m */; };
 		CD0D94D915B84683003A0D8B /* SuperInterpreterClient.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0D94D515B84683003A0D8B /* SuperInterpreterClient.m */; };
@@ -47,7 +47,7 @@
 		CD0D975215B87747003A0D8B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD0D975115B87747003A0D8B /* CoreGraphics.framework */; };
 		CD0D975415B87A38003A0D8B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD0D975315B87A37003A0D8B /* UIKit.framework */; };
 		CD0D975615B87E66003A0D8B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD0D975515B87E66003A0D8B /* CoreData.framework */; };
-		CD40C80B15F0ECCB002E3A58 /* SuperInterpreterObjectBrowser.h in Headers */ = {isa = PBXBuildFile; fileRef = CD40C80915F0ECCB002E3A58 /* SuperInterpreterObjectBrowser.h */; };
+		CD40C80B15F0ECCB002E3A58 /* SuperInterpreterObjectBrowser.h in Headers */ = {isa = PBXBuildFile; fileRef = CD40C80915F0ECCB002E3A58 /* SuperInterpreterObjectBrowser.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		CD40C80C15F0ECCB002E3A58 /* SuperInterpreterObjectBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = CD40C80A15F0ECCB002E3A58 /* SuperInterpreterObjectBrowser.m */; };
 		CD6FF1C615EFC2B100E63391 /* Array.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6FF10115EFC2B100E63391 /* Array.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		CD6FF1C715EFC2B100E63391 /* ArrayPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF10215EFC2B100E63391 /* ArrayPrivate.h */; settings = {ATTRIBUTES = (Private, ); }; };
@@ -243,10 +243,10 @@
 		CD6FF28815EFC2B100E63391 /* PointerPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF1C315EFC2B100E63391 /* PointerPrivate.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		CD6FF28915EFC2B100E63391 /* Space.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF1C415EFC2B100E63391 /* Space.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		CD6FF28A15EFC2B100E63391 /* Space.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6FF1C515EFC2B100E63391 /* Space.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		CD6FF28C15EFC41A00E63391 /* Array_fscript.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF28B15EFC41A00E63391 /* Array_fscript.h */; };
-		CD6FF28E15EFC48C00E63391 /* Number_fscript.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF28D15EFC48C00E63391 /* Number_fscript.h */; };
-		CD6FF29015EFC4BB00E63391 /* Block_fscript.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF28F15EFC4BB00E63391 /* Block_fscript.h */; };
-		CDCD46A015A8DD140070D05C /* JBServicesBrowser.h in Headers */ = {isa = PBXBuildFile; fileRef = CDCD469615A8DD140070D05C /* JBServicesBrowser.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CD6FF28C15EFC41A00E63391 /* Array_fscript.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF28B15EFC41A00E63391 /* Array_fscript.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD6FF28E15EFC48C00E63391 /* Number_fscript.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF28D15EFC48C00E63391 /* Number_fscript.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD6FF29015EFC4BB00E63391 /* Block_fscript.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF28F15EFC4BB00E63391 /* Block_fscript.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CDCD46A015A8DD140070D05C /* JBServicesBrowser.h in Headers */ = {isa = PBXBuildFile; fileRef = CDCD469615A8DD140070D05C /* JBServicesBrowser.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		CDCD46A115A8DD140070D05C /* JBServicesBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = CDCD469715A8DD140070D05C /* JBServicesBrowser.m */; };
 		CDF1AAA615A8D7760038EAB7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDF1AAA515A8D7760038EAB7 /* Foundation.framework */; };
 		CDF1AAAB15A8D7760038EAB7 /* SuperDBCore.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CDF1AAAA15A8D7760038EAB7 /* SuperDBCore.h */; };
@@ -255,7 +255,7 @@
 		CDF1CCEA15B0C83900D36F16 /* SuperDBCore.h in Headers */ = {isa = PBXBuildFile; fileRef = CDF1AAAA15A8D7760038EAB7 /* SuperDBCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CDF1CCEB15B0C9F000D36F16 /* JBServicesBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = CDCD469715A8DD140070D05C /* JBServicesBrowser.m */; };
 		CDF1CCEC15B0C9F800D36F16 /* JBServicesBrowser.h in Headers */ = {isa = PBXBuildFile; fileRef = CDCD469615A8DD140070D05C /* JBServicesBrowser.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		CDF1CD1715B0CDE900D36F16 /* SuperInterpreterService.h in Headers */ = {isa = PBXBuildFile; fileRef = CDF1CD1515B0CDE900D36F16 /* SuperInterpreterService.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CDF1CD1715B0CDE900D36F16 /* SuperInterpreterService.h in Headers */ = {isa = PBXBuildFile; fileRef = CDF1CD1515B0CDE900D36F16 /* SuperInterpreterService.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		CDF1CD1815B0CDE900D36F16 /* SuperInterpreterService.h in Headers */ = {isa = PBXBuildFile; fileRef = CDF1CD1515B0CDE900D36F16 /* SuperInterpreterService.h */; };
 		CDF1CD1915B0CDE900D36F16 /* SuperInterpreterService.m in Sources */ = {isa = PBXBuildFile; fileRef = CDF1CD1615B0CDE900D36F16 /* SuperInterpreterService.m */; };
 		CDF1CD1A15B0CDE900D36F16 /* SuperInterpreterService.m in Sources */ = {isa = PBXBuildFile; fileRef = CDF1CD1615B0CDE900D36F16 /* SuperInterpreterService.m */; };
@@ -1035,11 +1035,11 @@
 				CD6FF28515EFC2B100E63391 /* NumberPrivate.h in Headers */,
 				CD6FF28615EFC2B100E63391 /* Pointer.h in Headers */,
 				CD6FF28815EFC2B100E63391 /* PointerPrivate.h in Headers */,
-				CD6FF28915EFC2B100E63391 /* Space.h in Headers */,
 				CD6FF28C15EFC41A00E63391 /* Array_fscript.h in Headers */,
 				CD6FF28E15EFC48C00E63391 /* Number_fscript.h in Headers */,
 				CD6FF29015EFC4BB00E63391 /* Block_fscript.h in Headers */,
 				CD40C80B15F0ECCB002E3A58 /* SuperInterpreterObjectBrowser.h in Headers */,
+				CD6FF28915EFC2B100E63391 /* Space.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
