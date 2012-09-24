@@ -47,20 +47,43 @@
 		
 		[sender beginDelayedOutputMode];
 		
-		[self.networkClient requestWithStringToEvaluate:input responseHandler:^(SuperNetworkMessage *response) {
-			if ([[[response body] objectForKey:kSuperNetworkMessageBodyStatusKey] isEqualToString:kSuperNetworkMessageBodyStatusOK]) {
-				NSString *output = [[response body] objectForKey:kSuperNetworkMessageBodyOutputKey];
-				[sender appendOutputWithNewlines:output];
-			} else {
-				// there was an error, show it.
-				NSString *errorMessage = [[response body] objectForKey:kSuperNetworkMessageBodyErrorMessageKey];
-				id r = [[response body] objectForKey:kSuperNetworkMessageBodyErrorRange];
-				NSRange range = NSRangeFromString(r);
-				
-				[sender showErrorOutput:errorMessage errorRange:range];
-			}
-			[sender endDelayedOutputMode];
-		}];
+		
+		if ([self isPropertyCommand:input]) {
+			input = [input stringByReplacingOccurrencesOfString:@".prop " withString:@""]; // gross hack until I get real command syntax
+			[self.networkClient requestWithSymbolForProperties:input responseHandler:^(SuperNetworkMessage *response) {
+				if ([[[response body] objectForKey:kSuperNetworkMessageBodyStatusKey] isEqualToString:kSuperNetworkMessageBodyStatusOK]) {
+					NSString *output = [[response body] objectForKey:kSuperNetworkMessageBodyOutputKey];
+					[sender appendOutputWithNewlines:[output description]];
+				} else {
+					// there was an error, show it.
+					NSString *errorMessage = [[response body] objectForKey:kSuperNetworkMessageBodyErrorMessageKey];
+					id r = [[response body] objectForKey:kSuperNetworkMessageBodyErrorRange];
+					NSRange range = NSRangeFromString(r);
+					
+					[sender showErrorOutput:errorMessage errorRange:range];
+				}
+				[sender endDelayedOutputMode];
+			}];
+			
+		} else {
+			[self.networkClient requestWithStringToEvaluate:input responseHandler:^(SuperNetworkMessage *response) {
+				if ([[[response body] objectForKey:kSuperNetworkMessageBodyStatusKey] isEqualToString:kSuperNetworkMessageBodyStatusOK]) {
+					NSString *output = [[response body] objectForKey:kSuperNetworkMessageBodyOutputKey];
+					[sender appendOutputWithNewlines:[output description]];
+				} else {
+					// there was an error, show it.
+					NSString *errorMessage = [[response body] objectForKey:kSuperNetworkMessageBodyErrorMessageKey];
+					id r = [[response body] objectForKey:kSuperNetworkMessageBodyErrorRange];
+					NSRange range = NSRangeFromString(r);
+					
+					[sender showErrorOutput:errorMessage errorRange:range];
+				}
+				[sender endDelayedOutputMode];
+			}];
+		}
+		
+		
+
 	}];
 	
 	[self.shellContainer.shellView setNumberDragHandler:^(id draggedItem) {
@@ -86,6 +109,11 @@
 	[self.colorPanel setContinuous:YES];
 	[self.colorPanel orderFront:self];
 	
+}
+
+
+- (BOOL)isPropertyCommand:(NSString *)input {
+	return [input hasPrefix:@".prop"];
 }
 
 
