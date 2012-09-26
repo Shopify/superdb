@@ -26,6 +26,11 @@
 }
 
 
+- (NSString *)description {
+	return [NSString stringWithFormat:@"Command history:\n%@\nTop command: %@", _stack, [self topCommand]];
+}
+
+
 - (void)addCommand:(NSString *)command forRange:(NSRange)commandRange {
 	
 	NSDictionary *d = @{ kCommandKey : command, kRangeKey : NSStringFromRange(commandRange) };
@@ -41,7 +46,7 @@
 
 
 - (id)moveToLast {
-	_currentCommand = [_stack count] - 1;
+	_currentCommand = [_stack count];// - 1;
 	return self;
 }
 
@@ -55,9 +60,8 @@
 
 
 - (id)moveToNextHistoryCommand {
-	if (_currentCommand < [_stack count] - 1) {
+	if (_currentCommand < [_stack count])
 		_currentCommand++;
-	}
 	return self;
 }
 
@@ -73,7 +77,7 @@
 
 
 - (NSString *)commandAtIndex:(NSUInteger)index {
-	if (index < [_stack count]) {
+	if (index >= [_stack count]) {
 		return nil;
 	}
 	

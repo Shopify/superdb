@@ -579,8 +579,10 @@
 		
 		range = NSMakeRange(_commandStart, [[self string] length] - _commandStart);
 		
+		NSLog(@"Before save: %@", self.commandHistory);
 		[self.commandHistory addCommand:input forRange:range];
 		[self.commandHistory moveToPreviousCommand];
+		NSLog(@"After save: %@", self.commandHistory);
 	}
 }
 
