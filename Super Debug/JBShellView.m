@@ -574,7 +574,7 @@
 	}
 	
 	NSString *input = [[self string] substringFromIndex:_commandStart];
-	if ([input length] > 0  /* && ![input isEqualToString:[self.commandHistory topCommand]] */) {
+	if ([input length] > 0 && ![input isEqualToString:[self.commandHistory topCommand]]) {
 		NSRange range;
 		
 		range = NSMakeRange(_commandStart, [[self string] length] - _commandStart);
@@ -601,7 +601,7 @@
 	
 	self.lastCommandStart = self.commandStart;
 	// Check to see if the command has a length and that it was NOT the last item in the history, and add it
-	if ([input length] > 0 /*&& ![input isEqualToString:[self.commandHistory topCommand]]*/) {
+	if ([input length] > 0 && ![input isEqualToString:[self.commandHistory topCommand]]) {
 		[self.commandHistory addCommand:input forRange:NSMakeRange(self.commandStart, [[self string] length] - self.commandStart)];
 	}
 	
