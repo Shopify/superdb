@@ -148,6 +148,36 @@
 		SuperNetworkMessage *response = [SuperNetworkMessage messageWithHeader:request.header body:body];
 		return response;
 	}];
+	
+	
+	[self addRequestHandlerForResource:kSuperNetworkMessageResourceMethodList requestHandler:^SuperNetworkMessage *(SuperNetworkMessage *request) {
+		NSMutableDictionary *body = [@{} mutableCopy];
+		NSString *input = [[request body] objectForKey:kSuperNetworkMessageBodyInputKey];
+		SuperInterpreterObjectBrowser *objectBrowser = [SuperInterpreterObjectBrowser new];
+		
+		FSInterpreterResult *result = [weakSelf.interpreter execute:input];
+		
+		
+		NSLog(@"[SERVER]: Loading methods for input: %@", input);
+		
+		if ([result isOK]) {
+			NSLog(@"FSOK: %@", [result result]);
+			id object = [result result];
+			NSArray *properties = [objectBrowser methodsForObject:object];
+			[body setObject:kSuperNetworkMessageBodyStatusOK forKey:kSuperNetworkMessageBodyStatusKey];
+			[body setObject:properties forKey:kSuperNetworkMessageBodyOutputKey];
+		} else {
+			NSLog(@"FSBAD: %@", [result errorMessage]);
+			[body setObject:kSuperNetworkMessageBodyStatusError forKey:kSuperNetworkMessageBodyStatusKey];
+			[body setObject:[result errorMessage] forKey:kSuperNetworkMessageBodyErrorMessageKey];
+			
+			NSRange range = [result errorRange];
+			[body setObject:NSStringFromRange(range) forKey:kSuperNetworkMessageBodyErrorRange];
+		}
+		
+		SuperNetworkMessage *response = [SuperNetworkMessage messageWithHeader:request.header body:body];
+		return response;
+	}];
 }
 
 

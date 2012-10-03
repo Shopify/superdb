@@ -43,8 +43,38 @@
 }
 
 
+- (NSArray *)methodsForObject:(id)object {
+	// Iterate and grab all the instance methods for an object, then do so again for its superclass, and so on.
+	NSMutableArray *allMethods = [@[] mutableCopy];
+	Class objClass = [self classOrMetaClassForObject:object]; // could be a metaClass (i.e., if `object` isa Class)
+	while (objClass) {
+		NSUInteger methodCount, index;
+		Method *methods = class_copyMethodList(objClass, &methodCount);
+		
+		if (NULL != methods) {
+			for (index = 0; index < methodCount; index++) {
+				NSString *methodName = NSStringFromSelector(method_getName(methods[index]));
+				NSLog(@"Adding method for class: %@ %@", NSStringFromClass(objClass), methodName);
+				
+				[allMethods addObject:methodName];
+			}
+			
+			free(methods);
+		}
+		
+		if (objClass == [objClass superclass]) {
+			objClass = nil;
+		} else {
+			objClass = [objClass superclass];
+		}
+	}
+	return allMethods;
+}
+
+
 - (Class)classOrMetaClassForObject:object {
 	return object_getClass(object);
 }
+
 
 @end

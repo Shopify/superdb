@@ -10,4 +10,5 @@
 
 @interface SuperInterpreterObjectBrowser : NSObject
 - (NSArray *)propertiesForObject:(id)object;
+- (NSArray *)methodsForObject:(id)object; // `object` could be a Class, too.
 @end

@@ -34,6 +34,7 @@ extern NSString *kSuperNetworkMessageResourceInterpreter;
 extern NSString *kSuperNetworkMessageResourceSymbolTable;
 extern NSString *kSuperNetworkMessageResourceClassList;
 extern NSString *kSuperNetworkMessageResourcePropertyList;
+extern NSString *kSuperNetworkMessageResourceMethodList;
 
 
 #endif

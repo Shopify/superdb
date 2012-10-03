@@ -31,6 +31,7 @@ NSString *kSuperNetworkMessageResourceInterpreter = @"interpreter";
 NSString *kSuperNetworkMessageResourceSymbolTable = @"smybol_table";
 NSString *kSuperNetworkMessageResourceClassList = @"class_list";
 NSString *kSuperNetworkMessageResourcePropertyList = @"property_list";
+NSString *kSuperNetworkMessageResourceMethodList = @"method_list";
 
 
 @interface SuperNetworkMessage ()
@@ -43,7 +44,9 @@ NSString *kSuperNetworkMessageResourcePropertyList = @"property_list";
 + (void)initialize {
 	headerTypes = @[ @"SuperNetworkMessageTypeHandshake",
 					 @"SuperNetworkMessageTypeRequestResponse" ];
-	resourceTypes = @{@".prop" : kSuperNetworkMessageResourcePropertyList, @".classes" : kSuperNetworkMessageResourceClassList};
+	resourceTypes = @{	@".prop" : kSuperNetworkMessageResourcePropertyList,
+						@".classes" : kSuperNetworkMessageResourceClassList,
+						@".methods" : kSuperNetworkMessageResourceMethodList};
 }
 
 
