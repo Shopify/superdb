@@ -121,12 +121,16 @@
 
 
 - (NSString *)inputFromCommand:(NSString *)inputCommand {
-	return [inputCommand substringFromIndex:[inputCommand rangeOfString:@" "].location];
+	NSArray *words = [inputCommand componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+	return [words lastObject];
 }
 
 
 - (NSString *)commandFromCommand:(NSString *)inputCommand {
-	return [inputCommand substringToIndex:[inputCommand rangeOfString:@" "].location];
+	NSArray *words = [inputCommand componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+	if (![words count])
+		return @"";
+	return words[0];
 }
 
 
