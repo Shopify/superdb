@@ -49,6 +49,8 @@
 		CD0D975615B87E66003A0D8B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD0D975515B87E66003A0D8B /* CoreData.framework */; };
 		CD40C80B15F0ECCB002E3A58 /* SuperInterpreterObjectBrowser.h in Headers */ = {isa = PBXBuildFile; fileRef = CD40C80915F0ECCB002E3A58 /* SuperInterpreterObjectBrowser.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		CD40C80C15F0ECCB002E3A58 /* SuperInterpreterObjectBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = CD40C80A15F0ECCB002E3A58 /* SuperInterpreterObjectBrowser.m */; };
+		CD6BF728161FD99D00B8FBB0 /* SuperJSTP.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6BF726161FD99D00B8FBB0 /* SuperJSTP.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD6BF729161FD99D00B8FBB0 /* SuperJSTP.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6BF727161FD99D00B8FBB0 /* SuperJSTP.m */; };
 		CD6FF1C615EFC2B100E63391 /* Array.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6FF10115EFC2B100E63391 /* Array.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		CD6FF1C715EFC2B100E63391 /* ArrayPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF10215EFC2B100E63391 /* ArrayPrivate.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		CD6FF1C815EFC2B100E63391 /* ArrayRep.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF10315EFC2B100E63391 /* ArrayRep.h */; settings = {ATTRIBUTES = (Private, ); }; };
@@ -308,6 +310,8 @@
 		CD0D975515B87E66003A0D8B /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		CD40C80915F0ECCB002E3A58 /* SuperInterpreterObjectBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuperInterpreterObjectBrowser.h; sourceTree = "<group>"; };
 		CD40C80A15F0ECCB002E3A58 /* SuperInterpreterObjectBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuperInterpreterObjectBrowser.m; sourceTree = "<group>"; };
+		CD6BF726161FD99D00B8FBB0 /* SuperJSTP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuperJSTP.h; sourceTree = "<group>"; };
+		CD6BF727161FD99D00B8FBB0 /* SuperJSTP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuperJSTP.m; sourceTree = "<group>"; };
 		CD6FF10115EFC2B100E63391 /* Array.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Array.m; sourceTree = "<group>"; };
 		CD6FF10215EFC2B100E63391 /* ArrayPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArrayPrivate.h; sourceTree = "<group>"; };
 		CD6FF10315EFC2B100E63391 /* ArrayRep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArrayRep.h; sourceTree = "<group>"; };
@@ -815,6 +819,8 @@
 				CDCD469D15A8DD140070D05C /* JBMessage.m */,
 				CD0D94C815B83D1F003A0D8B /* GCDAsyncSocket.h */,
 				CD0D94C915B83D1F003A0D8B /* GCDAsyncSocket.m */,
+				CD6BF726161FD99D00B8FBB0 /* SuperJSTP.h */,
+				CD6BF727161FD99D00B8FBB0 /* SuperJSTP.m */,
 				CDF1CD1515B0CDE900D36F16 /* SuperInterpreterService.h */,
 				CDF1CD1615B0CDE900D36F16 /* SuperInterpreterService.m */,
 				CD0D94D415B84683003A0D8B /* SuperInterpreterClient.h */,
@@ -1040,6 +1046,7 @@
 				CD6FF29015EFC4BB00E63391 /* Block_fscript.h in Headers */,
 				CD40C80B15F0ECCB002E3A58 /* SuperInterpreterObjectBrowser.h in Headers */,
 				CD6FF28915EFC2B100E63391 /* Space.h in Headers */,
+				CD6BF728161FD99D00B8FBB0 /* SuperJSTP.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1244,6 +1251,7 @@
 				CD6FF28715EFC2B100E63391 /* Pointer.m in Sources */,
 				CD6FF28A15EFC2B100E63391 /* Space.m in Sources */,
 				CD40C80C15F0ECCB002E3A58 /* SuperInterpreterObjectBrowser.m in Sources */,
+				CD6BF729161FD99D00B8FBB0 /* SuperJSTP.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

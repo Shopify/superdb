@@ -9,7 +9,7 @@
 
 #import <Foundation/Foundation.h>
 #import "SuperNetworkMessageTypes.h"
-
+#import "SuperJSTP.h"
 
 @class SuperInterpreterService;
 @class SuperNetworkMessage;
@@ -22,7 +22,7 @@
 typedef void(^SuperInterpreterServicePublishedServiceCallback)(id success, NSDictionary *errorDictionary);
 
 
-@interface SuperInterpreterService : NSObject
+@interface SuperInterpreterService : SuperJSTP
 
 @property (nonatomic, assign) NSUInteger maximumConnectedClients; // defaults to NSUIntegerMax
 @property (nonatomic, weak) id<SuperInterpreterServiceDelegate> delegate;

@@ -7,11 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "SuperJSTP.h"
+
 
 @class SuperNetworkMessage;
 typedef void(^SuperInterpreterClientResponseHandler)(SuperNetworkMessage *response);
 
-@interface SuperInterpreterClient : NSObject
+@interface SuperInterpreterClient : SuperJSTP
 
 - (id)initWithHostData:(NSData *)hostData;
 - (void)startNetworkConnectionWithResponseHandler:(SuperInterpreterClientResponseHandler)responseHandler;

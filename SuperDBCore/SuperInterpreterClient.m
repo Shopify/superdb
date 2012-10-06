@@ -12,7 +12,6 @@
 #import "SuperNetworkMessageTypes.h"
 
 #define kIdentifierLimit 5000
-#define kMessageSentTag 9000
 
 
 @interface SuperInterpreterClient () <GCDAsyncSocketDelegate>
@@ -72,27 +71,16 @@
 - (void)sendMessage:(SuperNetworkMessage *)message responseHandler:(SuperInterpreterClientResponseHandler)responseHandler {
 	
 	// write the data
-	NSData *packetData = [self packetDataForMessage:[message JSONData]];
-	[self.clientSocket writeData:packetData withTimeout:kNoTimeout tag:kMessageSentTag];
+	[self writeMessageData:[message JSONData] toSocket:self.clientSocket];
 	
 	// Store the response handler and queue up a read
 	
+	// TODO: I need a way to properly queue these up. If another message gets sent, that bumps out this response handler.
+	// That's bad. This should be in a queue, dequeue'd when the read happens.
 	[self.messageResponseHandlers setObject:[responseHandler copy] forKey:@(kJSTPBodyTag)];
 	[self.clientSocket readDataWithTimeout:kNoTimeout tag:kJSTPHeaderTag];
 }
 
-
-- (NSData *)packetDataForMessage:(NSData *)messageData {
-	NSString *contentLength = [NSString stringWithFormat:@"%@ %lu", @"Content-Length:", (long unsigned)[messageData length]];
-	NSString *headers = [NSString stringWithFormat:@"%@%@", contentLength, kCRLFCRLF];
-	NSData *headerData = [headers dataUsingEncoding:NSUTF8StringEncoding];
-	
-	NSMutableData *packet = [NSMutableData dataWithCapacity:([messageData length] + [headerData length])];
-	[packet appendData:headerData];
-	[packet appendData:messageData];
-	
-	return packet;
-}
 
 
 #pragma mark - GCDAsyncSocketDelegate methods
@@ -104,42 +92,6 @@
 	// Send the handshake message
 	SuperNetworkMessage *message = [SuperNetworkMessage messageWithType:SuperNetworkMessageTypeHandshake body:@{}];
 	[self sendMessage:message responseHandler:self.connectionResponseHandler];
-}
-
-
-- (void)socket:(GCDAsyncSocket *)sock didReadData:(NSData *)data withTag:(long)tag {
-	NSLog(@"[CLIENT] Read message with identifier tag: %lu", tag);
-	
-	if (kJSTPHeaderTag == tag) {
-		// Read in the header to figure out how many bytes ahead we have to read
-		NSUInteger bodyLength = [self parseJSTPHeader:data];
-		[sock readDataToLength:bodyLength withTimeout:kNoTimeout tag:kJSTPBodyTag];
-	} else if (kJSTPBodyTag == tag) {
-		
-		[self processJSTPBodyData:data];
-		
-		// enqueue a read for the next header
-		NSData *headerSeperator = [kCRLFCRLF dataUsingEncoding:NSUTF8StringEncoding];
-		[sock readDataToData:headerSeperator withTimeout:kNoTimeout tag:kJSTPHeaderTag];
-	}
-	
-
-}
-
-
-- (NSUInteger)parseJSTPHeader:(NSData *)header {
-	NSString *headerString = [[NSString alloc] initWithData:header encoding:NSUTF8StringEncoding];
-	NSArray *headers = [headerString componentsSeparatedByString:@"\r\n"];
-	
-	for (NSString *header in headers) {
-		NSRange keyRange = [header rangeOfString:@"Content-Lenght: "];
-		if (keyRange.location != NSNotFound) {
-			NSLog(@"Found content length header!");
-			return (NSUInteger)[[header substringFromIndex:NSMaxRange(keyRange)] integerValue];
-		}
-	}
-	
-	return -1;
 }
 
 
