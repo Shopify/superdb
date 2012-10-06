@@ -90,7 +90,12 @@
 	// Store the response handler and queue up a read
 	[self enqueueResponseHandler:responseHandler];
 
-	[self.clientSocket readDataWithTimeout:kNoTimeout tag:kJSTPHeaderTag];
+	
+}
+
+
+- (void)socket:(GCDAsyncSocket *)sock didWriteDataWithTag:(long)tag {
+	NSLog(@"[CLIENT]: Did write data with tag: %ld", tag);
 }
 
 
@@ -104,6 +109,7 @@
 	// Send the handshake message
 	SuperNetworkMessage *message = [SuperNetworkMessage messageWithType:SuperNetworkMessageTypeHandshake body:@{}];
 	[self sendMessage:message responseHandler:self.connectionResponseHandler];
+	[self readOnSocketToHeaderSeparator:self.clientSocket];
 }
 
 

@@ -140,7 +140,8 @@
 	
 	[self.connectedClients addObject:newSocket];
 	NSLog(@"Server: Reading from new client socket.");
-	[newSocket readDataWithTimeout:kNoTimeout tag:kJSTPHeaderTag];
+	
+	[self readOnSocketToHeaderSeparator:newSocket];
 	
 }
 

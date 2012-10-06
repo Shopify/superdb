@@ -15,5 +15,6 @@
 - (NSData *)dataByProcessingJSTPBodyData:(NSData *)body; // Returning nil means no response message needs to be sent.
 - (NSData *)packetDataForMessage:(NSData *)messageData;
 - (void)writeMessageData:(NSData *)data toSocket:(GCDAsyncSocket *)socket;
+- (void)readOnSocketToHeaderSeparator:(GCDAsyncSocket *)socket;
 
 @end

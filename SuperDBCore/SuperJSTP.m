@@ -46,6 +46,10 @@
 	[packet appendData:headerData];
 	[packet appendData:messageData];
 	
+	
+	NSString *fullPacket = [[NSString alloc] initWithData:packet encoding:NSUTF8StringEncoding];
+	NSLog(@"FULL DATA TO BE WRITTEN: %@", fullPacket);
+	
 	return packet;
 }
 
@@ -56,16 +60,25 @@
 }
 
 
+- (void)readOnSocketToHeaderSeparator:(GCDAsyncSocket *)socket {
+	NSData *headerSeperator = [kCRLFCRLF dataUsingEncoding:NSUTF8StringEncoding];
+	[socket readDataToData:headerSeperator withTimeout:kNoTimeout tag:kJSTPHeaderTag];
+}
+
+
 #pragma mark - GCDAsyncSocketDelegate methods
 
 - (void)socket:(GCDAsyncSocket *)sock didReadData:(NSData *)data withTag:(long)tag {
 	
 	if (kJSTPHeaderTag == tag) {
+		
 		// Read in the header to figure out how many bytes ahead we have to read
 		NSUInteger bodyLength = [self contentLengthFromHeaderData:data];
 		NSLog(@"CONTENT BODY LENGTH: %lu", (unsigned long)bodyLength);
 		[sock readDataToLength:bodyLength withTimeout:kNoTimeout tag:kJSTPBodyTag];
+		
 	} else if (kJSTPBodyTag == tag) {
+		
 		NSLog(@"ACTUAL BODY LENGTH: %lu", (unsigned long)[data length]);
 		NSData *response = [self dataByProcessingJSTPBodyData:data];
 		if (response) {
@@ -73,8 +86,7 @@
 		}
 		
 		// enqueue a read for the next header
-		NSData *headerSeperator = [kCRLFCRLF dataUsingEncoding:NSUTF8StringEncoding];
-		[sock readDataToData:headerSeperator withTimeout:kNoTimeout tag:kJSTPHeaderTag];
+		[self readOnSocketToHeaderSeparator:sock];
 	}
 }
 

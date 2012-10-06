@@ -17,8 +17,8 @@
 		CD0D94C215B8389A003A0D8B /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD0D94C115B8389A003A0D8B /* Security.framework */; };
 		CD0D94CA15B83D1F003A0D8B /* GCDAsyncSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = CD0D94C815B83D1F003A0D8B /* GCDAsyncSocket.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		CD0D94CB15B83D1F003A0D8B /* GCDAsyncSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = CD0D94C815B83D1F003A0D8B /* GCDAsyncSocket.h */; };
-		CD0D94CC15B83D1F003A0D8B /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0D94C915B83D1F003A0D8B /* GCDAsyncSocket.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
-		CD0D94CD15B83D1F003A0D8B /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0D94C915B83D1F003A0D8B /* GCDAsyncSocket.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CD0D94CC15B83D1F003A0D8B /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0D94C915B83D1F003A0D8B /* GCDAsyncSocket.m */; };
+		CD0D94CD15B83D1F003A0D8B /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0D94C915B83D1F003A0D8B /* GCDAsyncSocket.m */; };
 		CD0D94D615B84683003A0D8B /* SuperInterpreterClient.h in Headers */ = {isa = PBXBuildFile; fileRef = CD0D94D415B84683003A0D8B /* SuperInterpreterClient.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		CD0D94D715B84683003A0D8B /* SuperInterpreterClient.h in Headers */ = {isa = PBXBuildFile; fileRef = CD0D94D415B84683003A0D8B /* SuperInterpreterClient.h */; };
 		CD0D94D815B84683003A0D8B /* SuperInterpreterClient.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0D94D515B84683003A0D8B /* SuperInterpreterClient.m */; };
