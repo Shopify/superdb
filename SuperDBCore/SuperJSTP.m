@@ -11,6 +11,8 @@
 
 #define kMessageSentTag 9000
 
+NSString *const kContentLengthKey = @"Content-Length: ";
+
 @implementation SuperJSTP
 
 
@@ -19,9 +21,8 @@
 	NSArray *headers = [headerString componentsSeparatedByString:kCRLF];
 	
 	for (NSString *header in headers) {
-		NSRange keyRange = [header rangeOfString:@"Content-Length: "];
+		NSRange keyRange = [header rangeOfString:kContentLengthKey];
 		if (keyRange.location != NSNotFound) {
-			NSLog(@"Found content length header: %@", header);
 			return (NSUInteger)[[header substringFromIndex:NSMaxRange(keyRange)] integerValue];
 		}
 	}
@@ -37,7 +38,7 @@
 
 
 - (NSData *)packetDataForMessage:(NSData *)messageData {
-	NSString *contentLength = [NSString stringWithFormat:@"%@ %lu", @"Content-Length:", (long unsigned)[messageData length]];
+	NSString *contentLength = [NSString stringWithFormat:@"%@%lu", kContentLengthKey, (long unsigned)[messageData length]];
 	NSLog(@"Writing content length of: %@", contentLength);
 	NSString *headers = [NSString stringWithFormat:@"%@%@", contentLength, kCRLFCRLF];
 	NSData *headerData = [headers dataUsingEncoding:NSUTF8StringEncoding];
@@ -46,9 +47,6 @@
 	[packet appendData:headerData];
 	[packet appendData:messageData];
 	
-	
-	NSString *fullPacket = [[NSString alloc] initWithData:packet encoding:NSUTF8StringEncoding];
-	NSLog(@"FULL DATA TO BE WRITTEN: %@", fullPacket);
 	
 	return packet;
 }
