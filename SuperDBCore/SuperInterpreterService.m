@@ -113,7 +113,7 @@
 
 
 - (void)writeResponse:(SuperNetworkMessage *)response toClient:(GCDAsyncSocket *)clientSocket {
-	[clientSocket writeData:[response JSONData] withTimeout:-1 tag:kClientSocketWriteTag];
+	[self writeMessageData:[response JSONData] toSocket:clientSocket];
 }
 
 
@@ -140,21 +140,16 @@
 	
 	[self.connectedClients addObject:newSocket];
 	NSLog(@"Server: Reading from new client socket.");
-	[newSocket readDataWithTimeout:-1 tag:kClientSocketReadTag];
+	[newSocket readDataWithTimeout:kNoTimeout tag:kJSTPHeaderTag];
 	
 }
 
 
-- (void)socket:(GCDAsyncSocket *)sock didReadData:(NSData *)data withTag:(long)tag {
-	if (tag != kClientSocketReadTag) {
-		NSLog(@"[SERVER]: Trying to read for an unknown tag...returning: %lu", tag);
-		return;
-	}
-	
+- (NSData *)dataByProcessingJSTPBodyData:(NSData *)body {
 	NSLog(@"[SERVER]: Going to read socket data!");
 	
 	// Read the object
-	SuperNetworkMessage *message = [SuperNetworkMessage messageWithJSONData:data];
+	SuperNetworkMessage *message = [SuperNetworkMessage messageWithJSONData:body];
 	
 	SuperNetworkMessage *response = nil;
 	if ([message messageType] == SuperNetworkMessageTypeRequestResponse) {
@@ -167,11 +162,7 @@
 		response = [self.delegate responseMessageByProcessingRequestMessage:message];
 	}
 	
-	[self writeResponse:response toClient:sock];
-	
-	// Queue up the next read
-	[sock readDataWithTimeout:-1 tag:kClientSocketReadTag];
-	
+	return [response JSONData];
 }
 
 

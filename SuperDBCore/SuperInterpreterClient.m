@@ -107,7 +107,7 @@
 }
 
 
-- (void)processJSTPBodyData:(NSData *)body {
+- (NSData *)dataByProcessingJSTPBodyData:(NSData *)body {
 	SuperInterpreterClientResponseHandler responseHandler = [self dequeueResponseHandler];
 	
 	if (nil != responseHandler) {
@@ -118,6 +118,8 @@
 	} else {
 		NSLog(@"[CLIENT]: No client response handler to execute");
 	}
+	
+	return nil;
 }
 
 @end

@@ -21,7 +21,7 @@
 	for (NSString *header in headers) {
 		NSRange keyRange = [header rangeOfString:@"Content-Length: "];
 		if (keyRange.location != NSNotFound) {
-			NSLog(@"Found content length header!");
+			NSLog(@"Found content length header: %@", header);
 			return (NSUInteger)[[header substringFromIndex:NSMaxRange(keyRange)] integerValue];
 		}
 	}
@@ -30,13 +30,15 @@
 }
 
 
-- (void)processJSTPBodyData:(NSData *)body {
+- (NSData *)dataByProcessingJSTPBodyData:(NSData *)body {
 	[NSException raise:@"[SuperJSTP processJSTPBodyData:] No implementation!! Subclass must implement this" format:@""];
+	return nil;
 }
 
 
 - (NSData *)packetDataForMessage:(NSData *)messageData {
 	NSString *contentLength = [NSString stringWithFormat:@"%@ %lu", @"Content-Length:", (long unsigned)[messageData length]];
+	NSLog(@"Writing content length of: %@", contentLength);
 	NSString *headers = [NSString stringWithFormat:@"%@%@", contentLength, kCRLFCRLF];
 	NSData *headerData = [headers dataUsingEncoding:NSUTF8StringEncoding];
 	
@@ -61,10 +63,14 @@
 	if (kJSTPHeaderTag == tag) {
 		// Read in the header to figure out how many bytes ahead we have to read
 		NSUInteger bodyLength = [self contentLengthFromHeaderData:data];
+		NSLog(@"CONTENT BODY LENGTH: %lu", (unsigned long)bodyLength);
 		[sock readDataToLength:bodyLength withTimeout:kNoTimeout tag:kJSTPBodyTag];
 	} else if (kJSTPBodyTag == tag) {
-		
-		[self processJSTPBodyData:data];
+		NSLog(@"ACTUAL BODY LENGTH: %lu", (unsigned long)[data length]);
+		NSData *response = [self dataByProcessingJSTPBodyData:data];
+		if (response) {
+			[self writeMessageData:response toSocket:sock];
+		}
 		
 		// enqueue a read for the next header
 		NSData *headerSeperator = [kCRLFCRLF dataUsingEncoding:NSUTF8StringEncoding];

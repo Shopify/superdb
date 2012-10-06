@@ -51,6 +51,8 @@
 		CD40C80C15F0ECCB002E3A58 /* SuperInterpreterObjectBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = CD40C80A15F0ECCB002E3A58 /* SuperInterpreterObjectBrowser.m */; };
 		CD6BF728161FD99D00B8FBB0 /* SuperJSTP.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6BF726161FD99D00B8FBB0 /* SuperJSTP.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		CD6BF729161FD99D00B8FBB0 /* SuperJSTP.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6BF727161FD99D00B8FBB0 /* SuperJSTP.m */; };
+		CD6BF72A161FF01000B8FBB0 /* SuperJSTP.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6BF727161FD99D00B8FBB0 /* SuperJSTP.m */; };
+		CD6BF72B161FF02000B8FBB0 /* SuperJSTP.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6BF726161FD99D00B8FBB0 /* SuperJSTP.h */; };
 		CD6FF1C615EFC2B100E63391 /* Array.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6FF10115EFC2B100E63391 /* Array.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		CD6FF1C715EFC2B100E63391 /* ArrayPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF10215EFC2B100E63391 /* ArrayPrivate.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		CD6FF1C815EFC2B100E63391 /* ArrayRep.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF10315EFC2B100E63391 /* ArrayRep.h */; settings = {ATTRIBUTES = (Private, ); }; };
@@ -1056,6 +1058,7 @@
 			files = (
 				CDF1CCEA15B0C83900D36F16 /* SuperDBCore.h in Headers */,
 				CDF1CCEC15B0C9F800D36F16 /* JBServicesBrowser.h in Headers */,
+				CD6BF72B161FF02000B8FBB0 /* SuperJSTP.h in Headers */,
 				CDF1CD1815B0CDE900D36F16 /* SuperInterpreterService.h in Headers */,
 				CD0D94CB15B83D1F003A0D8B /* GCDAsyncSocket.h in Headers */,
 				CD0D94D715B84683003A0D8B /* SuperInterpreterClient.h in Headers */,
@@ -1259,6 +1262,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CD6BF72A161FF01000B8FBB0 /* SuperJSTP.m in Sources */,
 				CDF1CCEB15B0C9F000D36F16 /* JBServicesBrowser.m in Sources */,
 				CDF1CD1A15B0CDE900D36F16 /* SuperInterpreterService.m in Sources */,
 				CD0D94CD15B83D1F003A0D8B /* GCDAsyncSocket.m in Sources */,

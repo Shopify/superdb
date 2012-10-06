@@ -12,7 +12,7 @@
 @interface SuperJSTP : NSObject <GCDAsyncSocketDelegate>
 
 - (NSUInteger)contentLengthFromHeaderData:(NSData *)header;
-- (void)processJSTPBodyData:(NSData *)body;
+- (NSData *)dataByProcessingJSTPBodyData:(NSData *)body; // Returning nil means no response message needs to be sent.
 - (NSData *)packetDataForMessage:(NSData *)messageData;
 - (void)writeMessageData:(NSData *)data toSocket:(GCDAsyncSocket *)socket;
 
