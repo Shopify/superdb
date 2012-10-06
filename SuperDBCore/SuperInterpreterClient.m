@@ -18,7 +18,7 @@
 @property (nonatomic, strong) NSData *hostData;
 @property (nonatomic, strong) GCDAsyncSocket *clientSocket;
 @property (nonatomic, copy) SuperInterpreterClientResponseHandler connectionResponseHandler;
-@property (nonatomic, strong) NSMutableDictionary *messageResponseHandlers;
+@property (nonatomic, strong) NSMutableArray *messageResponseHandlerQueue;
 @end
 
 
@@ -28,7 +28,7 @@
 - (id)initWithHostData:(NSData *)hostData {
 	if ((self = [super init])) {
 		self.hostData = hostData;
-		self.messageResponseHandlers = [@{} mutableCopy];
+		self.messageResponseHandlerQueue = [@[] mutableCopy];
 		self.clientSocket = [[GCDAsyncSocket alloc] initWithDelegate:self delegateQueue:dispatch_get_main_queue()];
 	}
 	
@@ -66,6 +66,20 @@
 }
 
 
+#pragma mark - Queue methods
+
+- (void)enqueueResponseHandler:(SuperInterpreterClientResponseHandler)responseHandler {
+	[self.messageResponseHandlerQueue insertObject:[responseHandler copy] atIndex:0];
+}
+
+
+- (SuperInterpreterClientResponseHandler)dequeueResponseHandler {
+	id dequeued = [self.messageResponseHandlerQueue lastObject];
+	[self.messageResponseHandlerQueue removeLastObject];
+	return dequeued;
+}
+
+
 #pragma mark - Private API
 
 - (void)sendMessage:(SuperNetworkMessage *)message responseHandler:(SuperInterpreterClientResponseHandler)responseHandler {
@@ -74,10 +88,8 @@
 	[self writeMessageData:[message JSONData] toSocket:self.clientSocket];
 	
 	// Store the response handler and queue up a read
-	
-	// TODO: I need a way to properly queue these up. If another message gets sent, that bumps out this response handler.
-	// That's bad. This should be in a queue, dequeue'd when the read happens.
-	[self.messageResponseHandlers setObject:[responseHandler copy] forKey:@(kJSTPBodyTag)];
+	[self enqueueResponseHandler:responseHandler];
+
 	[self.clientSocket readDataWithTimeout:kNoTimeout tag:kJSTPHeaderTag];
 }
 
@@ -96,14 +108,11 @@
 
 
 - (void)processJSTPBodyData:(NSData *)body {
-	SuperInterpreterClientResponseHandler responseHandler = [self.messageResponseHandlers objectForKey:@(kJSTPBodyTag)];
+	SuperInterpreterClientResponseHandler responseHandler = [self dequeueResponseHandler];
 	
 	if (nil != responseHandler) {
 		SuperNetworkMessage *message = [SuperNetworkMessage messageWithJSONData:body];
 		[message log];
-		
-		// Remove the handler before we use it, to avoid any problems that might arrise if the handler itself sends a new message.
-		[self.messageResponseHandlers removeObjectForKey:@(kJSTPBodyTag)];
 		responseHandler(message);
 		
 	} else {
