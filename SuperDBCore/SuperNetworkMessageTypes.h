@@ -36,5 +36,13 @@ extern NSString *kSuperNetworkMessageResourceClassList;
 extern NSString *kSuperNetworkMessageResourcePropertyList;
 extern NSString *kSuperNetworkMessageResourceMethodList;
 
+#pragma mark - JSTP defines
+#define kJSTPHeaderTag 6000
+#define kJSTPBodyTag 6001
+
+#define kNoTimeout (-1)
+#define kCRLF @"\r\n"
+#define kCRLFCRLF @"\r\n\r\n"
+
 
 #endif
