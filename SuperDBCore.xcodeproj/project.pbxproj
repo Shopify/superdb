@@ -252,6 +252,8 @@
 		CD6FF29015EFC4BB00E63391 /* Block_fscript.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF28F15EFC4BB00E63391 /* Block_fscript.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		CDCD46A015A8DD140070D05C /* JBServicesBrowser.h in Headers */ = {isa = PBXBuildFile; fileRef = CDCD469615A8DD140070D05C /* JBServicesBrowser.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CDCD46A115A8DD140070D05C /* JBServicesBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = CDCD469715A8DD140070D05C /* JBServicesBrowser.m */; };
+		CDDC9F8916224697006883CE /* Geometry.h in Headers */ = {isa = PBXBuildFile; fileRef = CDDC9F8716224697006883CE /* Geometry.h */; };
+		CDDC9F8A16224697006883CE /* Geometry.m in Sources */ = {isa = PBXBuildFile; fileRef = CDDC9F8816224697006883CE /* Geometry.m */; };
 		CDF1AAA615A8D7760038EAB7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDF1AAA515A8D7760038EAB7 /* Foundation.framework */; };
 		CDF1AAAB15A8D7760038EAB7 /* SuperDBCore.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CDF1AAAA15A8D7760038EAB7 /* SuperDBCore.h */; };
 		CDF1AABE15A8D9240038EAB7 /* SuperDBCore.h in Headers */ = {isa = PBXBuildFile; fileRef = CDF1AAAA15A8D7760038EAB7 /* SuperDBCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -519,6 +521,8 @@
 		CDCD469B15A8DD140070D05C /* JBAuctionClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBAuctionClient.m; sourceTree = "<group>"; };
 		CDCD469C15A8DD140070D05C /* JBMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBMessage.h; sourceTree = "<group>"; };
 		CDCD469D15A8DD140070D05C /* JBMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBMessage.m; sourceTree = "<group>"; };
+		CDDC9F8716224697006883CE /* Geometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Geometry.h; sourceTree = "<group>"; };
+		CDDC9F8816224697006883CE /* Geometry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Geometry.m; sourceTree = "<group>"; };
 		CDF1AAA215A8D7760038EAB7 /* libSuperDBCore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSuperDBCore.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDF1AAA515A8D7760038EAB7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		CDF1AAA915A8D7760038EAB7 /* SuperDBCore-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SuperDBCore-Prefix.pch"; sourceTree = "<group>"; };
@@ -804,6 +808,8 @@
 				CD0C658A15ECF981006DE7F3 /* SuperInterpreter.m */,
 				CD40C80915F0ECCB002E3A58 /* SuperInterpreterObjectBrowser.h */,
 				CD40C80A15F0ECCB002E3A58 /* SuperInterpreterObjectBrowser.m */,
+				CDDC9F8716224697006883CE /* Geometry.h */,
+				CDDC9F8816224697006883CE /* Geometry.m */,
 			);
 			name = SuperInterpreter;
 			sourceTree = "<group>";
@@ -1049,6 +1055,7 @@
 				CD40C80B15F0ECCB002E3A58 /* SuperInterpreterObjectBrowser.h in Headers */,
 				CD6FF28915EFC2B100E63391 /* Space.h in Headers */,
 				CD6BF728161FD99D00B8FBB0 /* SuperJSTP.h in Headers */,
+				CDDC9F8916224697006883CE /* Geometry.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1255,6 +1262,7 @@
 				CD6FF28A15EFC2B100E63391 /* Space.m in Sources */,
 				CD40C80C15F0ECCB002E3A58 /* SuperInterpreterObjectBrowser.m in Sources */,
 				CD6BF729161FD99D00B8FBB0 /* SuperJSTP.m in Sources */,
+				CDDC9F8A16224697006883CE /* Geometry.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

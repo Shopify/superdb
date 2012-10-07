@@ -14,6 +14,7 @@
 #import "FSInterpreter.h"
 #import "FSMiscTools.h"
 #import "SuperInterpreterObjectBrowser.h"
+#import "Geometry.h"
 
 
 @interface SuperInterpreter ()
@@ -64,6 +65,9 @@
 	if (![result isOK]) {
 		NSLog(@"ERROR setting up environment: %@", [result errorMessage]);
 	}
+	
+	// Add custom classes to the environment
+	[self.interpreter setObject:[Geometry class] forIdentifier:NSStringFromClass([Geometry class])];
 }
 
 
