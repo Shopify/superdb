@@ -1,0 +1,3 @@
+[submodule "Super Debug/Libraries/parsekit"]
+	path = Super Debug/Libraries/parsekit
+	url = git@github.com:jbrennan/parsekit.git

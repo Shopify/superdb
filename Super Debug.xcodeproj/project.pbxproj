@@ -25,6 +25,58 @@
 		CDF1AAD515A8D9F20038EAB7 /* libSuperDBCoreMac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CDF1AAD415A8D9F20038EAB7 /* libSuperDBCoreMac.a */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		CDDC9F9E16224E6D006883CE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CDDC9F8E16224E6D006883CE /* ParseKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 8DC2EF5B0486A6940098B216;
+			remoteInfo = ParseKit;
+		};
+		CDDC9FA016224E6D006883CE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CDDC9F8E16224E6D006883CE /* ParseKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D389F1CE0F1965E600558235;
+			remoteInfo = JSParseKit;
+		};
+		CDDC9FA216224E6D006883CE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CDDC9F8E16224E6D006883CE /* ParseKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D3FDC5830FFC4BFC00F1F797;
+			remoteInfo = ParseKitMobile;
+		};
+		CDDC9FA416224E6D006883CE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CDDC9F8E16224E6D006883CE /* ParseKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D37D8DC61571A4F700CDB822;
+			remoteInfo = Tests;
+		};
+		CDDC9FA616224E6D006883CE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CDDC9F8E16224E6D006883CE /* ParseKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D33494100E2963FD00406085;
+			remoteInfo = DemoApp;
+		};
+		CDDC9FA816224E6D006883CE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CDDC9F8E16224E6D006883CE /* ParseKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D34185040E520D3F0081B0DC;
+			remoteInfo = DebugApp;
+		};
+		CDDC9FAA16224E6D006883CE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CDDC9F8E16224E6D006883CE /* ParseKit.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D389F2030F196A7500558235;
+			remoteInfo = JSDemoApp;
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		CD0D94CF15B84482003A0D8B /* SuperDebugAreaWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuperDebugAreaWindowController.h; sourceTree = "<group>"; };
 		CD0D94D015B84482003A0D8B /* SuperDebugAreaWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuperDebugAreaWindowController.m; sourceTree = "<group>"; };
@@ -55,6 +107,7 @@
 		CDD65BD015A8D07800505C37 /* JBDeviceSelectionWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBDeviceSelectionWindowController.h; sourceTree = "<group>"; };
 		CDD65BD115A8D07800505C37 /* JBDeviceSelectionWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBDeviceSelectionWindowController.m; sourceTree = "<group>"; };
 		CDD65BD215A8D07800505C37 /* JBDeviceSelectionWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JBDeviceSelectionWindowController.xib; sourceTree = "<group>"; };
+		CDDC9F8E16224E6D006883CE /* ParseKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ParseKit.xcodeproj; path = parsekit/ParseKit.xcodeproj; sourceTree = "<group>"; };
 		CDF1AAD415A8D9F20038EAB7 /* libSuperDBCoreMac.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSuperDBCoreMac.a; path = ../SuperDBCore/build/Release/libSuperDBCoreMac.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -91,6 +144,7 @@
 		CDD65BA415A8D03000505C37 = {
 			isa = PBXGroup;
 			children = (
+				CDDC9F8C16224CFC006883CE /* Libraries */,
 				CD0D94E015B859C4003A0D8B /* Security.framework */,
 				CDF1AAD415A8D9F20038EAB7 /* libSuperDBCoreMac.a */,
 				CDD65BB915A8D03000505C37 /* Super Debug */,
@@ -156,6 +210,29 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		CDDC9F8C16224CFC006883CE /* Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				CDDC9F8E16224E6D006883CE /* ParseKit.xcodeproj */,
+			);
+			name = Libraries;
+			path = "Super Debug/Libraries";
+			sourceTree = "<group>";
+		};
+		CDDC9F8F16224E6D006883CE /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CDDC9F9F16224E6D006883CE /* ParseKit.framework */,
+				CDDC9FA116224E6D006883CE /* JSParseKit.framework */,
+				CDDC9FA316224E6D006883CE /* libparsekit.a */,
+				CDDC9FA516224E6D006883CE /* Tests.octest */,
+				CDDC9FA716224E6D006883CE /* DemoApp.app */,
+				CDDC9FA916224E6D006883CE /* DebugApp.app */,
+				CDDC9FAB16224E6D006883CE /* JSDemoApp.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -196,12 +273,70 @@
 			mainGroup = CDD65BA415A8D03000505C37;
 			productRefGroup = CDD65BB015A8D03000505C37 /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = CDDC9F8F16224E6D006883CE /* Products */;
+					ProjectRef = CDDC9F8E16224E6D006883CE /* ParseKit.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				CDD65BAE15A8D03000505C37 /* Super Debug */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		CDDC9F9F16224E6D006883CE /* ParseKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = ParseKit.framework;
+			remoteRef = CDDC9F9E16224E6D006883CE /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		CDDC9FA116224E6D006883CE /* JSParseKit.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = JSParseKit.framework;
+			remoteRef = CDDC9FA016224E6D006883CE /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		CDDC9FA316224E6D006883CE /* libparsekit.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libparsekit.a;
+			remoteRef = CDDC9FA216224E6D006883CE /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		CDDC9FA516224E6D006883CE /* Tests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = Tests.octest;
+			remoteRef = CDDC9FA416224E6D006883CE /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		CDDC9FA716224E6D006883CE /* DemoApp.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = DemoApp.app;
+			remoteRef = CDDC9FA616224E6D006883CE /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		CDDC9FA916224E6D006883CE /* DebugApp.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = DebugApp.app;
+			remoteRef = CDDC9FA816224E6D006883CE /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		CDDC9FAB16224E6D006883CE /* JSDemoApp.app */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.application;
+			path = JSDemoApp.app;
+			remoteRef = CDDC9FAA16224E6D006883CE /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		CDD65BAD15A8D03000505C37 /* Resources */ = {
