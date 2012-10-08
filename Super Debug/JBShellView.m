@@ -9,6 +9,7 @@
 #import "JBShellView.h"
 #import "JBShellCommandHistory.h"
 #import "JBTextEditorProcessor.h"
+#import <ParseKit/ParseKit.h>
 
 
 @interface JBShellView () <NSTextViewDelegate>
@@ -22,6 +23,10 @@
 @property (copy) NSString *initialString;
 @property (strong) NSNumber *initialNumber;
 @property (strong) JBTextEditorProcessor *textProcessor;
+
+@property (strong) NSMutableDictionary *numberRanges;
+@property (assign) NSRange currentlyHighlightedRange;
+
 @end
 
 @implementation JBShellView
@@ -50,6 +55,12 @@
 		
 		self.commandStart = [[self string] length];
 		self.commandHistory = [[JBShellCommandHistory alloc] init];
+		
+		[[self window] setAcceptsMouseMovedEvents:YES];
+		
+		//NSTrackingArea *trackingArea = [[NSTrackingArea alloc] initWithRect:<#(NSRect)#> options:<#(NSTrackingAreaOptions)#> owner:<#(id)#> userInfo:<#(NSDictionary *)#>]
+		
+		self.numberRanges = [@{} mutableCopy];
 		self.initialDragPoint = CGPointZero;
 		[self resetInitialDragRange];
 
@@ -644,6 +655,80 @@
 	self.commandStart = [[self string] length];
 	self.userEnteredText = NO;
 	[[self undoManager] removeAllActions];
+	
+	[self highlightText];
 }
+
+
+- (void)highlightText {
+	NSString *string = [[self textStorage] string];
+	PKTokenizer *tokenizer = [PKTokenizer tokenizerWithString:string];
+	
+	tokenizer.commentState.reportsCommentTokens = NO;
+	tokenizer.whitespaceState.reportsWhitespaceTokens = YES;
+	
+	
+	PKToken *eof = [PKToken EOFToken];
+	PKToken *token = nil;
+	
+	[[self textStorage] beginEditing];
+	[self.numberRanges removeAllObjects];
+	NSUInteger currentLocation = 0;
+	
+	while ((token = [tokenizer nextToken]) != eof) {
+		NSColor *fontColor = [NSColor grayColor];
+		NSRange numberRange = NSMakeRange(currentLocation, [[token stringValue] length]);
+		
+		if ([token isNumber]) {
+			fontColor = [NSColor textColor];
+			[self setNumberString:[token stringValue] forRange:numberRange];
+		} else if ([token isSymbol]) {
+			// which symbol?
+				fontColor = [NSColor purpleColor];
+		}
+		
+		
+		[[self textStorage] addAttribute:NSForegroundColorAttributeName value:fontColor range:numberRange];
+		currentLocation += [[token stringValue] length];
+		
+		
+	}
+	
+	[[self textStorage] endEditing];
+}
+
+
+- (void)setNumberString:(NSString *)string forRange:(NSRange)numberRange {
+	// Just store the start location of the number, because the length might change (if, say, number goes from 100 -> 99)
+	self.numberRanges[NSStringFromRange(numberRange)] = string;
+}
+
+
+- (NSRange)numberStringForCharacterIndex:(NSUInteger)character {
+	for (NSString *rangeString in self.numberRanges) {
+		NSRange range = NSRangeFromString(rangeString);
+		if (NSLocationInRange(character, range)) {
+			return range;
+		}
+
+	}
+	return NSMakeRange(NSNotFound, 0);
+}
+
+
+- (void)mouseMoved:(NSEvent *)theEvent {
+	//CGPoint cursorPoint = [self convertPoint:[theEvent locationInWindow] fromView:nil];
+	[[self textStorage] removeAttribute:NSBackgroundColorAttributeName range:self.currentlyHighlightedRange];
+	NSUInteger character = [self characterIndexForPoint:[NSEvent mouseLocation]];
+	
+	NSRange range = [self numberStringForCharacterIndex:character];
+	if (range.location == NSNotFound) return;
+	
+	
+	self.currentlyHighlightedRange = range;
+	NSColor *fontColor = [NSColor colorWithCalibratedRed:0.742 green:0.898 blue:0.397 alpha:1.000];
+	[[self textStorage] addAttribute:NSBackgroundColorAttributeName value:fontColor range:range];
+}
+
 
 @end

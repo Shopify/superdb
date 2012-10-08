@@ -22,6 +22,7 @@
 		CDD65BCA15A8D03000505C37 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDD65BC815A8D03000505C37 /* MainMenu.xib */; };
 		CDD65BD315A8D07800505C37 /* JBDeviceSelectionWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD65BD115A8D07800505C37 /* JBDeviceSelectionWindowController.m */; };
 		CDD65BD415A8D07800505C37 /* JBDeviceSelectionWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDD65BD215A8D07800505C37 /* JBDeviceSelectionWindowController.xib */; };
+		CDDC9FAE16225035006883CE /* ParseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDDC9F9F16224E6D006883CE /* ParseKit.framework */; };
 		CDF1AAD515A8D9F20038EAB7 /* libSuperDBCoreMac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CDF1AAD415A8D9F20038EAB7 /* libSuperDBCoreMac.a */; };
 /* End PBXBuildFile section */
 
@@ -75,6 +76,13 @@
 			remoteGlobalIDString = D389F2030F196A7500558235;
 			remoteInfo = JSDemoApp;
 		};
+		CDDC9FAC16225029006883CE /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CDDC9F8E16224E6D006883CE /* ParseKit.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = 8DC2EF4F0486A6940098B216;
+			remoteInfo = ParseKit;
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -116,6 +124,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CDDC9FAE16225035006883CE /* ParseKit.framework in Frameworks */,
 				CD0D94E115B859C4003A0D8B /* Security.framework in Frameworks */,
 				CDF1AAD515A8D9F20038EAB7 /* libSuperDBCoreMac.a in Frameworks */,
 				CDD65BB415A8D03000505C37 /* Cocoa.framework in Frameworks */,
@@ -247,6 +256,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				CDDC9FAD16225029006883CE /* PBXTargetDependency */,
 			);
 			name = "Super Debug";
 			productName = "Super Debug";
@@ -370,6 +380,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		CDDC9FAD16225029006883CE /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ParseKit;
+			targetProxy = CDDC9FAC16225029006883CE /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		CDD65BBC15A8D03000505C37 /* InfoPlist.strings */ = {
