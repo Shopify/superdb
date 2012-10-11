@@ -336,7 +336,130 @@
 
 #pragma mark - Dragging
 
-- (void)draggingSession:(NSDraggingSession *)session willBeginAtPoint:(NSPoint)screenPoint {
+
+- (void)mouseDown:(NSEvent *)theEvent {
+	if (self.currentlyHighlightedRange.location == NSNotFound) {
+		[super mouseDown:theEvent];
+		return;
+	}
+	
+	self.initialDragPoint = [NSEvent mouseLocation];
+	self.initialString = [[self string] substringWithRange:self.currentlyHighlightedRange];
+	self.initialNumber = [self numberFromString:self.initialString];
+	
+	NSString *wholeText = [self string];
+	NSString *originalCommand = [self commandFromHistoryForRange:self.currentlyHighlightedRange];
+	NSRange originalCommandRange = [wholeText rangeOfString:originalCommand];
+	self.initialDragRangeInOriginalCommand = NSMakeRange(self.currentlyHighlightedRange.location - originalCommandRange.location, self.currentlyHighlightedRange.length);
+}
+
+
+- (void)mouseDragged:(NSEvent *)theEvent {
+	
+	// Skip it if we're not currently dragging a word
+	if (self.currentlyHighlightedRange.location == NSNotFound) {
+		[super mouseDragged:theEvent];
+		return;
+	}
+	
+	NSLog(@"mouse dragged");
+	
+	//NSRange numberRange = [self numberStringRangeForCharacterIndex:self.currentlyHighlightedRange.location];
+	NSRange numberRange = [self rangeForNumberNearestToIndex:self.currentlyHighlightedRange.location];
+	NSString *numberString = [[self string] substringWithRange:numberRange];
+	
+	NSLog(@"Dragging...current number is: %@", numberString);
+	
+	// get the number as it exists right now visible to the user
+	
+	
+	// We know the start of the Original Command range, and that can't change.
+	// The length of the command might change, but the starting point won't.
+	
+}
+
+
+- (NSRange)rangeForNumberNearestToIndex:(NSUInteger)index {
+	// parse this out right now...
+	NSString *originalCommand = [self commandFromHistoryForRange:self.currentlyHighlightedRange];
+	NSRange originalRange = [[self string] rangeOfString:originalCommand];
+	
+	NSString *currentCommand = [self currentCommandForRange:originalRange];
+	
+	PKTokenizer *tokenizer = [PKTokenizer tokenizerWithString:currentCommand];
+	
+	tokenizer.commentState.reportsCommentTokens = NO;
+	tokenizer.whitespaceState.reportsWhitespaceTokens = YES;
+	
+	
+	PKToken *eof = [PKToken EOFToken];
+	PKToken *token = nil;
+	
+	
+	NSUInteger currentLocation = 0; // in the command!
+	
+	while ((token = [tokenizer nextToken]) != eof) {
+		
+		NSRange numberRange = NSMakeRange(currentLocation + originalRange.location, [[token stringValue] length]);
+		
+		if ([token isNumber]) {
+			if (NSLocationInRange(index, numberRange)) {
+				return numberRange;
+			}
+		}
+		
+		
+		currentLocation += [[token stringValue] length];
+		
+	}
+	return NSMakeRange(NSNotFound, NSNotFound);
+}
+
+
+- (NSString *)currentCommandForRange:(NSRange)originalRange {
+	NSUInteger startLocation = originalRange.location;
+	// look until the next \n, starting from the start location searching possibly until the end of the whole text
+	NSString *wholeString = [self string];
+	NSLog(@"Length: %lu, %@", [wholeString length], wholeString);
+	
+	
+	
+	NSUInteger count = 0, length = [wholeString length];
+	NSRange newlineRange = NSMakeRange(0, length);
+	
+	while (newlineRange.location != NSNotFound) {
+		
+		
+		
+		newlineRange = [wholeString rangeOfString: @"\n" options:0 range:newlineRange];
+		
+		if (newlineRange.location != NSNotFound) {
+			
+			
+			if (originalRange.location < NSMaxRange(newlineRange)) {
+				// We found the spot
+				NSRange currentCommandRange = NSMakeRange(originalRange.location, NSMaxRange(newlineRange) - NSMaxRange(originalRange));
+				return [wholeString substringWithRange:currentCommandRange];
+			}
+			newlineRange = NSMakeRange(newlineRange.location + newlineRange.length, length - (newlineRange.location + newlineRange.length));
+		}
+	}
+	
+	NSLog(@"Failed to find the current command!");
+	return nil;
+	NSUInteger toEnd = [wholeString length] - NSMaxRange(originalRange);
+	
+	NSRange untilReturn = [[self string] rangeOfString:@"\n" options:kNilOptions range:NSMakeRange(startLocation, toEnd)];
+	if (untilReturn.location == NSNotFound) {
+		NSLog(@"Couldn't find the current command for range: %@!", NSStringFromRange(originalRange));
+		return @"";
+	}
+	
+	return [[self string] substringWithRange:NSMakeRange(startLocation, untilReturn.location)];
+}
+
+
+- (void)__unused_draggingSession:(NSDraggingSession *)session willBeginAtPoint:(NSPoint)screenPoint {
 	self.initialDragPoint = screenPoint;
 	self.initialString = [[self string] substringWithRange:[self selectedRange]];
 	self.initialNumber = [self numberFromString:self.initialString];
@@ -350,7 +473,7 @@
 }
 
 
-- (void)draggingSession:(NSDraggingSession *)session movedToPoint:(NSPoint)screenPoint {
+- (void)__unused_draggingSession:(NSDraggingSession *)session movedToPoint:(NSPoint)screenPoint {
 	//NSLog(@"dragged");
 	
 	NSString *selection = [[self string] substringWithRange:[self selectedRange]];
@@ -376,12 +499,24 @@
 }
 
 
-- (void)draggingSession:(NSDraggingSession *)session endedAtPoint:(NSPoint)screenPoint operation:(NSDragOperation)operation {
+- (void)__unused_draggingSession:(NSDraggingSession *)session endedAtPoint:(NSPoint)screenPoint operation:(NSDragOperation)operation {
 	session.animatesToStartingPositionsOnCancelOrFail = NO;
 	self.initialDragPoint = CGPointZero;
 	self.initialString = nil;
 	self.initialNumber = nil;
 	[self resetInitialDragRange];
+}
+
+
+- (void)mouseUp:(NSEvent *)theEvent {
+	// Skip it if we're not currently dragging a word
+	if (self.currentlyHighlightedRange.location == NSNotFound) {
+		[super mouseUp:theEvent];
+		return;
+	}
+	
+	// Trigger's clearing out our number-dragging state.
+	[self mouseMoved:theEvent];
 }
 
 
@@ -704,7 +839,7 @@
 }
 
 
-- (NSRange)numberStringForCharacterIndex:(NSUInteger)character {
+- (NSRange)numberStringRangeForCharacterIndex:(NSUInteger)character {
 	for (NSString *rangeString in self.numberRanges) {
 		NSRange range = NSRangeFromString(rangeString);
 		if (NSLocationInRange(character, range)) {
@@ -721,8 +856,14 @@
 	[[self textStorage] removeAttribute:NSBackgroundColorAttributeName range:self.currentlyHighlightedRange];
 	NSUInteger character = [self characterIndexForPoint:[NSEvent mouseLocation]];
 	
-	NSRange range = [self numberStringForCharacterIndex:character];
-	if (range.location == NSNotFound) return;
+	NSRange range = [self numberStringRangeForCharacterIndex:character];
+	if (range.location == NSNotFound) {
+		if (_currentlyHighlightedRange.location != NSNotFound) {
+			// Only change this when it's not already set... skip some work, I suppose.
+			self.currentlyHighlightedRange = range;
+		}
+		return;
+	}
 	
 	
 	self.currentlyHighlightedRange = range;
