@@ -410,6 +410,9 @@
 	[super insertText:updatedString replacementRange:self.currentlyHighlightedRange];
 	self.currentlyHighlightedRange = NSMakeRange(self.currentlyHighlightedRange.location, [updatedString length]);
 	NSLog(@"REPLACED COMMAND IS: %@", replacedCommand);
+	if (self.numberDragHandler) {
+		self.numberDragHandler(replacedCommand);\
+	}
 //	[self setSelectedRange:originalRange];
 	
 }
@@ -878,19 +881,17 @@
 	NSUInteger currentLocation = 0;
 	
 	while ((token = [tokenizer nextToken]) != eof) {
-		NSColor *fontColor = [NSColor grayColor];
+		NSColor *fontColor = [NSColor whiteColor];//[NSColor grayColor];
+		
 		NSRange numberRange = NSMakeRange(currentLocation, [[token stringValue] length]);
 		
 		if ([token isNumber]) {
-			fontColor = [NSColor textColor];
+			fontColor = [NSColor colorWithCalibratedWhite:0.890 alpha:1.000];
 			[self setNumberString:[token stringValue] forRange:numberRange];
-		} else if ([token isSymbol]) {
-			// which symbol?
-				fontColor = [NSColor purpleColor];
 		}
 		
 		
-		[[self textStorage] addAttribute:NSForegroundColorAttributeName value:fontColor range:numberRange];
+		[[self textStorage] addAttribute:NSBackgroundColorAttributeName value:fontColor range:numberRange];
 		currentLocation += [[token stringValue] length];
 		
 		
