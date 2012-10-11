@@ -420,42 +420,68 @@
 	NSUInteger startLocation = originalRange.location;
 	// look until the next \n, starting from the start location searching possibly until the end of the whole text
 	NSString *wholeString = [self string];
-	NSLog(@"Length: %lu, %@", [wholeString length], wholeString);
+//	NSLog(@"Length: %lu, %@", [wholeString length], wholeString);
+	
+	
+	NSRange lineRange = [wholeString lineRangeForRange:originalRange];
+	NSString *lineString = [wholeString substringWithRange:lineRange];
 	
 	
 	
-	NSUInteger count = 0, length = [wholeString length];
-	NSRange newlineRange = NSMakeRange(0, length);
-	
-	while (newlineRange.location != NSNotFound) {
-		
-		
-		
-		newlineRange = [wholeString rangeOfString: @"\n" options:0 range:newlineRange];
-		
-		if (newlineRange.location != NSNotFound) {
-			
-			
-			if (originalRange.location < NSMaxRange(newlineRange)) {
-				// We found the spot
-				NSRange currentCommandRange = NSMakeRange(originalRange.location, NSMaxRange(newlineRange) - NSMaxRange(originalRange));
-				return [wholeString substringWithRange:currentCommandRange];
-			}
-			newlineRange = NSMakeRange(newlineRange.location + newlineRange.length, length - (newlineRange.location + newlineRange.length));
+	return [lineString substringFromIndex:[self.prompt length]];
+	// Gross hack but my brain is lost today......
+	NSUInteger untilEnd = 0;
+	BOOL foundNext = YES;
+	while (foundNext) {
+		untilEnd++;
+		NSUInteger currentIndex = startLocation + untilEnd;
+		NSRange nextCharRange = NSMakeRange(currentIndex, 1);
+		if ([wholeString length] >= NSMaxRange(nextCharRange)) {
+			NSLog(@"Went over the whole string and didn't find the next newline! oops!");
+			return nil;
+		}
+		if ([[wholeString substringWithRange:NSMakeRange(currentIndex, 1)] isEqualToString:@"\n"]) {
+			foundNext = NO;
 		}
 	}
 	
-	NSLog(@"Failed to find the current command!");
-	return nil;
-	NSUInteger toEnd = [wholeString length] - NSMaxRange(originalRange);
+	return [wholeString substringWithRange:NSMakeRange(startLocation, untilEnd)];
 	
-	NSRange untilReturn = [[self string] rangeOfString:@"\n" options:kNilOptions range:NSMakeRange(startLocation, toEnd)];
-	if (untilReturn.location == NSNotFound) {
-		NSLog(@"Couldn't find the current command for range: %@!", NSStringFromRange(originalRange));
-		return @"";
-	}
-	
-	return [[self string] substringWithRange:NSMakeRange(startLocation, untilReturn.location)];
+//	return nil;
+//	// attempt 2
+//	NSUInteger length = [wholeString length];
+//	NSRange newlineRange = NSMakeRange(0, length);
+//	
+//	while (newlineRange.location != NSNotFound) {
+//		
+//		
+//		
+//		newlineRange = [wholeString rangeOfString: @"\n" options:0 range:newlineRange];
+//		
+//		if (newlineRange.location != NSNotFound) {
+//			
+//			
+//			if (originalRange.location < NSMaxRange(newlineRange)) {
+//				// We found the spot
+//				NSLog(@"NEWLINE RANGE IS %@", NSStringFromRange(newlineRange));
+//				NSRange currentCommandRange = NSMakeRange(originalRange.location, NSMaxRange(newlineRange) - NSMaxRange(originalRange));
+//				return [wholeString substringWithRange:currentCommandRange];
+//			}
+//			newlineRange = NSMakeRange(newlineRange.location + newlineRange.length, length - (newlineRange.location + newlineRange.length));
+//		}
+//	}
+//	
+//	NSLog(@"Failed to find the current command!");
+//	return nil;
+//	NSUInteger toEnd = [wholeString length] - NSMaxRange(originalRange);
+//	
+//	NSRange untilReturn = [[self string] rangeOfString:@"\n" options:kNilOptions range:NSMakeRange(startLocation, toEnd)];
+//	if (untilReturn.location == NSNotFound) {
+//		NSLog(@"Couldn't find the current command for range: %@!", NSStringFromRange(originalRange));
+//		return @"";
+//	}
+//	
+//	return [[self string] substringWithRange:NSMakeRange(startLocation, untilReturn.location)];
 }
 
 
