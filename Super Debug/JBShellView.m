@@ -22,6 +22,8 @@
 @property (assign) NSRange initialDragRangeInOriginalCommand;
 @property (copy) NSString *initialString;
 @property (strong) NSNumber *initialNumber;
+@property (copy) NSString *initialDragCommandString;
+@property (assign) NSRange initialDragCommandRange;
 @property (strong) JBTextEditorProcessor *textProcessor;
 
 @property (strong) NSMutableDictionary *numberRanges;
@@ -350,6 +352,10 @@
 	NSString *wholeText = [self string];
 	NSString *originalCommand = [self commandFromHistoryForRange:self.currentlyHighlightedRange];
 	NSRange originalCommandRange = [wholeText rangeOfString:originalCommand];
+	
+	self.initialDragCommandString = originalCommand;
+	self.initialDragCommandRange = originalCommandRange;
+	
 	self.initialDragRangeInOriginalCommand = NSMakeRange(self.currentlyHighlightedRange.location - originalCommandRange.location, self.currentlyHighlightedRange.length);
 }
 
@@ -362,27 +368,75 @@
 		return;
 	}
 	
-	NSLog(@"mouse dragged");
+	NSLog(@"mouse dragged, current range is: %@", NSStringFromRange(self.currentlyHighlightedRange));
 	
 	//NSRange numberRange = [self numberStringRangeForCharacterIndex:self.currentlyHighlightedRange.location];
 	NSRange numberRange = [self rangeForNumberNearestToIndex:self.currentlyHighlightedRange.location];
 	NSString *numberString = [[self string] substringWithRange:numberRange];
 	
 	NSLog(@"Dragging...current number is: %@", numberString);
+	NSNumber *number = [self numberFromString:numberString];
 	
-	// get the number as it exists right now visible to the user
+	if (nil == number) {
+		NSLog(@"Couldn't parse a number out of :%@", numberString);
+		return;
+	}
+	
+	CGPoint screenPoint = [NSEvent mouseLocation];
+	CGFloat x = screenPoint.x - self.initialDragPoint.x;
+	CGFloat y = screenPoint.y - self.initialDragPoint.y;
+	CGSize offset = CGSizeMake(x, y);
 	
 	
-	// We know the start of the Original Command range, and that can't change.
-	// The length of the command might change, but the starting point won't.
+	//[self numberWasDragged:number toOffset:offset];
+	
+	NSInteger offsetValue = [self.initialNumber integerValue] + (NSInteger)offset.width;
+	NSNumber *updatedNumber = @(offsetValue);
+	NSString *updatedString = [updatedNumber stringValue];
+	
+	// Now do the replacement in the existing text
+	NSString *originalCommand = [self commandFromHistoryForRange:self.currentlyHighlightedRange];
+	NSRange originalRange = [[self string] rangeOfString:originalCommand];
+	
+	//NSString *currentCommand = [self currentCommandForRange:originalRange];
+	NSString *replacedCommand = [originalCommand stringByReplacingCharactersInRange:self.initialDragRangeInOriginalCommand withString:updatedString];
+	
+	[super insertText:updatedString replacementRange:self.currentlyHighlightedRange];
+	NSLog(@"REPLACED COMMAND IS: %@", replacedCommand);
+//	[self setSelectedRange:originalRange];
 	
 }
 
 
+- (void)__unused_draggingSession:(NSDraggingSession *)session movedToPoint:(NSPoint)screenPoint {
+	//NSLog(@"dragged");
+	
+	NSString *selection = [[self string] substringWithRange:[self selectedRange]];
+	
+	if ([selection length] < 1) {
+		return;
+	}
+	
+	NSNumber *number = [self numberFromString:selection];
+	if (nil == number) {
+		return;
+	}
+	
+	//NSLog(@"%@", number);
+	
+	CGFloat x = screenPoint.x - self.initialDragPoint.x;
+	CGFloat y = screenPoint.y - self.initialDragPoint.y;
+	CGSize offset = CGSizeMake(x, y);
+	
+	
+	[self numberWasDragged:number toOffset:offset];
+	
+}
+
 - (NSRange)rangeForNumberNearestToIndex:(NSUInteger)index {
 	// parse this out right now...
-	NSString *originalCommand = [self commandFromHistoryForRange:self.currentlyHighlightedRange];
-	NSRange originalRange = [[self string] rangeOfString:originalCommand];
+	//NSString *originalCommand = self.initialDragCommandString;//[self commandFromHistoryForRange:self.currentlyHighlightedRange];
+	NSRange originalRange = self.initialDragCommandRange;
 	
 	NSString *currentCommand = [self currentCommandForRange:originalRange];
 	
@@ -417,10 +471,10 @@
 
 
 - (NSString *)currentCommandForRange:(NSRange)originalRange {
-	NSUInteger startLocation = originalRange.location;
+	//NSUInteger startLocation = originalRange.location;
 	// look until the next \n, starting from the start location searching possibly until the end of the whole text
 	NSString *wholeString = [self string];
-//	NSLog(@"Length: %lu, %@", [wholeString length], wholeString);
+	//	NSLog(@"Length: %lu, %@", [wholeString length], wholeString);
 	
 	
 	NSRange lineRange = [wholeString lineRangeForRange:originalRange];
@@ -429,59 +483,59 @@
 	
 	
 	return [lineString substringFromIndex:[self.prompt length]];
-	// Gross hack but my brain is lost today......
-	NSUInteger untilEnd = 0;
-	BOOL foundNext = YES;
-	while (foundNext) {
-		untilEnd++;
-		NSUInteger currentIndex = startLocation + untilEnd;
-		NSRange nextCharRange = NSMakeRange(currentIndex, 1);
-		if ([wholeString length] >= NSMaxRange(nextCharRange)) {
-			NSLog(@"Went over the whole string and didn't find the next newline! oops!");
-			return nil;
-		}
-		if ([[wholeString substringWithRange:NSMakeRange(currentIndex, 1)] isEqualToString:@"\n"]) {
-			foundNext = NO;
-		}
-	}
-	
-	return [wholeString substringWithRange:NSMakeRange(startLocation, untilEnd)];
-	
-//	return nil;
-//	// attempt 2
-//	NSUInteger length = [wholeString length];
-//	NSRange newlineRange = NSMakeRange(0, length);
-//	
-//	while (newlineRange.location != NSNotFound) {
-//		
-//		
-//		
-//		newlineRange = [wholeString rangeOfString: @"\n" options:0 range:newlineRange];
-//		
-//		if (newlineRange.location != NSNotFound) {
-//			
-//			
-//			if (originalRange.location < NSMaxRange(newlineRange)) {
-//				// We found the spot
-//				NSLog(@"NEWLINE RANGE IS %@", NSStringFromRange(newlineRange));
-//				NSRange currentCommandRange = NSMakeRange(originalRange.location, NSMaxRange(newlineRange) - NSMaxRange(originalRange));
-//				return [wholeString substringWithRange:currentCommandRange];
-//			}
-//			newlineRange = NSMakeRange(newlineRange.location + newlineRange.length, length - (newlineRange.location + newlineRange.length));
-//		}
-//	}
-//	
-//	NSLog(@"Failed to find the current command!");
-//	return nil;
-//	NSUInteger toEnd = [wholeString length] - NSMaxRange(originalRange);
-//	
-//	NSRange untilReturn = [[self string] rangeOfString:@"\n" options:kNilOptions range:NSMakeRange(startLocation, toEnd)];
-//	if (untilReturn.location == NSNotFound) {
-//		NSLog(@"Couldn't find the current command for range: %@!", NSStringFromRange(originalRange));
-//		return @"";
-//	}
-//	
-//	return [[self string] substringWithRange:NSMakeRange(startLocation, untilReturn.location)];
+	//	// Gross hack but my brain is lost today......
+	//	NSUInteger untilEnd = 0;
+	//	BOOL foundNext = YES;
+	//	while (foundNext) {
+	//		untilEnd++;
+	//		NSUInteger currentIndex = startLocation + untilEnd;
+	//		NSRange nextCharRange = NSMakeRange(currentIndex, 1);
+	//		if ([wholeString length] >= NSMaxRange(nextCharRange)) {
+	//			NSLog(@"Went over the whole string and didn't find the next newline! oops!");
+	//			return nil;
+	//		}
+	//		if ([[wholeString substringWithRange:NSMakeRange(currentIndex, 1)] isEqualToString:@"\n"]) {
+	//			foundNext = NO;
+	//		}
+	//	}
+	//
+	//	return [wholeString substringWithRange:NSMakeRange(startLocation, untilEnd)];
+	//
+	//	return nil;
+	//	// attempt 2
+	//	NSUInteger length = [wholeString length];
+	//	NSRange newlineRange = NSMakeRange(0, length);
+	//
+	//	while (newlineRange.location != NSNotFound) {
+	//
+	//
+	//
+	//		newlineRange = [wholeString rangeOfString: @"\n" options:0 range:newlineRange];
+	//
+	//		if (newlineRange.location != NSNotFound) {
+	//
+	//
+	//			if (originalRange.location < NSMaxRange(newlineRange)) {
+	//				// We found the spot
+	//				NSLog(@"NEWLINE RANGE IS %@", NSStringFromRange(newlineRange));
+	//				NSRange currentCommandRange = NSMakeRange(originalRange.location, NSMaxRange(newlineRange) - NSMaxRange(originalRange));
+	//				return [wholeString substringWithRange:currentCommandRange];
+	//			}
+	//			newlineRange = NSMakeRange(newlineRange.location + newlineRange.length, length - (newlineRange.location + newlineRange.length));
+	//		}
+	//	}
+	//
+	//	NSLog(@"Failed to find the current command!");
+	//	return nil;
+	//	NSUInteger toEnd = [wholeString length] - NSMaxRange(originalRange);
+	//
+	//	NSRange untilReturn = [[self string] rangeOfString:@"\n" options:kNilOptions range:NSMakeRange(startLocation, toEnd)];
+	//	if (untilReturn.location == NSNotFound) {
+	//		NSLog(@"Couldn't find the current command for range: %@!", NSStringFromRange(originalRange));
+	//		return @"";
+	//	}
+	//
+	//	return [[self string] substringWithRange:NSMakeRange(startLocation, untilReturn.location)];
 }
 
 
@@ -497,33 +551,6 @@
 	
 	//self.initialDragRangeInOriginalCommand = [originalCommand rangeOfString:self.initialString options:kNilOptions range:<#(NSRange)#>];
 }
-
-
-- (void)__unused_draggingSession:(NSDraggingSession *)session movedToPoint:(NSPoint)screenPoint {
-	//NSLog(@"dragged");
-	
-	NSString *selection = [[self string] substringWithRange:[self selectedRange]];
-	
-	if ([selection length] < 1) {
-		return;
-	}
-	
-	NSNumber *number = [self numberFromString:selection];
-	if (nil == number) {
-		return;
-	}
-	
-	//NSLog(@"%@", number);
-	
-	CGFloat x = screenPoint.x - self.initialDragPoint.x;
-	CGFloat y = screenPoint.y - self.initialDragPoint.y;
-	CGSize offset = CGSizeMake(x, y);
-	
-	
-	[self numberWasDragged:number toOffset:offset];
-	
-}
-
 
 - (void)__unused_draggingSession:(NSDraggingSession *)session endedAtPoint:(NSPoint)screenPoint operation:(NSDragOperation)operation {
 	session.animatesToStartingPositionsOnCancelOrFail = NO;
@@ -543,6 +570,9 @@
 	
 	// Trigger's clearing out our number-dragging state.
 	[self mouseMoved:theEvent];
+	
+	self.initialDragCommandString = nil;
+	self.initialDragCommandRange = NSMakeRange(NSNotFound, NSNotFound);
 }
 
 
@@ -585,7 +615,9 @@
 		
 		NSString *originalCommand = [self commandFromHistoryForRange:originalRange];
 		NSString *updatedCommand = [originalCommand stringByReplacingCharactersInRange:self.initialDragRangeInOriginalCommand withString:updatedString];
-		self.numberDragHandler(updatedCommand);
+		
+		NSLog(@"Updated command: %@", updatedCommand);
+		//self.numberDragHandler(updatedCommand);
 	}
 }
 
