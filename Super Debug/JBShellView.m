@@ -350,7 +350,13 @@
 	self.initialNumber = [self numberFromString:self.initialString];
 	
 	NSString *wholeText = [self string];
-	NSString *originalCommand = [self commandFromHistoryForRange:self.currentlyHighlightedRange];
+	
+	// The problem is the command doesn't get updated in our history, so it breaks after the first use!!
+	// Maybe, as a hack for now, I'll just try to grab the command as it is in our textView
+	// We won't have it entered in the history now, but that's OK I guess. It's a messy change otherwise.
+	
+//	NSString *originalCommand = [self commandFromHistoryForRange:self.currentlyHighlightedRange];
+	NSString *originalCommand = [self currentCommandForRange:self.currentlyHighlightedRange];
 	NSRange originalCommandRange = [wholeText rangeOfString:originalCommand];
 	
 	self.initialDragCommandString = originalCommand;
@@ -395,13 +401,14 @@
 	NSString *updatedString = [updatedNumber stringValue];
 	
 	// Now do the replacement in the existing text
-	NSString *originalCommand = [self commandFromHistoryForRange:self.currentlyHighlightedRange];
-	NSRange originalRange = [[self string] rangeOfString:originalCommand];
+	//NSString *originalCommand = [self commandFromHistoryForRange:self.currentlyHighlightedRange];
+	//NSRange originalRange = [[self string] rangeOfString:originalCommand];
 	
 	//NSString *currentCommand = [self currentCommandForRange:originalRange];
-	NSString *replacedCommand = [originalCommand stringByReplacingCharactersInRange:self.initialDragRangeInOriginalCommand withString:updatedString];
+	NSString *replacedCommand = [self.initialDragCommandString stringByReplacingCharactersInRange:self.initialDragRangeInOriginalCommand withString:updatedString];
 	
 	[super insertText:updatedString replacementRange:self.currentlyHighlightedRange];
+	self.currentlyHighlightedRange = NSMakeRange(self.currentlyHighlightedRange.location, [updatedString length]);
 	NSLog(@"REPLACED COMMAND IS: %@", replacedCommand);
 //	[self setSelectedRange:originalRange];
 	
@@ -438,6 +445,7 @@
 	//NSString *originalCommand = self.initialDragCommandString;//[self commandFromHistoryForRange:self.currentlyHighlightedRange];
 	NSRange originalRange = self.initialDragCommandRange;
 	
+	// The problem is the command doesn't get updated in our history, so it breaks after the first use!!
 	NSString *currentCommand = [self currentCommandForRange:originalRange];
 	
 	PKTokenizer *tokenizer = [PKTokenizer tokenizerWithString:currentCommand];
@@ -569,6 +577,7 @@
 	}
 	
 	// Trigger's clearing out our number-dragging state.
+	[self highlightText];
 	[self mouseMoved:theEvent];
 	
 	self.initialDragCommandString = nil;
