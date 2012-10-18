@@ -24,6 +24,7 @@
 @property (strong) NSNumber *initialNumber;
 @property (copy) NSString *initialDragCommandString;
 @property (assign) NSRange initialDragCommandRange;
+@property (assign) NSUInteger initialDragCommandStart;
 @property (strong) JBTextEditorProcessor *textProcessor;
 
 @property (strong) NSMutableDictionary *numberRanges;
@@ -361,6 +362,7 @@
 	
 	self.initialDragCommandString = originalCommand;
 	self.initialDragCommandRange = originalCommandRange;
+	self.initialDragCommandStart = self.commandStart;
 	
 	self.initialDragRangeInOriginalCommand = NSMakeRange(self.currentlyHighlightedRange.location - originalCommandRange.location, self.currentlyHighlightedRange.length);
 }
@@ -398,23 +400,26 @@
 	
 	NSInteger offsetValue = [self.initialNumber integerValue] + (NSInteger)offset.width;
 	NSNumber *updatedNumber = @(offsetValue);
-	NSString *updatedString = [updatedNumber stringValue];
+	NSString *updatedNumberString = [updatedNumber stringValue];
 	
 	// Now do the replacement in the existing text
 	//NSString *originalCommand = [self commandFromHistoryForRange:self.currentlyHighlightedRange];
 	//NSRange originalRange = [[self string] rangeOfString:originalCommand];
 	
 	//NSString *currentCommand = [self currentCommandForRange:originalRange];
-	NSString *replacedCommand = [self.initialDragCommandString stringByReplacingCharactersInRange:self.initialDragRangeInOriginalCommand withString:updatedString];
+	NSString *replacedCommand = [self.initialDragCommandString stringByReplacingCharactersInRange:self.initialDragRangeInOriginalCommand withString:updatedNumberString];
 	
-	[super insertText:updatedString replacementRange:self.currentlyHighlightedRange];
-	self.currentlyHighlightedRange = NSMakeRange(self.currentlyHighlightedRange.location, [updatedString length]);
+	[super insertText:updatedNumberString replacementRange:self.currentlyHighlightedRange];
+	self.currentlyHighlightedRange = NSMakeRange(self.currentlyHighlightedRange.location, [updatedNumberString length]);
 	NSLog(@"REPLACED COMMAND IS: %@", replacedCommand);
+	
+	// Update the position of commandStart depending on how our (whole) string has changed.
+	NSUInteger lengthDifference = [self.initialDragCommandString length] - [replacedCommand length];
+	self.commandStart = self.initialDragCommandStart - lengthDifference;
+	
 	if (self.numberDragHandler) {
 		self.numberDragHandler(replacedCommand);\
 	}
-//	[self setSelectedRange:originalRange];
-	
 }
 
 
@@ -585,6 +590,9 @@
 	
 	self.initialDragCommandString = nil;
 	self.initialDragCommandRange = NSMakeRange(NSNotFound, NSNotFound);
+	self.initialNumber = nil;
+	
+	// TODO: When the string changes, this potentially screws up where _commandStart is. This needs to be updated!
 }
 
 
