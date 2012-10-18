@@ -896,6 +896,9 @@
 		if ([token isNumber]) {
 			fontColor = [NSColor colorWithCalibratedWhite:0.890 alpha:1.000];
 			[self setNumberString:[token stringValue] forRange:numberRange];
+		} else {
+			NSColor *bgColor = [[self textStorage] attribute:NSBackgroundColorAttributeName atIndex:numberRange.location effectiveRange:NULL];
+			if (bgColor) fontColor = bgColor;
 		}
 		
 		
