@@ -85,8 +85,15 @@
 		
 		if ([result isOK]) {
 			NSLog(@"FSOK: %@", [result result]);
+			
+			if (nil == [result result]) {
+				NSLog(@"[ERROR]: [result result] was nil... result is: %@", result);
+				[body setObject:@"Empty result. This usually means you sent a message to the wrong view controller. Try calling `.self` and trying again." forKey:kSuperNetworkMessageBodyOutputKey];
+			} else {
+				[body setObject:[[result result] description] forKey:kSuperNetworkMessageBodyOutputKey];
+			}
+			
 			[body setObject:kSuperNetworkMessageBodyStatusOK forKey:kSuperNetworkMessageBodyStatusKey];
-			[body setObject:[[result result] description] forKey:kSuperNetworkMessageBodyOutputKey];
 		} else {
 			NSLog(@"FSBAD: %@", [result errorMessage]);
 			[body setObject:kSuperNetworkMessageBodyStatusError forKey:kSuperNetworkMessageBodyStatusKey];
@@ -182,6 +189,46 @@
 		SuperNetworkMessage *response = [SuperNetworkMessage messageWithHeader:request.header body:body];
 		return response;
 	}];
+	
+	
+	[self addRequestHandlerForResource:kSuperNetworkMessageResourceUpdateCurrentViewController requestHandler:^SuperNetworkMessage *(SuperNetworkMessage *request) {
+		NSLog(@"[SERVER]: Updating the current view controller.");
+		NSMutableDictionary *body = [@{} mutableCopy];
+#if !TARGET_OS_IPHONE
+		NSLog(@"[SERVER]: Updating the current view controller is currently undefined on non-iOS platforms");
+#elif TARGET_OS_IPHONE
+		UIViewController *currentViewController = [[[UIApplication sharedApplication] keyWindow] rootViewController];
+		if (self.currentViewControllerBlock) {
+			currentViewController = self.currentViewControllerBlock();
+		}
+		
+		// Assign this view controller in the environment
+		[weakSelf.interpreter setObject:currentViewController forIdentifier:@"self"];
+#endif
+		
+		// Evaluate self and get the result to be returned to the client
+		// Sure, could just pass in the actual view controller, but I'd rather hear it straight from the interpreter.
+		FSInterpreterResult *result = [weakSelf.interpreter execute:@"self"];
+		if ([result isOK]) {
+			[body setObject:kSuperNetworkMessageBodyStatusOK forKey:kSuperNetworkMessageBodyStatusKey];
+			[body setObject:[[result result] description] forKey:kSuperNetworkMessageBodyOutputKey];
+		} else {
+			NSLog(@"FSBAD: %@", [result errorMessage]);
+			[body setObject:kSuperNetworkMessageBodyStatusError forKey:kSuperNetworkMessageBodyStatusKey];
+			[body setObject:[result errorMessage] forKey:kSuperNetworkMessageBodyErrorMessageKey];
+			
+			NSRange range = [result errorRange];
+			[body setObject:NSStringFromRange(range) forKey:kSuperNetworkMessageBodyErrorRange];
+		}
+		SuperNetworkMessage *response = [SuperNetworkMessage messageWithHeader:request.header body:body];
+		return response;
+	}];
+}
+
+
+- (void)setCurrentViewControllerBlock:(SuperInterpreterServiceGetCurrentViewController)currentViewControllerBlock {
+	_currentViewControllerBlock = [currentViewControllerBlock copy];
+	NSLog(@"SETTING THE CURRENT VC BLOCK");
 }
 
 

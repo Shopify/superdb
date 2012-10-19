@@ -39,9 +39,20 @@
 - (id)init {
 	if ((self = [super init])) {
 		self.maximumConnectedClients = NSUIntegerMax;
+		self.interpreter = [SuperInterpreter new];
 	}
 	
     return self;
+}
+
+
+- (void)setCurrentViewControllerBlock:(SuperInterpreterServiceGetCurrentViewController)currentViewControllerBlock {
+	self.interpreter.currentViewControllerBlock = currentViewControllerBlock;
+}
+
+
+- (SuperInterpreterServiceGetCurrentViewController)currentViewControllerBlock {
+	return self.interpreter.currentViewControllerBlock;
 }
 
 
@@ -121,7 +132,6 @@
 #pragma mark - NSNetServiceDelegate methods
 
 - (void)netServiceDidPublish:(NSNetService *)sender {
-	self.interpreter = [SuperInterpreter new];
 	self.publishedServiceCallback(@"The service was successfully published", nil);
 }
 

@@ -8,9 +8,13 @@
 
 #import <Foundation/Foundation.h>
 #import "SuperNetworkMessageTypes.h"
+#import "SuperInterpreterService.h"
 
 @class SuperNetworkMessage;
 
 @interface SuperInterpreter : NSObject
+
+@property (nonatomic, copy) SuperInterpreterServiceGetCurrentViewController currentViewControllerBlock;
+
 - (SuperNetworkMessage *)responseForRequest:(SuperNetworkMessage *)requestMessage;
 @end

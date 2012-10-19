@@ -32,6 +32,7 @@ NSString *kSuperNetworkMessageResourceSymbolTable = @"smybol_table";
 NSString *kSuperNetworkMessageResourceClassList = @"class_list";
 NSString *kSuperNetworkMessageResourcePropertyList = @"property_list";
 NSString *kSuperNetworkMessageResourceMethodList = @"method_list";
+NSString *kSuperNetworkMessageResourceUpdateCurrentViewController = @"update_current_viewcontroller";
 
 
 @interface SuperNetworkMessage ()
@@ -46,7 +47,8 @@ NSString *kSuperNetworkMessageResourceMethodList = @"method_list";
 					 @"SuperNetworkMessageTypeRequestResponse" ];
 	resourceTypes = @{	@".prop" : kSuperNetworkMessageResourcePropertyList,
 						@".classes" : kSuperNetworkMessageResourceClassList,
-						@".methods" : kSuperNetworkMessageResourceMethodList};
+						@".methods" : kSuperNetworkMessageResourceMethodList,
+						@".self" : kSuperNetworkMessageResourceUpdateCurrentViewController};
 }
 
 
