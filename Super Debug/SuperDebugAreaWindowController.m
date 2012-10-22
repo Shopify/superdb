@@ -10,12 +10,14 @@
 #import "JBShellContainerView.h"
 #import "JBShellView.h"
 #import "JBShellViewBlockTypedefs.h"
+#import "JBSuggestionWindowController.h"
 
 
 @interface SuperDebugAreaWindowController () <NSNetServiceDelegate>
 @property (nonatomic, strong) SuperInterpreterClient *networkClient;
 @property (nonatomic, strong) JBShellContainerView *shellContainer;
 @property (nonatomic, strong) NSColorPanel *colorPanel;
+@property (nonatomic, strong) JBSuggestionWindowController *suggestionWindowController;
 @end
 
 @implementation SuperDebugAreaWindowController
@@ -42,6 +44,7 @@
     
    	CGRect bounds = [[self.window contentView] bounds];
 	NSString *prompt = [NSString stringWithFormat:@"%@> ", [self.netService name]?: @""];
+	self.suggestionWindowController = [JBSuggestionWindowController new];
 	
     self.shellContainer = [[JBShellContainerView alloc] initWithFrame:bounds prompt:prompt shellInputProcessingHandler:^(NSString *input, JBShellView *sender) {
 		
@@ -56,6 +59,11 @@
 				if ([[[response body] objectForKey:kSuperNetworkMessageBodyStatusKey] isEqualToString:kSuperNetworkMessageBodyStatusOK]) {
 					NSString *output = [[response body] objectForKey:kSuperNetworkMessageBodyOutputKey];
 					[sender appendOutputWithNewlines:[output description]];
+					int64_t delayInSeconds = 2.0;
+					dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
+					dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
+						[self.suggestionWindowController beginForParentTextView:sender];
+					});
 				} else {
 					// there was an error, show it.
 					NSString *errorMessage = [[response body] objectForKey:kSuperNetworkMessageBodyErrorMessageKey];
@@ -110,6 +118,8 @@
 	[self.colorPanel setAction:@selector(updateColor:)];
 	[self.colorPanel setContinuous:YES];
 	[self.colorPanel orderFront:self];
+	
+	//[self.suggestionWindowController showWindow:self];
 	
 }
 
