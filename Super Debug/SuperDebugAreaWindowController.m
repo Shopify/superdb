@@ -59,11 +59,7 @@
 				if ([[[response body] objectForKey:kSuperNetworkMessageBodyStatusKey] isEqualToString:kSuperNetworkMessageBodyStatusOK]) {
 					NSString *output = [[response body] objectForKey:kSuperNetworkMessageBodyOutputKey];
 					[sender appendOutputWithNewlines:[output description]];
-					int64_t delayInSeconds = 2.0;
-					dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, delayInSeconds * NSEC_PER_SEC);
-					dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-						[self.suggestionWindowController beginForParentTextView:sender];
-					});
+//					[self.suggestionWindowController beginForParentTextView:sender];
 				} else {
 					// there was an error, show it.
 					NSString *errorMessage = [[response body] objectForKey:kSuperNetworkMessageBodyErrorMessageKey];
@@ -73,6 +69,7 @@
 					[sender showErrorOutput:errorMessage errorRange:range];
 				}
 				[sender endDelayedOutputMode];
+				[self.suggestionWindowController beginForParentTextView:sender];
 			}];
 			
 		} else {

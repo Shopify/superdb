@@ -12,6 +12,10 @@
 
 @interface JBSuggestionWindowController ()
 
+@property (nonatomic, assign) NSTextView *parentTextView;
+@property (nonatomic, weak) id localEventMonitor;
+@property (nonatomic, weak) id globalEventMonitor;
+
 @end
 
 @implementation JBSuggestionWindowController
@@ -25,11 +29,15 @@
 		JBRoundedCornersMenuView *contentView = [[JBRoundedCornersMenuView alloc] initWithFrame:frame];
 		[window setContentView:contentView];
 		[contentView setAutoresizesSubviews:NO];
-		
-		
 	}
 	
 	return self;
+}
+
+
+- (void)dealloc {
+	// Because for some shitty reason, NSTextViews can't be made `weak`, so we have to nil this out manually.
+	self.parentTextView = nil;
 }
 
 
@@ -60,6 +68,61 @@
 	[suggestionWindow setFrameTopLeftPoint:insertionRect.origin];
 	
 	[parentWindow addChildWindow:suggestionWindow ordered:NSWindowAbove];
+	
+	self.parentTextView = parentTextView;
+	
+	
+	// cancellation events:
+	self.localEventMonitor = [NSEvent addLocalMonitorForEventsMatchingMask:NSLeftMouseDown|NSRightMouseDown|NSOtherMouseDown handler:^(NSEvent *event) {
+		
+		if ([event window] != suggestionWindow) {
+			if ([event window] == parentWindow) {
+				
+				// Want to test if the click was somewhere in the text view, and if not, cancel the suggestions and swallow the event
+				NSView *contentView = [parentWindow contentView];
+                CGPoint locationTest = [contentView convertPoint:[event locationInWindow] fromView:nil];
+                NSView *hitView = [contentView hitTest:locationTest];
+				
+				if (hitView != parentTextView) {
+					event = nil;
+					[self cancelSuggestions];
+				}
+			} else {
+				
+				// Not the suggestion window, so must be in some other window of the app, thus dismiss the suggestions
+				[self cancelSuggestions];
+			}
+		}
+		
+		return event;
+	}];
+	
+	self.globalEventMonitor = [[NSNotificationCenter defaultCenter] addObserverForName:NSWindowDidResignKeyNotification object:parentWindow queue:nil usingBlock:^(NSNotification *notification) {
+        // lost key status, cancel the suggestion window
+        [self cancelSuggestions];
+    }];
+}
+
+
+- (void)cancelSuggestions {
+	NSWindow *suggestionsWindow = self.window;
+	if ([suggestionsWindow isVisible]) {
+	
+	[[suggestionsWindow parentWindow] removeChildWindow:suggestionsWindow];
+	[suggestionsWindow orderOut:nil];
+	
+	}
+	
+	if (self.globalEventMonitor) {
+		[[NSNotificationCenter defaultCenter] removeObserver:self.globalEventMonitor];
+		self.globalEventMonitor = nil;
+	}
+	
+	
+	if (self.localEventMonitor) {
+		[NSEvent removeMonitor:self.localEventMonitor];
+		self.localEventMonitor = nil;
+	}
 }
 
 @end
