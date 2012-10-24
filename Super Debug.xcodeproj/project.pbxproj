@@ -13,6 +13,8 @@
 		CD0D975E15B886AA003A0D8B /* JBShellView.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0D975B15B886AA003A0D8B /* JBShellView.m */; };
 		CD0D975F15B886AA003A0D8B /* JBShellContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0D975D15B886AA003A0D8B /* JBShellContainerView.m */; };
 		CD0EC08915DC880E004F2403 /* JBTextEditorProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0EC08815DC880E004F2403 /* JBTextEditorProcessor.m */; };
+		CD360F6F1638696400617446 /* JBSuggestionsTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD360F6E1638696400617446 /* JBSuggestionsTableView.xib */; };
+		CD360F7216386AD400617446 /* JBSuggestionsTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = CD360F7116386AD400617446 /* JBSuggestionsTableView.m */; };
 		CD3F75211631ABA700A012E0 /* JBSuggestionWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = CD3F75201631ABA700A012E0 /* JBSuggestionWindow.m */; };
 		CD3F75281631C56A00A012E0 /* JBSuggestionWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD3F75271631C56A00A012E0 /* JBSuggestionWindowController.m */; };
 		CD3F752B1631C66100A012E0 /* JBRoundedCornersMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = CD3F752A1631C66100A012E0 /* JBRoundedCornersMenuView.m */; };
@@ -100,6 +102,9 @@
 		CD0D976015B888BD003A0D8B /* JBShellViewBlockTypedefs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBShellViewBlockTypedefs.h; sourceTree = "<group>"; };
 		CD0EC08715DC880E004F2403 /* JBTextEditorProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBTextEditorProcessor.h; sourceTree = "<group>"; };
 		CD0EC08815DC880E004F2403 /* JBTextEditorProcessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBTextEditorProcessor.m; sourceTree = "<group>"; };
+		CD360F6E1638696400617446 /* JBSuggestionsTableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JBSuggestionsTableView.xib; sourceTree = "<group>"; };
+		CD360F7016386AD400617446 /* JBSuggestionsTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBSuggestionsTableView.h; sourceTree = "<group>"; };
+		CD360F7116386AD400617446 /* JBSuggestionsTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBSuggestionsTableView.m; sourceTree = "<group>"; };
 		CD3F751F1631ABA700A012E0 /* JBSuggestionWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBSuggestionWindow.h; sourceTree = "<group>"; };
 		CD3F75201631ABA700A012E0 /* JBSuggestionWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBSuggestionWindow.m; sourceTree = "<group>"; };
 		CD3F75261631C56A00A012E0 /* JBSuggestionWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBSuggestionWindowController.h; sourceTree = "<group>"; };
@@ -168,6 +173,9 @@
 				CD3F75271631C56A00A012E0 /* JBSuggestionWindowController.m */,
 				CD3F75291631C66100A012E0 /* JBRoundedCornersMenuView.h */,
 				CD3F752A1631C66100A012E0 /* JBRoundedCornersMenuView.m */,
+				CD360F6E1638696400617446 /* JBSuggestionsTableView.xib */,
+				CD360F7016386AD400617446 /* JBSuggestionsTableView.h */,
+				CD360F7116386AD400617446 /* JBSuggestionsTableView.m */,
 			);
 			name = Completions;
 			sourceTree = "<group>";
@@ -381,6 +389,7 @@
 				CDD65BCA15A8D03000505C37 /* MainMenu.xib in Resources */,
 				CDD65BD415A8D07800505C37 /* JBDeviceSelectionWindowController.xib in Resources */,
 				CD0D94D315B84482003A0D8B /* SuperDebugAreaWindowController.xib in Resources */,
+				CD360F6F1638696400617446 /* JBSuggestionsTableView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -402,6 +411,7 @@
 				CD3F75211631ABA700A012E0 /* JBSuggestionWindow.m in Sources */,
 				CD3F75281631C56A00A012E0 /* JBSuggestionWindowController.m in Sources */,
 				CD3F752B1631C66100A012E0 /* JBRoundedCornersMenuView.m in Sources */,
+				CD360F7216386AD400617446 /* JBSuggestionsTableView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
