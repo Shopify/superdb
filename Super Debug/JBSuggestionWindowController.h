@@ -10,6 +10,8 @@
 
 @interface JBSuggestionWindowController : NSWindowController
 
+@property (nonatomic, copy) NSArray *suggestions;
+
 - (void)beginForParentTextView:(NSTextView *)parentTextView;
 
 @end

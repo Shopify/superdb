@@ -49,6 +49,8 @@
 
 
 - (void)beginForParentTextView:(NSTextView *)parentTextView {
+	self.parentTextView = parentTextView;
+	
 	NSWindow *suggestionWindow = [self window];
 	NSWindow *parentWindow = [parentTextView window];
 	
@@ -63,13 +65,12 @@
 //	CGRect windowCooridinateRect;
 //	windowCooridinateRect.origin = insertionPointInWindowCoordinates;
 //	windowCooridinateRect.size = CGSizeMake(1, 1);
-//	
+//
 //	CGPoint insertionPointInScreenCoordinates = [parentWindow convertRectToScreen:windowCooridinateRect].origin;
 	[suggestionWindow setFrameTopLeftPoint:insertionRect.origin];
-	
+	[self layoutSuggestions];
 	[parentWindow addChildWindow:suggestionWindow ordered:NSWindowAbove];
 	
-	self.parentTextView = parentTextView;
 	
 	
 	// cancellation events:
@@ -123,6 +124,57 @@
 		[NSEvent removeMonitor:self.localEventMonitor];
 		self.localEventMonitor = nil;
 	}
+}
+
+
+- (void)setSuggestions:(NSArray *)suggestions {
+	_suggestions = [suggestions copy];
+	
+	if ([self.window isVisible]) {
+		[self layoutSuggestions];
+	}
+}
+
+
+- (void)layoutSuggestions {
+	const CGFloat rowHeight = 22.0f;
+	CGFloat windowWidth = 0.0f;
+	CGFloat currentHeight = 0.0f;
+	
+	JBRoundedCornersMenuView *menuView = [[self window] contentView];
+	
+	for (NSDictionary *suggestion in _suggestions) {
+		NSString *title = suggestion[@"title"];
+		
+		NSFont *titleFont = [self.parentTextView font];
+		CGFloat currentWidth = [title sizeWithAttributes:@{NSFontAttributeName : titleFont}].width;
+		
+		if (currentWidth > windowWidth) {
+			windowWidth = currentWidth;
+		}
+		
+		NSTextField *label = [[NSTextField alloc] initWithFrame:CGRectMake(0, currentHeight, windowWidth, rowHeight)];
+		[label setBackgroundColor:[NSColor clearColor]];
+		[label setBezeled:NO];
+		[label setBordered:NO];
+		[label setFont:titleFont];
+		
+		NSAttributedString *string = [[NSAttributedString alloc] initWithString:title attributes:@{NSFontAttributeName : titleFont}];
+		[label setAttributedStringValue:string];
+		
+		[menuView addSubview:label];
+		
+		currentHeight += rowHeight;
+	}
+	
+	CGRect windowContentFrame = CGRectMake(0, 0, windowWidth, currentHeight);
+	[menuView setFrame:windowContentFrame];
+	
+	CGRect winFrame = [[self window] frame];
+    winFrame.origin.y = NSMaxY(winFrame) - NSHeight(windowContentFrame);
+    winFrame.size.height = NSHeight(windowContentFrame);
+    [[self window] setFrame:winFrame display:YES];
+
 }
 
 @end
