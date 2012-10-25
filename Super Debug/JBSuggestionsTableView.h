@@ -8,7 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface JBSuggestionsTableView : NSView
+@interface JBSuggestionsTableView : NSView <NSTableViewDataSource, NSTableViewDelegate>
 @property (nonatomic, strong) IBOutlet NSTableView *tableView;
 @property (nonatomic, strong) NSArray *suggestions;
 @end

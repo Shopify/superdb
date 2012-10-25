@@ -9,6 +9,7 @@
 #import "JBSuggestionWindowController.h"
 #import "JBSuggestionWindow.h"
 #import "JBRoundedCornersMenuView.h"
+#import "JBSuggestionsTableView.h"
 
 @interface JBSuggestionWindowController ()
 
@@ -16,12 +17,14 @@
 @property (nonatomic, weak) id localEventMonitor;
 @property (nonatomic, weak) id globalEventMonitor;
 
+@property (nonatomic, strong) JBSuggestionsTableView *suggestionsTableViewContainer;
+
 @end
 
 @implementation JBSuggestionWindowController
 
 - (id)init {
-	CGRect frame = CGRectMake(100, 500, 200, 200);
+	CGRect frame = CGRectMake(0, 0, 200, 200);
 	NSWindow *window = [[JBSuggestionWindow alloc] initWithContentRect:frame styleMask:NSBorderlessWindowMask backing:NSBackingStoreBuffered defer:YES];
 	
 	self = [super initWithWindow:window];
@@ -29,6 +32,9 @@
 		JBRoundedCornersMenuView *contentView = [[JBRoundedCornersMenuView alloc] initWithFrame:frame];
 		[window setContentView:contentView];
 		[contentView setAutoresizesSubviews:NO];
+		
+		self.suggestionsTableViewContainer = [[JBSuggestionsTableView alloc] initWithFrame:frame];
+		[contentView addSubview:self.suggestionsTableViewContainer];
 	}
 	
 	return self;
@@ -68,9 +74,9 @@
 //
 //	CGPoint insertionPointInScreenCoordinates = [parentWindow convertRectToScreen:windowCooridinateRect].origin;
 	[suggestionWindow setFrameTopLeftPoint:insertionRect.origin];
-	[self layoutSuggestions];
+	//[self layoutSuggestions];
 	[parentWindow addChildWindow:suggestionWindow ordered:NSWindowAbove];
-	
+	NSLog(@"tv:%@", [[[suggestionWindow contentView] subviews] valueForKey:@"frame"]);
 	
 	
 	// cancellation events:
@@ -128,11 +134,17 @@
 
 
 - (void)setSuggestions:(NSArray *)suggestions {
-	_suggestions = [suggestions copy];
+	//_suggestions = [suggestions copy];
+	self.suggestionsTableViewContainer.suggestions = suggestions;
 	
-	if ([self.window isVisible]) {
-		[self layoutSuggestions];
-	}
+//	if ([self.window isVisible]) {
+//		[self layoutSuggestions];
+//	}
+}
+
+
+- (NSArray *)suggestions {
+	return self.suggestionsTableViewContainer.suggestions;
 }
 
 
@@ -143,29 +155,29 @@
 	
 	JBRoundedCornersMenuView *menuView = [[self window] contentView];
 	
-	for (NSDictionary *suggestion in _suggestions) {
-		NSString *title = suggestion[@"title"];
-		
-		NSFont *titleFont = [self.parentTextView font];
-		CGFloat currentWidth = [title sizeWithAttributes:@{NSFontAttributeName : titleFont}].width;
-		
-		if (currentWidth > windowWidth) {
-			windowWidth = currentWidth;
-		}
-		
-		NSTextField *label = [[NSTextField alloc] initWithFrame:CGRectMake(0, currentHeight, windowWidth, rowHeight)];
-		[label setBackgroundColor:[NSColor clearColor]];
-		[label setBezeled:NO];
-		[label setBordered:NO];
-		[label setFont:titleFont];
-		
-		NSAttributedString *string = [[NSAttributedString alloc] initWithString:title attributes:@{NSFontAttributeName : titleFont}];
-		[label setAttributedStringValue:string];
-		
-		[menuView addSubview:label];
-		
-		currentHeight += rowHeight;
-	}
+//	for (NSDictionary *suggestion in _suggestions) {
+//		NSString *title = suggestion[@"title"];
+//		
+//		NSFont *titleFont = [self.parentTextView font];
+//		CGFloat currentWidth = [title sizeWithAttributes:@{NSFontAttributeName : titleFont}].width;
+//		
+//		if (currentWidth > windowWidth) {
+//			windowWidth = currentWidth;
+//		}
+//		
+//		NSTextField *label = [[NSTextField alloc] initWithFrame:CGRectMake(0, currentHeight, windowWidth, rowHeight)];
+//		[label setBackgroundColor:[NSColor clearColor]];
+//		[label setBezeled:NO];
+//		[label setBordered:NO];
+//		[label setFont:titleFont];
+//		
+//		NSAttributedString *string = [[NSAttributedString alloc] initWithString:title attributes:@{NSFontAttributeName : titleFont}];
+//		[label setAttributedStringValue:string];
+//		
+//		[menuView addSubview:label];
+//		
+//		currentHeight += rowHeight;
+//	}
 	
 	CGRect windowContentFrame = CGRectMake(0, 0, windowWidth, currentHeight);
 	[menuView setFrame:windowContentFrame];

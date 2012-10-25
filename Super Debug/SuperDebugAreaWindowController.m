@@ -69,15 +69,8 @@
 					[sender showErrorOutput:errorMessage errorRange:range];
 				}
 				[sender endDelayedOutputMode];
-				
-				NSMutableArray *array = [@[] mutableCopy];
-				NSString *completion = @"a";
-				for (NSInteger i = 0; i < 10; i++) {
-					[array addObject:@{@"title" : completion}];
-					completion = [completion stringByAppendingString:@"a"];
-				}
-				[self.suggestionWindowController setSuggestions:array];
-				[self.suggestionWindowController beginForParentTextView:sender];
+
+				//[self.suggestionWindowController beginForParentTextView:sender];
 			}];
 			
 		} else {
@@ -167,6 +160,15 @@
 	self.prompt = @"> ";
 	[self.shellView setInputHandler:^(NSString *input, JBShellView *sender) {
 		
+		NSMutableArray *array = [@[] mutableCopy];
+		NSString *completion = @"a";
+		for (NSInteger i = 0; i < 10; i++) {
+			[array addObject:@{@"title" : completion}];
+			completion = [completion stringByAppendingString:@"a"];
+		}
+		[self.suggestionWindowController setSuggestions:array];
+		[self.suggestionWindowController beginForParentTextView:sender];
+
 	}];
 }
 

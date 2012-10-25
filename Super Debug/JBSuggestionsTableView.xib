@@ -50,7 +50,7 @@
 								<reference key="NSNextResponder" ref="559669493"/>
 								<int key="NSvFlags">256</int>
 								<array class="NSMutableArray" key="NSSubviews"/>
-								<string key="NSFrameSize">{240, 135}</string>
+								<string key="NSFrameSize">{240, 133}</string>
 								<reference key="NSSuperview" ref="559669493"/>
 								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="392162689"/>
@@ -67,6 +67,7 @@
 								</object>
 								<array class="NSMutableArray" key="NSTableColumns">
 									<object class="NSTableColumn" id="862584402">
+										<string key="NSIdentifier">suggestions_column</string>
 										<double key="NSWidth">237</double>
 										<double key="NSMinWidth">40</double>
 										<double key="NSMaxWidth">1000</double>
@@ -143,7 +144,7 @@
 									<reference key="NSColor" ref="291635557"/>
 								</object>
 								<double key="NSRowHeight">17</double>
-								<int key="NSTvFlags">37748736</int>
+								<int key="NSTvFlags">-1035993088</int>
 								<reference key="NSDelegate"/>
 								<reference key="NSDataSource"/>
 								<int key="NSColumnAutoresizingStyle">4</int>
@@ -154,14 +155,14 @@
 								<int key="NSTableViewGroupRowStyle">1</int>
 							</object>
 						</array>
-						<string key="NSFrameSize">{240, 135}</string>
+						<string key="NSFrameSize">{240, 133}</string>
 						<reference key="NSSuperview" ref="568221827"/>
 						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="398141186"/>
 						<string key="NSReuseIdentifierKey">_NS:11</string>
 						<reference key="NSDocView" ref="398141186"/>
 						<reference key="NSBGColor" ref="396009255"/>
-						<int key="NScvFlags">4</int>
+						<int key="NScvFlags">6</int>
 					</object>
 					<object class="NSScroller" id="700317518">
 						<reference key="NSNextResponder" ref="568221827"/>
@@ -182,7 +183,6 @@
 						<string key="NSFrame">{{1, 119}, {223, 15}}</string>
 						<reference key="NSSuperview" ref="568221827"/>
 						<reference key="NSWindow"/>
-						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:60</string>
 						<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
 						<int key="NSsFlags">1</int>
@@ -191,7 +191,7 @@
 						<double key="NSPercent">0.99585062240663902</double>
 					</object>
 				</array>
-				<string key="NSFrameSize">{240, 135}</string>
+				<string key="NSFrameSize">{240, 133}</string>
 				<reference key="NSSuperview"/>
 				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="559669493"/>
@@ -242,7 +242,7 @@
 								<object class="NSTextField" id="601097500">
 									<reference key="NSNextResponder" ref="392162689"/>
 									<int key="NSvFlags">266</int>
-									<string key="NSFrameSize">{237, 17}</string>
+									<string key="NSFrame">{{3, -1}, {231, 19}}</string>
 									<reference key="NSSuperview" ref="392162689"/>
 									<reference key="NSNextKeyView" ref="700317518"/>
 									<string key="NSAntiCompressionPriority">{250, 750}</string>
