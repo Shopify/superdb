@@ -8,6 +8,7 @@
 
 #import "JBSuggestionsTableView.h"
 
+const CGFloat inset = 3.0f;
 
 @interface JBSuggestionsTableView ()
 @end
@@ -23,8 +24,9 @@
 			NSLog(@"Error loading %@ nib", NSStringFromClass([self class]));
 		}
 		NSLog(@"Tableview description= %@", self.tableView.delegate);
-		[self.tableView setFrame:[self bounds]];
-		[[self.tableView enclosingScrollView] setFrame:[self bounds]];
+		CGRect bounds = CGRectInset([self bounds], inset, inset);
+		[self.tableView setFrame:bounds];
+		[[self.tableView enclosingScrollView] setFrame:bounds];
 		
 //		NSScrollView *scrollView  = [[NSScrollView alloc] initWithFrame:[self bounds]];
 //		
@@ -65,6 +67,21 @@
 - (void)setSuggestions:(NSArray *)suggestions {
 	_suggestions = [suggestions copy];
 	
+	// Figure out how big the view needs to be based on the biggest suggestion
+	
+	CGFloat widest = 0.0f;
+	NSFont *font = [NSFont fontWithName:@"Menlo" size:18.0f];
+	
+	for (NSDictionary *suggestion in suggestions) {
+		NSString *title = suggestion[@"title"];
+		CGFloat width = [title sizeWithAttributes:@{NSFontAttributeName : font}].width;
+		
+		if (width > widest) widest = width;
+	}
+	CGRect frame = [[self window] frame];
+	CGFloat padding = 8.0f;
+	frame.size.width = widest + (2 * inset) + padding;
+	[[self window] setFrame:frame display:NO];
 	[self.tableView reloadData];
 }
 
@@ -73,7 +90,6 @@
 
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
 	NSLog(@"how many rows? %ld", [self.suggestions count]);
-	return 10;
 	return [self.suggestions count];
 }
 
