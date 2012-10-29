@@ -30,4 +30,9 @@
 	[gradient drawInBezierPath:[NSBezierPath bezierPathWithRoundedRect:selectionRect xRadius:4. yRadius:4.] angle:90];
 }
 
+
+- (NSBackgroundStyle)interiorBackgroundStyle {
+	return self.selected? NSBackgroundStyleDark : NSBackgroundStyleLight;
+}
+
 @end
