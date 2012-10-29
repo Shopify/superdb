@@ -105,7 +105,7 @@
 	if (self.disconnectedShell) {
 		[self configureDisconnectedShell];
 	}
-	
+	self.shellView.suggestionWindowController = self.suggestionWindowController;
 	
 	[[[self window] contentView] addSubview:self.shellContainer];
 	[self.window makeFirstResponder:self.shellContainer.shellView];

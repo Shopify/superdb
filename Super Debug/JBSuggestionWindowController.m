@@ -115,10 +115,10 @@
 - (void)cancelSuggestions {
 	NSWindow *suggestionsWindow = self.window;
 	if ([suggestionsWindow isVisible]) {
-	
-	[[suggestionsWindow parentWindow] removeChildWindow:suggestionsWindow];
-	[suggestionsWindow orderOut:nil];
-	
+		
+		[[suggestionsWindow parentWindow] removeChildWindow:suggestionsWindow];
+		[suggestionsWindow orderOut:nil];
+		
 	}
 	
 	if (self.globalEventMonitor) {
@@ -190,4 +190,24 @@
 
 }
 
+
+- (BOOL)textViewShouldMoveUp:(NSTextView *)sender {
+	
+	if (![self.window isVisible]) return YES;
+	
+	// Suggestion window is not visible, this means we want to forward this event to its tableview.
+	[self.suggestionsTableViewContainer moveUp:sender];
+	
+	return NO;
+}
+
+
+- (BOOL)textViewShouldMoveDown:(NSTextView *)sender {
+	if (![self.window isVisible]) return YES;
+	
+	// Suggestion window is not visible, this means we want to forward this event to its tableview.
+	[self.suggestionsTableViewContainer moveDown:sender];
+	
+	return NO;
+}
 @end

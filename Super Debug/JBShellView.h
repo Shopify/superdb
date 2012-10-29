@@ -13,7 +13,7 @@
 #define kJBShellViewSuccessColor [JBShellView successColor]
 
 
-
+@class JBSuggestionWindowController;
 @interface JBShellView : NSTextView
 
 @property (nonatomic, strong) NSString *prompt;
@@ -21,6 +21,8 @@
 
 @property (nonatomic, copy) JBShellViewDragHandler numberDragHandler;
 @property (nonatomic, copy) JBShellViewDragHandler colorPickerDragHandler;
+
+@property (nonatomic, strong) JBSuggestionWindowController *suggestionWindowController;
 
 - (id)initWithFrame:(CGRect)frame prompt:(NSString *)prompt inputHandler:(JBShellViewInputProcessingHandler)inputHandler;
 

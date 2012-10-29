@@ -9,6 +9,7 @@
 #import "JBShellView.h"
 #import "JBShellCommandHistory.h"
 #import "JBTextEditorProcessor.h"
+#import "JBSuggestionWindowController.h"
 #import <ParseKit/ParseKit.h>
 
 
@@ -782,6 +783,22 @@
 		self.userEnteredText = YES;
 		return YES;
 	}
+}
+
+
+- (BOOL)textView:(NSTextView *)textView doCommandBySelector:(SEL)commandSelector {
+	
+	if (commandSelector == @selector(moveUp:)) {
+		return ![self.suggestionWindowController textViewShouldMoveUp:textView];
+	}
+	
+	
+	if (commandSelector == @selector(moveDown:)) {
+		return ![self.suggestionWindowController textViewShouldMoveDown:textView];
+	}
+	
+	// Returning no means the textView should handle it
+	return NO;
 }
 
 

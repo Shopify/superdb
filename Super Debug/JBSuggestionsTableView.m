@@ -57,12 +57,21 @@ const CGFloat inset = 3.0f;
     return self;
 }
 
+- (void)moveUp:(id)sender {
+	NSInteger index = [self.tableView selectedRow];
+	if (--index >= 0) {
+		[self.tableView selectRowIndexes:[NSIndexSet indexSetWithIndex:index] byExtendingSelection:NO];
+		[self.tableView scrollRowToVisible:index];
+	}
+}
 
-- (void)awakeFromNib {
-	[self.tableView setDataSource:self];
-	[self.tableView setDelegate:self];
-	//[self.tableView reloadData];
-	
+
+- (void)moveDown:(id)sender {
+	NSInteger index = [self.tableView selectedRow];
+	if (++index < [self.tableView numberOfRows]) {
+		[self.tableView selectRowIndexes:[NSIndexSet indexSetWithIndex:index] byExtendingSelection:NO];
+		[self.tableView scrollRowToVisible:index];
+	}
 }
 
 - (void)setSuggestions:(NSArray *)suggestions {
@@ -84,6 +93,7 @@ const CGFloat inset = 3.0f;
 	frame.size.width = widest + (2 * inset) + padding;
 	[[self window] setFrame:frame display:NO];
 	[self.tableView reloadData];
+	NSLog(@"TableView size: %@", NSStringFromRect(self.tableView.frame));
 }
 
 

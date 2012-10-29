@@ -14,4 +14,8 @@
 
 - (void)beginForParentTextView:(NSTextView *)parentTextView;
 
+- (BOOL)textViewShouldMoveUp:(NSTextView *)sender;
+- (BOOL)textViewShouldMoveDown:(NSTextView *)sender;
+
+
 @end
