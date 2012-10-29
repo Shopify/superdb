@@ -75,6 +75,7 @@
 //	CGPoint insertionPointInScreenCoordinates = [parentWindow convertRectToScreen:windowCooridinateRect].origin;
 	[suggestionWindow setFrameTopLeftPoint:insertionRect.origin];
 	//[self layoutSuggestions];
+	[self.suggestionsTableViewContainer.tableView reloadData];
 	[parentWindow addChildWindow:suggestionWindow ordered:NSWindowAbove];
 	NSLog(@"tv:%@", [[[suggestionWindow contentView] subviews] valueForKey:@"frame"]);
 	

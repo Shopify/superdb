@@ -13,6 +13,7 @@
 		<array key="IBDocument.IntegratedClassDependencies">
 			<string>IBNSLayoutConstraint</string>
 			<string>NSCustomObject</string>
+			<string>NSCustomView</string>
 			<string>NSScrollView</string>
 			<string>NSScroller</string>
 			<string>NSTableCellView</string>
@@ -67,7 +68,6 @@
 								</object>
 								<array class="NSMutableArray" key="NSTableColumns">
 									<object class="NSTableColumn" id="862584402">
-										<string key="NSIdentifier">suggestions_column</string>
 										<double key="NSWidth">237</double>
 										<double key="NSMinWidth">40</double>
 										<double key="NSMaxWidth">1000</double>
@@ -75,7 +75,7 @@
 											<int key="NSCellFlags">75497536</int>
 											<int key="NSCellFlags2">2048</int>
 											<string key="NSContents"/>
-											<object class="NSFont" key="NSSupport" id="58109371">
+											<object class="NSFont" key="NSSupport" id="926649575">
 												<string key="NSName">Menlo-Regular</string>
 												<double key="NSSize">18</double>
 												<int key="NSfFlags">16</int>
@@ -143,7 +143,7 @@
 									<string key="NSColorName">gridColor</string>
 									<reference key="NSColor" ref="291635557"/>
 								</object>
-								<double key="NSRowHeight">32</double>
+								<double key="NSRowHeight">40</double>
 								<int key="NSTvFlags">-1035993088</int>
 								<reference key="NSDelegate"/>
 								<reference key="NSDataSource"/>
@@ -183,6 +183,7 @@
 						<string key="NSFrame">{{1, 119}, {223, 15}}</string>
 						<reference key="NSSuperview" ref="568221827"/>
 						<reference key="NSWindow"/>
+						<reference key="NSNextKeyView"/>
 						<string key="NSReuseIdentifierKey">_NS:60</string>
 						<bool key="NSAllowsLogicalLayoutDirection">NO</bool>
 						<int key="NSsFlags">1</int>
@@ -200,7 +201,7 @@
 				<reference key="NSVScroller" ref="700317518"/>
 				<reference key="NSHScroller" ref="847134984"/>
 				<reference key="NSContentView" ref="559669493"/>
-				<bytes key="NSScrollAmts">QSAAAEEgAABCCAAAQggAAA</bytes>
+				<bytes key="NSScrollAmts">QSAAAEEgAABCKAAAQigAAA</bytes>
 				<double key="NSMinMagnification">0.25</double>
 				<double key="NSMaxMagnification">4</double>
 				<double key="NSMagnification">1</double>
@@ -242,16 +243,16 @@
 								<object class="NSTextField" id="601097500">
 									<reference key="NSNextResponder" ref="392162689"/>
 									<int key="NSvFlags">266</int>
-									<string key="NSFrame">{{3, 3}, {231, 26}}</string>
+									<string key="NSFrame">{{0, 3}, {237, 26}}</string>
 									<reference key="NSSuperview" ref="392162689"/>
-									<reference key="NSNextKeyView" ref="700317518"/>
+									<reference key="NSNextKeyView" ref="384822025"/>
 									<string key="NSAntiCompressionPriority">{250, 750}</string>
 									<bool key="NSEnabled">YES</bool>
 									<object class="NSTextFieldCell" key="NSCell" id="988813886">
 										<int key="NSCellFlags">67108928</int>
 										<int key="NSCellFlags2">268437504</int>
 										<string key="NSContents">Table View Cell</string>
-										<reference key="NSSupport" ref="58109371"/>
+										<reference key="NSSupport" ref="926649575"/>
 										<reference key="NSControlView" ref="601097500"/>
 										<reference key="NSBackgroundColor" ref="396009255"/>
 										<reference key="NSTextColor" ref="478256018"/>
@@ -327,19 +328,22 @@
 						<array class="NSMutableArray" key="children">
 							<reference ref="584669742"/>
 							<reference ref="392162689"/>
+							<object class="NSCustomView" id="384822025">
+								<nil key="NSNextResponder"/>
+								<int key="NSvFlags">268</int>
+								<string key="NSFrame">{{1, 35}, {237, 40}}</string>
+								<reference key="NSNextKeyView" ref="700317518"/>
+								<string key="NSReuseIdentifierKey">_NS:9</string>
+								<string key="NSClassName">JBSuggestionTableRowView</string>
+							</object>
 						</array>
 						<reference key="parent" ref="398141186"/>
-					</object>
-					<object class="IBObjectRecord">
-						<int key="objectID">10</int>
-						<reference key="object" ref="584669742"/>
-						<reference key="parent" ref="862584402"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">11</int>
 						<reference key="object" ref="392162689"/>
 						<array class="NSMutableArray" key="children">
-							<object class="IBNSLayoutConstraint" id="709617755">
+							<object class="IBNSLayoutConstraint" id="56318212">
 								<reference key="firstItem" ref="601097500"/>
 								<int key="firstAttribute">3</int>
 								<int key="relation">0</int>
@@ -416,8 +420,18 @@
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">36</int>
-						<reference key="object" ref="709617755"/>
+						<reference key="object" ref="56318212"/>
 						<reference key="parent" ref="392162689"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">10</int>
+						<reference key="object" ref="584669742"/>
+						<reference key="parent" ref="862584402"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">52</int>
+						<reference key="object" ref="384822025"/>
+						<reference key="parent" ref="862584402"/>
 					</object>
 				</array>
 			</object>
@@ -429,7 +443,7 @@
 				<array class="NSMutableArray" key="11.IBNSViewMetadataConstraints">
 					<reference ref="418032592"/>
 					<reference ref="894054693"/>
-					<reference ref="709617755"/>
+					<reference ref="56318212"/>
 				</array>
 				<string key="11.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<boolean value="NO" key="12.IBNSViewMetadataTranslatesAutoresizingMaskIntoConstraints"/>
@@ -442,21 +456,32 @@
 				<boolean value="YES" key="3.ibExternalAutomaticallyCalculatesRowSizeFromViewHeight"/>
 				<string key="36.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="4.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="52.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
+				<string key="52.userInterfaceItemIdentifier">NSTableViewRowViewKey</string>
 				<string key="6.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<string key="7.IBPluginDependency">com.apple.InterfaceBuilder.CocoaPlugin</string>
 				<boolean value="YES" key="7.isInViewBasedMode"/>
 				<array key="7.prototypeCellViews">
 					<reference ref="392162689"/>
+					<reference ref="384822025"/>
 				</array>
 			</dictionary>
 			<dictionary class="NSMutableDictionary" key="unlocalizedProperties"/>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">36</int>
+			<int key="maxID">52</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
+				<object class="IBPartialClassDescription">
+					<string key="className">JBSuggestionTableRowView</string>
+					<string key="superclassName">NSTableRowView</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/JBSuggestionTableRowView.h</string>
+					</object>
+				</object>
 				<object class="IBPartialClassDescription">
 					<string key="className">JBSuggestionsTableView</string>
 					<string key="superclassName">NSView</string>
@@ -482,6 +507,14 @@
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBProjectSource</string>
 						<string key="minorKey">./Classes/NSLayoutConstraint.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">NSTableRowView</string>
+					<string key="superclassName">NSView</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBProjectSource</string>
+						<string key="minorKey">./Classes/NSTableRowView.h</string>
 					</object>
 				</object>
 			</array>

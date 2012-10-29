@@ -7,6 +7,7 @@
 //
 
 #import "JBSuggestionsTableView.h"
+#import "JBSuggestionTableRowView.h"
 
 const CGFloat inset = 3.0f;
 
@@ -27,30 +28,30 @@ const CGFloat inset = 3.0f;
 		CGRect bounds = CGRectInset([self bounds], inset, inset);
 		[self.tableView setFrame:bounds];
 		[[self.tableView enclosingScrollView] setFrame:bounds];
-		
+		[self addSubview:[self.tableView enclosingScrollView]];
+		//[self.tableView setIden]
 //		NSScrollView *scrollView  = [[NSScrollView alloc] initWithFrame:[self bounds]];
-//		
+//
 //		[scrollView setBorderType:NSBezelBorder];
 //		[scrollView setHasVerticalScroller:YES];
 //		[scrollView setHasHorizontalScroller:YES];
 //		[scrollView setAutohidesScrollers:NO];
-//		
+//
 //		NSRect clipViewBounds  = [[scrollView contentView] bounds];
 //		NSTableView *tableView       = [[NSTableView alloc] initWithFrame:clipViewBounds];
-//		
+//
 //		NSTableColumn*  firstColumn     = [[NSTableColumn alloc] initWithIdentifier:@"firstColumn"];
 //		[[firstColumn headerCell] setStringValue:@"First Column"];
 //		[tableView addTableColumn:firstColumn];
-//		
 //
-//		
+//
+//
 //		[tableView setDataSource:self];
 //		[tableView setDelegate:self];
-//		
+//
 //		[scrollView setDocumentView:tableView];
 //		[self addSubview:scrollView];
 //		self.tableView = tableView;
-		[self addSubview:[self.tableView enclosingScrollView]];
     }
     
     return self;
@@ -60,7 +61,7 @@ const CGFloat inset = 3.0f;
 - (void)awakeFromNib {
 	[self.tableView setDataSource:self];
 	[self.tableView setDelegate:self];
-	[self.tableView reloadData];
+	//[self.tableView reloadData];
 	
 }
 
@@ -98,8 +99,19 @@ const CGFloat inset = 3.0f;
 	
 	NSDictionary *suggestion = self.suggestions[row];
 	[cell.textField setStringValue:suggestion[@"title"]];
-	NSLog(@"cellll %@", suggestion);
+	NSLog(@"celll");
 	return cell;
 }
+
+
+//- (NSTableRowView *)tableView:(NSTableView *)tableView rowViewForRow:(NSInteger)row {
+//	JBSuggestionTableRowView *rowView = [[JBSuggestionTableRowView alloc] initWithFrame:CGRectMake(0, 0, 10, 20)];
+//	return rowView;
+//}
+
+
+//- (void)tableView:(NSTableView *)tableView didAddRowView:(NSTableRowView *)rowView forRow:(NSInteger)row {
+//	rowView.selectionHighlightStyle = NSTableViewSelectionHighlightStyleSourceList;
+//}
 
 @end
