@@ -99,19 +99,7 @@ const CGFloat inset = 3.0f;
 	
 	NSDictionary *suggestion = self.suggestions[row];
 	[cell.textField setStringValue:suggestion[@"title"]];
-	NSLog(@"celll");
 	return cell;
 }
-
-
-//- (NSTableRowView *)tableView:(NSTableView *)tableView rowViewForRow:(NSInteger)row {
-//	JBSuggestionTableRowView *rowView = [[JBSuggestionTableRowView alloc] initWithFrame:CGRectMake(0, 0, 10, 20)];
-//	return rowView;
-//}
-
-
-//- (void)tableView:(NSTableView *)tableView didAddRowView:(NSTableRowView *)rowView forRow:(NSInteger)row {
-//	rowView.selectionHighlightStyle = NSTableViewSelectionHighlightStyleSourceList;
-//}
 
 @end

@@ -24,4 +24,7 @@
 	
 }
 
+- (IBAction)openNewShell:(NSMenuItem *)sender {
+	[self.deviceWindow showNewShell:nil];
+}
 @end
