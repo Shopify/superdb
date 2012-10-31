@@ -26,7 +26,10 @@ const CGFloat inset = 3.0f;
 		}
 		NSLog(@"Tableview description= %@", self.tableView.delegate);
 		CGRect bounds = CGRectInset([self bounds], inset, inset);
-		[self.tableView setFrame:bounds];
+		CGRect tableBounds = bounds;
+		tableBounds.origin = CGPointZero;
+		
+		[self.tableView setFrame:tableBounds];
 		[[self.tableView enclosingScrollView] setFrame:bounds];
 		[self addSubview:[self.tableView enclosingScrollView]];
 		//[self.tableView setIden]
@@ -85,15 +88,34 @@ const CGFloat inset = 3.0f;
 	for (NSDictionary *suggestion in suggestions) {
 		NSString *title = suggestion[@"title"];
 		CGFloat width = [title sizeWithAttributes:@{NSFontAttributeName : font}].width;
-		
 		if (width > widest) widest = width;
 	}
+	
+	
 	CGRect frame = [[self window] frame];
 	CGFloat padding = 8.0f;
 	frame.size.width = widest + (2 * inset) + padding;
-	[[self window] setFrame:frame display:NO];
 	[self.tableView reloadData];
-	NSLog(@"TableView size: %@", NSStringFromRect(self.tableView.frame));
+	
+	CGFloat rowHeight = [self.tableView rowHeight];
+	CGRect tableFrame = [self.tableView frame];
+	if (CGRectGetHeight(tableFrame) > rowHeight * 5) {
+		tableFrame.size.height = rowHeight * 5;
+	} else {
+		tableFrame.size.height = rowHeight * [self.tableView numberOfRows];
+	}
+	tableFrame.size.width = widest;
+	frame.size.height = tableFrame.size.height + 2*inset;
+	
+	CGRect scrollViewFrame = [[self.tableView enclosingScrollView] frame];
+	scrollViewFrame.size.width = widest + padding;
+	scrollViewFrame.size.height = tableFrame.size.height;
+	
+	[[self.tableView enclosingScrollView] setFrame:scrollViewFrame];
+	[[self.tableView enclosingScrollView] set]
+	[self.tableView setFrame:tableFrame];
+	[[self window] setFrame:frame display:NO];
+	
 }
 
 
