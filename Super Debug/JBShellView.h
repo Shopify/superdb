@@ -14,9 +14,12 @@
 
 
 @class JBSuggestionWindowController;
+@class JBShellCommandHistory;
 @interface JBShellView : NSTextView
 
 @property (nonatomic, strong) NSString *prompt;
+@property (nonatomic, assign) NSUInteger commandStart; // The index for where input will be accepted in the textview (for subclasses to change)
+@property (nonatomic, strong, readonly) JBShellCommandHistory *commandHistory;
 @property (nonatomic, copy) JBShellViewInputProcessingHandler inputHandler;
 
 @property (nonatomic, copy) JBShellViewDragHandler numberDragHandler;
@@ -41,5 +44,7 @@
 // This way, tasks can be run asynchronously and the prompt won't be added until -endDelayedOutputMode is called.
 - (void)beginDelayedOutputMode;
 - (void)endDelayedOutputMode;
+
+- (void)highlightText;
 
 @end

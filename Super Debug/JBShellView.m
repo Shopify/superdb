@@ -10,26 +10,17 @@
 #import "JBShellCommandHistory.h"
 #import "JBTextEditorProcessor.h"
 #import "JBSuggestionWindowController.h"
-#import <ParseKit/ParseKit.h>
 
 
 @interface JBShellView () <NSTextViewDelegate>
-@property (nonatomic, assign) NSUInteger commandStart;
 @property (nonatomic, assign) NSUInteger lastCommandStart;
 @property (assign) BOOL delayedOutputMode;
 @property (assign) BOOL userEnteredText;
-@property (nonatomic, strong) JBShellCommandHistory *commandHistory;
-@property (assign) CGPoint initialDragPoint;
-@property (assign) NSRange initialDragRangeInOriginalCommand;
-@property (copy) NSString *initialString;
-@property (strong) NSNumber *initialNumber;
-@property (copy) NSString *initialDragCommandString;
-@property (assign) NSRange initialDragCommandRange;
-@property (assign) NSUInteger initialDragCommandStart;
+@property (nonatomic, strong, readwrite) JBShellCommandHistory *commandHistory;
+
+
 @property (strong) JBTextEditorProcessor *textProcessor;
 
-@property (strong) NSMutableDictionary *numberRanges;
-@property (assign) NSRange currentlyHighlightedRange;
 
 @end
 
@@ -59,14 +50,6 @@
 		
 		self.commandStart = [[self string] length];
 		self.commandHistory = [[JBShellCommandHistory alloc] init];
-		
-		[[self window] setAcceptsMouseMovedEvents:YES];
-		
-		//NSTrackingArea *trackingArea = [[NSTrackingArea alloc] initWithRect:<#(NSRect)#> options:<#(NSTrackingAreaOptions)#> owner:<#(id)#> userInfo:<#(NSDictionary *)#>]
-		
-		self.numberRanges = [@{} mutableCopy];
-		self.initialDragPoint = CGPointZero;
-		[self resetInitialDragRange];
 
     }
     
@@ -80,7 +63,6 @@
 		if (errorRange.location != NSNotFound)
 			[sender showErrorOutput:@"Did you mean: new" errorRange:errorRange];
 		else {
-			//[sender appendOutputWithNewlines:@"All good."];
 			NSString *message = @"All good";
 			NSMutableAttributedString *output = [[NSMutableAttributedString alloc] initWithString:message];
 			NSDictionary *attributes = @{ NSBackgroundColorAttributeName : kJBShellViewSuccessColor, NSForegroundColorAttributeName : [NSColor whiteColor] };
@@ -109,6 +91,7 @@
 	_inputHandler = [inputHandler copy];
 	NSLog(@"SET");
 }
+
 
 - (void)appendOutput:(NSString *)output {
 	[self moveToEndOfDocument:self];
@@ -238,6 +221,71 @@
 }
 
 
+- (void)insertText:(id)insertString {
+	NSLog(@"inserting: %@", insertString);
+	
+	NSRange range = [self selectedRange];
+	if (![self textView:self shouldChangeTextInRange:NSMakeRange(range.location, range.length) replacementString:@""]) {
+		return;
+	}
+	
+	NSString *input = [self inputString];
+	
+	NSString *deletedText = @"";
+	if (range.length > 0) {
+		deletedText = [[self string] substringWithRange:range];
+	}
+	range.location -= self.commandStart;
+	[self.textProcessor processString:input
+				changedSelectionRange:range
+						deletedString:deletedText
+					   insertedString:insertString
+					completionHandler:^(NSString *processedText, NSRange newSelectedRange) {
+						NSLog(@"Processed: %@", processedText);
+						[self replaceCurrentCommandWith:processedText];
+						
+						newSelectedRange.location += self.commandStart;
+						[self setSelectedRange:newSelectedRange];
+					}];
+}
+
+
+- (void)deleteBackward:(id)sender {
+	
+	NSRange range = [self selectedRange];
+	NSRange backwardRange = range;
+	if (!backwardRange.length) {
+		backwardRange.location -= 1;
+	}
+	if (![self textView:self shouldChangeTextInRange:backwardRange replacementString:@""]) {
+		return;
+	}
+	
+	NSString *input = [self inputString];
+	
+	NSString *deletedText = [[self string] substringWithRange:range];
+	if (range.length < 1) {
+		deletedText = [[self string] substringWithRange:NSMakeRange(range.location - 1, 1)];
+		range.length = 1;
+		range.location -= 1;
+	}
+	
+	range.location -= self.commandStart;
+	
+	[self.textProcessor processString:input
+				changedSelectionRange:range
+						deletedString:deletedText
+					   insertedString:@""
+					completionHandler:^(NSString *processedText, NSRange newSelectedRange) {
+						
+						[self replaceCurrentCommandWith:processedText];
+						
+						newSelectedRange.location += self.commandStart;
+						[self setSelectedRange:newSelectedRange];
+					}];
+}
+
+
 #pragma mark - Movement
 
 - (void)moveToBeginningOfLine:(id)sender {
@@ -306,333 +354,10 @@
 }
 
 
-//- (BOOL)dragSelectionWithEvent:(NSEvent *)event offset:(NSSize)mouseOffset slideBack:(BOOL)slideBack {
-//	NSLog(@"%@ %@", [[self string] substringWithRange:[self selectedRange]], NSStringFromSize(mouseOffset));
-//	
-//	return YES;
-//}
-
-
-/* Declares what types of operations the source allows to be performed. Apple may provide more specific "within" values in the future. To account for this, for unrecongized localities, return the operation mask for the most specific context that you are concerned with. For example:
- switch(context) {
- case NSDraggingContextOutsideApplication:
- return ...
- break;
- 
- case NSDraggingContextWithinApplication:
- default:
- return ...
- break;
- }
- */
-- (NSDragOperation)draggingSession:(NSDraggingSession *)session sourceOperationMaskForDraggingContext:(NSDraggingContext)context {
-	switch (context) {
-		case NSDraggingContextWithinApplication: {
-			return NSDragOperationNone;
-			break;
-		}
-			
-			
-		default:
-			return NSDragOperationNone;
-	}
-}
-
-#pragma mark - Mousing
-
-- (void)mouseMoved:(NSEvent *)theEvent {
-	[[self textStorage] removeAttribute:NSBackgroundColorAttributeName range:self.currentlyHighlightedRange];
-	NSUInteger character = [self characterIndexForPoint:[NSEvent mouseLocation]];
-	
-	NSRange range = [self numberStringRangeForCharacterIndex:character];
-	if (range.location == NSNotFound) {
-		if (_currentlyHighlightedRange.location != NSNotFound) {
-			// Only change this when it's not already set... skip some work, I suppose.
-			self.currentlyHighlightedRange = range;
-		}
-		return;
-	}
-	
-	
-	self.currentlyHighlightedRange = range;
-	NSColor *fontColor = [NSColor colorWithCalibratedRed:0.742 green:0.898 blue:0.397 alpha:1.000];
-	[[self textStorage] addAttribute:NSBackgroundColorAttributeName value:fontColor range:range];
-}
-
-
-- (void)mouseDown:(NSEvent *)theEvent {
-	if (self.currentlyHighlightedRange.location == NSNotFound) {
-		[super mouseDown:theEvent];
-		return;
-	}
-	
-	self.initialDragPoint = [NSEvent mouseLocation];
-	self.initialString = [[self string] substringWithRange:self.currentlyHighlightedRange];
-	self.initialNumber = [self numberFromString:self.initialString];
-	
-	NSString *wholeText = [self string];
-	
-	
-	NSString *originalCommand = [self currentCommandForRange:self.currentlyHighlightedRange];
-	NSRange originalCommandRange = [wholeText rangeOfString:originalCommand];
-	
-	self.initialDragCommandString = originalCommand;
-	self.initialDragCommandRange = originalCommandRange;
-	self.initialDragCommandStart = self.commandStart;
-	
-	self.initialDragRangeInOriginalCommand = NSMakeRange(self.currentlyHighlightedRange.location - originalCommandRange.location, self.currentlyHighlightedRange.length);
-}
-
-
-- (void)mouseDragged:(NSEvent *)theEvent {
-	
-	// Skip it if we're not currently dragging a word
-	if (self.currentlyHighlightedRange.location == NSNotFound) {
-		[super mouseDragged:theEvent];
-		return;
-	}
-	
-	NSLog(@"mouse dragged, current range is: %@", NSStringFromRange(self.currentlyHighlightedRange));
-	
-	//NSRange numberRange = [self numberStringRangeForCharacterIndex:self.currentlyHighlightedRange.location];
-	NSRange numberRange = [self rangeForNumberNearestToIndex:self.currentlyHighlightedRange.location];
-	NSString *numberString = [[self string] substringWithRange:numberRange];
-	
-	NSLog(@"Dragging...current number is: %@", numberString);
-	NSNumber *number = [self numberFromString:numberString];
-	
-	if (nil == number) {
-		NSLog(@"Couldn't parse a number out of :%@", numberString);
-		return;
-	}
-	
-	CGPoint screenPoint = [NSEvent mouseLocation];
-	CGFloat x = screenPoint.x - self.initialDragPoint.x;
-	CGFloat y = screenPoint.y - self.initialDragPoint.y;
-	CGSize offset = CGSizeMake(x, y);
-	
-	
-	NSInteger offsetValue = [self.initialNumber integerValue] + (NSInteger)offset.width;
-	NSNumber *updatedNumber = @(offsetValue);
-	NSString *updatedNumberString = [updatedNumber stringValue];
-	
-	
-	// Now do the replacement in the existing text
-	NSString *replacedCommand = [self.initialDragCommandString stringByReplacingCharactersInRange:self.initialDragRangeInOriginalCommand withString:updatedNumberString];
-	
-	[super insertText:updatedNumberString replacementRange:self.currentlyHighlightedRange];
-	self.currentlyHighlightedRange = NSMakeRange(self.currentlyHighlightedRange.location, [updatedNumberString length]);
-
-	
-	// Update the position of commandStart depending on how our (whole) string has changed.
-	NSUInteger lengthDifference = [self.initialDragCommandString length] - [replacedCommand length];
-	self.commandStart = self.initialDragCommandStart - lengthDifference;
-	
-	if (self.numberDragHandler) {
-		self.numberDragHandler(replacedCommand);\
-	}
-}
-
-
-- (void)mouseUp:(NSEvent *)theEvent {
-	// Skip it if we're not currently dragging a word
-	if (self.currentlyHighlightedRange.location == NSNotFound) {
-		[super mouseUp:theEvent];
-		return;
-	}
-	
-	// Trigger's clearing out our number-dragging state.
-	[self highlightText];
-	[self mouseMoved:theEvent];
-	
-	self.initialDragCommandString = nil;
-	self.initialDragCommandRange = NSMakeRange(NSNotFound, NSNotFound);
-	self.initialNumber = nil;
-}
-
-
-- (NSRange)rangeForNumberNearestToIndex:(NSUInteger)index {
-	// parse this out right now...
-	NSRange originalRange = self.initialDragCommandRange;
-	
-	// The problem is the command doesn't get updated in our history, so it breaks after the first use!!
-	NSString *currentCommand = [self currentCommandForRange:originalRange];
-	
-	PKTokenizer *tokenizer = [PKTokenizer tokenizerWithString:currentCommand];
-	
-	tokenizer.commentState.reportsCommentTokens = NO;
-	tokenizer.whitespaceState.reportsWhitespaceTokens = YES;
-	
-	
-	PKToken *eof = [PKToken EOFToken];
-	PKToken *token = nil;
-	
-	
-	NSUInteger currentLocation = 0; // in the command!
-	
-	while ((token = [tokenizer nextToken]) != eof) {
-		
-		NSRange numberRange = NSMakeRange(currentLocation + originalRange.location, [[token stringValue] length]);
-		
-		if ([token isNumber]) {
-			if (NSLocationInRange(index, numberRange)) {
-				return numberRange;
-			}
-		}
-		
-		
-		currentLocation += [[token stringValue] length];
-		
-	}
-	return NSMakeRange(NSNotFound, NSNotFound);
-}
-
-
-- (NSString *)currentCommandForRange:(NSRange)originalRange {
-
-	NSString *wholeString = [self string];
-	
-	NSRange lineRange = [wholeString lineRangeForRange:originalRange];
-	NSString *lineString = [wholeString substringWithRange:lineRange];
-	
-	return [lineString substringFromIndex:[self.prompt length]];
-}
-
-
-- (NSNumber *)numberFromString:(NSString *)string {
-	static NSNumberFormatter *formatter = nil;
-	if (nil == formatter) {
-		formatter = [[NSNumberFormatter alloc] init];
-		[formatter setAllowsFloats:YES];
-	}
-	return [formatter numberFromString:string];
-}
-
-
-- (void)resetInitialDragRange {
-	self.initialDragRangeInOriginalCommand = NSMakeRange(NSUIntegerMax, NSUIntegerMax);
-}
-
-
-- (void)numberWasDragged:(NSNumber *)number toOffset:(CGSize)offset {
-	// For now, we're just going to take an integer value out of the number
-	// This will still work for floating point numbers but obviously we'll miss some of the precision
-	
-	// Maybe apply some kind of exponential growth (or something non-linear) to the x offset
-	NSInteger offsetValue = [self.initialNumber integerValue] + (NSInteger)offset.width;
-	NSNumber *updatedNumber = @(offsetValue);
-	NSString *updatedString = [updatedNumber stringValue];
-	NSString *numberString = [number stringValue];
-	
-	NSRange originalRange = [self selectedRange];
-	if (originalRange.length < [updatedString length]) {
-		originalRange.length = [updatedString length];
-	} else if (originalRange.length > [updatedString length]) {
-		originalRange.length = [numberString length];
-	}
-		
-	[super insertText:updatedString replacementRange:originalRange];
-	[self setSelectedRange:originalRange];
-	
-	if (self.numberDragHandler) {
-		
-		NSString *originalCommand = [self commandFromHistoryForRange:originalRange];
-		NSString *updatedCommand = [originalCommand stringByReplacingCharactersInRange:self.initialDragRangeInOriginalCommand withString:updatedString];
-		
-		NSLog(@"Updated command: %@", updatedCommand);
-		//self.numberDragHandler(updatedCommand);
-	}
-}
-
-
-- (NSString *)commandFromHistoryForRange:(NSRange)range {
-	
-	NSString *untilEnd = [[self string] substringFromIndex:range.location];
-	NSRange newlineRange = [untilEnd rangeOfString:@"\n" options:kNilOptions];
-	if (newlineRange.location == NSNotFound) {
-		// We're on the last line of the document so there's nothing entered after us. Return everything from commandStart -> end of string
-		return [[self string] substringFromIndex:self.commandStart];
-	}
-	
-	
-	return [self.commandHistory commandForRange:range];
-}
-
-
-- (void)insertText:(id)insertString {
-	NSLog(@"inserting: %@", insertString);
-	
-	NSRange range = [self selectedRange];
-	if (![self textView:self shouldChangeTextInRange:NSMakeRange(range.location, range.length) replacementString:@""]) {
-		return;
-	}
-	
-	NSString *input = [self inputString];
-	
-	NSString *deletedText = @"";
-	if (range.length > 0) {
-		deletedText = [[self string] substringWithRange:range];
-	}
-	range.location -= self.commandStart;
-	[self.textProcessor processString:input
-				changedSelectionRange:range
-						deletedString:deletedText
-					   insertedString:insertString
-					completionHandler:^(NSString *processedText, NSRange newSelectedRange) {
-						NSLog(@"Processed: %@", processedText);
-						[self replaceCurrentCommandWith:processedText];
-						
-						newSelectedRange.location += self.commandStart;
-						[self setSelectedRange:newSelectedRange];
-	}];
-}
-
-
-- (void)deleteBackward:(id)sender {
-	
-	NSRange range = [self selectedRange];
-	NSRange backwardRange = range;
-	if (!backwardRange.length) {
-		backwardRange.location -= 1;
-	}
-	if (![self textView:self shouldChangeTextInRange:backwardRange replacementString:@""]) {
-		return;
-	}
-	
-	NSString *input = [self inputString];
-	
-	NSString *deletedText = [[self string] substringWithRange:range];
-	if (range.length < 1) {
-		deletedText = [[self string] substringWithRange:NSMakeRange(range.location - 1, 1)];
-		range.length = 1;
-		range.location -= 1;
-	}
-	
-	range.location -= self.commandStart;
-	
-	[self.textProcessor processString:input
-				changedSelectionRange:range
-						deletedString:deletedText
-					   insertedString:@""
-					completionHandler:^(NSString *processedText, NSRange newSelectedRange) {
-						
-						[self replaceCurrentCommandWith:processedText];
-						
-						newSelectedRange.location += self.commandStart;
-						[self setSelectedRange:newSelectedRange];
-	}];
-}
-
-
 #pragma mark - NSTextViewDelegate implementation
 
-- (BOOL)textView:(NSTextView *)textView shouldChangeTextInRange:(NSRange)affectedCharRange replacementString:(NSString *)replacementString {
+- (BOOL)shouldChangeTextInRange:(NSRange)affectedCharRange replacementString:(NSString *)replacementString {
 	// Do not accept a modification outside the current command start
-	if (_initialNumber != nil) {
-		return YES;
-	}
-	
-	
 	if (replacementString && affectedCharRange.location < self.commandStart) {
 		NSBeep();
 		return NO;
@@ -748,59 +473,7 @@
 
 
 - (void)highlightText {
-	NSString *string = [[self textStorage] string];
-	PKTokenizer *tokenizer = [PKTokenizer tokenizerWithString:string];
-	
-	tokenizer.commentState.reportsCommentTokens = NO;
-	tokenizer.whitespaceState.reportsWhitespaceTokens = YES;
-	
-	
-	PKToken *eof = [PKToken EOFToken];
-	PKToken *token = nil;
-	
-	[[self textStorage] beginEditing];
-	[self.numberRanges removeAllObjects];
-	NSUInteger currentLocation = 0;
-	
-	while ((token = [tokenizer nextToken]) != eof) {
-		NSColor *fontColor = [NSColor whiteColor];//[NSColor grayColor];
-		
-		NSRange numberRange = NSMakeRange(currentLocation, [[token stringValue] length]);
-		
-		if ([token isNumber]) {
-			fontColor = [NSColor colorWithCalibratedWhite:0.890 alpha:1.000];
-			[self setNumberString:[token stringValue] forRange:numberRange];
-		} else {
-			NSColor *bgColor = [[self textStorage] attribute:NSBackgroundColorAttributeName atIndex:numberRange.location effectiveRange:NULL];
-			if (bgColor) fontColor = bgColor;
-		}
-		
-		
-		[[self textStorage] addAttribute:NSBackgroundColorAttributeName value:fontColor range:numberRange];
-		currentLocation += [[token stringValue] length];
-		
-		
-	}
-	
-	[[self textStorage] endEditing];
-}
-
-
-- (void)setNumberString:(NSString *)string forRange:(NSRange)numberRange {
-	// Just store the start location of the number, because the length might change (if, say, number goes from 100 -> 99)
-	self.numberRanges[NSStringFromRange(numberRange)] = string;
-}
-
-
-- (NSRange)numberStringRangeForCharacterIndex:(NSUInteger)character {
-	for (NSString *rangeString in self.numberRanges) {
-		NSRange range = NSRangeFromString(rangeString);
-		if (NSLocationInRange(character, range)) {
-			return range;
-		}
-
-	}
-	return NSMakeRange(NSNotFound, 0);
+	// For subclasses to implement
 }
 
 
