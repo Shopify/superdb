@@ -338,7 +338,26 @@
 	}
 }
 
-#pragma mark - Dragging
+#pragma mark - Mousing
+
+- (void)mouseMoved:(NSEvent *)theEvent {
+	[[self textStorage] removeAttribute:NSBackgroundColorAttributeName range:self.currentlyHighlightedRange];
+	NSUInteger character = [self characterIndexForPoint:[NSEvent mouseLocation]];
+	
+	NSRange range = [self numberStringRangeForCharacterIndex:character];
+	if (range.location == NSNotFound) {
+		if (_currentlyHighlightedRange.location != NSNotFound) {
+			// Only change this when it's not already set... skip some work, I suppose.
+			self.currentlyHighlightedRange = range;
+		}
+		return;
+	}
+	
+	
+	self.currentlyHighlightedRange = range;
+	NSColor *fontColor = [NSColor colorWithCalibratedRed:0.742 green:0.898 blue:0.397 alpha:1.000];
+	[[self textStorage] addAttribute:NSBackgroundColorAttributeName value:fontColor range:range];
+}
 
 
 - (void)mouseDown:(NSEvent *)theEvent {
@@ -415,6 +434,23 @@
 }
 
 
+- (void)mouseUp:(NSEvent *)theEvent {
+	// Skip it if we're not currently dragging a word
+	if (self.currentlyHighlightedRange.location == NSNotFound) {
+		[super mouseUp:theEvent];
+		return;
+	}
+	
+	// Trigger's clearing out our number-dragging state.
+	[self highlightText];
+	[self mouseMoved:theEvent];
+	
+	self.initialDragCommandString = nil;
+	self.initialDragCommandRange = NSMakeRange(NSNotFound, NSNotFound);
+	self.initialNumber = nil;
+}
+
+
 - (NSRange)rangeForNumberNearestToIndex:(NSUInteger)index {
 	// parse this out right now...
 	NSRange originalRange = self.initialDragCommandRange;
@@ -455,33 +491,11 @@
 - (NSString *)currentCommandForRange:(NSRange)originalRange {
 
 	NSString *wholeString = [self string];
-	//	NSLog(@"Length: %lu, %@", [wholeString length], wholeString);
-	
 	
 	NSRange lineRange = [wholeString lineRangeForRange:originalRange];
 	NSString *lineString = [wholeString substringWithRange:lineRange];
 	
-	
-	
 	return [lineString substringFromIndex:[self.prompt length]];
-
-}
-
-
-- (void)mouseUp:(NSEvent *)theEvent {
-	// Skip it if we're not currently dragging a word
-	if (self.currentlyHighlightedRange.location == NSNotFound) {
-		[super mouseUp:theEvent];
-		return;
-	}
-	
-	// Trigger's clearing out our number-dragging state.
-	[self highlightText];
-	[self mouseMoved:theEvent];
-	
-	self.initialDragCommandString = nil;
-	self.initialDragCommandRange = NSMakeRange(NSNotFound, NSNotFound);
-	self.initialNumber = nil;
 }
 
 
@@ -789,26 +803,6 @@
 	return NSMakeRange(NSNotFound, 0);
 }
 
-
-- (void)mouseMoved:(NSEvent *)theEvent {
-	//CGPoint cursorPoint = [self convertPoint:[theEvent locationInWindow] fromView:nil];
-	[[self textStorage] removeAttribute:NSBackgroundColorAttributeName range:self.currentlyHighlightedRange];
-	NSUInteger character = [self characterIndexForPoint:[NSEvent mouseLocation]];
-	
-	NSRange range = [self numberStringRangeForCharacterIndex:character];
-	if (range.location == NSNotFound) {
-		if (_currentlyHighlightedRange.location != NSNotFound) {
-			// Only change this when it's not already set... skip some work, I suppose.
-			self.currentlyHighlightedRange = range;
-		}
-		return;
-	}
-	
-	
-	self.currentlyHighlightedRange = range;
-	NSColor *fontColor = [NSColor colorWithCalibratedRed:0.742 green:0.898 blue:0.397 alpha:1.000];
-	[[self textStorage] addAttribute:NSBackgroundColorAttributeName value:fontColor range:range];
-}
 
 
 @end
