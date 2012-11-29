@@ -14,6 +14,6 @@
 @property (strong) JBShellView *shellView;
 
 
-- (id)initWithFrame:(NSRect)frameRect prompt:(NSString *)prompt shellInputProcessingHandler:(JBShellViewInputProcessingHandler)inputProcessingHandler;
+- (id)initWithFrame:(NSRect)frameRect shellViewClass:(Class)shellViewClass prompt:(NSString *)prompt shellInputProcessingHandler:(JBShellViewInputProcessingHandler)inputProcessingHandler;
 
 @end

@@ -11,6 +11,7 @@
 #import "JBShellView.h"
 #import "JBShellViewBlockTypedefs.h"
 #import "JBSuggestionWindowController.h"
+#import "SuperDraggableShellView.h"
 
 
 @interface SuperDebugAreaWindowController () <NSNetServiceDelegate>
@@ -46,7 +47,7 @@
 	NSString *prompt = [NSString stringWithFormat:@"%@> ", [self.netService name]?: @""];
 	self.suggestionWindowController = [JBSuggestionWindowController new];
 	
-    self.shellContainer = [[JBShellContainerView alloc] initWithFrame:bounds prompt:prompt shellInputProcessingHandler:^(NSString *input, JBShellView *sender) {
+    self.shellContainer = [[JBShellContainerView alloc] initWithFrame:bounds shellViewClass:[SuperDraggableShellView class] prompt:prompt shellInputProcessingHandler:^(NSString *input, JBShellView *sender) {
 		
 		[sender beginDelayedOutputMode];
 		

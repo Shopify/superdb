@@ -11,7 +11,7 @@
 
 @implementation JBShellContainerView
 
-- (id)initWithFrame:(NSRect)frameRect prompt:(NSString *)prompt shellInputProcessingHandler:(JBShellViewInputProcessingHandler)inputProcessingHandler;
+- (id)initWithFrame:(NSRect)frameRect shellViewClass:(Class)shellViewClass prompt:(NSString *)prompt shellInputProcessingHandler:(JBShellViewInputProcessingHandler)inputProcessingHandler
 {
     self = [super initWithFrame:frameRect];
     if (self) {
@@ -26,7 +26,7 @@
 		[scrollView setBackgroundColor:[NSColor whiteColor]];
 		
 		
-		JBShellView *shellView = [[JBShellView alloc] initWithFrame:CGRectMake(0, 0, contentSize.width, contentSize.height) prompt:prompt inputHandler:inputProcessingHandler];
+		JBShellView *shellView = [[shellViewClass alloc] initWithFrame:CGRectMake(0, 0, contentSize.width, contentSize.height) prompt:prompt inputHandler:inputProcessingHandler];
 		[shellView setAutoresizingMask:NSViewWidthSizable];
 		[shellView setMinSize:CGSizeMake(0.0f, contentSize.height)];
 		[shellView setMaxSize:CGSizeMake(1e7, 1e7)];
