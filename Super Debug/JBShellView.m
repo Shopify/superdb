@@ -225,7 +225,7 @@
 	NSLog(@"inserting: %@", insertString);
 	
 	NSRange range = [self selectedRange];
-	if (![self textView:self shouldChangeTextInRange:NSMakeRange(range.location, range.length) replacementString:@""]) {
+	if (![self shouldChangeTextInRange:NSMakeRange(range.location, range.length) replacementString:@""]) {
 		return;
 	}
 	
@@ -257,7 +257,7 @@
 	if (!backwardRange.length) {
 		backwardRange.location -= 1;
 	}
-	if (![self textView:self shouldChangeTextInRange:backwardRange replacementString:@""]) {
+	if (![self shouldChangeTextInRange:backwardRange replacementString:@""]) {
 		return;
 	}
 	
