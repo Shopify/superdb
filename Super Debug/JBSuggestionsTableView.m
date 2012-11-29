@@ -32,29 +32,6 @@ const CGFloat inset = 3.0f;
 		[self.tableView setFrame:tableBounds];
 		[[self.tableView enclosingScrollView] setFrame:bounds];
 		[self addSubview:[self.tableView enclosingScrollView]];
-		//[self.tableView setIden]
-//		NSScrollView *scrollView  = [[NSScrollView alloc] initWithFrame:[self bounds]];
-//
-//		[scrollView setBorderType:NSBezelBorder];
-//		[scrollView setHasVerticalScroller:YES];
-//		[scrollView setHasHorizontalScroller:YES];
-//		[scrollView setAutohidesScrollers:NO];
-//
-//		NSRect clipViewBounds  = [[scrollView contentView] bounds];
-//		NSTableView *tableView       = [[NSTableView alloc] initWithFrame:clipViewBounds];
-//
-//		NSTableColumn*  firstColumn     = [[NSTableColumn alloc] initWithIdentifier:@"firstColumn"];
-//		[[firstColumn headerCell] setStringValue:@"First Column"];
-//		[tableView addTableColumn:firstColumn];
-//
-//
-//
-//		[tableView setDataSource:self];
-//		[tableView setDelegate:self];
-//
-//		[scrollView setDocumentView:tableView];
-//		[self addSubview:scrollView];
-//		self.tableView = tableView;
     }
     
     return self;
@@ -90,31 +67,50 @@ const CGFloat inset = 3.0f;
 		CGFloat width = [title sizeWithAttributes:@{NSFontAttributeName : font}].width;
 		if (width > widest) widest = width;
 	}
+	const CGFloat padding = 8.0f;
+	CGRect windowFrame = [[self window] frame];
 	
 	
-	CGRect frame = [[self window] frame];
-	CGFloat padding = 8.0f;
-	frame.size.width = widest + (2 * inset) + padding;
 	[self.tableView reloadData];
 	
 	CGFloat rowHeight = [self.tableView rowHeight];
 	CGRect tableFrame = [self.tableView frame];
-	if (CGRectGetHeight(tableFrame) > rowHeight * 5) {
-		tableFrame.size.height = rowHeight * 5;
+	
+	CGFloat maxHeight = (5 * (rowHeight + [self.tableView intercellSpacing].height));
+	
+	if (CGRectGetHeight(tableFrame) > maxHeight) {
+		tableFrame.size.height = maxHeight;
 	} else {
-		tableFrame.size.height = rowHeight * [self.tableView numberOfRows];
+		tableFrame.size.height = [self.tableView numberOfRows] * (rowHeight + [self.tableView intercellSpacing].height);
 	}
-	tableFrame.size.width = widest;
-	frame.size.height = tableFrame.size.height + 2*inset;
+	tableFrame.size.width = widest + (2 * inset) + padding;
 	
-	CGRect scrollViewFrame = [[self.tableView enclosingScrollView] frame];
-	scrollViewFrame.size.width = widest + padding;
-	scrollViewFrame.size.height = tableFrame.size.height;
+	CGRect scrollFrame = tableFrame;
+	scrollFrame.origin = CGPointMake(inset, inset);
+	scrollFrame.size.height += inset;
+	scrollFrame.size.width += inset;
 	
-	[[self.tableView enclosingScrollView] setFrame:scrollViewFrame];
-	[[self.tableView enclosingScrollView] set]
 	[self.tableView setFrame:tableFrame];
-	[[self window] setFrame:frame display:NO];
+	[[self.tableView enclosingScrollView] setFrame:scrollFrame];
+	
+	windowFrame.size.height = 450.f;
+	[[self window] setFrame:windowFrame display:NO];
+	
+	
+//	CGRect frame = [[self window] frame];
+//	CGFloat padding = 8.0f;
+//
+//	tableFrame.size.width = widest;
+//	frame.size.height = tableFrame.size.height + 2*inset;
+//	
+//	CGRect scrollViewFrame = [[self.tableView enclosingScrollView] frame];
+//	scrollViewFrame.size.width = widest + padding;
+//	//scrollViewFrame.size.height = tableFrame.size.height;
+//	
+//	[[self.tableView enclosingScrollView] setFrame:scrollViewFrame];
+//	//[[self.tableView enclosingScrollView] set]
+//	[self.tableView setFrame:tableFrame];
+//	[[self window] setFrame:frame display:NO];
 	
 }
 
