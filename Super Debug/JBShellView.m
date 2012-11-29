@@ -353,11 +353,7 @@
 	
 	NSString *wholeText = [self string];
 	
-	// The problem is the command doesn't get updated in our history, so it breaks after the first use!!
-	// Maybe, as a hack for now, I'll just try to grab the command as it is in our textView
-	// We won't have it entered in the history now, but that's OK I guess. It's a messy change otherwise.
 	
-//	NSString *originalCommand = [self commandFromHistoryForRange:self.currentlyHighlightedRange];
 	NSString *originalCommand = [self currentCommandForRange:self.currentlyHighlightedRange];
 	NSRange originalCommandRange = [wholeText rangeOfString:originalCommand];
 	
@@ -397,22 +393,17 @@
 	CGSize offset = CGSizeMake(x, y);
 	
 	
-	//[self numberWasDragged:number toOffset:offset];
-	
 	NSInteger offsetValue = [self.initialNumber integerValue] + (NSInteger)offset.width;
 	NSNumber *updatedNumber = @(offsetValue);
 	NSString *updatedNumberString = [updatedNumber stringValue];
 	
-	// Now do the replacement in the existing text
-	//NSString *originalCommand = [self commandFromHistoryForRange:self.currentlyHighlightedRange];
-	//NSRange originalRange = [[self string] rangeOfString:originalCommand];
 	
-	//NSString *currentCommand = [self currentCommandForRange:originalRange];
+	// Now do the replacement in the existing text
 	NSString *replacedCommand = [self.initialDragCommandString stringByReplacingCharactersInRange:self.initialDragRangeInOriginalCommand withString:updatedNumberString];
 	
 	[super insertText:updatedNumberString replacementRange:self.currentlyHighlightedRange];
 	self.currentlyHighlightedRange = NSMakeRange(self.currentlyHighlightedRange.location, [updatedNumberString length]);
-	NSLog(@"REPLACED COMMAND IS: %@", replacedCommand);
+
 	
 	// Update the position of commandStart depending on how our (whole) string has changed.
 	NSUInteger lengthDifference = [self.initialDragCommandString length] - [replacedCommand length];
@@ -424,34 +415,8 @@
 }
 
 
-- (void)__unused_draggingSession:(NSDraggingSession *)session movedToPoint:(NSPoint)screenPoint {
-	//NSLog(@"dragged");
-	
-	NSString *selection = [[self string] substringWithRange:[self selectedRange]];
-	
-	if ([selection length] < 1) {
-		return;
-	}
-	
-	NSNumber *number = [self numberFromString:selection];
-	if (nil == number) {
-		return;
-	}
-	
-	//NSLog(@"%@", number);
-	
-	CGFloat x = screenPoint.x - self.initialDragPoint.x;
-	CGFloat y = screenPoint.y - self.initialDragPoint.y;
-	CGSize offset = CGSizeMake(x, y);
-	
-	
-	[self numberWasDragged:number toOffset:offset];
-	
-}
-
 - (NSRange)rangeForNumberNearestToIndex:(NSUInteger)index {
 	// parse this out right now...
-	//NSString *originalCommand = self.initialDragCommandString;//[self commandFromHistoryForRange:self.currentlyHighlightedRange];
 	NSRange originalRange = self.initialDragCommandRange;
 	
 	// The problem is the command doesn't get updated in our history, so it breaks after the first use!!
@@ -488,8 +453,7 @@
 
 
 - (NSString *)currentCommandForRange:(NSRange)originalRange {
-	//NSUInteger startLocation = originalRange.location;
-	// look until the next \n, starting from the start location searching possibly until the end of the whole text
+
 	NSString *wholeString = [self string];
 	//	NSLog(@"Length: %lu, %@", [wholeString length], wholeString);
 	
@@ -500,81 +464,7 @@
 	
 	
 	return [lineString substringFromIndex:[self.prompt length]];
-	//	// Gross hack but my brain is lost today......
-	//	NSUInteger untilEnd = 0;
-	//	BOOL foundNext = YES;
-	//	while (foundNext) {
-	//		untilEnd++;
-	//		NSUInteger currentIndex = startLocation + untilEnd;
-	//		NSRange nextCharRange = NSMakeRange(currentIndex, 1);
-	//		if ([wholeString length] >= NSMaxRange(nextCharRange)) {
-	//			NSLog(@"Went over the whole string and didn't find the next newline! oops!");
-	//			return nil;
-	//		}
-	//		if ([[wholeString substringWithRange:NSMakeRange(currentIndex, 1)] isEqualToString:@"\n"]) {
-	//			foundNext = NO;
-	//		}
-	//	}
-	//
-	//	return [wholeString substringWithRange:NSMakeRange(startLocation, untilEnd)];
-	//
-	//	return nil;
-	//	// attempt 2
-	//	NSUInteger length = [wholeString length];
-	//	NSRange newlineRange = NSMakeRange(0, length);
-	//
-	//	while (newlineRange.location != NSNotFound) {
-	//
-	//
-	//
-	//		newlineRange = [wholeString rangeOfString: @"\n" options:0 range:newlineRange];
-	//
-	//		if (newlineRange.location != NSNotFound) {
-	//
-	//
-	//			if (originalRange.location < NSMaxRange(newlineRange)) {
-	//				// We found the spot
-	//				NSLog(@"NEWLINE RANGE IS %@", NSStringFromRange(newlineRange));
-	//				NSRange currentCommandRange = NSMakeRange(originalRange.location, NSMaxRange(newlineRange) - NSMaxRange(originalRange));
-	//				return [wholeString substringWithRange:currentCommandRange];
-	//			}
-	//			newlineRange = NSMakeRange(newlineRange.location + newlineRange.length, length - (newlineRange.location + newlineRange.length));
-	//		}
-	//	}
-	//
-	//	NSLog(@"Failed to find the current command!");
-	//	return nil;
-	//	NSUInteger toEnd = [wholeString length] - NSMaxRange(originalRange);
-	//
-	//	NSRange untilReturn = [[self string] rangeOfString:@"\n" options:kNilOptions range:NSMakeRange(startLocation, toEnd)];
-	//	if (untilReturn.location == NSNotFound) {
-	//		NSLog(@"Couldn't find the current command for range: %@!", NSStringFromRange(originalRange));
-	//		return @"";
-	//	}
-	//
-	//	return [[self string] substringWithRange:NSMakeRange(startLocation, untilReturn.location)];
-}
 
-
-- (void)__unused_draggingSession:(NSDraggingSession *)session willBeginAtPoint:(NSPoint)screenPoint {
-	self.initialDragPoint = screenPoint;
-	self.initialString = [[self string] substringWithRange:[self selectedRange]];
-	self.initialNumber = [self numberFromString:self.initialString];
-	
-	NSString *wholeText = [self string];
-	NSString *originalCommand = [self commandFromHistoryForRange:[self selectedRange]];
-	NSRange originalCommandRange = [wholeText rangeOfString:originalCommand options:kNilOptions];
-	self.initialDragRangeInOriginalCommand = NSMakeRange([self selectedRange].location - originalCommandRange.location, [self selectedRange].length);
-	
-	//self.initialDragRangeInOriginalCommand = [originalCommand rangeOfString:self.initialString options:kNilOptions range:<#(NSRange)#>];
-}
-
-- (void)__unused_draggingSession:(NSDraggingSession *)session endedAtPoint:(NSPoint)screenPoint operation:(NSDragOperation)operation {
-	session.animatesToStartingPositionsOnCancelOrFail = NO;
-	self.initialDragPoint = CGPointZero;
-	self.initialString = nil;
-	self.initialNumber = nil;
-	[self resetInitialDragRange];
 }
 
 
@@ -592,8 +482,6 @@
 	self.initialDragCommandString = nil;
 	self.initialDragCommandRange = NSMakeRange(NSNotFound, NSNotFound);
 	self.initialNumber = nil;
-	
-	// TODO: When the string changes, this potentially screws up where _commandStart is. This needs to be updated!
 }
 
 
@@ -643,30 +531,6 @@
 }
 
 
-- (NSString *)__unused_commandFromHistoryForRange:(NSRange)range {
-	// Look backwards starting at range.location and count how many ocurrences of the prompt string we find.
-	// That's the index of where we need to look in the command history
-	// Obviously this will fail if `prompt` appears elsewhere in the output, but for now that's avoidable.
-	NSString *upToRange = [[self string] substringToIndex:range.location];
-	
-	NSUInteger count = 0, length = [upToRange length];
-	NSRange searchRange = NSMakeRange(0, length);
-	NSRange lastFound = searchRange;
-	
-	while(searchRange.location != NSNotFound) {
-		searchRange = [upToRange rangeOfString:self.prompt options:0 range:searchRange];
-		
-		if(searchRange.location != NSNotFound) {
-			searchRange = NSMakeRange(searchRange.location + searchRange.length, length - (searchRange.location + searchRange.length));
-			count++;
-			lastFound = NSMakeRange(searchRange.location, searchRange.length);
-		}
-	}
-	NSLog(@"Last found instance was %@", NSStringFromRange(searchRange));
-	return [self.commandHistory commandAtIndex:count];
-}
-
-
 - (NSString *)commandFromHistoryForRange:(NSRange)range {
 	
 	NSString *untilEnd = [[self string] substringFromIndex:range.location];
@@ -677,28 +541,7 @@
 	}
 	
 	
-	
-	
 	return [self.commandHistory commandForRange:range];
-	
-	
-	
-	
-	
-	// There's been a return somewhere, which means there are existing commands, so we need to
-	NSString *upTo = [[self string] substringToIndex:range.location];
-	
-	// Find the next newline
-
-	NSRange found = [upTo rangeOfString:self.prompt options:NSBackwardsSearch];
-	newlineRange = [[self string] rangeOfString:@"\n" options:kNilOptions range:NSMakeRange(NSMaxRange(found), [[self string] length] - NSMaxRange(found))];
-	
-	NSLog(@"start: %lu, loc: %lu, all length: %lu", found.location, newlineRange.location, [[self string] length]);
-	
-	NSString *result = [[self string] substringWithRange:NSMakeRange(NSMaxRange(found), newlineRange.location)];
-	return result;
-	
-	
 }
 
 
