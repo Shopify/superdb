@@ -19,15 +19,9 @@
 @end
 
 
-
 @implementation JBServicesBrowser {
 	BOOL _alreadyConnected;
 }
-@synthesize servicesCallback = _servicesCallback;
-@synthesize servicesBrowser = _servicesBrowser;
-@synthesize publishedServiceCallback = _publishedServiceCallback;
-@synthesize foundServices = _foundServices;
-
 
 
 - (id)initWithServicesCallback:(JBServicesBrowserCallback)callback {

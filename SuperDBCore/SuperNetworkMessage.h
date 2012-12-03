@@ -13,7 +13,7 @@
  
  - Every request is matched with a response.
  - The format for both sides is JSON, not HTML
- - The headers are included in the JSON object.
+ - Like HTTP, each message has a set of CRLF delimited headers. Currently the only one supported is `Content-Length:`
  - Essentially every transmission can be considered a POST in that an object can be sent in any request. OR the body could be empty.
  - No PUSH from the Server (i.e., no unsolicited responses)
  
@@ -22,7 +22,6 @@
 
 #import <Foundation/Foundation.h>
 #import "SuperNetworkMessageTypes.h"
-
 
 
 @interface SuperNetworkMessage : NSObject

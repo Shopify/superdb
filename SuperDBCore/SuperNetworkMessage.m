@@ -99,13 +99,12 @@ NSString *kSuperNetworkMessageResourceUpdateCurrentViewController = @"update_cur
 
 - (SuperNetworkMessageType)messageType {
 	
-	for (NSUInteger i = 0; i < [headerTypes count]; i++) {
+	for (SuperNetworkMessageType i = 0; i < [headerTypes count]; i++) {
 		if ([[headerTypes objectAtIndex:i] isEqualToString:[[self header] objectForKey:kHeaderTypeKey]])
-			return (NSInteger)i;
+			return i;
 	}
 	
 	return 0;
-	//return (SuperNetworkMessageType)[headerTypes indexOfObjectIdenticalTo:[[self header] objectForKey:kHeaderTypeKey]];
 }
 
 
@@ -134,7 +133,6 @@ NSString *kSuperNetworkMessageResourceUpdateCurrentViewController = @"update_cur
 + (NSString *)messageResourceTypeForCommand:(NSString *)command {
 	return resourceTypes[command];
 }
-
 
 
 #pragma mark -

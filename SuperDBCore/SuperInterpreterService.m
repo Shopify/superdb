@@ -28,8 +28,6 @@
 @property (nonatomic, strong) NSNetService *publishedService;
 @property (nonatomic, strong) SuperInterpreter *interpreter;
 
-- (void)writeResponse:(SuperNetworkMessage *)response toClient:(GCDAsyncSocket *)clientSocket;
-
 @end
 
 

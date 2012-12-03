@@ -15,10 +15,12 @@
 
 
 @interface SuperInterpreterClient () <GCDAsyncSocketDelegate>
+
 @property (nonatomic, strong) NSData *hostData;
 @property (nonatomic, strong) GCDAsyncSocket *clientSocket;
 @property (nonatomic, copy) SuperInterpreterClientResponseHandler connectionResponseHandler;
 @property (nonatomic, strong) NSMutableArray *messageResponseHandlerQueue;
+
 @end
 
 
@@ -44,10 +46,7 @@
 		NSLog(@"Client: Could not connect to server: %@", [error userInfo]);
 		return;
 	}
-	
-	
 }
-
 
 
 - (void)requestWithStringToEvaluate:(NSString *)input responseHandler:(SuperInterpreterClientResponseHandler)responseHandler {
@@ -89,8 +88,6 @@
 	
 	// Store the response handler and queue up a read
 	[self enqueueResponseHandler:responseHandler];
-
-	
 }
 
 
