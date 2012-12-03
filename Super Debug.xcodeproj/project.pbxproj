@@ -25,10 +25,10 @@
 		CDD65BBE15A8D03000505C37 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CDD65BBC15A8D03000505C37 /* InfoPlist.strings */; };
 		CDD65BC015A8D03000505C37 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD65BBF15A8D03000505C37 /* main.m */; };
 		CDD65BC415A8D03000505C37 /* Credits.rtf in Resources */ = {isa = PBXBuildFile; fileRef = CDD65BC215A8D03000505C37 /* Credits.rtf */; };
-		CDD65BC715A8D03000505C37 /* JBAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD65BC615A8D03000505C37 /* JBAppDelegate.m */; };
+		CDD65BC715A8D03000505C37 /* SuperAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD65BC615A8D03000505C37 /* SuperAppDelegate.m */; };
 		CDD65BCA15A8D03000505C37 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDD65BC815A8D03000505C37 /* MainMenu.xib */; };
-		CDD65BD315A8D07800505C37 /* JBDeviceSelectionWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD65BD115A8D07800505C37 /* JBDeviceSelectionWindowController.m */; };
-		CDD65BD415A8D07800505C37 /* JBDeviceSelectionWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDD65BD215A8D07800505C37 /* JBDeviceSelectionWindowController.xib */; };
+		CDD65BD315A8D07800505C37 /* SuperDeviceSelectionWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD65BD115A8D07800505C37 /* SuperDeviceSelectionWindowController.m */; };
+		CDD65BD415A8D07800505C37 /* SuperDeviceSelectionWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CDD65BD215A8D07800505C37 /* SuperDeviceSelectionWindowController.xib */; };
 		CDDC9FAE16225035006883CE /* ParseKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDDC9F9F16224E6D006883CE /* ParseKit.framework */; };
 		CDF1AAD515A8D9F20038EAB7 /* libSuperDBCoreMac.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CDF1AAD415A8D9F20038EAB7 /* libSuperDBCoreMac.a */; };
 /* End PBXBuildFile section */
@@ -129,12 +129,12 @@
 		CDD65BBF15A8D03000505C37 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		CDD65BC115A8D03000505C37 /* Super Debug-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Super Debug-Prefix.pch"; sourceTree = "<group>"; };
 		CDD65BC315A8D03000505C37 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.rtf; name = en; path = en.lproj/Credits.rtf; sourceTree = "<group>"; };
-		CDD65BC515A8D03000505C37 /* JBAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = JBAppDelegate.h; sourceTree = "<group>"; };
-		CDD65BC615A8D03000505C37 /* JBAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JBAppDelegate.m; sourceTree = "<group>"; };
+		CDD65BC515A8D03000505C37 /* SuperAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SuperAppDelegate.h; sourceTree = "<group>"; };
+		CDD65BC615A8D03000505C37 /* SuperAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SuperAppDelegate.m; sourceTree = "<group>"; };
 		CDD65BC915A8D03000505C37 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainMenu.xib; sourceTree = "<group>"; };
-		CDD65BD015A8D07800505C37 /* JBDeviceSelectionWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBDeviceSelectionWindowController.h; sourceTree = "<group>"; };
-		CDD65BD115A8D07800505C37 /* JBDeviceSelectionWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBDeviceSelectionWindowController.m; sourceTree = "<group>"; };
-		CDD65BD215A8D07800505C37 /* JBDeviceSelectionWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JBDeviceSelectionWindowController.xib; sourceTree = "<group>"; };
+		CDD65BD015A8D07800505C37 /* SuperDeviceSelectionWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuperDeviceSelectionWindowController.h; sourceTree = "<group>"; };
+		CDD65BD115A8D07800505C37 /* SuperDeviceSelectionWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuperDeviceSelectionWindowController.m; sourceTree = "<group>"; };
+		CDD65BD215A8D07800505C37 /* SuperDeviceSelectionWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SuperDeviceSelectionWindowController.xib; sourceTree = "<group>"; };
 		CDDC9F8E16224E6D006883CE /* ParseKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ParseKit.xcodeproj; path = parsekit/ParseKit.xcodeproj; sourceTree = "<group>"; };
 		CDF1AAD415A8D9F20038EAB7 /* libSuperDBCoreMac.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libSuperDBCoreMac.a; path = ../SuperDBCore/build/Release/libSuperDBCoreMac.a; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -241,14 +241,14 @@
 			children = (
 				CD3F751E1631AA6500A012E0 /* Completions */,
 				CD0D975915B8869B003A0D8B /* Shell */,
-				CDD65BC515A8D03000505C37 /* JBAppDelegate.h */,
-				CDD65BC615A8D03000505C37 /* JBAppDelegate.m */,
-				CDD65BD015A8D07800505C37 /* JBDeviceSelectionWindowController.h */,
-				CDD65BD115A8D07800505C37 /* JBDeviceSelectionWindowController.m */,
+				CDD65BC515A8D03000505C37 /* SuperAppDelegate.h */,
+				CDD65BC615A8D03000505C37 /* SuperAppDelegate.m */,
+				CDD65BD015A8D07800505C37 /* SuperDeviceSelectionWindowController.h */,
+				CDD65BD115A8D07800505C37 /* SuperDeviceSelectionWindowController.m */,
 				CD0D94CF15B84482003A0D8B /* SuperDebugAreaWindowController.h */,
 				CD0D94D015B84482003A0D8B /* SuperDebugAreaWindowController.m */,
 				CD0D94D115B84482003A0D8B /* SuperDebugAreaWindowController.xib */,
-				CDD65BD215A8D07800505C37 /* JBDeviceSelectionWindowController.xib */,
+				CDD65BD215A8D07800505C37 /* SuperDeviceSelectionWindowController.xib */,
 				CDD65BC815A8D03000505C37 /* MainMenu.xib */,
 				CDD65BBA15A8D03000505C37 /* Supporting Files */,
 			);
@@ -318,9 +318,9 @@
 		CDD65BA615A8D03000505C37 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				CLASSPREFIX = JB;
+				CLASSPREFIX = Super;
 				LastUpgradeCheck = 0450;
-				ORGANIZATIONNAME = "Jason Brennan";
+				ORGANIZATIONNAME = "Super Debugger";
 			};
 			buildConfigurationList = CDD65BA915A8D03000505C37 /* Build configuration list for PBXProject "Super Debug" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -405,7 +405,7 @@
 				CDD65BBE15A8D03000505C37 /* InfoPlist.strings in Resources */,
 				CDD65BC415A8D03000505C37 /* Credits.rtf in Resources */,
 				CDD65BCA15A8D03000505C37 /* MainMenu.xib in Resources */,
-				CDD65BD415A8D07800505C37 /* JBDeviceSelectionWindowController.xib in Resources */,
+				CDD65BD415A8D07800505C37 /* SuperDeviceSelectionWindowController.xib in Resources */,
 				CD0D94D315B84482003A0D8B /* SuperDebugAreaWindowController.xib in Resources */,
 				CD360F6F1638696400617446 /* JBSuggestionsTableView.xib in Resources */,
 			);
@@ -419,8 +419,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				CDD65BC015A8D03000505C37 /* main.m in Sources */,
-				CDD65BC715A8D03000505C37 /* JBAppDelegate.m in Sources */,
-				CDD65BD315A8D07800505C37 /* JBDeviceSelectionWindowController.m in Sources */,
+				CDD65BC715A8D03000505C37 /* SuperAppDelegate.m in Sources */,
+				CDD65BD315A8D07800505C37 /* SuperDeviceSelectionWindowController.m in Sources */,
 				CD0D94D215B84482003A0D8B /* SuperDebugAreaWindowController.m in Sources */,
 				CD3F75211631ABA700A012E0 /* JBSuggestionWindow.m in Sources */,
 				CD3F75281631C56A00A012E0 /* JBSuggestionWindowController.m in Sources */,

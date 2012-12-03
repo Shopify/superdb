@@ -1,5 +1,5 @@
 //
-//  JBDeviceSelectionWindowController.h
+//  SuperDeviceSelectionWindowController.h
 //  Super Debug
 //
 //  Created by Jason Brennan on 12-07-07.
@@ -8,7 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface JBDeviceSelectionWindowController : NSWindowController <NSTableViewDataSource, NSTableViewDelegate>
+@interface SuperDeviceSelectionWindowController : NSWindowController <NSTableViewDataSource, NSTableViewDelegate>
 @property (nonatomic, strong) IBOutlet NSTableView *tableView;
 - (IBAction)showNewShell:(NSButton *)sender;
 @end

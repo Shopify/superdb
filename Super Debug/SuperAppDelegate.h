@@ -1,5 +1,5 @@
 //
-//  JBAppDelegate.h
+//  SuperAppDelegate.h
 //  Super Debug
 //
 //  Created by Jason Brennan on 12-07-07.
@@ -8,7 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 
-@interface JBAppDelegate : NSObject <NSApplicationDelegate>
+@interface SuperAppDelegate : NSObject <NSApplicationDelegate>
 
 @property (assign) IBOutlet NSWindow *window;
 

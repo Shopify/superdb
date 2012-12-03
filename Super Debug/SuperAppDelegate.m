@@ -1,25 +1,25 @@
 //
-//  JBAppDelegate.m
+//  SuperAppDelegate.m
 //  Super Debug
 //
 //  Created by Jason Brennan on 12-07-07.
 //  Copyright (c) 2012 Jason Brennan. All rights reserved.
 //
 
-#import "JBAppDelegate.h"
-#import "JBDeviceSelectionWindowController.h"
+#import "SuperAppDelegate.h"
+#import "SuperDeviceSelectionWindowController.h"
 
 
-@interface JBAppDelegate ()
-@property (nonatomic, strong) JBDeviceSelectionWindowController *deviceWindow;
+@interface SuperAppDelegate ()
+@property (nonatomic, strong) SuperDeviceSelectionWindowController *deviceWindow;
 @end
 
-@implementation JBAppDelegate
+@implementation SuperAppDelegate
 
 - (void)applicationDidFinishLaunching:(NSNotification *)aNotification
 {
 	// Insert code here to initialize your application
-	self.deviceWindow = [[JBDeviceSelectionWindowController alloc] initWithWindowNibName:@"JBDeviceSelectionWindowController"];
+	self.deviceWindow = [[SuperDeviceSelectionWindowController alloc] initWithWindowNibName:@"SuperDeviceSelectionWindowController"];
 	[self.deviceWindow showWindow:nil];
 	
 }
