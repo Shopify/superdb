@@ -831,11 +831,6 @@
 		CDF1AA9715A8D7760038EAB7 = {
 			isa = PBXGroup;
 			children = (
-				CD0D975515B87E66003A0D8B /* CoreData.framework */,
-				CD0D975315B87A37003A0D8B /* UIKit.framework */,
-				CD0D975115B87747003A0D8B /* CoreGraphics.framework */,
-				CD0D94C115B8389A003A0D8B /* Security.framework */,
-				CD0D94BE15B83893003A0D8B /* CFNetwork.framework */,
 				CDF1AAA715A8D7760038EAB7 /* SuperDBCore */,
 				CDF1AACA15A8D9C30038EAB7 /* SuperDBCoreMac */,
 				CDF1AAA415A8D7760038EAB7 /* Frameworks */,
@@ -855,6 +850,11 @@
 		CDF1AAA415A8D7760038EAB7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CD0D975515B87E66003A0D8B /* CoreData.framework */,
+				CD0D975315B87A37003A0D8B /* UIKit.framework */,
+				CD0D975115B87747003A0D8B /* CoreGraphics.framework */,
+				CD0D94C115B8389A003A0D8B /* Security.framework */,
+				CD0D94BE15B83893003A0D8B /* CFNetwork.framework */,
 				CDF1AAA515A8D7760038EAB7 /* Foundation.framework */,
 				CDF1AAC415A8D9C30038EAB7 /* Cocoa.framework */,
 				CDF1AAC615A8D9C30038EAB7 /* Other Frameworks */,

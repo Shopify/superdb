@@ -39,7 +39,6 @@ NSString *const kContentLengthKey = @"Content-Length: ";
 
 - (NSData *)packetDataForMessage:(NSData *)messageData {
 	NSString *contentLength = [NSString stringWithFormat:@"%@%lu", kContentLengthKey, (long unsigned)[messageData length]];
-	NSLog(@"Writing content length of: %@", contentLength);
 	NSString *headers = [NSString stringWithFormat:@"%@%@", contentLength, kCRLFCRLF];
 	NSData *headerData = [headers dataUsingEncoding:NSUTF8StringEncoding];
 	
@@ -72,12 +71,10 @@ NSString *const kContentLengthKey = @"Content-Length: ";
 		
 		// Read in the header to figure out how many bytes ahead we have to read
 		NSUInteger bodyLength = [self contentLengthFromHeaderData:data];
-		NSLog(@"CONTENT BODY LENGTH: %lu", (unsigned long)bodyLength);
 		[sock readDataToLength:bodyLength withTimeout:kNoTimeout tag:kJSTPBodyTag];
 		
 	} else if (kJSTPBodyTag == tag) {
 		
-		NSLog(@"ACTUAL BODY LENGTH: %lu", (unsigned long)[data length]);
 		NSData *response = [self dataByProcessingJSTPBodyData:data];
 		if (response) {
 			[self writeMessageData:response toSocket:sock];

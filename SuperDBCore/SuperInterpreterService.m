@@ -58,19 +58,8 @@
 
 - (BOOL)startServer {
 	
-	if (nil == self.delegate) {
-		NSLog(@"Delegate cannot be nil! Aborting");
-		abort();
-	}
-	
 	self.connectedClients = [@[] mutableCopy];
 	
-	dispatch_queue_t d = dispatch_get_main_queue();
-	
-	if (NULL == d) {
-		NSLog(@"the dispatch q was null?");
-		return NO;
-	}
 	
 	self.listenSocket = [[GCDAsyncSocket alloc] initWithDelegate:self delegateQueue:dispatch_get_main_queue()];
 	NSError *error = nil;
@@ -79,7 +68,7 @@
 		return NO;
 	}
 	
-	NSLog(@"Server socket started..........");
+	NSLog(@"Server socket started.");
 	return YES;
 }
 
@@ -126,7 +115,6 @@
 }
 
 
-
 #pragma mark - NSNetServiceDelegate methods
 
 - (void)netServiceDidPublish:(NSNetService *)sender {
@@ -136,7 +124,6 @@
 
 - (void)netService:(NSNetService *)sender didNotPublish:(NSDictionary *)errorDict {
 	[self stopServer];
-	//[self unpublishService];
 	self.publishedServiceCallback(nil, errorDict);
 }
 
