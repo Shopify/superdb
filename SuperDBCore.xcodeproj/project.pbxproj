@@ -515,12 +515,6 @@
 		CD6FF28F15EFC4BB00E63391 /* Block_fscript.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Block_fscript.h; sourceTree = "<group>"; };
 		CDCD469615A8DD140070D05C /* JBServicesBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBServicesBrowser.h; sourceTree = "<group>"; };
 		CDCD469715A8DD140070D05C /* JBServicesBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBServicesBrowser.m; sourceTree = "<group>"; };
-		CDCD469815A8DD140070D05C /* JBAuctionServer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBAuctionServer.h; sourceTree = "<group>"; };
-		CDCD469915A8DD140070D05C /* JBAuctionServer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBAuctionServer.m; sourceTree = "<group>"; };
-		CDCD469A15A8DD140070D05C /* JBAuctionClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBAuctionClient.h; sourceTree = "<group>"; };
-		CDCD469B15A8DD140070D05C /* JBAuctionClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBAuctionClient.m; sourceTree = "<group>"; };
-		CDCD469C15A8DD140070D05C /* JBMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBMessage.h; sourceTree = "<group>"; };
-		CDCD469D15A8DD140070D05C /* JBMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBMessage.m; sourceTree = "<group>"; };
 		CDDC9F8716224697006883CE /* Geometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Geometry.h; sourceTree = "<group>"; };
 		CDDC9F8816224697006883CE /* Geometry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Geometry.m; sourceTree = "<group>"; };
 		CDF1AAA215A8D7760038EAB7 /* libSuperDBCore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSuperDBCore.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -819,12 +813,6 @@
 			children = (
 				CDCD469615A8DD140070D05C /* JBServicesBrowser.h */,
 				CDCD469715A8DD140070D05C /* JBServicesBrowser.m */,
-				CDCD469815A8DD140070D05C /* JBAuctionServer.h */,
-				CDCD469915A8DD140070D05C /* JBAuctionServer.m */,
-				CDCD469A15A8DD140070D05C /* JBAuctionClient.h */,
-				CDCD469B15A8DD140070D05C /* JBAuctionClient.m */,
-				CDCD469C15A8DD140070D05C /* JBMessage.h */,
-				CDCD469D15A8DD140070D05C /* JBMessage.m */,
 				CD0D94C815B83D1F003A0D8B /* GCDAsyncSocket.h */,
 				CD0D94C915B83D1F003A0D8B /* GCDAsyncSocket.m */,
 				CD6BF726161FD99D00B8FBB0 /* SuperJSTP.h */,

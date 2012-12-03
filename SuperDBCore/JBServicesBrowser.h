@@ -17,7 +17,6 @@ typedef void(^JBServicesBrowserPublishedServiceCallback)(id success, NSDictionar
 @interface JBServicesBrowser : NSObject
 
 - (id)initWithServicesCallback:(JBServicesBrowserCallback)callback;
-- (void)publishServiceForUsername:(NSString *)serviceName publicationCallback:(JBServicesBrowserPublishedServiceCallback)publicationCallback;
 
 + (NSString *)netServiceType;
 + (NSString *)netServiceDomain;
