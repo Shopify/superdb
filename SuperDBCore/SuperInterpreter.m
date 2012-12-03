@@ -195,16 +195,17 @@
 		NSLog(@"[SERVER]: Updating the current view controller.");
 		NSMutableDictionary *body = [@{} mutableCopy];
 #if !TARGET_OS_IPHONE
-		NSLog(@"[SERVER]: Updating the current view controller is currently undefined on non-iOS platforms");
+		id newSelf = [[NSApplication sharedApplication] delegate];
 #elif TARGET_OS_IPHONE
-		UIViewController *currentViewController = [[[UIApplication sharedApplication] keyWindow] rootViewController];
-		if (self.currentViewControllerBlock) {
-			currentViewController = self.currentViewControllerBlock();
+		// Defaults to the window's rootViewController
+		id newSelf = [[[UIApplication sharedApplication] keyWindow] rootViewController];
+#endif
+		if (self.currentSelfPointerBlock) {
+			newSelf = self.currentSelfPointerBlock();
 		}
 		
 		// Assign this view controller in the environment
-		[weakSelf.interpreter setObject:currentViewController forIdentifier:@"self"];
-#endif
+		[weakSelf.interpreter setObject:newSelf forIdentifier:@"self"];
 		
 		// Evaluate self and get the result to be returned to the client
 		// Sure, could just pass in the actual view controller, but I'd rather hear it straight from the interpreter.
@@ -226,9 +227,8 @@
 }
 
 
-- (void)setCurrentViewControllerBlock:(SuperInterpreterServiceGetCurrentViewController)currentViewControllerBlock {
-	_currentViewControllerBlock = [currentViewControllerBlock copy];
-	NSLog(@"SETTING THE CURRENT VC BLOCK");
+- (void)setCurrentSelfPointerBlock:(SuperInterpreterServiceUpdateSelfPointerBlock)currentSelfPointerBlock {
+	_currentSelfPointerBlock = [currentSelfPointerBlock copy];
 }
 
 

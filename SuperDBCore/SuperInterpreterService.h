@@ -21,17 +21,15 @@
 
 typedef void(^SuperInterpreterServicePublishedServiceCallback)(id success, NSDictionary *errorDictionary);
 
-#if !TARGET_OS_IPHONE
-typedef NSViewController *(^SuperInterpreterServiceGetCurrentViewController)(void);
-#elif TARGET_OS_IPHONE
-typedef UIViewController *(^SuperInterpreterServiceGetCurrentViewController)(void);
-#endif
+
+typedef id(^SuperInterpreterServiceUpdateSelfPointerBlock)(void);
+
 
 @interface SuperInterpreterService : SuperJSTP
 
 @property (nonatomic, assign) NSUInteger maximumConnectedClients; // defaults to NSUIntegerMax
 @property (nonatomic, weak) id<SuperInterpreterServiceDelegate> delegate;
-@property (nonatomic, copy) SuperInterpreterServiceGetCurrentViewController currentViewControllerBlock;
+@property (nonatomic, copy) SuperInterpreterServiceUpdateSelfPointerBlock currentViewControllerBlock;
 
 - (BOOL)startServer;
 - (void)stopServer;
