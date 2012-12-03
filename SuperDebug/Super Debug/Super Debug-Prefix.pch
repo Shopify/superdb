@@ -1,0 +1,8 @@
+//
+// Prefix header for all source files of the 'Super Debug' target in the 'Super Debug' project
+//
+
+#ifdef __OBJC__
+	#import <Cocoa/Cocoa.h>
+	#import <SuperDBCore/SuperDBCore.h>
+#endif
