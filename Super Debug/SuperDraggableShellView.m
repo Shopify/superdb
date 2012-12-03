@@ -27,8 +27,7 @@
 
 @implementation SuperDraggableShellView
 
-- (id)initWithFrame:(CGRect)frame prompt:(NSString *)prompt inputHandler:(JBShellViewInputProcessingHandler)inputHandler
-{
+- (id)initWithFrame:(CGRect)frame prompt:(NSString *)prompt inputHandler:(JBShellViewInputProcessingHandler)inputHandler {
     self = [super initWithFrame:frame prompt:prompt inputHandler:inputHandler];
     if (self) {
 		[[self window] setAcceptsMouseMovedEvents:YES];
@@ -149,7 +148,7 @@
 	self.commandStart = self.initialDragCommandStart - lengthDifference;
 	
 	if (self.numberDragHandler) {
-		self.numberDragHandler(replacedCommand);\
+		self.numberDragHandler(replacedCommand);
 	}
 }
 
@@ -226,51 +225,6 @@
 		[formatter setAllowsFloats:YES];
 	}
 	return [formatter numberFromString:string];
-}
-
-
-- (void)numberWasDragged:(NSNumber *)number toOffset:(CGSize)offset {
-	// For now, we're just going to take an integer value out of the number
-	// This will still work for floating point numbers but obviously we'll miss some of the precision
-	
-	// Maybe apply some kind of exponential growth (or something non-linear) to the x offset
-	NSInteger offsetValue = [self.initialNumber integerValue] + (NSInteger)offset.width;
-	NSNumber *updatedNumber = @(offsetValue);
-	NSString *updatedString = [updatedNumber stringValue];
-	NSString *numberString = [number stringValue];
-	
-	NSRange originalRange = [self selectedRange];
-	if (originalRange.length < [updatedString length]) {
-		originalRange.length = [updatedString length];
-	} else if (originalRange.length > [updatedString length]) {
-		originalRange.length = [numberString length];
-	}
-	
-	[super insertText:updatedString replacementRange:originalRange];
-	[self setSelectedRange:originalRange];
-	
-	if (self.numberDragHandler) {
-		
-		NSString *originalCommand = [self commandFromHistoryForRange:originalRange];
-		NSString *updatedCommand = [originalCommand stringByReplacingCharactersInRange:self.initialDragRangeInOriginalCommand withString:updatedString];
-		
-		NSLog(@"Updated command: %@", updatedCommand);
-		//self.numberDragHandler(updatedCommand);
-	}
-}
-
-
-- (NSString *)commandFromHistoryForRange:(NSRange)range {
-	
-	NSString *untilEnd = [[self string] substringFromIndex:range.location];
-	NSRange newlineRange = [untilEnd rangeOfString:@"\n" options:kNilOptions];
-	if (newlineRange.location == NSNotFound) {
-		// We're on the last line of the document so there's nothing entered after us. Return everything from commandStart -> end of string
-		return [[self string] substringFromIndex:self.commandStart];
-	}
-	
-	
-	return [self.commandHistory commandForRange:range];
 }
 
 
