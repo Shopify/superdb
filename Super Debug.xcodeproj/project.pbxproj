@@ -201,7 +201,6 @@
 			isa = PBXGroup;
 			children = (
 				CDDC9F8C16224CFC006883CE /* Libraries */,
-				CD0D94E015B859C4003A0D8B /* Security.framework */,
 				CDF1AAD415A8D9F20038EAB7 /* libSuperDBCoreMac.a */,
 				CDD65BB915A8D03000505C37 /* Super Debug */,
 				CDD65BB215A8D03000505C37 /* Frameworks */,
@@ -229,6 +228,7 @@
 		CDD65BB515A8D03000505C37 /* Other Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				CD0D94E015B859C4003A0D8B /* Security.framework */,
 				CDD65BB615A8D03000505C37 /* AppKit.framework */,
 				CDD65BB715A8D03000505C37 /* CoreData.framework */,
 				CDD65BB815A8D03000505C37 /* Foundation.framework */,
