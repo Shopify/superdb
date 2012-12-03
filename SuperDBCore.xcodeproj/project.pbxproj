@@ -1108,8 +1108,9 @@
 		CDF1AA9915A8D7760038EAB7 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				CLASSPREFIX = Super;
 				LastUpgradeCheck = 0450;
-				ORGANIZATIONNAME = "Jason Brennan";
+				ORGANIZATIONNAME = "Super Debugger";
 			};
 			buildConfigurationList = CDF1AA9C15A8D7760038EAB7 /* Build configuration list for PBXProject "SuperDBCore" */;
 			compatibilityVersion = "Xcode 3.2";
