@@ -10,9 +10,6 @@
 		CD0D94D215B84482003A0D8B /* SuperDebugAreaWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0D94D015B84482003A0D8B /* SuperDebugAreaWindowController.m */; };
 		CD0D94D315B84482003A0D8B /* SuperDebugAreaWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD0D94D115B84482003A0D8B /* SuperDebugAreaWindowController.xib */; };
 		CD0D94E115B859C4003A0D8B /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD0D94E015B859C4003A0D8B /* Security.framework */; };
-		CD0D975E15B886AA003A0D8B /* JBShellView.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0D975B15B886AA003A0D8B /* JBShellView.m */; };
-		CD0D975F15B886AA003A0D8B /* JBShellContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0D975D15B886AA003A0D8B /* JBShellContainerView.m */; };
-		CD0EC08915DC880E004F2403 /* JBTextEditorProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0EC08815DC880E004F2403 /* JBTextEditorProcessor.m */; };
 		CD1F2B06163B17A800EE295F /* JBSuggestionTableRowView.m in Sources */ = {isa = PBXBuildFile; fileRef = CD1F2B05163B17A800EE295F /* JBSuggestionTableRowView.m */; };
 		CD360F6F1638696400617446 /* JBSuggestionsTableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD360F6E1638696400617446 /* JBSuggestionsTableView.xib */; };
 		CD360F7216386AD400617446 /* JBSuggestionsTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = CD360F7116386AD400617446 /* JBSuggestionsTableView.m */; };
@@ -20,7 +17,6 @@
 		CD3F75281631C56A00A012E0 /* JBSuggestionWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD3F75271631C56A00A012E0 /* JBSuggestionWindowController.m */; };
 		CD3F752B1631C66100A012E0 /* JBRoundedCornersMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = CD3F752A1631C66100A012E0 /* JBRoundedCornersMenuView.m */; };
 		CD54ED2F1667DE7D002D997D /* SuperDraggableShellView.m in Sources */ = {isa = PBXBuildFile; fileRef = CD54ED2E1667DE7D002D997D /* SuperDraggableShellView.m */; };
-		CD65FF6615B9871E001EEF5A /* JBShellCommandHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = CD65FF6515B9871E001EEF5A /* JBShellCommandHistory.m */; };
 		CDD65BB415A8D03000505C37 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDD65BB315A8D03000505C37 /* Cocoa.framework */; };
 		CDD65BBE15A8D03000505C37 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CDD65BBC15A8D03000505C37 /* InfoPlist.strings */; };
 		CDD65BC015A8D03000505C37 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD65BBF15A8D03000505C37 /* main.m */; };
@@ -97,13 +93,6 @@
 		CD0D94D015B84482003A0D8B /* SuperDebugAreaWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuperDebugAreaWindowController.m; sourceTree = "<group>"; };
 		CD0D94D115B84482003A0D8B /* SuperDebugAreaWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SuperDebugAreaWindowController.xib; sourceTree = "<group>"; };
 		CD0D94E015B859C4003A0D8B /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
-		CD0D975A15B886AA003A0D8B /* JBShellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBShellView.h; sourceTree = "<group>"; };
-		CD0D975B15B886AA003A0D8B /* JBShellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBShellView.m; sourceTree = "<group>"; };
-		CD0D975C15B886AA003A0D8B /* JBShellContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBShellContainerView.h; sourceTree = "<group>"; };
-		CD0D975D15B886AA003A0D8B /* JBShellContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBShellContainerView.m; sourceTree = "<group>"; };
-		CD0D976015B888BD003A0D8B /* JBShellViewBlockTypedefs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBShellViewBlockTypedefs.h; sourceTree = "<group>"; };
-		CD0EC08715DC880E004F2403 /* JBTextEditorProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBTextEditorProcessor.h; sourceTree = "<group>"; };
-		CD0EC08815DC880E004F2403 /* JBTextEditorProcessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBTextEditorProcessor.m; sourceTree = "<group>"; };
 		CD1F2B04163B17A800EE295F /* JBSuggestionTableRowView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBSuggestionTableRowView.h; sourceTree = "<group>"; };
 		CD1F2B05163B17A800EE295F /* JBSuggestionTableRowView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBSuggestionTableRowView.m; sourceTree = "<group>"; };
 		CD360F6E1638696400617446 /* JBSuggestionsTableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JBSuggestionsTableView.xib; sourceTree = "<group>"; };
@@ -117,8 +106,6 @@
 		CD3F752A1631C66100A012E0 /* JBRoundedCornersMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBRoundedCornersMenuView.m; sourceTree = "<group>"; };
 		CD54ED2D1667DE7D002D997D /* SuperDraggableShellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuperDraggableShellView.h; sourceTree = "<group>"; };
 		CD54ED2E1667DE7D002D997D /* SuperDraggableShellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuperDraggableShellView.m; sourceTree = "<group>"; };
-		CD65FF6415B9871E001EEF5A /* JBShellCommandHistory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBShellCommandHistory.h; sourceTree = "<group>"; };
-		CD65FF6515B9871E001EEF5A /* JBShellCommandHistory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBShellCommandHistory.m; sourceTree = "<group>"; };
 		CDD65BAF15A8D03000505C37 /* Super Debug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Super Debug.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDD65BB315A8D03000505C37 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		CDD65BB615A8D03000505C37 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -157,15 +144,6 @@
 		CD0D975915B8869B003A0D8B /* Shell */ = {
 			isa = PBXGroup;
 			children = (
-				CD0EC08715DC880E004F2403 /* JBTextEditorProcessor.h */,
-				CD0EC08815DC880E004F2403 /* JBTextEditorProcessor.m */,
-				CD0D975A15B886AA003A0D8B /* JBShellView.h */,
-				CD0D975B15B886AA003A0D8B /* JBShellView.m */,
-				CD0D975C15B886AA003A0D8B /* JBShellContainerView.h */,
-				CD0D975D15B886AA003A0D8B /* JBShellContainerView.m */,
-				CD0D976015B888BD003A0D8B /* JBShellViewBlockTypedefs.h */,
-				CD65FF6415B9871E001EEF5A /* JBShellCommandHistory.h */,
-				CD65FF6515B9871E001EEF5A /* JBShellCommandHistory.m */,
 				CD54ED2D1667DE7D002D997D /* SuperDraggableShellView.h */,
 				CD54ED2E1667DE7D002D997D /* SuperDraggableShellView.m */,
 			);
@@ -414,10 +392,6 @@
 				CDD65BC715A8D03000505C37 /* JBAppDelegate.m in Sources */,
 				CDD65BD315A8D07800505C37 /* JBDeviceSelectionWindowController.m in Sources */,
 				CD0D94D215B84482003A0D8B /* SuperDebugAreaWindowController.m in Sources */,
-				CD0D975E15B886AA003A0D8B /* JBShellView.m in Sources */,
-				CD0D975F15B886AA003A0D8B /* JBShellContainerView.m in Sources */,
-				CD65FF6615B9871E001EEF5A /* JBShellCommandHistory.m in Sources */,
-				CD0EC08915DC880E004F2403 /* JBTextEditorProcessor.m in Sources */,
 				CD3F75211631ABA700A012E0 /* JBSuggestionWindow.m in Sources */,
 				CD3F75281631C56A00A012E0 /* JBSuggestionWindowController.m in Sources */,
 				CD3F752B1631C66100A012E0 /* JBRoundedCornersMenuView.m in Sources */,
