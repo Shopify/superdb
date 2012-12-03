@@ -1,3 +1,6 @@
 [submodule "Super Debug/Libraries/parsekit"]
 	path = Super Debug/Libraries/parsekit
 	url = git@github.com:jbrennan/parsekit.git
+[submodule "Super Debug/Libraries/JBShellView"]
+	path = Super Debug/Libraries/JBShellView
+	url = git://github.com/jbrennan/JBShellView.git

@@ -17,6 +17,10 @@
 		CD3F75281631C56A00A012E0 /* JBSuggestionWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD3F75271631C56A00A012E0 /* JBSuggestionWindowController.m */; };
 		CD3F752B1631C66100A012E0 /* JBRoundedCornersMenuView.m in Sources */ = {isa = PBXBuildFile; fileRef = CD3F752A1631C66100A012E0 /* JBRoundedCornersMenuView.m */; };
 		CD54ED2F1667DE7D002D997D /* SuperDraggableShellView.m in Sources */ = {isa = PBXBuildFile; fileRef = CD54ED2E1667DE7D002D997D /* SuperDraggableShellView.m */; };
+		CDA3FFC5166D0884007C892F /* JBShellCommandHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = CDA3FFBF166D0884007C892F /* JBShellCommandHistory.m */; };
+		CDA3FFC6166D0884007C892F /* JBShellContainerView.m in Sources */ = {isa = PBXBuildFile; fileRef = CDA3FFC1166D0884007C892F /* JBShellContainerView.m */; };
+		CDA3FFC7166D0884007C892F /* JBShellView.m in Sources */ = {isa = PBXBuildFile; fileRef = CDA3FFC3166D0884007C892F /* JBShellView.m */; };
+		CDA3FFCA166D0899007C892F /* JBTextEditorProcessor.m in Sources */ = {isa = PBXBuildFile; fileRef = CDA3FFC9166D0899007C892F /* JBTextEditorProcessor.m */; };
 		CDD65BB415A8D03000505C37 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDD65BB315A8D03000505C37 /* Cocoa.framework */; };
 		CDD65BBE15A8D03000505C37 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CDD65BBC15A8D03000505C37 /* InfoPlist.strings */; };
 		CDD65BC015A8D03000505C37 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CDD65BBF15A8D03000505C37 /* main.m */; };
@@ -106,6 +110,15 @@
 		CD3F752A1631C66100A012E0 /* JBRoundedCornersMenuView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBRoundedCornersMenuView.m; sourceTree = "<group>"; };
 		CD54ED2D1667DE7D002D997D /* SuperDraggableShellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuperDraggableShellView.h; sourceTree = "<group>"; };
 		CD54ED2E1667DE7D002D997D /* SuperDraggableShellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuperDraggableShellView.m; sourceTree = "<group>"; };
+		CDA3FFBE166D0884007C892F /* JBShellCommandHistory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JBShellCommandHistory.h; path = JBShellView/JBShellView/JBShellCommandHistory.h; sourceTree = "<group>"; };
+		CDA3FFBF166D0884007C892F /* JBShellCommandHistory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JBShellCommandHistory.m; path = JBShellView/JBShellView/JBShellCommandHistory.m; sourceTree = "<group>"; };
+		CDA3FFC0166D0884007C892F /* JBShellContainerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JBShellContainerView.h; path = JBShellView/JBShellView/JBShellContainerView.h; sourceTree = "<group>"; };
+		CDA3FFC1166D0884007C892F /* JBShellContainerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JBShellContainerView.m; path = JBShellView/JBShellView/JBShellContainerView.m; sourceTree = "<group>"; };
+		CDA3FFC2166D0884007C892F /* JBShellView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JBShellView.h; path = JBShellView/JBShellView/JBShellView.h; sourceTree = "<group>"; };
+		CDA3FFC3166D0884007C892F /* JBShellView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JBShellView.m; path = JBShellView/JBShellView/JBShellView.m; sourceTree = "<group>"; };
+		CDA3FFC4166D0884007C892F /* JBShellViewBlockTypedefs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JBShellViewBlockTypedefs.h; path = JBShellView/JBShellView/JBShellViewBlockTypedefs.h; sourceTree = "<group>"; };
+		CDA3FFC8166D0899007C892F /* JBTextEditorProcessor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = JBTextEditorProcessor.h; path = JBShellView/JBShellView/Libaries/ModernCocoaText/TextEditing/JBTextEditorProcessor.h; sourceTree = "<group>"; };
+		CDA3FFC9166D0899007C892F /* JBTextEditorProcessor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = JBTextEditorProcessor.m; path = JBShellView/JBShellView/Libaries/ModernCocoaText/TextEditing/JBTextEditorProcessor.m; sourceTree = "<group>"; };
 		CDD65BAF15A8D03000505C37 /* Super Debug.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Super Debug.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CDD65BB315A8D03000505C37 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		CDD65BB615A8D03000505C37 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = System/Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
@@ -166,6 +179,22 @@
 				CD1F2B05163B17A800EE295F /* JBSuggestionTableRowView.m */,
 			);
 			name = Completions;
+			sourceTree = "<group>";
+		};
+		CDA3FFBD166D07EC007C892F /* Shell */ = {
+			isa = PBXGroup;
+			children = (
+				CDA3FFC8166D0899007C892F /* JBTextEditorProcessor.h */,
+				CDA3FFC9166D0899007C892F /* JBTextEditorProcessor.m */,
+				CDA3FFBE166D0884007C892F /* JBShellCommandHistory.h */,
+				CDA3FFBF166D0884007C892F /* JBShellCommandHistory.m */,
+				CDA3FFC0166D0884007C892F /* JBShellContainerView.h */,
+				CDA3FFC1166D0884007C892F /* JBShellContainerView.m */,
+				CDA3FFC2166D0884007C892F /* JBShellView.h */,
+				CDA3FFC3166D0884007C892F /* JBShellView.m */,
+				CDA3FFC4166D0884007C892F /* JBShellViewBlockTypedefs.h */,
+			);
+			name = Shell;
 			sourceTree = "<group>";
 		};
 		CDD65BA415A8D03000505C37 = {
@@ -241,6 +270,7 @@
 		CDDC9F8C16224CFC006883CE /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				CDA3FFBD166D07EC007C892F /* Shell */,
 				CDDC9F8E16224E6D006883CE /* ParseKit.xcodeproj */,
 			);
 			name = Libraries;
@@ -398,6 +428,10 @@
 				CD360F7216386AD400617446 /* JBSuggestionsTableView.m in Sources */,
 				CD1F2B06163B17A800EE295F /* JBSuggestionTableRowView.m in Sources */,
 				CD54ED2F1667DE7D002D997D /* SuperDraggableShellView.m in Sources */,
+				CDA3FFC5166D0884007C892F /* JBShellCommandHistory.m in Sources */,
+				CDA3FFC6166D0884007C892F /* JBShellContainerView.m in Sources */,
+				CDA3FFC7166D0884007C892F /* JBShellView.m in Sources */,
+				CDA3FFCA166D0899007C892F /* JBTextEditorProcessor.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
