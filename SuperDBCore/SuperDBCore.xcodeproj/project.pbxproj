@@ -1,0 +1,1417 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CD0C658B15ECF981006DE7F3 /* SuperInterpreter.h in Headers */ = {isa = PBXBuildFile; fileRef = CD0C658915ECF981006DE7F3 /* SuperInterpreter.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD0C658C15ECF981006DE7F3 /* SuperInterpreter.h in Headers */ = {isa = PBXBuildFile; fileRef = CD0C658915ECF981006DE7F3 /* SuperInterpreter.h */; };
+		CD0C658D15ECF981006DE7F3 /* SuperInterpreter.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0C658A15ECF981006DE7F3 /* SuperInterpreter.m */; };
+		CD0C658E15ECF981006DE7F3 /* SuperInterpreter.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0C658A15ECF981006DE7F3 /* SuperInterpreter.m */; };
+		CD0C659115ECFADF006DE7F3 /* SuperNetworkMessageTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = CD0C659015ECFADF006DE7F3 /* SuperNetworkMessageTypes.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD0C659215ECFADF006DE7F3 /* SuperNetworkMessageTypes.h in Headers */ = {isa = PBXBuildFile; fileRef = CD0C659015ECFADF006DE7F3 /* SuperNetworkMessageTypes.h */; };
+		CD0D94BF15B83893003A0D8B /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD0D94BE15B83893003A0D8B /* CFNetwork.framework */; };
+		CD0D94C215B8389A003A0D8B /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD0D94C115B8389A003A0D8B /* Security.framework */; };
+		CD0D94CA15B83D1F003A0D8B /* GCDAsyncSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = CD0D94C815B83D1F003A0D8B /* GCDAsyncSocket.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD0D94CB15B83D1F003A0D8B /* GCDAsyncSocket.h in Headers */ = {isa = PBXBuildFile; fileRef = CD0D94C815B83D1F003A0D8B /* GCDAsyncSocket.h */; };
+		CD0D94CC15B83D1F003A0D8B /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0D94C915B83D1F003A0D8B /* GCDAsyncSocket.m */; };
+		CD0D94CD15B83D1F003A0D8B /* GCDAsyncSocket.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0D94C915B83D1F003A0D8B /* GCDAsyncSocket.m */; };
+		CD0D94D615B84683003A0D8B /* SuperInterpreterClient.h in Headers */ = {isa = PBXBuildFile; fileRef = CD0D94D415B84683003A0D8B /* SuperInterpreterClient.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD0D94D715B84683003A0D8B /* SuperInterpreterClient.h in Headers */ = {isa = PBXBuildFile; fileRef = CD0D94D415B84683003A0D8B /* SuperInterpreterClient.h */; };
+		CD0D94D815B84683003A0D8B /* SuperInterpreterClient.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0D94D515B84683003A0D8B /* SuperInterpreterClient.m */; };
+		CD0D94D915B84683003A0D8B /* SuperInterpreterClient.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0D94D515B84683003A0D8B /* SuperInterpreterClient.m */; };
+		CD0D94DC15B84C21003A0D8B /* SuperNetworkMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = CD0D94DA15B84C21003A0D8B /* SuperNetworkMessage.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD0D94DD15B84C21003A0D8B /* SuperNetworkMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = CD0D94DA15B84C21003A0D8B /* SuperNetworkMessage.h */; };
+		CD0D94DE15B84C21003A0D8B /* SuperNetworkMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0D94DB15B84C21003A0D8B /* SuperNetworkMessage.m */; };
+		CD0D94DF15B84C21003A0D8B /* SuperNetworkMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0D94DB15B84C21003A0D8B /* SuperNetworkMessage.m */; };
+		CD0D94FB15B8727A003A0D8B /* ffi_common.h in Headers */ = {isa = PBXBuildFile; fileRef = CD0D94EC15B8727A003A0D8B /* ffi_common.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD0D94FC15B8727A003A0D8B /* ffi-iphone.c in Sources */ = {isa = PBXBuildFile; fileRef = CD0D94ED15B8727A003A0D8B /* ffi-iphone.c */; };
+		CD0D94FD15B8727A003A0D8B /* ffi-iphone.h in Headers */ = {isa = PBXBuildFile; fileRef = CD0D94EE15B8727A003A0D8B /* ffi-iphone.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD0D94FE15B8727A003A0D8B /* ffi-iphonesimulator.c in Sources */ = {isa = PBXBuildFile; fileRef = CD0D94EF15B8727A003A0D8B /* ffi-iphonesimulator.c */; };
+		CD0D94FF15B8727A003A0D8B /* ffi-iphonesimulator.h in Headers */ = {isa = PBXBuildFile; fileRef = CD0D94F015B8727A003A0D8B /* ffi-iphonesimulator.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD0D950015B8727A003A0D8B /* ffi.h in Headers */ = {isa = PBXBuildFile; fileRef = CD0D94F115B8727A003A0D8B /* ffi.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD0D950115B8727A003A0D8B /* fficonfig.h in Headers */ = {isa = PBXBuildFile; fileRef = CD0D94F215B8727A003A0D8B /* fficonfig.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD0D950215B8727A003A0D8B /* ffitarget-iphone.h in Headers */ = {isa = PBXBuildFile; fileRef = CD0D94F315B8727A003A0D8B /* ffitarget-iphone.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD0D950315B8727A003A0D8B /* ffitarget-iphonesimulator.h in Headers */ = {isa = PBXBuildFile; fileRef = CD0D94F415B8727A003A0D8B /* ffitarget-iphonesimulator.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD0D950415B8727A003A0D8B /* ffitarget.h in Headers */ = {isa = PBXBuildFile; fileRef = CD0D94F515B8727A003A0D8B /* ffitarget.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD0D950515B8727A003A0D8B /* iphone-sysv.S in Sources */ = {isa = PBXBuildFile; fileRef = CD0D94F615B8727A003A0D8B /* iphone-sysv.S */; };
+		CD0D950615B8727A003A0D8B /* iphonesimulator-darwin.S in Sources */ = {isa = PBXBuildFile; fileRef = CD0D94F715B8727A003A0D8B /* iphonesimulator-darwin.S */; };
+		CD0D950715B8727A003A0D8B /* prep_cif.c in Sources */ = {isa = PBXBuildFile; fileRef = CD0D94F815B8727A003A0D8B /* prep_cif.c */; };
+		CD0D950815B8727A003A0D8B /* raw_api.c in Sources */ = {isa = PBXBuildFile; fileRef = CD0D94F915B8727A003A0D8B /* raw_api.c */; };
+		CD0D950915B8727A003A0D8B /* types.c in Sources */ = {isa = PBXBuildFile; fileRef = CD0D94FA15B8727A003A0D8B /* types.c */; };
+		CD0D974C15B873A1003A0D8B /* iOS-glue.h in Headers */ = {isa = PBXBuildFile; fileRef = CD0D974A15B873A1003A0D8B /* iOS-glue.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD0D974D15B873A1003A0D8B /* iOS-glue.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0D974B15B873A1003A0D8B /* iOS-glue.m */; };
+		CD0D975215B87747003A0D8B /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD0D975115B87747003A0D8B /* CoreGraphics.framework */; };
+		CD0D975415B87A38003A0D8B /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD0D975315B87A37003A0D8B /* UIKit.framework */; };
+		CD0D975615B87E66003A0D8B /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD0D975515B87E66003A0D8B /* CoreData.framework */; };
+		CD40C80B15F0ECCB002E3A58 /* SuperInterpreterObjectBrowser.h in Headers */ = {isa = PBXBuildFile; fileRef = CD40C80915F0ECCB002E3A58 /* SuperInterpreterObjectBrowser.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD40C80C15F0ECCB002E3A58 /* SuperInterpreterObjectBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = CD40C80A15F0ECCB002E3A58 /* SuperInterpreterObjectBrowser.m */; };
+		CD6BF728161FD99D00B8FBB0 /* SuperJSTP.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6BF726161FD99D00B8FBB0 /* SuperJSTP.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD6BF729161FD99D00B8FBB0 /* SuperJSTP.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6BF727161FD99D00B8FBB0 /* SuperJSTP.m */; };
+		CD6BF72A161FF01000B8FBB0 /* SuperJSTP.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6BF727161FD99D00B8FBB0 /* SuperJSTP.m */; };
+		CD6BF72B161FF02000B8FBB0 /* SuperJSTP.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6BF726161FD99D00B8FBB0 /* SuperJSTP.h */; };
+		CD6FF1C615EFC2B100E63391 /* Array.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6FF10115EFC2B100E63391 /* Array.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CD6FF1C715EFC2B100E63391 /* ArrayPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF10215EFC2B100E63391 /* ArrayPrivate.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD6FF1C815EFC2B100E63391 /* ArrayRep.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF10315EFC2B100E63391 /* ArrayRep.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD6FF1C915EFC2B100E63391 /* ArrayRepBoolean.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF10415EFC2B100E63391 /* ArrayRepBoolean.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD6FF1CA15EFC2B100E63391 /* ArrayRepBoolean.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6FF10515EFC2B100E63391 /* ArrayRepBoolean.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CD6FF1CB15EFC2B100E63391 /* ArrayRepDouble.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF10615EFC2B100E63391 /* ArrayRepDouble.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD6FF1CC15EFC2B100E63391 /* ArrayRepDouble.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6FF10715EFC2B100E63391 /* ArrayRepDouble.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CD6FF1CD15EFC2B100E63391 /* ArrayRepEmpty.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF10815EFC2B100E63391 /* ArrayRepEmpty.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD6FF1CE15EFC2B100E63391 /* ArrayRepEmpty.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6FF10915EFC2B100E63391 /* ArrayRepEmpty.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CD6FF1CF15EFC2B100E63391 /* ArrayRepFetchRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF10A15EFC2B100E63391 /* ArrayRepFetchRequest.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD6FF1D015EFC2B100E63391 /* ArrayRepFetchRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6FF10B15EFC2B100E63391 /* ArrayRepFetchRequest.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CD6FF1D115EFC2B100E63391 /* ArrayRepId.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF10C15EFC2B100E63391 /* ArrayRepId.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD6FF1D215EFC2B100E63391 /* ArrayRepId.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6FF10D15EFC2B100E63391 /* ArrayRepId.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CD6FF1D315EFC2B100E63391 /* Block.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6FF10E15EFC2B100E63391 /* Block.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CD6FF1D615EFC2B100E63391 /* BlockPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF11115EFC2B100E63391 /* BlockPrivate.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD6FF1D715EFC2B100E63391 /* BlockRep.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF11215EFC2B100E63391 /* BlockRep.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD6FF1D815EFC2B100E63391 /* BlockRep.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6FF11315EFC2B100E63391 /* BlockRep.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CD6FF1D915EFC2B100E63391 /* BlockSignature.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF11415EFC2B100E63391 /* BlockSignature.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD6FF1DA15EFC2B100E63391 /* BlockStackElem.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF11515EFC2B100E63391 /* BlockStackElem.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD6FF1DB15EFC2B100E63391 /* BlockStackElem.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6FF11615EFC2B100E63391 /* BlockStackElem.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CD6FF1DC15EFC2B100E63391 /* build_config.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF11715EFC2B100E63391 /* build_config.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD6FF1DD15EFC2B100E63391 /* CompiledCodeNode.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF11815EFC2B100E63391 /* CompiledCodeNode.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD6FF1DE15EFC2B100E63391 /* CompiledCodeNode.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6FF11915EFC2B100E63391 /* CompiledCodeNode.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CD6FF1DF15EFC2B100E63391 /* constantsDictionary in Resources */ = {isa = PBXBuildFile; fileRef = CD6FF11A15EFC2B100E63391 /* constantsDictionary */; };
+		CD6FF1E015EFC2B100E63391 /* FSArchiver.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF11B15EFC2B100E63391 /* FSArchiver.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD6FF1E115EFC2B100E63391 /* FSArchiver.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6FF11C15EFC2B100E63391 /* FSArchiver.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CD6FF1E215EFC2B100E63391 /* FSArray.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF11D15EFC2B100E63391 /* FSArray.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD6FF1E315EFC2B100E63391 /* FSArray.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6FF11E15EFC2B100E63391 /* FSArray.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CD6FF1E415EFC2B100E63391 /* FSArrayEnumerator.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF11F15EFC2B100E63391 /* FSArrayEnumerator.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD6FF1E515EFC2B100E63391 /* FSArrayEnumerator.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6FF12015EFC2B100E63391 /* FSArrayEnumerator.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CD6FF1E615EFC2B100E63391 /* FSAssociation.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF12115EFC2B100E63391 /* FSAssociation.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD6FF1E715EFC2B100E63391 /* FSAssociation.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6FF12215EFC2B100E63391 /* FSAssociation.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CD6FF1E815EFC2B100E63391 /* FSBlock.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF12315EFC2B100E63391 /* FSBlock.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD6FF1E915EFC2B100E63391 /* FSBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6FF12415EFC2B100E63391 /* FSBlock.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CD6FF1EA15EFC2B100E63391 /* FSBlockCompilationResult.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF12515EFC2B100E63391 /* FSBlockCompilationResult.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD6FF1EB15EFC2B100E63391 /* FSBlockCompilationResult.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6FF12615EFC2B100E63391 /* FSBlockCompilationResult.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CD6FF1EC15EFC2B100E63391 /* FSBoolean.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF12715EFC2B100E63391 /* FSBoolean.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD6FF1ED15EFC2B100E63391 /* FSBoolean.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6FF12815EFC2B100E63391 /* FSBoolean.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CD6FF1EE15EFC2B100E63391 /* FSBooleanPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF12915EFC2B100E63391 /* FSBooleanPrivate.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD6FF1EF15EFC2B100E63391 /* FSClassDefinition.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF12A15EFC2B100E63391 /* FSClassDefinition.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD6FF1F015EFC2B100E63391 /* FSClassDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6FF12B15EFC2B100E63391 /* FSClassDefinition.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CD6FF1F115EFC2B100E63391 /* FSCNArray.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF12C15EFC2B100E63391 /* FSCNArray.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD6FF1F215EFC2B100E63391 /* FSCNArray.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6FF12D15EFC2B100E63391 /* FSCNArray.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CD6FF1F315EFC2B100E63391 /* FSCNAssignment.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF12E15EFC2B100E63391 /* FSCNAssignment.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD6FF1F415EFC2B100E63391 /* FSCNAssignment.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6FF12F15EFC2B100E63391 /* FSCNAssignment.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CD6FF1F515EFC2B100E63391 /* FSCNBase.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF13015EFC2B100E63391 /* FSCNBase.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD6FF1F615EFC2B100E63391 /* FSCNBase.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6FF13115EFC2B100E63391 /* FSCNBase.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CD6FF1F715EFC2B100E63391 /* FSCNBinaryMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF13215EFC2B100E63391 /* FSCNBinaryMessage.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD6FF1F815EFC2B100E63391 /* FSCNBinaryMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6FF13315EFC2B100E63391 /* FSCNBinaryMessage.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CD6FF1F915EFC2B100E63391 /* FSCNBlock.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF13415EFC2B100E63391 /* FSCNBlock.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD6FF1FA15EFC2B100E63391 /* FSCNBlock.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6FF13515EFC2B100E63391 /* FSCNBlock.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CD6FF1FB15EFC2B100E63391 /* FSCNCascade.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF13615EFC2B100E63391 /* FSCNCascade.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD6FF1FC15EFC2B100E63391 /* FSCNCascade.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6FF13715EFC2B100E63391 /* FSCNCascade.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CD6FF1FD15EFC2B100E63391 /* FSCNCategory.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF13815EFC2B100E63391 /* FSCNCategory.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD6FF1FE15EFC2B100E63391 /* FSCNCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6FF13915EFC2B100E63391 /* FSCNCategory.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CD6FF1FF15EFC2B100E63391 /* FSCNClassDefinition.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF13A15EFC2B100E63391 /* FSCNClassDefinition.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD6FF20015EFC2B100E63391 /* FSCNClassDefinition.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6FF13B15EFC2B100E63391 /* FSCNClassDefinition.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CD6FF20115EFC2B100E63391 /* FSCNDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF13C15EFC2B100E63391 /* FSCNDictionary.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD6FF20215EFC2B100E63391 /* FSCNDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6FF13D15EFC2B100E63391 /* FSCNDictionary.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CD6FF20315EFC2B100E63391 /* FSCNIdentifier.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF13E15EFC2B100E63391 /* FSCNIdentifier.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD6FF20415EFC2B100E63391 /* FSCNIdentifier.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6FF13F15EFC2B100E63391 /* FSCNIdentifier.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CD6FF20515EFC2B100E63391 /* FSCNKeywordMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF14015EFC2B100E63391 /* FSCNKeywordMessage.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD6FF20615EFC2B100E63391 /* FSCNKeywordMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6FF14115EFC2B100E63391 /* FSCNKeywordMessage.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CD6FF20715EFC2B100E63391 /* FSCNMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF14215EFC2B100E63391 /* FSCNMessage.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD6FF20815EFC2B100E63391 /* FSCNMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6FF14315EFC2B100E63391 /* FSCNMessage.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CD6FF20915EFC2B100E63391 /* FSCNMethod.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF14415EFC2B100E63391 /* FSCNMethod.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD6FF20A15EFC2B100E63391 /* FSCNMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6FF14515EFC2B100E63391 /* FSCNMethod.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CD6FF20B15EFC2B100E63391 /* FSCNPrecomputedObject.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF14615EFC2B100E63391 /* FSCNPrecomputedObject.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD6FF20C15EFC2B100E63391 /* FSCNPrecomputedObject.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6FF14715EFC2B100E63391 /* FSCNPrecomputedObject.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CD6FF20D15EFC2B100E63391 /* FSCNReturn.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF14815EFC2B100E63391 /* FSCNReturn.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD6FF20E15EFC2B100E63391 /* FSCNReturn.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6FF14915EFC2B100E63391 /* FSCNReturn.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CD6FF20F15EFC2B100E63391 /* FSCNStatementList.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF14A15EFC2B100E63391 /* FSCNStatementList.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD6FF21015EFC2B100E63391 /* FSCNStatementList.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6FF14B15EFC2B100E63391 /* FSCNStatementList.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CD6FF21115EFC2B100E63391 /* FSCNSuper.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF14C15EFC2B100E63391 /* FSCNSuper.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD6FF21215EFC2B100E63391 /* FSCNSuper.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6FF14D15EFC2B100E63391 /* FSCNSuper.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CD6FF21315EFC2B100E63391 /* FSCNUnaryMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF14E15EFC2B100E63391 /* FSCNUnaryMessage.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD6FF21415EFC2B100E63391 /* FSCNUnaryMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6FF14F15EFC2B100E63391 /* FSCNUnaryMessage.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CD6FF21515EFC2B100E63391 /* FSCommandHistory.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF15015EFC2B100E63391 /* FSCommandHistory.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD6FF21615EFC2B100E63391 /* FSCommandHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6FF15115EFC2B100E63391 /* FSCommandHistory.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CD6FF21715EFC2B100E63391 /* FSCompilationResult.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF15215EFC2B100E63391 /* FSCompilationResult.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD6FF21815EFC2B100E63391 /* FSCompilationResult.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6FF15315EFC2B100E63391 /* FSCompilationResult.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CD6FF21915EFC2B100E63391 /* FSCompiler.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF15415EFC2B100E63391 /* FSCompiler.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD6FF21A15EFC2B100E63391 /* FSCompiler.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6FF15515EFC2B100E63391 /* FSCompiler.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CD6FF21B15EFC2B100E63391 /* FSConstantsInitialization.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF15615EFC2B100E63391 /* FSConstantsInitialization.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD6FF21C15EFC2B100E63391 /* FSConstantsInitialization.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6FF15715EFC2B100E63391 /* FSConstantsInitialization.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CD6FF21D15EFC2B100E63391 /* FScript.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF15815EFC2B100E63391 /* FScript.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD6FF21E15EFC2B100E63391 /* FScriptDict.dic in Resources */ = {isa = PBXBuildFile; fileRef = CD6FF15915EFC2B100E63391 /* FScriptDict.dic */; };
+		CD6FF21F15EFC2B100E63391 /* FScriptFunctions.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF15A15EFC2B100E63391 /* FScriptFunctions.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD6FF22015EFC2B100E63391 /* FScriptFunctions.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6FF15B15EFC2B100E63391 /* FScriptFunctions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CD6FF22115EFC2B100E63391 /* FSError.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF15C15EFC2B100E63391 /* FSError.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD6FF22215EFC2B100E63391 /* FSError.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6FF15D15EFC2B100E63391 /* FSError.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CD6FF22315EFC2B100E63391 /* FSExecEngine.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF15E15EFC2B100E63391 /* FSExecEngine.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD6FF22415EFC2B100E63391 /* FSExecEngine.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6FF15F15EFC2B100E63391 /* FSExecEngine.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CD6FF22515EFC2B100E63391 /* FSExecutor.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF16015EFC2B100E63391 /* FSExecutor.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD6FF22615EFC2B100E63391 /* FSExecutor.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6FF16115EFC2B100E63391 /* FSExecutor.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CD6FF22715EFC2B100E63391 /* FSGenericPointer.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF16215EFC2B100E63391 /* FSGenericPointer.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD6FF22815EFC2B100E63391 /* FSGenericPointer.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6FF16315EFC2B100E63391 /* FSGenericPointer.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CD6FF22915EFC2B100E63391 /* FSGenericPointerPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF16415EFC2B100E63391 /* FSGenericPointerPrivate.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD6FF22A15EFC2B100E63391 /* FSGlobalScope.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF16515EFC2B100E63391 /* FSGlobalScope.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD6FF22B15EFC2B100E63391 /* FSGlobalScope.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6FF16615EFC2B100E63391 /* FSGlobalScope.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CD6FF22C15EFC2B100E63391 /* FSIdentifierFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF16715EFC2B100E63391 /* FSIdentifierFormatter.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD6FF22D15EFC2B100E63391 /* FSIdentifierFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6FF16815EFC2B100E63391 /* FSIdentifierFormatter.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CD6FF22E15EFC2B100E63391 /* FSInterpreter.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF16915EFC2B100E63391 /* FSInterpreter.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD6FF22F15EFC2B100E63391 /* FSInterpreter.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6FF16A15EFC2B100E63391 /* FSInterpreter.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CD6FF23015EFC2B100E63391 /* FSInterpreterPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF16B15EFC2B100E63391 /* FSInterpreterPrivate.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD6FF23115EFC2B100E63391 /* FSInterpreterResult.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF16C15EFC2B100E63391 /* FSInterpreterResult.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD6FF23215EFC2B100E63391 /* FSInterpreterResult.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6FF16D15EFC2B100E63391 /* FSInterpreterResult.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CD6FF23315EFC2B100E63391 /* FSInterpreterResultPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF16E15EFC2B100E63391 /* FSInterpreterResultPrivate.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD6FF23415EFC2B100E63391 /* FSKeyedArchiver.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF16F15EFC2B100E63391 /* FSKeyedArchiver.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD6FF23515EFC2B100E63391 /* FSKeyedArchiver.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6FF17015EFC2B100E63391 /* FSKeyedArchiver.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CD6FF23615EFC2B100E63391 /* FSKeyedUnarchiver.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF17115EFC2B100E63391 /* FSKeyedUnarchiver.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD6FF23715EFC2B100E63391 /* FSKeyedUnarchiver.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6FF17215EFC2B100E63391 /* FSKeyedUnarchiver.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CD6FF23815EFC2B100E63391 /* FSMethod-iOS.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6FF17315EFC2B100E63391 /* FSMethod-iOS.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CD6FF23915EFC2B100E63391 /* FSMethod.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF17415EFC2B100E63391 /* FSMethod.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD6FF23B15EFC2B100E63391 /* FSMiscTools.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF17615EFC2B100E63391 /* FSMiscTools.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD6FF23C15EFC2B100E63391 /* FSMiscTools.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6FF17715EFC2B100E63391 /* FSMiscTools.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CD6FF23D15EFC2B100E63391 /* FSMsgContext.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF17815EFC2B100E63391 /* FSMsgContext.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD6FF23E15EFC2B100E63391 /* FSMsgContext.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6FF17915EFC2B100E63391 /* FSMsgContext.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CD6FF23F15EFC2B100E63391 /* FSNamedNumber.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF17A15EFC2B100E63391 /* FSNamedNumber.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD6FF24015EFC2B100E63391 /* FSNamedNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6FF17B15EFC2B100E63391 /* FSNamedNumber.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CD6FF24115EFC2B100E63391 /* FSNewlyAllocatedObjectHolder.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF17C15EFC2B100E63391 /* FSNewlyAllocatedObjectHolder.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD6FF24215EFC2B100E63391 /* FSNewlyAllocatedObjectHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6FF17D15EFC2B100E63391 /* FSNewlyAllocatedObjectHolder.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CD6FF24315EFC2B100E63391 /* FSNSArray.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF17E15EFC2B100E63391 /* FSNSArray.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD6FF24415EFC2B100E63391 /* FSNSArray.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6FF17F15EFC2B100E63391 /* FSNSArray.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CD6FF24515EFC2B100E63391 /* FSNSArrayPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF18015EFC2B100E63391 /* FSNSArrayPrivate.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD6FF24615EFC2B100E63391 /* FSNSAttributedString.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF18115EFC2B100E63391 /* FSNSAttributedString.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD6FF24715EFC2B100E63391 /* FSNSAttributedString.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6FF18215EFC2B100E63391 /* FSNSAttributedString.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CD6FF24815EFC2B100E63391 /* FSNSDate.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF18315EFC2B100E63391 /* FSNSDate.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD6FF24915EFC2B100E63391 /* FSNSDate.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6FF18415EFC2B100E63391 /* FSNSDate.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CD6FF24A15EFC2B100E63391 /* FSNSDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF18515EFC2B100E63391 /* FSNSDictionary.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD6FF24B15EFC2B100E63391 /* FSNSDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6FF18615EFC2B100E63391 /* FSNSDictionary.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CD6FF24C15EFC2B100E63391 /* FSNSFileHandle.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF18715EFC2B100E63391 /* FSNSFileHandle.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD6FF24D15EFC2B100E63391 /* FSNSFileHandle.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6FF18815EFC2B100E63391 /* FSNSFileHandle.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CD6FF24E15EFC2B100E63391 /* FSNSManagedObjectContext.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF18915EFC2B100E63391 /* FSNSManagedObjectContext.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD6FF24F15EFC2B100E63391 /* FSNSManagedObjectContext.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6FF18A15EFC2B100E63391 /* FSNSManagedObjectContext.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CD6FF25015EFC2B100E63391 /* FSNSMutableArray.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF18B15EFC2B100E63391 /* FSNSMutableArray.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD6FF25115EFC2B100E63391 /* FSNSMutableArray.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6FF18C15EFC2B100E63391 /* FSNSMutableArray.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CD6FF25215EFC2B100E63391 /* FSNSMutableDictionary.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF18D15EFC2B100E63391 /* FSNSMutableDictionary.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD6FF25315EFC2B100E63391 /* FSNSMutableDictionary.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6FF18E15EFC2B100E63391 /* FSNSMutableDictionary.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CD6FF25415EFC2B100E63391 /* FSNSMutableString.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF18F15EFC2B100E63391 /* FSNSMutableString.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD6FF25515EFC2B100E63391 /* FSNSMutableString.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6FF19015EFC2B100E63391 /* FSNSMutableString.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CD6FF25615EFC2B100E63391 /* FSNSNumber.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF19115EFC2B100E63391 /* FSNSNumber.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD6FF25715EFC2B100E63391 /* FSNSNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6FF19215EFC2B100E63391 /* FSNSNumber.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CD6FF25815EFC2B100E63391 /* FSNSObject.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF19315EFC2B100E63391 /* FSNSObject.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD6FF25915EFC2B100E63391 /* FSNSObject.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6FF19415EFC2B100E63391 /* FSNSObject.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CD6FF25A15EFC2B100E63391 /* FSNSObjectPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF19515EFC2B100E63391 /* FSNSObjectPrivate.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD6FF25B15EFC2B100E63391 /* FSNSProxy.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF19615EFC2B100E63391 /* FSNSProxy.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD6FF25C15EFC2B100E63391 /* FSNSProxy.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6FF19715EFC2B100E63391 /* FSNSProxy.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CD6FF25D15EFC2B100E63391 /* FSNSSet.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF19815EFC2B100E63391 /* FSNSSet.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD6FF25E15EFC2B100E63391 /* FSNSSet.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6FF19915EFC2B100E63391 /* FSNSSet.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CD6FF25F15EFC2B100E63391 /* FSNSString.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF19A15EFC2B100E63391 /* FSNSString.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD6FF26015EFC2B100E63391 /* FSNSString.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6FF19B15EFC2B100E63391 /* FSNSString.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CD6FF26115EFC2B100E63391 /* FSNSStringPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF19C15EFC2B100E63391 /* FSNSStringPrivate.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD6FF26215EFC2B100E63391 /* FSNSValue-iOS.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF19D15EFC2B100E63391 /* FSNSValue-iOS.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD6FF26315EFC2B100E63391 /* FSNSValue-iOS.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6FF19E15EFC2B100E63391 /* FSNSValue-iOS.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CD6FF26415EFC2B100E63391 /* FSNumber.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF19F15EFC2B100E63391 /* FSNumber.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD6FF26515EFC2B100E63391 /* FSNumber.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6FF1A015EFC2B100E63391 /* FSNumber.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CD6FF26615EFC2B100E63391 /* FSObjectFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF1A115EFC2B100E63391 /* FSObjectFormatter.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD6FF26715EFC2B100E63391 /* FSObjectFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6FF1A215EFC2B100E63391 /* FSObjectFormatter.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CD6FF26815EFC2B100E63391 /* FSObjectPointer.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF1A315EFC2B100E63391 /* FSObjectPointer.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD6FF26915EFC2B100E63391 /* FSObjectPointer.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6FF1A415EFC2B100E63391 /* FSObjectPointer.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CD6FF26A15EFC2B100E63391 /* FSObjectPointerPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF1A515EFC2B100E63391 /* FSObjectPointerPrivate.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD6FF26B15EFC2B100E63391 /* FSPattern.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF1A615EFC2B100E63391 /* FSPattern.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD6FF26C15EFC2B100E63391 /* FSPattern.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6FF1A715EFC2B100E63391 /* FSPattern.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CD6FF26D15EFC2B100E63391 /* FSPointer.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF1A815EFC2B100E63391 /* FSPointer.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD6FF26E15EFC2B100E63391 /* FSPointer.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6FF1A915EFC2B100E63391 /* FSPointer.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CD6FF26F15EFC2B100E63391 /* FSPointerPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF1AA15EFC2B100E63391 /* FSPointerPrivate.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD6FF27015EFC2B100E63391 /* FSReplacementForCoderForClass.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF1AB15EFC2B100E63391 /* FSReplacementForCoderForClass.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD6FF27115EFC2B100E63391 /* FSReplacementForCoderForClass.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6FF1AC15EFC2B100E63391 /* FSReplacementForCoderForClass.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CD6FF27215EFC2B100E63391 /* FSReplacementForCoderForNilInArray.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF1AD15EFC2B100E63391 /* FSReplacementForCoderForNilInArray.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD6FF27315EFC2B100E63391 /* FSReplacementForCoderForNilInArray.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6FF1AE15EFC2B100E63391 /* FSReplacementForCoderForNilInArray.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CD6FF27415EFC2B100E63391 /* FSReturnSignal.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF1AF15EFC2B100E63391 /* FSReturnSignal.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD6FF27515EFC2B100E63391 /* FSReturnSignal.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6FF1B015EFC2B100E63391 /* FSReturnSignal.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CD6FF27615EFC2B100E63391 /* FSSymbolTable.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF1B115EFC2B100E63391 /* FSSymbolTable.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD6FF27715EFC2B100E63391 /* FSSymbolTable.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6FF1B215EFC2B100E63391 /* FSSymbolTable.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CD6FF27815EFC2B100E63391 /* FSSystem.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF1B315EFC2B100E63391 /* FSSystem.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD6FF27915EFC2B100E63391 /* FSSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6FF1B415EFC2B100E63391 /* FSSystem.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CD6FF27A15EFC2B100E63391 /* FSSystemPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF1B515EFC2B100E63391 /* FSSystemPrivate.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD6FF27B15EFC2B100E63391 /* FSTranscript.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF1B615EFC2B100E63391 /* FSTranscript.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD6FF27C15EFC2B100E63391 /* FSTranscript.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6FF1B715EFC2B100E63391 /* FSTranscript.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CD6FF27D15EFC2B100E63391 /* FSUnarchiver.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF1B815EFC2B100E63391 /* FSUnarchiver.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD6FF27E15EFC2B100E63391 /* FSUnarchiver.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6FF1B915EFC2B100E63391 /* FSUnarchiver.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CD6FF27F15EFC2B100E63391 /* FSVoid.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF1BA15EFC2B100E63391 /* FSVoid.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD6FF28015EFC2B100E63391 /* FSVoid.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6FF1BB15EFC2B100E63391 /* FSVoid.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CD6FF28115EFC2B100E63391 /* FSVoidPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF1BC15EFC2B100E63391 /* FSVoidPrivate.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD6FF28215EFC2B100E63391 /* MessagePatternCodeNode.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF1BD15EFC2B100E63391 /* MessagePatternCodeNode.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD6FF28315EFC2B100E63391 /* MessagePatternCodeNode.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6FF1BE15EFC2B100E63391 /* MessagePatternCodeNode.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CD6FF28415EFC2B100E63391 /* Number.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6FF1BF15EFC2B100E63391 /* Number.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CD6FF28515EFC2B100E63391 /* NumberPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF1C015EFC2B100E63391 /* NumberPrivate.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD6FF28615EFC2B100E63391 /* Pointer.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF1C115EFC2B100E63391 /* Pointer.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD6FF28715EFC2B100E63391 /* Pointer.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6FF1C215EFC2B100E63391 /* Pointer.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CD6FF28815EFC2B100E63391 /* PointerPrivate.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF1C315EFC2B100E63391 /* PointerPrivate.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD6FF28915EFC2B100E63391 /* Space.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF1C415EFC2B100E63391 /* Space.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD6FF28A15EFC2B100E63391 /* Space.m in Sources */ = {isa = PBXBuildFile; fileRef = CD6FF1C515EFC2B100E63391 /* Space.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		CD6FF28C15EFC41A00E63391 /* Array_fscript.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF28B15EFC41A00E63391 /* Array_fscript.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD6FF28E15EFC48C00E63391 /* Number_fscript.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF28D15EFC48C00E63391 /* Number_fscript.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CD6FF29015EFC4BB00E63391 /* Block_fscript.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF28F15EFC4BB00E63391 /* Block_fscript.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CDCD46A015A8DD140070D05C /* SuperServicesBrowser.h in Headers */ = {isa = PBXBuildFile; fileRef = CDCD469615A8DD140070D05C /* SuperServicesBrowser.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CDCD46A115A8DD140070D05C /* SuperServicesBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = CDCD469715A8DD140070D05C /* SuperServicesBrowser.m */; };
+		CDDC9F8916224697006883CE /* Geometry.h in Headers */ = {isa = PBXBuildFile; fileRef = CDDC9F8716224697006883CE /* Geometry.h */; };
+		CDDC9F8A16224697006883CE /* Geometry.m in Sources */ = {isa = PBXBuildFile; fileRef = CDDC9F8816224697006883CE /* Geometry.m */; };
+		CDF1AAA615A8D7760038EAB7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDF1AAA515A8D7760038EAB7 /* Foundation.framework */; };
+		CDF1AAAB15A8D7760038EAB7 /* SuperDBCore.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = CDF1AAAA15A8D7760038EAB7 /* SuperDBCore.h */; };
+		CDF1AABE15A8D9240038EAB7 /* SuperDBCore.h in Headers */ = {isa = PBXBuildFile; fileRef = CDF1AAAA15A8D7760038EAB7 /* SuperDBCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CDF1AAC515A8D9C30038EAB7 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDF1AAC415A8D9C30038EAB7 /* Cocoa.framework */; };
+		CDF1CCEA15B0C83900D36F16 /* SuperDBCore.h in Headers */ = {isa = PBXBuildFile; fileRef = CDF1AAAA15A8D7760038EAB7 /* SuperDBCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CDF1CCEB15B0C9F000D36F16 /* SuperServicesBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = CDCD469715A8DD140070D05C /* SuperServicesBrowser.m */; };
+		CDF1CCEC15B0C9F800D36F16 /* SuperServicesBrowser.h in Headers */ = {isa = PBXBuildFile; fileRef = CDCD469615A8DD140070D05C /* SuperServicesBrowser.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CDF1CD1715B0CDE900D36F16 /* SuperInterpreterService.h in Headers */ = {isa = PBXBuildFile; fileRef = CDF1CD1515B0CDE900D36F16 /* SuperInterpreterService.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CDF1CD1815B0CDE900D36F16 /* SuperInterpreterService.h in Headers */ = {isa = PBXBuildFile; fileRef = CDF1CD1515B0CDE900D36F16 /* SuperInterpreterService.h */; };
+		CDF1CD1915B0CDE900D36F16 /* SuperInterpreterService.m in Sources */ = {isa = PBXBuildFile; fileRef = CDF1CD1615B0CDE900D36F16 /* SuperInterpreterService.m */; };
+		CDF1CD1A15B0CDE900D36F16 /* SuperInterpreterService.m in Sources */ = {isa = PBXBuildFile; fileRef = CDF1CD1615B0CDE900D36F16 /* SuperInterpreterService.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		CDF1AAA015A8D7760038EAB7 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/${PRODUCT_NAME}";
+			dstSubfolderSpec = 16;
+			files = (
+				CDF1AAAB15A8D7760038EAB7 /* SuperDBCore.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		CD0C658915ECF981006DE7F3 /* SuperInterpreter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuperInterpreter.h; sourceTree = "<group>"; };
+		CD0C658A15ECF981006DE7F3 /* SuperInterpreter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuperInterpreter.m; sourceTree = "<group>"; };
+		CD0C659015ECFADF006DE7F3 /* SuperNetworkMessageTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuperNetworkMessageTypes.h; sourceTree = "<group>"; };
+		CD0D94BE15B83893003A0D8B /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		CD0D94C115B8389A003A0D8B /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		CD0D94C815B83D1F003A0D8B /* GCDAsyncSocket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCDAsyncSocket.h; sourceTree = "<group>"; };
+		CD0D94C915B83D1F003A0D8B /* GCDAsyncSocket.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCDAsyncSocket.m; sourceTree = "<group>"; };
+		CD0D94D415B84683003A0D8B /* SuperInterpreterClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuperInterpreterClient.h; sourceTree = "<group>"; };
+		CD0D94D515B84683003A0D8B /* SuperInterpreterClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuperInterpreterClient.m; sourceTree = "<group>"; };
+		CD0D94DA15B84C21003A0D8B /* SuperNetworkMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuperNetworkMessage.h; sourceTree = "<group>"; };
+		CD0D94DB15B84C21003A0D8B /* SuperNetworkMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuperNetworkMessage.m; sourceTree = "<group>"; };
+		CD0D94EC15B8727A003A0D8B /* ffi_common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ffi_common.h; sourceTree = "<group>"; };
+		CD0D94ED15B8727A003A0D8B /* ffi-iphone.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = "ffi-iphone.c"; sourceTree = "<group>"; };
+		CD0D94EE15B8727A003A0D8B /* ffi-iphone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ffi-iphone.h"; sourceTree = "<group>"; };
+		CD0D94EF15B8727A003A0D8B /* ffi-iphonesimulator.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = "ffi-iphonesimulator.c"; sourceTree = "<group>"; };
+		CD0D94F015B8727A003A0D8B /* ffi-iphonesimulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ffi-iphonesimulator.h"; sourceTree = "<group>"; };
+		CD0D94F115B8727A003A0D8B /* ffi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ffi.h; sourceTree = "<group>"; };
+		CD0D94F215B8727A003A0D8B /* fficonfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = fficonfig.h; sourceTree = "<group>"; };
+		CD0D94F315B8727A003A0D8B /* ffitarget-iphone.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ffitarget-iphone.h"; sourceTree = "<group>"; };
+		CD0D94F415B8727A003A0D8B /* ffitarget-iphonesimulator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ffitarget-iphonesimulator.h"; sourceTree = "<group>"; };
+		CD0D94F515B8727A003A0D8B /* ffitarget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ffitarget.h; sourceTree = "<group>"; };
+		CD0D94F615B8727A003A0D8B /* iphone-sysv.S */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; path = "iphone-sysv.S"; sourceTree = "<group>"; };
+		CD0D94F715B8727A003A0D8B /* iphonesimulator-darwin.S */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.asm; path = "iphonesimulator-darwin.S"; sourceTree = "<group>"; };
+		CD0D94F815B8727A003A0D8B /* prep_cif.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = prep_cif.c; sourceTree = "<group>"; };
+		CD0D94F915B8727A003A0D8B /* raw_api.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = raw_api.c; sourceTree = "<group>"; };
+		CD0D94FA15B8727A003A0D8B /* types.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = types.c; sourceTree = "<group>"; };
+		CD0D974A15B873A1003A0D8B /* iOS-glue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "iOS-glue.h"; sourceTree = "<group>"; };
+		CD0D974B15B873A1003A0D8B /* iOS-glue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "iOS-glue.m"; sourceTree = "<group>"; };
+		CD0D975115B87747003A0D8B /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		CD0D975315B87A37003A0D8B /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		CD0D975515B87E66003A0D8B /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		CD40C80915F0ECCB002E3A58 /* SuperInterpreterObjectBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuperInterpreterObjectBrowser.h; sourceTree = "<group>"; };
+		CD40C80A15F0ECCB002E3A58 /* SuperInterpreterObjectBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuperInterpreterObjectBrowser.m; sourceTree = "<group>"; };
+		CD6BF726161FD99D00B8FBB0 /* SuperJSTP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuperJSTP.h; sourceTree = "<group>"; };
+		CD6BF727161FD99D00B8FBB0 /* SuperJSTP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuperJSTP.m; sourceTree = "<group>"; };
+		CD6FF10115EFC2B100E63391 /* Array.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Array.m; sourceTree = "<group>"; };
+		CD6FF10215EFC2B100E63391 /* ArrayPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArrayPrivate.h; sourceTree = "<group>"; };
+		CD6FF10315EFC2B100E63391 /* ArrayRep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArrayRep.h; sourceTree = "<group>"; };
+		CD6FF10415EFC2B100E63391 /* ArrayRepBoolean.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArrayRepBoolean.h; sourceTree = "<group>"; };
+		CD6FF10515EFC2B100E63391 /* ArrayRepBoolean.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArrayRepBoolean.m; sourceTree = "<group>"; };
+		CD6FF10615EFC2B100E63391 /* ArrayRepDouble.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArrayRepDouble.h; sourceTree = "<group>"; };
+		CD6FF10715EFC2B100E63391 /* ArrayRepDouble.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArrayRepDouble.m; sourceTree = "<group>"; };
+		CD6FF10815EFC2B100E63391 /* ArrayRepEmpty.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArrayRepEmpty.h; sourceTree = "<group>"; };
+		CD6FF10915EFC2B100E63391 /* ArrayRepEmpty.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArrayRepEmpty.m; sourceTree = "<group>"; };
+		CD6FF10A15EFC2B100E63391 /* ArrayRepFetchRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArrayRepFetchRequest.h; sourceTree = "<group>"; };
+		CD6FF10B15EFC2B100E63391 /* ArrayRepFetchRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArrayRepFetchRequest.m; sourceTree = "<group>"; };
+		CD6FF10C15EFC2B100E63391 /* ArrayRepId.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArrayRepId.h; sourceTree = "<group>"; };
+		CD6FF10D15EFC2B100E63391 /* ArrayRepId.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArrayRepId.m; sourceTree = "<group>"; };
+		CD6FF10E15EFC2B100E63391 /* Block.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Block.m; sourceTree = "<group>"; };
+		CD6FF11115EFC2B100E63391 /* BlockPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlockPrivate.h; sourceTree = "<group>"; };
+		CD6FF11215EFC2B100E63391 /* BlockRep.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlockRep.h; sourceTree = "<group>"; };
+		CD6FF11315EFC2B100E63391 /* BlockRep.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlockRep.m; sourceTree = "<group>"; };
+		CD6FF11415EFC2B100E63391 /* BlockSignature.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlockSignature.h; sourceTree = "<group>"; };
+		CD6FF11515EFC2B100E63391 /* BlockStackElem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BlockStackElem.h; sourceTree = "<group>"; };
+		CD6FF11615EFC2B100E63391 /* BlockStackElem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BlockStackElem.m; sourceTree = "<group>"; };
+		CD6FF11715EFC2B100E63391 /* build_config.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = build_config.h; sourceTree = "<group>"; };
+		CD6FF11815EFC2B100E63391 /* CompiledCodeNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompiledCodeNode.h; sourceTree = "<group>"; };
+		CD6FF11915EFC2B100E63391 /* CompiledCodeNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CompiledCodeNode.m; sourceTree = "<group>"; };
+		CD6FF11A15EFC2B100E63391 /* constantsDictionary */ = {isa = PBXFileReference; lastKnownFileType = file.bplist; path = constantsDictionary; sourceTree = "<group>"; };
+		CD6FF11B15EFC2B100E63391 /* FSArchiver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSArchiver.h; sourceTree = "<group>"; };
+		CD6FF11C15EFC2B100E63391 /* FSArchiver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSArchiver.m; sourceTree = "<group>"; };
+		CD6FF11D15EFC2B100E63391 /* FSArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSArray.h; sourceTree = "<group>"; };
+		CD6FF11E15EFC2B100E63391 /* FSArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSArray.m; sourceTree = "<group>"; };
+		CD6FF11F15EFC2B100E63391 /* FSArrayEnumerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSArrayEnumerator.h; sourceTree = "<group>"; };
+		CD6FF12015EFC2B100E63391 /* FSArrayEnumerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSArrayEnumerator.m; sourceTree = "<group>"; };
+		CD6FF12115EFC2B100E63391 /* FSAssociation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSAssociation.h; sourceTree = "<group>"; };
+		CD6FF12215EFC2B100E63391 /* FSAssociation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSAssociation.m; sourceTree = "<group>"; };
+		CD6FF12315EFC2B100E63391 /* FSBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSBlock.h; sourceTree = "<group>"; };
+		CD6FF12415EFC2B100E63391 /* FSBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSBlock.m; sourceTree = "<group>"; };
+		CD6FF12515EFC2B100E63391 /* FSBlockCompilationResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSBlockCompilationResult.h; sourceTree = "<group>"; };
+		CD6FF12615EFC2B100E63391 /* FSBlockCompilationResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSBlockCompilationResult.m; sourceTree = "<group>"; };
+		CD6FF12715EFC2B100E63391 /* FSBoolean.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSBoolean.h; sourceTree = "<group>"; };
+		CD6FF12815EFC2B100E63391 /* FSBoolean.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSBoolean.m; sourceTree = "<group>"; };
+		CD6FF12915EFC2B100E63391 /* FSBooleanPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSBooleanPrivate.h; sourceTree = "<group>"; };
+		CD6FF12A15EFC2B100E63391 /* FSClassDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSClassDefinition.h; sourceTree = "<group>"; };
+		CD6FF12B15EFC2B100E63391 /* FSClassDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSClassDefinition.m; sourceTree = "<group>"; };
+		CD6FF12C15EFC2B100E63391 /* FSCNArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSCNArray.h; sourceTree = "<group>"; };
+		CD6FF12D15EFC2B100E63391 /* FSCNArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSCNArray.m; sourceTree = "<group>"; };
+		CD6FF12E15EFC2B100E63391 /* FSCNAssignment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSCNAssignment.h; sourceTree = "<group>"; };
+		CD6FF12F15EFC2B100E63391 /* FSCNAssignment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSCNAssignment.m; sourceTree = "<group>"; };
+		CD6FF13015EFC2B100E63391 /* FSCNBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSCNBase.h; sourceTree = "<group>"; };
+		CD6FF13115EFC2B100E63391 /* FSCNBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSCNBase.m; sourceTree = "<group>"; };
+		CD6FF13215EFC2B100E63391 /* FSCNBinaryMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSCNBinaryMessage.h; sourceTree = "<group>"; };
+		CD6FF13315EFC2B100E63391 /* FSCNBinaryMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSCNBinaryMessage.m; sourceTree = "<group>"; };
+		CD6FF13415EFC2B100E63391 /* FSCNBlock.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSCNBlock.h; sourceTree = "<group>"; };
+		CD6FF13515EFC2B100E63391 /* FSCNBlock.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSCNBlock.m; sourceTree = "<group>"; };
+		CD6FF13615EFC2B100E63391 /* FSCNCascade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSCNCascade.h; sourceTree = "<group>"; };
+		CD6FF13715EFC2B100E63391 /* FSCNCascade.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSCNCascade.m; sourceTree = "<group>"; };
+		CD6FF13815EFC2B100E63391 /* FSCNCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSCNCategory.h; sourceTree = "<group>"; };
+		CD6FF13915EFC2B100E63391 /* FSCNCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSCNCategory.m; sourceTree = "<group>"; };
+		CD6FF13A15EFC2B100E63391 /* FSCNClassDefinition.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSCNClassDefinition.h; sourceTree = "<group>"; };
+		CD6FF13B15EFC2B100E63391 /* FSCNClassDefinition.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSCNClassDefinition.m; sourceTree = "<group>"; };
+		CD6FF13C15EFC2B100E63391 /* FSCNDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSCNDictionary.h; sourceTree = "<group>"; };
+		CD6FF13D15EFC2B100E63391 /* FSCNDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSCNDictionary.m; sourceTree = "<group>"; };
+		CD6FF13E15EFC2B100E63391 /* FSCNIdentifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSCNIdentifier.h; sourceTree = "<group>"; };
+		CD6FF13F15EFC2B100E63391 /* FSCNIdentifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSCNIdentifier.m; sourceTree = "<group>"; };
+		CD6FF14015EFC2B100E63391 /* FSCNKeywordMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSCNKeywordMessage.h; sourceTree = "<group>"; };
+		CD6FF14115EFC2B100E63391 /* FSCNKeywordMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSCNKeywordMessage.m; sourceTree = "<group>"; };
+		CD6FF14215EFC2B100E63391 /* FSCNMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSCNMessage.h; sourceTree = "<group>"; };
+		CD6FF14315EFC2B100E63391 /* FSCNMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSCNMessage.m; sourceTree = "<group>"; };
+		CD6FF14415EFC2B100E63391 /* FSCNMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSCNMethod.h; sourceTree = "<group>"; };
+		CD6FF14515EFC2B100E63391 /* FSCNMethod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSCNMethod.m; sourceTree = "<group>"; };
+		CD6FF14615EFC2B100E63391 /* FSCNPrecomputedObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSCNPrecomputedObject.h; sourceTree = "<group>"; };
+		CD6FF14715EFC2B100E63391 /* FSCNPrecomputedObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSCNPrecomputedObject.m; sourceTree = "<group>"; };
+		CD6FF14815EFC2B100E63391 /* FSCNReturn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSCNReturn.h; sourceTree = "<group>"; };
+		CD6FF14915EFC2B100E63391 /* FSCNReturn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSCNReturn.m; sourceTree = "<group>"; };
+		CD6FF14A15EFC2B100E63391 /* FSCNStatementList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSCNStatementList.h; sourceTree = "<group>"; };
+		CD6FF14B15EFC2B100E63391 /* FSCNStatementList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSCNStatementList.m; sourceTree = "<group>"; };
+		CD6FF14C15EFC2B100E63391 /* FSCNSuper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSCNSuper.h; sourceTree = "<group>"; };
+		CD6FF14D15EFC2B100E63391 /* FSCNSuper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSCNSuper.m; sourceTree = "<group>"; };
+		CD6FF14E15EFC2B100E63391 /* FSCNUnaryMessage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSCNUnaryMessage.h; sourceTree = "<group>"; };
+		CD6FF14F15EFC2B100E63391 /* FSCNUnaryMessage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSCNUnaryMessage.m; sourceTree = "<group>"; };
+		CD6FF15015EFC2B100E63391 /* FSCommandHistory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSCommandHistory.h; sourceTree = "<group>"; };
+		CD6FF15115EFC2B100E63391 /* FSCommandHistory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSCommandHistory.m; sourceTree = "<group>"; };
+		CD6FF15215EFC2B100E63391 /* FSCompilationResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSCompilationResult.h; sourceTree = "<group>"; };
+		CD6FF15315EFC2B100E63391 /* FSCompilationResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSCompilationResult.m; sourceTree = "<group>"; };
+		CD6FF15415EFC2B100E63391 /* FSCompiler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSCompiler.h; sourceTree = "<group>"; };
+		CD6FF15515EFC2B100E63391 /* FSCompiler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSCompiler.m; sourceTree = "<group>"; };
+		CD6FF15615EFC2B100E63391 /* FSConstantsInitialization.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSConstantsInitialization.h; sourceTree = "<group>"; };
+		CD6FF15715EFC2B100E63391 /* FSConstantsInitialization.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSConstantsInitialization.m; sourceTree = "<group>"; };
+		CD6FF15815EFC2B100E63391 /* FScript.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FScript.h; sourceTree = "<group>"; };
+		CD6FF15915EFC2B100E63391 /* FScriptDict.dic */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = FScriptDict.dic; sourceTree = "<group>"; };
+		CD6FF15A15EFC2B100E63391 /* FScriptFunctions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FScriptFunctions.h; sourceTree = "<group>"; };
+		CD6FF15B15EFC2B100E63391 /* FScriptFunctions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FScriptFunctions.m; sourceTree = "<group>"; };
+		CD6FF15C15EFC2B100E63391 /* FSError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSError.h; sourceTree = "<group>"; };
+		CD6FF15D15EFC2B100E63391 /* FSError.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSError.m; sourceTree = "<group>"; };
+		CD6FF15E15EFC2B100E63391 /* FSExecEngine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSExecEngine.h; sourceTree = "<group>"; };
+		CD6FF15F15EFC2B100E63391 /* FSExecEngine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSExecEngine.m; sourceTree = "<group>"; };
+		CD6FF16015EFC2B100E63391 /* FSExecutor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSExecutor.h; sourceTree = "<group>"; };
+		CD6FF16115EFC2B100E63391 /* FSExecutor.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSExecutor.m; sourceTree = "<group>"; };
+		CD6FF16215EFC2B100E63391 /* FSGenericPointer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSGenericPointer.h; sourceTree = "<group>"; };
+		CD6FF16315EFC2B100E63391 /* FSGenericPointer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSGenericPointer.m; sourceTree = "<group>"; };
+		CD6FF16415EFC2B100E63391 /* FSGenericPointerPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSGenericPointerPrivate.h; sourceTree = "<group>"; };
+		CD6FF16515EFC2B100E63391 /* FSGlobalScope.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSGlobalScope.h; sourceTree = "<group>"; };
+		CD6FF16615EFC2B100E63391 /* FSGlobalScope.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSGlobalScope.m; sourceTree = "<group>"; };
+		CD6FF16715EFC2B100E63391 /* FSIdentifierFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSIdentifierFormatter.h; sourceTree = "<group>"; };
+		CD6FF16815EFC2B100E63391 /* FSIdentifierFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSIdentifierFormatter.m; sourceTree = "<group>"; };
+		CD6FF16915EFC2B100E63391 /* FSInterpreter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSInterpreter.h; sourceTree = "<group>"; };
+		CD6FF16A15EFC2B100E63391 /* FSInterpreter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSInterpreter.m; sourceTree = "<group>"; };
+		CD6FF16B15EFC2B100E63391 /* FSInterpreterPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSInterpreterPrivate.h; sourceTree = "<group>"; };
+		CD6FF16C15EFC2B100E63391 /* FSInterpreterResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSInterpreterResult.h; sourceTree = "<group>"; };
+		CD6FF16D15EFC2B100E63391 /* FSInterpreterResult.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSInterpreterResult.m; sourceTree = "<group>"; };
+		CD6FF16E15EFC2B100E63391 /* FSInterpreterResultPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSInterpreterResultPrivate.h; sourceTree = "<group>"; };
+		CD6FF16F15EFC2B100E63391 /* FSKeyedArchiver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSKeyedArchiver.h; sourceTree = "<group>"; };
+		CD6FF17015EFC2B100E63391 /* FSKeyedArchiver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSKeyedArchiver.m; sourceTree = "<group>"; };
+		CD6FF17115EFC2B100E63391 /* FSKeyedUnarchiver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSKeyedUnarchiver.h; sourceTree = "<group>"; };
+		CD6FF17215EFC2B100E63391 /* FSKeyedUnarchiver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSKeyedUnarchiver.m; sourceTree = "<group>"; };
+		CD6FF17315EFC2B100E63391 /* FSMethod-iOS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FSMethod-iOS.m"; sourceTree = "<group>"; };
+		CD6FF17415EFC2B100E63391 /* FSMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSMethod.h; sourceTree = "<group>"; };
+		CD6FF17615EFC2B100E63391 /* FSMiscTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSMiscTools.h; sourceTree = "<group>"; };
+		CD6FF17715EFC2B100E63391 /* FSMiscTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSMiscTools.m; sourceTree = "<group>"; };
+		CD6FF17815EFC2B100E63391 /* FSMsgContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSMsgContext.h; sourceTree = "<group>"; };
+		CD6FF17915EFC2B100E63391 /* FSMsgContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSMsgContext.m; sourceTree = "<group>"; };
+		CD6FF17A15EFC2B100E63391 /* FSNamedNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSNamedNumber.h; sourceTree = "<group>"; };
+		CD6FF17B15EFC2B100E63391 /* FSNamedNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSNamedNumber.m; sourceTree = "<group>"; };
+		CD6FF17C15EFC2B100E63391 /* FSNewlyAllocatedObjectHolder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSNewlyAllocatedObjectHolder.h; sourceTree = "<group>"; };
+		CD6FF17D15EFC2B100E63391 /* FSNewlyAllocatedObjectHolder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSNewlyAllocatedObjectHolder.m; sourceTree = "<group>"; };
+		CD6FF17E15EFC2B100E63391 /* FSNSArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSNSArray.h; sourceTree = "<group>"; };
+		CD6FF17F15EFC2B100E63391 /* FSNSArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSNSArray.m; sourceTree = "<group>"; };
+		CD6FF18015EFC2B100E63391 /* FSNSArrayPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSNSArrayPrivate.h; sourceTree = "<group>"; };
+		CD6FF18115EFC2B100E63391 /* FSNSAttributedString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSNSAttributedString.h; sourceTree = "<group>"; };
+		CD6FF18215EFC2B100E63391 /* FSNSAttributedString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSNSAttributedString.m; sourceTree = "<group>"; };
+		CD6FF18315EFC2B100E63391 /* FSNSDate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSNSDate.h; sourceTree = "<group>"; };
+		CD6FF18415EFC2B100E63391 /* FSNSDate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSNSDate.m; sourceTree = "<group>"; };
+		CD6FF18515EFC2B100E63391 /* FSNSDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSNSDictionary.h; sourceTree = "<group>"; };
+		CD6FF18615EFC2B100E63391 /* FSNSDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSNSDictionary.m; sourceTree = "<group>"; };
+		CD6FF18715EFC2B100E63391 /* FSNSFileHandle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSNSFileHandle.h; sourceTree = "<group>"; };
+		CD6FF18815EFC2B100E63391 /* FSNSFileHandle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSNSFileHandle.m; sourceTree = "<group>"; };
+		CD6FF18915EFC2B100E63391 /* FSNSManagedObjectContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSNSManagedObjectContext.h; sourceTree = "<group>"; };
+		CD6FF18A15EFC2B100E63391 /* FSNSManagedObjectContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSNSManagedObjectContext.m; sourceTree = "<group>"; };
+		CD6FF18B15EFC2B100E63391 /* FSNSMutableArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSNSMutableArray.h; sourceTree = "<group>"; };
+		CD6FF18C15EFC2B100E63391 /* FSNSMutableArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSNSMutableArray.m; sourceTree = "<group>"; };
+		CD6FF18D15EFC2B100E63391 /* FSNSMutableDictionary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSNSMutableDictionary.h; sourceTree = "<group>"; };
+		CD6FF18E15EFC2B100E63391 /* FSNSMutableDictionary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSNSMutableDictionary.m; sourceTree = "<group>"; };
+		CD6FF18F15EFC2B100E63391 /* FSNSMutableString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSNSMutableString.h; sourceTree = "<group>"; };
+		CD6FF19015EFC2B100E63391 /* FSNSMutableString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSNSMutableString.m; sourceTree = "<group>"; };
+		CD6FF19115EFC2B100E63391 /* FSNSNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSNSNumber.h; sourceTree = "<group>"; };
+		CD6FF19215EFC2B100E63391 /* FSNSNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSNSNumber.m; sourceTree = "<group>"; };
+		CD6FF19315EFC2B100E63391 /* FSNSObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSNSObject.h; sourceTree = "<group>"; };
+		CD6FF19415EFC2B100E63391 /* FSNSObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSNSObject.m; sourceTree = "<group>"; };
+		CD6FF19515EFC2B100E63391 /* FSNSObjectPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSNSObjectPrivate.h; sourceTree = "<group>"; };
+		CD6FF19615EFC2B100E63391 /* FSNSProxy.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSNSProxy.h; sourceTree = "<group>"; };
+		CD6FF19715EFC2B100E63391 /* FSNSProxy.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSNSProxy.m; sourceTree = "<group>"; };
+		CD6FF19815EFC2B100E63391 /* FSNSSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSNSSet.h; sourceTree = "<group>"; };
+		CD6FF19915EFC2B100E63391 /* FSNSSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSNSSet.m; sourceTree = "<group>"; };
+		CD6FF19A15EFC2B100E63391 /* FSNSString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSNSString.h; sourceTree = "<group>"; };
+		CD6FF19B15EFC2B100E63391 /* FSNSString.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSNSString.m; sourceTree = "<group>"; };
+		CD6FF19C15EFC2B100E63391 /* FSNSStringPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSNSStringPrivate.h; sourceTree = "<group>"; };
+		CD6FF19D15EFC2B100E63391 /* FSNSValue-iOS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FSNSValue-iOS.h"; sourceTree = "<group>"; };
+		CD6FF19E15EFC2B100E63391 /* FSNSValue-iOS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "FSNSValue-iOS.m"; sourceTree = "<group>"; };
+		CD6FF19F15EFC2B100E63391 /* FSNumber.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSNumber.h; sourceTree = "<group>"; };
+		CD6FF1A015EFC2B100E63391 /* FSNumber.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSNumber.m; sourceTree = "<group>"; };
+		CD6FF1A115EFC2B100E63391 /* FSObjectFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSObjectFormatter.h; sourceTree = "<group>"; };
+		CD6FF1A215EFC2B100E63391 /* FSObjectFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSObjectFormatter.m; sourceTree = "<group>"; };
+		CD6FF1A315EFC2B100E63391 /* FSObjectPointer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSObjectPointer.h; sourceTree = "<group>"; };
+		CD6FF1A415EFC2B100E63391 /* FSObjectPointer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSObjectPointer.m; sourceTree = "<group>"; };
+		CD6FF1A515EFC2B100E63391 /* FSObjectPointerPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSObjectPointerPrivate.h; sourceTree = "<group>"; };
+		CD6FF1A615EFC2B100E63391 /* FSPattern.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSPattern.h; sourceTree = "<group>"; };
+		CD6FF1A715EFC2B100E63391 /* FSPattern.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSPattern.m; sourceTree = "<group>"; };
+		CD6FF1A815EFC2B100E63391 /* FSPointer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSPointer.h; sourceTree = "<group>"; };
+		CD6FF1A915EFC2B100E63391 /* FSPointer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSPointer.m; sourceTree = "<group>"; };
+		CD6FF1AA15EFC2B100E63391 /* FSPointerPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSPointerPrivate.h; sourceTree = "<group>"; };
+		CD6FF1AB15EFC2B100E63391 /* FSReplacementForCoderForClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSReplacementForCoderForClass.h; sourceTree = "<group>"; };
+		CD6FF1AC15EFC2B100E63391 /* FSReplacementForCoderForClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSReplacementForCoderForClass.m; sourceTree = "<group>"; };
+		CD6FF1AD15EFC2B100E63391 /* FSReplacementForCoderForNilInArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSReplacementForCoderForNilInArray.h; sourceTree = "<group>"; };
+		CD6FF1AE15EFC2B100E63391 /* FSReplacementForCoderForNilInArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSReplacementForCoderForNilInArray.m; sourceTree = "<group>"; };
+		CD6FF1AF15EFC2B100E63391 /* FSReturnSignal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSReturnSignal.h; sourceTree = "<group>"; };
+		CD6FF1B015EFC2B100E63391 /* FSReturnSignal.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSReturnSignal.m; sourceTree = "<group>"; };
+		CD6FF1B115EFC2B100E63391 /* FSSymbolTable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSSymbolTable.h; sourceTree = "<group>"; };
+		CD6FF1B215EFC2B100E63391 /* FSSymbolTable.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSSymbolTable.m; sourceTree = "<group>"; };
+		CD6FF1B315EFC2B100E63391 /* FSSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSSystem.h; sourceTree = "<group>"; };
+		CD6FF1B415EFC2B100E63391 /* FSSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSSystem.m; sourceTree = "<group>"; };
+		CD6FF1B515EFC2B100E63391 /* FSSystemPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSSystemPrivate.h; sourceTree = "<group>"; };
+		CD6FF1B615EFC2B100E63391 /* FSTranscript.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSTranscript.h; sourceTree = "<group>"; };
+		CD6FF1B715EFC2B100E63391 /* FSTranscript.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSTranscript.m; sourceTree = "<group>"; };
+		CD6FF1B815EFC2B100E63391 /* FSUnarchiver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSUnarchiver.h; sourceTree = "<group>"; };
+		CD6FF1B915EFC2B100E63391 /* FSUnarchiver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSUnarchiver.m; sourceTree = "<group>"; };
+		CD6FF1BA15EFC2B100E63391 /* FSVoid.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSVoid.h; sourceTree = "<group>"; };
+		CD6FF1BB15EFC2B100E63391 /* FSVoid.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FSVoid.m; sourceTree = "<group>"; };
+		CD6FF1BC15EFC2B100E63391 /* FSVoidPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FSVoidPrivate.h; sourceTree = "<group>"; };
+		CD6FF1BD15EFC2B100E63391 /* MessagePatternCodeNode.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MessagePatternCodeNode.h; sourceTree = "<group>"; };
+		CD6FF1BE15EFC2B100E63391 /* MessagePatternCodeNode.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MessagePatternCodeNode.m; sourceTree = "<group>"; };
+		CD6FF1BF15EFC2B100E63391 /* Number.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Number.m; sourceTree = "<group>"; };
+		CD6FF1C015EFC2B100E63391 /* NumberPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NumberPrivate.h; sourceTree = "<group>"; };
+		CD6FF1C115EFC2B100E63391 /* Pointer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Pointer.h; sourceTree = "<group>"; };
+		CD6FF1C215EFC2B100E63391 /* Pointer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Pointer.m; sourceTree = "<group>"; };
+		CD6FF1C315EFC2B100E63391 /* PointerPrivate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PointerPrivate.h; sourceTree = "<group>"; };
+		CD6FF1C415EFC2B100E63391 /* Space.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Space.h; sourceTree = "<group>"; };
+		CD6FF1C515EFC2B100E63391 /* Space.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Space.m; sourceTree = "<group>"; };
+		CD6FF28B15EFC41A00E63391 /* Array_fscript.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Array_fscript.h; sourceTree = "<group>"; };
+		CD6FF28D15EFC48C00E63391 /* Number_fscript.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Number_fscript.h; sourceTree = "<group>"; };
+		CD6FF28F15EFC4BB00E63391 /* Block_fscript.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Block_fscript.h; sourceTree = "<group>"; };
+		CDCD469615A8DD140070D05C /* SuperServicesBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuperServicesBrowser.h; sourceTree = "<group>"; };
+		CDCD469715A8DD140070D05C /* SuperServicesBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuperServicesBrowser.m; sourceTree = "<group>"; };
+		CDDC9F8716224697006883CE /* Geometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Geometry.h; sourceTree = "<group>"; };
+		CDDC9F8816224697006883CE /* Geometry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Geometry.m; sourceTree = "<group>"; };
+		CDF1AAA215A8D7760038EAB7 /* libSuperDBCore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSuperDBCore.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		CDF1AAA515A8D7760038EAB7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		CDF1AAA915A8D7760038EAB7 /* SuperDBCore-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SuperDBCore-Prefix.pch"; sourceTree = "<group>"; };
+		CDF1AAAA15A8D7760038EAB7 /* SuperDBCore.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SuperDBCore.h; sourceTree = "<group>"; };
+		CDF1AAC315A8D9C30038EAB7 /* libSuperDBCoreMac.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSuperDBCoreMac.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		CDF1AAC415A8D9C30038EAB7 /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = Library/Frameworks/Cocoa.framework; sourceTree = DEVELOPER_DIR; };
+		CDF1AAC715A8D9C30038EAB7 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = Library/Frameworks/AppKit.framework; sourceTree = SDKROOT; };
+		CDF1AAC815A8D9C30038EAB7 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		CDF1AAC915A8D9C30038EAB7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		CDF1AACC15A8D9C30038EAB7 /* SuperDBCoreMac-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SuperDBCoreMac-Prefix.pch"; sourceTree = "<group>"; };
+		CDF1AACD15A8D9C30038EAB7 /* SuperDBCoreMac.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SuperDBCoreMac.h; sourceTree = "<group>"; };
+		CDF1AACE15A8D9C30038EAB7 /* SuperDBCoreMac.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SuperDBCoreMac.m; sourceTree = "<group>"; };
+		CDF1CD1515B0CDE900D36F16 /* SuperInterpreterService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuperInterpreterService.h; sourceTree = "<group>"; };
+		CDF1CD1615B0CDE900D36F16 /* SuperInterpreterService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuperInterpreterService.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CDF1AA9F15A8D7760038EAB7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD0D975615B87E66003A0D8B /* CoreData.framework in Frameworks */,
+				CD0D975415B87A38003A0D8B /* UIKit.framework in Frameworks */,
+				CD0D975215B87747003A0D8B /* CoreGraphics.framework in Frameworks */,
+				CD0D94C215B8389A003A0D8B /* Security.framework in Frameworks */,
+				CD0D94BF15B83893003A0D8B /* CFNetwork.framework in Frameworks */,
+				CDF1AAA615A8D7760038EAB7 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CDF1AAC015A8D9C30038EAB7 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CDF1AAC515A8D9C30038EAB7 /* Cocoa.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CD0D94E215B871D6003A0D8B /* F-Script */ = {
+			isa = PBXGroup;
+			children = (
+				CD0D974A15B873A1003A0D8B /* iOS-glue.h */,
+				CD0D974B15B873A1003A0D8B /* iOS-glue.m */,
+				CD0D950A15B872A5003A0D8B /* FScriptFramework */,
+				CD0D94EB15B87250003A0D8B /* libffi */,
+			);
+			name = "F-Script";
+			sourceTree = "<group>";
+		};
+		CD0D94EB15B87250003A0D8B /* libffi */ = {
+			isa = PBXGroup;
+			children = (
+				CD0D94EC15B8727A003A0D8B /* ffi_common.h */,
+				CD0D94ED15B8727A003A0D8B /* ffi-iphone.c */,
+				CD0D94EE15B8727A003A0D8B /* ffi-iphone.h */,
+				CD0D94EF15B8727A003A0D8B /* ffi-iphonesimulator.c */,
+				CD0D94F015B8727A003A0D8B /* ffi-iphonesimulator.h */,
+				CD0D94F115B8727A003A0D8B /* ffi.h */,
+				CD0D94F215B8727A003A0D8B /* fficonfig.h */,
+				CD0D94F315B8727A003A0D8B /* ffitarget-iphone.h */,
+				CD0D94F415B8727A003A0D8B /* ffitarget-iphonesimulator.h */,
+				CD0D94F515B8727A003A0D8B /* ffitarget.h */,
+				CD0D94F615B8727A003A0D8B /* iphone-sysv.S */,
+				CD0D94F715B8727A003A0D8B /* iphonesimulator-darwin.S */,
+				CD0D94F815B8727A003A0D8B /* prep_cif.c */,
+				CD0D94F915B8727A003A0D8B /* raw_api.c */,
+				CD0D94FA15B8727A003A0D8B /* types.c */,
+			);
+			name = libffi;
+			sourceTree = "<group>";
+		};
+		CD0D950A15B872A5003A0D8B /* FScriptFramework */ = {
+			isa = PBXGroup;
+			children = (
+				CD6FF28B15EFC41A00E63391 /* Array_fscript.h */,
+				CD6FF10115EFC2B100E63391 /* Array.m */,
+				CD6FF10215EFC2B100E63391 /* ArrayPrivate.h */,
+				CD6FF10315EFC2B100E63391 /* ArrayRep.h */,
+				CD6FF10415EFC2B100E63391 /* ArrayRepBoolean.h */,
+				CD6FF10515EFC2B100E63391 /* ArrayRepBoolean.m */,
+				CD6FF10615EFC2B100E63391 /* ArrayRepDouble.h */,
+				CD6FF10715EFC2B100E63391 /* ArrayRepDouble.m */,
+				CD6FF10815EFC2B100E63391 /* ArrayRepEmpty.h */,
+				CD6FF10915EFC2B100E63391 /* ArrayRepEmpty.m */,
+				CD6FF10A15EFC2B100E63391 /* ArrayRepFetchRequest.h */,
+				CD6FF10B15EFC2B100E63391 /* ArrayRepFetchRequest.m */,
+				CD6FF10C15EFC2B100E63391 /* ArrayRepId.h */,
+				CD6FF10D15EFC2B100E63391 /* ArrayRepId.m */,
+				CD6FF28F15EFC4BB00E63391 /* Block_fscript.h */,
+				CD6FF10E15EFC2B100E63391 /* Block.m */,
+				CD6FF11115EFC2B100E63391 /* BlockPrivate.h */,
+				CD6FF11215EFC2B100E63391 /* BlockRep.h */,
+				CD6FF11315EFC2B100E63391 /* BlockRep.m */,
+				CD6FF11415EFC2B100E63391 /* BlockSignature.h */,
+				CD6FF11515EFC2B100E63391 /* BlockStackElem.h */,
+				CD6FF11615EFC2B100E63391 /* BlockStackElem.m */,
+				CD6FF11715EFC2B100E63391 /* build_config.h */,
+				CD6FF11815EFC2B100E63391 /* CompiledCodeNode.h */,
+				CD6FF11915EFC2B100E63391 /* CompiledCodeNode.m */,
+				CD6FF11A15EFC2B100E63391 /* constantsDictionary */,
+				CD6FF11B15EFC2B100E63391 /* FSArchiver.h */,
+				CD6FF11C15EFC2B100E63391 /* FSArchiver.m */,
+				CD6FF11D15EFC2B100E63391 /* FSArray.h */,
+				CD6FF11E15EFC2B100E63391 /* FSArray.m */,
+				CD6FF11F15EFC2B100E63391 /* FSArrayEnumerator.h */,
+				CD6FF12015EFC2B100E63391 /* FSArrayEnumerator.m */,
+				CD6FF12115EFC2B100E63391 /* FSAssociation.h */,
+				CD6FF12215EFC2B100E63391 /* FSAssociation.m */,
+				CD6FF12315EFC2B100E63391 /* FSBlock.h */,
+				CD6FF12415EFC2B100E63391 /* FSBlock.m */,
+				CD6FF12515EFC2B100E63391 /* FSBlockCompilationResult.h */,
+				CD6FF12615EFC2B100E63391 /* FSBlockCompilationResult.m */,
+				CD6FF12715EFC2B100E63391 /* FSBoolean.h */,
+				CD6FF12815EFC2B100E63391 /* FSBoolean.m */,
+				CD6FF12915EFC2B100E63391 /* FSBooleanPrivate.h */,
+				CD6FF12A15EFC2B100E63391 /* FSClassDefinition.h */,
+				CD6FF12B15EFC2B100E63391 /* FSClassDefinition.m */,
+				CD6FF12C15EFC2B100E63391 /* FSCNArray.h */,
+				CD6FF12D15EFC2B100E63391 /* FSCNArray.m */,
+				CD6FF12E15EFC2B100E63391 /* FSCNAssignment.h */,
+				CD6FF12F15EFC2B100E63391 /* FSCNAssignment.m */,
+				CD6FF13015EFC2B100E63391 /* FSCNBase.h */,
+				CD6FF13115EFC2B100E63391 /* FSCNBase.m */,
+				CD6FF13215EFC2B100E63391 /* FSCNBinaryMessage.h */,
+				CD6FF13315EFC2B100E63391 /* FSCNBinaryMessage.m */,
+				CD6FF13415EFC2B100E63391 /* FSCNBlock.h */,
+				CD6FF13515EFC2B100E63391 /* FSCNBlock.m */,
+				CD6FF13615EFC2B100E63391 /* FSCNCascade.h */,
+				CD6FF13715EFC2B100E63391 /* FSCNCascade.m */,
+				CD6FF13815EFC2B100E63391 /* FSCNCategory.h */,
+				CD6FF13915EFC2B100E63391 /* FSCNCategory.m */,
+				CD6FF13A15EFC2B100E63391 /* FSCNClassDefinition.h */,
+				CD6FF13B15EFC2B100E63391 /* FSCNClassDefinition.m */,
+				CD6FF13C15EFC2B100E63391 /* FSCNDictionary.h */,
+				CD6FF13D15EFC2B100E63391 /* FSCNDictionary.m */,
+				CD6FF13E15EFC2B100E63391 /* FSCNIdentifier.h */,
+				CD6FF13F15EFC2B100E63391 /* FSCNIdentifier.m */,
+				CD6FF14015EFC2B100E63391 /* FSCNKeywordMessage.h */,
+				CD6FF14115EFC2B100E63391 /* FSCNKeywordMessage.m */,
+				CD6FF14215EFC2B100E63391 /* FSCNMessage.h */,
+				CD6FF14315EFC2B100E63391 /* FSCNMessage.m */,
+				CD6FF14415EFC2B100E63391 /* FSCNMethod.h */,
+				CD6FF14515EFC2B100E63391 /* FSCNMethod.m */,
+				CD6FF14615EFC2B100E63391 /* FSCNPrecomputedObject.h */,
+				CD6FF14715EFC2B100E63391 /* FSCNPrecomputedObject.m */,
+				CD6FF14815EFC2B100E63391 /* FSCNReturn.h */,
+				CD6FF14915EFC2B100E63391 /* FSCNReturn.m */,
+				CD6FF14A15EFC2B100E63391 /* FSCNStatementList.h */,
+				CD6FF14B15EFC2B100E63391 /* FSCNStatementList.m */,
+				CD6FF14C15EFC2B100E63391 /* FSCNSuper.h */,
+				CD6FF14D15EFC2B100E63391 /* FSCNSuper.m */,
+				CD6FF14E15EFC2B100E63391 /* FSCNUnaryMessage.h */,
+				CD6FF14F15EFC2B100E63391 /* FSCNUnaryMessage.m */,
+				CD6FF15015EFC2B100E63391 /* FSCommandHistory.h */,
+				CD6FF15115EFC2B100E63391 /* FSCommandHistory.m */,
+				CD6FF15215EFC2B100E63391 /* FSCompilationResult.h */,
+				CD6FF15315EFC2B100E63391 /* FSCompilationResult.m */,
+				CD6FF15415EFC2B100E63391 /* FSCompiler.h */,
+				CD6FF15515EFC2B100E63391 /* FSCompiler.m */,
+				CD6FF15615EFC2B100E63391 /* FSConstantsInitialization.h */,
+				CD6FF15715EFC2B100E63391 /* FSConstantsInitialization.m */,
+				CD6FF15815EFC2B100E63391 /* FScript.h */,
+				CD6FF15915EFC2B100E63391 /* FScriptDict.dic */,
+				CD6FF15A15EFC2B100E63391 /* FScriptFunctions.h */,
+				CD6FF15B15EFC2B100E63391 /* FScriptFunctions.m */,
+				CD6FF15C15EFC2B100E63391 /* FSError.h */,
+				CD6FF15D15EFC2B100E63391 /* FSError.m */,
+				CD6FF15E15EFC2B100E63391 /* FSExecEngine.h */,
+				CD6FF15F15EFC2B100E63391 /* FSExecEngine.m */,
+				CD6FF16015EFC2B100E63391 /* FSExecutor.h */,
+				CD6FF16115EFC2B100E63391 /* FSExecutor.m */,
+				CD6FF16215EFC2B100E63391 /* FSGenericPointer.h */,
+				CD6FF16315EFC2B100E63391 /* FSGenericPointer.m */,
+				CD6FF16415EFC2B100E63391 /* FSGenericPointerPrivate.h */,
+				CD6FF16515EFC2B100E63391 /* FSGlobalScope.h */,
+				CD6FF16615EFC2B100E63391 /* FSGlobalScope.m */,
+				CD6FF16715EFC2B100E63391 /* FSIdentifierFormatter.h */,
+				CD6FF16815EFC2B100E63391 /* FSIdentifierFormatter.m */,
+				CD6FF16915EFC2B100E63391 /* FSInterpreter.h */,
+				CD6FF16A15EFC2B100E63391 /* FSInterpreter.m */,
+				CD6FF16B15EFC2B100E63391 /* FSInterpreterPrivate.h */,
+				CD6FF16C15EFC2B100E63391 /* FSInterpreterResult.h */,
+				CD6FF16D15EFC2B100E63391 /* FSInterpreterResult.m */,
+				CD6FF16E15EFC2B100E63391 /* FSInterpreterResultPrivate.h */,
+				CD6FF16F15EFC2B100E63391 /* FSKeyedArchiver.h */,
+				CD6FF17015EFC2B100E63391 /* FSKeyedArchiver.m */,
+				CD6FF17115EFC2B100E63391 /* FSKeyedUnarchiver.h */,
+				CD6FF17215EFC2B100E63391 /* FSKeyedUnarchiver.m */,
+				CD6FF17315EFC2B100E63391 /* FSMethod-iOS.m */,
+				CD6FF17415EFC2B100E63391 /* FSMethod.h */,
+				CD6FF17615EFC2B100E63391 /* FSMiscTools.h */,
+				CD6FF17715EFC2B100E63391 /* FSMiscTools.m */,
+				CD6FF17815EFC2B100E63391 /* FSMsgContext.h */,
+				CD6FF17915EFC2B100E63391 /* FSMsgContext.m */,
+				CD6FF17A15EFC2B100E63391 /* FSNamedNumber.h */,
+				CD6FF17B15EFC2B100E63391 /* FSNamedNumber.m */,
+				CD6FF17C15EFC2B100E63391 /* FSNewlyAllocatedObjectHolder.h */,
+				CD6FF17D15EFC2B100E63391 /* FSNewlyAllocatedObjectHolder.m */,
+				CD6FF17E15EFC2B100E63391 /* FSNSArray.h */,
+				CD6FF17F15EFC2B100E63391 /* FSNSArray.m */,
+				CD6FF18015EFC2B100E63391 /* FSNSArrayPrivate.h */,
+				CD6FF18115EFC2B100E63391 /* FSNSAttributedString.h */,
+				CD6FF18215EFC2B100E63391 /* FSNSAttributedString.m */,
+				CD6FF18315EFC2B100E63391 /* FSNSDate.h */,
+				CD6FF18415EFC2B100E63391 /* FSNSDate.m */,
+				CD6FF18515EFC2B100E63391 /* FSNSDictionary.h */,
+				CD6FF18615EFC2B100E63391 /* FSNSDictionary.m */,
+				CD6FF18715EFC2B100E63391 /* FSNSFileHandle.h */,
+				CD6FF18815EFC2B100E63391 /* FSNSFileHandle.m */,
+				CD6FF18915EFC2B100E63391 /* FSNSManagedObjectContext.h */,
+				CD6FF18A15EFC2B100E63391 /* FSNSManagedObjectContext.m */,
+				CD6FF18B15EFC2B100E63391 /* FSNSMutableArray.h */,
+				CD6FF18C15EFC2B100E63391 /* FSNSMutableArray.m */,
+				CD6FF18D15EFC2B100E63391 /* FSNSMutableDictionary.h */,
+				CD6FF18E15EFC2B100E63391 /* FSNSMutableDictionary.m */,
+				CD6FF18F15EFC2B100E63391 /* FSNSMutableString.h */,
+				CD6FF19015EFC2B100E63391 /* FSNSMutableString.m */,
+				CD6FF19115EFC2B100E63391 /* FSNSNumber.h */,
+				CD6FF19215EFC2B100E63391 /* FSNSNumber.m */,
+				CD6FF19315EFC2B100E63391 /* FSNSObject.h */,
+				CD6FF19415EFC2B100E63391 /* FSNSObject.m */,
+				CD6FF19515EFC2B100E63391 /* FSNSObjectPrivate.h */,
+				CD6FF19615EFC2B100E63391 /* FSNSProxy.h */,
+				CD6FF19715EFC2B100E63391 /* FSNSProxy.m */,
+				CD6FF19815EFC2B100E63391 /* FSNSSet.h */,
+				CD6FF19915EFC2B100E63391 /* FSNSSet.m */,
+				CD6FF19A15EFC2B100E63391 /* FSNSString.h */,
+				CD6FF19B15EFC2B100E63391 /* FSNSString.m */,
+				CD6FF19C15EFC2B100E63391 /* FSNSStringPrivate.h */,
+				CD6FF19D15EFC2B100E63391 /* FSNSValue-iOS.h */,
+				CD6FF19E15EFC2B100E63391 /* FSNSValue-iOS.m */,
+				CD6FF19F15EFC2B100E63391 /* FSNumber.h */,
+				CD6FF1A015EFC2B100E63391 /* FSNumber.m */,
+				CD6FF1A115EFC2B100E63391 /* FSObjectFormatter.h */,
+				CD6FF1A215EFC2B100E63391 /* FSObjectFormatter.m */,
+				CD6FF1A315EFC2B100E63391 /* FSObjectPointer.h */,
+				CD6FF1A415EFC2B100E63391 /* FSObjectPointer.m */,
+				CD6FF1A515EFC2B100E63391 /* FSObjectPointerPrivate.h */,
+				CD6FF1A615EFC2B100E63391 /* FSPattern.h */,
+				CD6FF1A715EFC2B100E63391 /* FSPattern.m */,
+				CD6FF1A815EFC2B100E63391 /* FSPointer.h */,
+				CD6FF1A915EFC2B100E63391 /* FSPointer.m */,
+				CD6FF1AA15EFC2B100E63391 /* FSPointerPrivate.h */,
+				CD6FF1AB15EFC2B100E63391 /* FSReplacementForCoderForClass.h */,
+				CD6FF1AC15EFC2B100E63391 /* FSReplacementForCoderForClass.m */,
+				CD6FF1AD15EFC2B100E63391 /* FSReplacementForCoderForNilInArray.h */,
+				CD6FF1AE15EFC2B100E63391 /* FSReplacementForCoderForNilInArray.m */,
+				CD6FF1AF15EFC2B100E63391 /* FSReturnSignal.h */,
+				CD6FF1B015EFC2B100E63391 /* FSReturnSignal.m */,
+				CD6FF1B115EFC2B100E63391 /* FSSymbolTable.h */,
+				CD6FF1B215EFC2B100E63391 /* FSSymbolTable.m */,
+				CD6FF1B315EFC2B100E63391 /* FSSystem.h */,
+				CD6FF1B415EFC2B100E63391 /* FSSystem.m */,
+				CD6FF1B515EFC2B100E63391 /* FSSystemPrivate.h */,
+				CD6FF1B615EFC2B100E63391 /* FSTranscript.h */,
+				CD6FF1B715EFC2B100E63391 /* FSTranscript.m */,
+				CD6FF1B815EFC2B100E63391 /* FSUnarchiver.h */,
+				CD6FF1B915EFC2B100E63391 /* FSUnarchiver.m */,
+				CD6FF1BA15EFC2B100E63391 /* FSVoid.h */,
+				CD6FF1BB15EFC2B100E63391 /* FSVoid.m */,
+				CD6FF1BC15EFC2B100E63391 /* FSVoidPrivate.h */,
+				CD6FF1BD15EFC2B100E63391 /* MessagePatternCodeNode.h */,
+				CD6FF1BE15EFC2B100E63391 /* MessagePatternCodeNode.m */,
+				CD6FF28D15EFC48C00E63391 /* Number_fscript.h */,
+				CD6FF1BF15EFC2B100E63391 /* Number.m */,
+				CD6FF1C015EFC2B100E63391 /* NumberPrivate.h */,
+				CD6FF1C115EFC2B100E63391 /* Pointer.h */,
+				CD6FF1C215EFC2B100E63391 /* Pointer.m */,
+				CD6FF1C315EFC2B100E63391 /* PointerPrivate.h */,
+				CD6FF1C415EFC2B100E63391 /* Space.h */,
+				CD6FF1C515EFC2B100E63391 /* Space.m */,
+			);
+			name = FScriptFramework;
+			sourceTree = "<group>";
+		};
+		CD40C80715F0EC72002E3A58 /* SuperInterpreter */ = {
+			isa = PBXGroup;
+			children = (
+				CD0C658915ECF981006DE7F3 /* SuperInterpreter.h */,
+				CD0C658A15ECF981006DE7F3 /* SuperInterpreter.m */,
+				CD40C80915F0ECCB002E3A58 /* SuperInterpreterObjectBrowser.h */,
+				CD40C80A15F0ECCB002E3A58 /* SuperInterpreterObjectBrowser.m */,
+				CDDC9F8716224697006883CE /* Geometry.h */,
+				CDDC9F8816224697006883CE /* Geometry.m */,
+			);
+			name = SuperInterpreter;
+			sourceTree = "<group>";
+		};
+		CDCD46AC15A8DD390070D05C /* Network layer */ = {
+			isa = PBXGroup;
+			children = (
+				CDCD469615A8DD140070D05C /* SuperServicesBrowser.h */,
+				CDCD469715A8DD140070D05C /* SuperServicesBrowser.m */,
+				CD0D94C815B83D1F003A0D8B /* GCDAsyncSocket.h */,
+				CD0D94C915B83D1F003A0D8B /* GCDAsyncSocket.m */,
+				CD6BF726161FD99D00B8FBB0 /* SuperJSTP.h */,
+				CD6BF727161FD99D00B8FBB0 /* SuperJSTP.m */,
+				CDF1CD1515B0CDE900D36F16 /* SuperInterpreterService.h */,
+				CDF1CD1615B0CDE900D36F16 /* SuperInterpreterService.m */,
+				CD0D94D415B84683003A0D8B /* SuperInterpreterClient.h */,
+				CD0D94D515B84683003A0D8B /* SuperInterpreterClient.m */,
+				CD0D94DA15B84C21003A0D8B /* SuperNetworkMessage.h */,
+				CD0D94DB15B84C21003A0D8B /* SuperNetworkMessage.m */,
+				CD0C659015ECFADF006DE7F3 /* SuperNetworkMessageTypes.h */,
+			);
+			name = "Network layer";
+			sourceTree = "<group>";
+		};
+		CDF1AA9715A8D7760038EAB7 = {
+			isa = PBXGroup;
+			children = (
+				CDF1AAA715A8D7760038EAB7 /* SuperDBCore */,
+				CDF1AACA15A8D9C30038EAB7 /* SuperDBCoreMac */,
+				CDF1AAA415A8D7760038EAB7 /* Frameworks */,
+				CDF1AAA315A8D7760038EAB7 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CDF1AAA315A8D7760038EAB7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CDF1AAA215A8D7760038EAB7 /* libSuperDBCore.a */,
+				CDF1AAC315A8D9C30038EAB7 /* libSuperDBCoreMac.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CDF1AAA415A8D7760038EAB7 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CD0D975515B87E66003A0D8B /* CoreData.framework */,
+				CD0D975315B87A37003A0D8B /* UIKit.framework */,
+				CD0D975115B87747003A0D8B /* CoreGraphics.framework */,
+				CD0D94C115B8389A003A0D8B /* Security.framework */,
+				CD0D94BE15B83893003A0D8B /* CFNetwork.framework */,
+				CDF1AAA515A8D7760038EAB7 /* Foundation.framework */,
+				CDF1AAC415A8D9C30038EAB7 /* Cocoa.framework */,
+				CDF1AAC615A8D9C30038EAB7 /* Other Frameworks */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CDF1AAA715A8D7760038EAB7 /* SuperDBCore */ = {
+			isa = PBXGroup;
+			children = (
+				CD40C80715F0EC72002E3A58 /* SuperInterpreter */,
+				CD0D94E215B871D6003A0D8B /* F-Script */,
+				CDF1AAAA15A8D7760038EAB7 /* SuperDBCore.h */,
+				CDCD46AC15A8DD390070D05C /* Network layer */,
+				CDF1AAA815A8D7760038EAB7 /* Supporting Files */,
+			);
+			path = SuperDBCore;
+			sourceTree = "<group>";
+		};
+		CDF1AAA815A8D7760038EAB7 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CDF1AAA915A8D7760038EAB7 /* SuperDBCore-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		CDF1AAC615A8D9C30038EAB7 /* Other Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CDF1AAC715A8D9C30038EAB7 /* AppKit.framework */,
+				CDF1AAC815A8D9C30038EAB7 /* CoreData.framework */,
+				CDF1AAC915A8D9C30038EAB7 /* Foundation.framework */,
+			);
+			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		CDF1AACA15A8D9C30038EAB7 /* SuperDBCoreMac */ = {
+			isa = PBXGroup;
+			children = (
+				CDF1AACD15A8D9C30038EAB7 /* SuperDBCoreMac.h */,
+				CDF1AACE15A8D9C30038EAB7 /* SuperDBCoreMac.m */,
+				CDF1AACB15A8D9C30038EAB7 /* Supporting Files */,
+			);
+			path = SuperDBCoreMac;
+			sourceTree = "<group>";
+		};
+		CDF1AACB15A8D9C30038EAB7 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CDF1AACC15A8D9C30038EAB7 /* SuperDBCoreMac-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		CDF1AABD15A8D91A0038EAB7 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CDF1AABE15A8D9240038EAB7 /* SuperDBCore.h in Headers */,
+				CDCD46A015A8DD140070D05C /* SuperServicesBrowser.h in Headers */,
+				CDF1CD1715B0CDE900D36F16 /* SuperInterpreterService.h in Headers */,
+				CD0D94D615B84683003A0D8B /* SuperInterpreterClient.h in Headers */,
+				CD0D94DC15B84C21003A0D8B /* SuperNetworkMessage.h in Headers */,
+				CD0D950015B8727A003A0D8B /* ffi.h in Headers */,
+				CD0D94FD15B8727A003A0D8B /* ffi-iphone.h in Headers */,
+				CD0D94FF15B8727A003A0D8B /* ffi-iphonesimulator.h in Headers */,
+				CD0D94CA15B83D1F003A0D8B /* GCDAsyncSocket.h in Headers */,
+				CD0D94FB15B8727A003A0D8B /* ffi_common.h in Headers */,
+				CD0D950115B8727A003A0D8B /* fficonfig.h in Headers */,
+				CD0D950215B8727A003A0D8B /* ffitarget-iphone.h in Headers */,
+				CD0D950315B8727A003A0D8B /* ffitarget-iphonesimulator.h in Headers */,
+				CD0D950415B8727A003A0D8B /* ffitarget.h in Headers */,
+				CD0D974C15B873A1003A0D8B /* iOS-glue.h in Headers */,
+				CD0C658B15ECF981006DE7F3 /* SuperInterpreter.h in Headers */,
+				CD0C659115ECFADF006DE7F3 /* SuperNetworkMessageTypes.h in Headers */,
+				CD6FF1C715EFC2B100E63391 /* ArrayPrivate.h in Headers */,
+				CD6FF1C815EFC2B100E63391 /* ArrayRep.h in Headers */,
+				CD6FF1C915EFC2B100E63391 /* ArrayRepBoolean.h in Headers */,
+				CD6FF1CB15EFC2B100E63391 /* ArrayRepDouble.h in Headers */,
+				CD6FF1CD15EFC2B100E63391 /* ArrayRepEmpty.h in Headers */,
+				CD6FF1CF15EFC2B100E63391 /* ArrayRepFetchRequest.h in Headers */,
+				CD6FF1D115EFC2B100E63391 /* ArrayRepId.h in Headers */,
+				CD6FF1D615EFC2B100E63391 /* BlockPrivate.h in Headers */,
+				CD6FF1D715EFC2B100E63391 /* BlockRep.h in Headers */,
+				CD6FF1D915EFC2B100E63391 /* BlockSignature.h in Headers */,
+				CD6FF1DA15EFC2B100E63391 /* BlockStackElem.h in Headers */,
+				CD6FF1DC15EFC2B100E63391 /* build_config.h in Headers */,
+				CD6FF1DD15EFC2B100E63391 /* CompiledCodeNode.h in Headers */,
+				CD6FF1E015EFC2B100E63391 /* FSArchiver.h in Headers */,
+				CD6FF1E215EFC2B100E63391 /* FSArray.h in Headers */,
+				CD6FF1E415EFC2B100E63391 /* FSArrayEnumerator.h in Headers */,
+				CD6FF1E615EFC2B100E63391 /* FSAssociation.h in Headers */,
+				CD6FF1E815EFC2B100E63391 /* FSBlock.h in Headers */,
+				CD6FF1EA15EFC2B100E63391 /* FSBlockCompilationResult.h in Headers */,
+				CD6FF1EC15EFC2B100E63391 /* FSBoolean.h in Headers */,
+				CD6FF1EE15EFC2B100E63391 /* FSBooleanPrivate.h in Headers */,
+				CD6FF1EF15EFC2B100E63391 /* FSClassDefinition.h in Headers */,
+				CD6FF1F115EFC2B100E63391 /* FSCNArray.h in Headers */,
+				CD6FF1F315EFC2B100E63391 /* FSCNAssignment.h in Headers */,
+				CD6FF1F515EFC2B100E63391 /* FSCNBase.h in Headers */,
+				CD6FF1F715EFC2B100E63391 /* FSCNBinaryMessage.h in Headers */,
+				CD6FF1F915EFC2B100E63391 /* FSCNBlock.h in Headers */,
+				CD6FF1FB15EFC2B100E63391 /* FSCNCascade.h in Headers */,
+				CD6FF1FD15EFC2B100E63391 /* FSCNCategory.h in Headers */,
+				CD6FF1FF15EFC2B100E63391 /* FSCNClassDefinition.h in Headers */,
+				CD6FF20115EFC2B100E63391 /* FSCNDictionary.h in Headers */,
+				CD6FF20315EFC2B100E63391 /* FSCNIdentifier.h in Headers */,
+				CD6FF20515EFC2B100E63391 /* FSCNKeywordMessage.h in Headers */,
+				CD6FF20715EFC2B100E63391 /* FSCNMessage.h in Headers */,
+				CD6FF20915EFC2B100E63391 /* FSCNMethod.h in Headers */,
+				CD6FF20B15EFC2B100E63391 /* FSCNPrecomputedObject.h in Headers */,
+				CD6FF20D15EFC2B100E63391 /* FSCNReturn.h in Headers */,
+				CD6FF20F15EFC2B100E63391 /* FSCNStatementList.h in Headers */,
+				CD6FF21115EFC2B100E63391 /* FSCNSuper.h in Headers */,
+				CD6FF21315EFC2B100E63391 /* FSCNUnaryMessage.h in Headers */,
+				CD6FF21515EFC2B100E63391 /* FSCommandHistory.h in Headers */,
+				CD6FF21715EFC2B100E63391 /* FSCompilationResult.h in Headers */,
+				CD6FF21915EFC2B100E63391 /* FSCompiler.h in Headers */,
+				CD6FF21B15EFC2B100E63391 /* FSConstantsInitialization.h in Headers */,
+				CD6FF21D15EFC2B100E63391 /* FScript.h in Headers */,
+				CD6FF21F15EFC2B100E63391 /* FScriptFunctions.h in Headers */,
+				CD6FF22115EFC2B100E63391 /* FSError.h in Headers */,
+				CD6FF22315EFC2B100E63391 /* FSExecEngine.h in Headers */,
+				CD6FF22515EFC2B100E63391 /* FSExecutor.h in Headers */,
+				CD6FF22715EFC2B100E63391 /* FSGenericPointer.h in Headers */,
+				CD6FF22915EFC2B100E63391 /* FSGenericPointerPrivate.h in Headers */,
+				CD6FF22A15EFC2B100E63391 /* FSGlobalScope.h in Headers */,
+				CD6FF22C15EFC2B100E63391 /* FSIdentifierFormatter.h in Headers */,
+				CD6FF22E15EFC2B100E63391 /* FSInterpreter.h in Headers */,
+				CD6FF23015EFC2B100E63391 /* FSInterpreterPrivate.h in Headers */,
+				CD6FF23115EFC2B100E63391 /* FSInterpreterResult.h in Headers */,
+				CD6FF23315EFC2B100E63391 /* FSInterpreterResultPrivate.h in Headers */,
+				CD6FF23415EFC2B100E63391 /* FSKeyedArchiver.h in Headers */,
+				CD6FF23615EFC2B100E63391 /* FSKeyedUnarchiver.h in Headers */,
+				CD6FF23915EFC2B100E63391 /* FSMethod.h in Headers */,
+				CD6FF23B15EFC2B100E63391 /* FSMiscTools.h in Headers */,
+				CD6FF23D15EFC2B100E63391 /* FSMsgContext.h in Headers */,
+				CD6FF23F15EFC2B100E63391 /* FSNamedNumber.h in Headers */,
+				CD6FF24115EFC2B100E63391 /* FSNewlyAllocatedObjectHolder.h in Headers */,
+				CD6FF24315EFC2B100E63391 /* FSNSArray.h in Headers */,
+				CD6FF24515EFC2B100E63391 /* FSNSArrayPrivate.h in Headers */,
+				CD6FF24615EFC2B100E63391 /* FSNSAttributedString.h in Headers */,
+				CD6FF24815EFC2B100E63391 /* FSNSDate.h in Headers */,
+				CD6FF24A15EFC2B100E63391 /* FSNSDictionary.h in Headers */,
+				CD6FF24C15EFC2B100E63391 /* FSNSFileHandle.h in Headers */,
+				CD6FF24E15EFC2B100E63391 /* FSNSManagedObjectContext.h in Headers */,
+				CD6FF25015EFC2B100E63391 /* FSNSMutableArray.h in Headers */,
+				CD6FF25215EFC2B100E63391 /* FSNSMutableDictionary.h in Headers */,
+				CD6FF25415EFC2B100E63391 /* FSNSMutableString.h in Headers */,
+				CD6FF25615EFC2B100E63391 /* FSNSNumber.h in Headers */,
+				CD6FF25815EFC2B100E63391 /* FSNSObject.h in Headers */,
+				CD6FF25A15EFC2B100E63391 /* FSNSObjectPrivate.h in Headers */,
+				CD6FF25B15EFC2B100E63391 /* FSNSProxy.h in Headers */,
+				CD6FF25D15EFC2B100E63391 /* FSNSSet.h in Headers */,
+				CD6FF25F15EFC2B100E63391 /* FSNSString.h in Headers */,
+				CD6FF26115EFC2B100E63391 /* FSNSStringPrivate.h in Headers */,
+				CD6FF26215EFC2B100E63391 /* FSNSValue-iOS.h in Headers */,
+				CD6FF26415EFC2B100E63391 /* FSNumber.h in Headers */,
+				CD6FF26615EFC2B100E63391 /* FSObjectFormatter.h in Headers */,
+				CD6FF26815EFC2B100E63391 /* FSObjectPointer.h in Headers */,
+				CD6FF26A15EFC2B100E63391 /* FSObjectPointerPrivate.h in Headers */,
+				CD6FF26B15EFC2B100E63391 /* FSPattern.h in Headers */,
+				CD6FF26D15EFC2B100E63391 /* FSPointer.h in Headers */,
+				CD6FF26F15EFC2B100E63391 /* FSPointerPrivate.h in Headers */,
+				CD6FF27015EFC2B100E63391 /* FSReplacementForCoderForClass.h in Headers */,
+				CD6FF27215EFC2B100E63391 /* FSReplacementForCoderForNilInArray.h in Headers */,
+				CD6FF27415EFC2B100E63391 /* FSReturnSignal.h in Headers */,
+				CD6FF27615EFC2B100E63391 /* FSSymbolTable.h in Headers */,
+				CD6FF27815EFC2B100E63391 /* FSSystem.h in Headers */,
+				CD6FF27A15EFC2B100E63391 /* FSSystemPrivate.h in Headers */,
+				CD6FF27B15EFC2B100E63391 /* FSTranscript.h in Headers */,
+				CD6FF27D15EFC2B100E63391 /* FSUnarchiver.h in Headers */,
+				CD6FF27F15EFC2B100E63391 /* FSVoid.h in Headers */,
+				CD6FF28115EFC2B100E63391 /* FSVoidPrivate.h in Headers */,
+				CD6FF28215EFC2B100E63391 /* MessagePatternCodeNode.h in Headers */,
+				CD6FF28515EFC2B100E63391 /* NumberPrivate.h in Headers */,
+				CD6FF28615EFC2B100E63391 /* Pointer.h in Headers */,
+				CD6FF28815EFC2B100E63391 /* PointerPrivate.h in Headers */,
+				CD6FF28C15EFC41A00E63391 /* Array_fscript.h in Headers */,
+				CD6FF28E15EFC48C00E63391 /* Number_fscript.h in Headers */,
+				CD6FF29015EFC4BB00E63391 /* Block_fscript.h in Headers */,
+				CD40C80B15F0ECCB002E3A58 /* SuperInterpreterObjectBrowser.h in Headers */,
+				CD6FF28915EFC2B100E63391 /* Space.h in Headers */,
+				CD6BF728161FD99D00B8FBB0 /* SuperJSTP.h in Headers */,
+				CDDC9F8916224697006883CE /* Geometry.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CDF1AAC115A8D9C30038EAB7 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CDF1CCEA15B0C83900D36F16 /* SuperDBCore.h in Headers */,
+				CDF1CCEC15B0C9F800D36F16 /* SuperServicesBrowser.h in Headers */,
+				CD6BF72B161FF02000B8FBB0 /* SuperJSTP.h in Headers */,
+				CDF1CD1815B0CDE900D36F16 /* SuperInterpreterService.h in Headers */,
+				CD0D94CB15B83D1F003A0D8B /* GCDAsyncSocket.h in Headers */,
+				CD0D94D715B84683003A0D8B /* SuperInterpreterClient.h in Headers */,
+				CD0D94DD15B84C21003A0D8B /* SuperNetworkMessage.h in Headers */,
+				CD0C658C15ECF981006DE7F3 /* SuperInterpreter.h in Headers */,
+				CD0C659215ECFADF006DE7F3 /* SuperNetworkMessageTypes.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		CDF1AAA115A8D7760038EAB7 /* SuperDBCore */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CDF1AAB015A8D7760038EAB7 /* Build configuration list for PBXNativeTarget "SuperDBCore" */;
+			buildPhases = (
+				CD0D974E15B874C5003A0D8B /* Resources */,
+				CDF1AA9E15A8D7760038EAB7 /* Sources */,
+				CDF1AA9F15A8D7760038EAB7 /* Frameworks */,
+				CDF1AAA015A8D7760038EAB7 /* CopyFiles */,
+				CDF1AABD15A8D91A0038EAB7 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SuperDBCore;
+			productName = SuperDBCore;
+			productReference = CDF1AAA215A8D7760038EAB7 /* libSuperDBCore.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		CDF1AAC215A8D9C30038EAB7 /* SuperDBCoreMac */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CDF1AAD015A8D9C30038EAB7 /* Build configuration list for PBXNativeTarget "SuperDBCoreMac" */;
+			buildPhases = (
+				CDF1AABF15A8D9C30038EAB7 /* Sources */,
+				CDF1AAC015A8D9C30038EAB7 /* Frameworks */,
+				CDF1AAC115A8D9C30038EAB7 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SuperDBCoreMac;
+			productName = SuperDBCoreMac;
+			productReference = CDF1AAC315A8D9C30038EAB7 /* libSuperDBCoreMac.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CDF1AA9915A8D7760038EAB7 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = Super;
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = "Super Debugger";
+			};
+			buildConfigurationList = CDF1AA9C15A8D7760038EAB7 /* Build configuration list for PBXProject "SuperDBCore" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = CDF1AA9715A8D7760038EAB7;
+			productRefGroup = CDF1AAA315A8D7760038EAB7 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CDF1AAA115A8D7760038EAB7 /* SuperDBCore */,
+				CDF1AAC215A8D9C30038EAB7 /* SuperDBCoreMac */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CD0D974E15B874C5003A0D8B /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD6FF1DF15EFC2B100E63391 /* constantsDictionary in Resources */,
+				CD6FF21E15EFC2B100E63391 /* FScriptDict.dic in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CDF1AA9E15A8D7760038EAB7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CDCD46A115A8DD140070D05C /* SuperServicesBrowser.m in Sources */,
+				CDF1CD1915B0CDE900D36F16 /* SuperInterpreterService.m in Sources */,
+				CD0D94CC15B83D1F003A0D8B /* GCDAsyncSocket.m in Sources */,
+				CD0D94D815B84683003A0D8B /* SuperInterpreterClient.m in Sources */,
+				CD0D94DE15B84C21003A0D8B /* SuperNetworkMessage.m in Sources */,
+				CD0D94FC15B8727A003A0D8B /* ffi-iphone.c in Sources */,
+				CD0D94FE15B8727A003A0D8B /* ffi-iphonesimulator.c in Sources */,
+				CD0D950515B8727A003A0D8B /* iphone-sysv.S in Sources */,
+				CD0D950615B8727A003A0D8B /* iphonesimulator-darwin.S in Sources */,
+				CD0D950715B8727A003A0D8B /* prep_cif.c in Sources */,
+				CD0D950815B8727A003A0D8B /* raw_api.c in Sources */,
+				CD0D950915B8727A003A0D8B /* types.c in Sources */,
+				CD0D974D15B873A1003A0D8B /* iOS-glue.m in Sources */,
+				CD0C658D15ECF981006DE7F3 /* SuperInterpreter.m in Sources */,
+				CD6FF1C615EFC2B100E63391 /* Array.m in Sources */,
+				CD6FF1CA15EFC2B100E63391 /* ArrayRepBoolean.m in Sources */,
+				CD6FF1CC15EFC2B100E63391 /* ArrayRepDouble.m in Sources */,
+				CD6FF1CE15EFC2B100E63391 /* ArrayRepEmpty.m in Sources */,
+				CD6FF1D015EFC2B100E63391 /* ArrayRepFetchRequest.m in Sources */,
+				CD6FF1D215EFC2B100E63391 /* ArrayRepId.m in Sources */,
+				CD6FF1D315EFC2B100E63391 /* Block.m in Sources */,
+				CD6FF1D815EFC2B100E63391 /* BlockRep.m in Sources */,
+				CD6FF1DB15EFC2B100E63391 /* BlockStackElem.m in Sources */,
+				CD6FF1DE15EFC2B100E63391 /* CompiledCodeNode.m in Sources */,
+				CD6FF1E115EFC2B100E63391 /* FSArchiver.m in Sources */,
+				CD6FF1E315EFC2B100E63391 /* FSArray.m in Sources */,
+				CD6FF1E515EFC2B100E63391 /* FSArrayEnumerator.m in Sources */,
+				CD6FF1E715EFC2B100E63391 /* FSAssociation.m in Sources */,
+				CD6FF1E915EFC2B100E63391 /* FSBlock.m in Sources */,
+				CD6FF1EB15EFC2B100E63391 /* FSBlockCompilationResult.m in Sources */,
+				CD6FF1ED15EFC2B100E63391 /* FSBoolean.m in Sources */,
+				CD6FF1F015EFC2B100E63391 /* FSClassDefinition.m in Sources */,
+				CD6FF1F215EFC2B100E63391 /* FSCNArray.m in Sources */,
+				CD6FF1F415EFC2B100E63391 /* FSCNAssignment.m in Sources */,
+				CD6FF1F615EFC2B100E63391 /* FSCNBase.m in Sources */,
+				CD6FF1F815EFC2B100E63391 /* FSCNBinaryMessage.m in Sources */,
+				CD6FF1FA15EFC2B100E63391 /* FSCNBlock.m in Sources */,
+				CD6FF1FC15EFC2B100E63391 /* FSCNCascade.m in Sources */,
+				CD6FF1FE15EFC2B100E63391 /* FSCNCategory.m in Sources */,
+				CD6FF20015EFC2B100E63391 /* FSCNClassDefinition.m in Sources */,
+				CD6FF20215EFC2B100E63391 /* FSCNDictionary.m in Sources */,
+				CD6FF20415EFC2B100E63391 /* FSCNIdentifier.m in Sources */,
+				CD6FF20615EFC2B100E63391 /* FSCNKeywordMessage.m in Sources */,
+				CD6FF20815EFC2B100E63391 /* FSCNMessage.m in Sources */,
+				CD6FF20A15EFC2B100E63391 /* FSCNMethod.m in Sources */,
+				CD6FF20C15EFC2B100E63391 /* FSCNPrecomputedObject.m in Sources */,
+				CD6FF20E15EFC2B100E63391 /* FSCNReturn.m in Sources */,
+				CD6FF21015EFC2B100E63391 /* FSCNStatementList.m in Sources */,
+				CD6FF21215EFC2B100E63391 /* FSCNSuper.m in Sources */,
+				CD6FF21415EFC2B100E63391 /* FSCNUnaryMessage.m in Sources */,
+				CD6FF21615EFC2B100E63391 /* FSCommandHistory.m in Sources */,
+				CD6FF21815EFC2B100E63391 /* FSCompilationResult.m in Sources */,
+				CD6FF21A15EFC2B100E63391 /* FSCompiler.m in Sources */,
+				CD6FF21C15EFC2B100E63391 /* FSConstantsInitialization.m in Sources */,
+				CD6FF22015EFC2B100E63391 /* FScriptFunctions.m in Sources */,
+				CD6FF22215EFC2B100E63391 /* FSError.m in Sources */,
+				CD6FF22415EFC2B100E63391 /* FSExecEngine.m in Sources */,
+				CD6FF22615EFC2B100E63391 /* FSExecutor.m in Sources */,
+				CD6FF22815EFC2B100E63391 /* FSGenericPointer.m in Sources */,
+				CD6FF22B15EFC2B100E63391 /* FSGlobalScope.m in Sources */,
+				CD6FF22D15EFC2B100E63391 /* FSIdentifierFormatter.m in Sources */,
+				CD6FF22F15EFC2B100E63391 /* FSInterpreter.m in Sources */,
+				CD6FF23215EFC2B100E63391 /* FSInterpreterResult.m in Sources */,
+				CD6FF23515EFC2B100E63391 /* FSKeyedArchiver.m in Sources */,
+				CD6FF23715EFC2B100E63391 /* FSKeyedUnarchiver.m in Sources */,
+				CD6FF23815EFC2B100E63391 /* FSMethod-iOS.m in Sources */,
+				CD6FF23C15EFC2B100E63391 /* FSMiscTools.m in Sources */,
+				CD6FF23E15EFC2B100E63391 /* FSMsgContext.m in Sources */,
+				CD6FF24015EFC2B100E63391 /* FSNamedNumber.m in Sources */,
+				CD6FF24215EFC2B100E63391 /* FSNewlyAllocatedObjectHolder.m in Sources */,
+				CD6FF24415EFC2B100E63391 /* FSNSArray.m in Sources */,
+				CD6FF24715EFC2B100E63391 /* FSNSAttributedString.m in Sources */,
+				CD6FF24915EFC2B100E63391 /* FSNSDate.m in Sources */,
+				CD6FF24B15EFC2B100E63391 /* FSNSDictionary.m in Sources */,
+				CD6FF24D15EFC2B100E63391 /* FSNSFileHandle.m in Sources */,
+				CD6FF24F15EFC2B100E63391 /* FSNSManagedObjectContext.m in Sources */,
+				CD6FF25115EFC2B100E63391 /* FSNSMutableArray.m in Sources */,
+				CD6FF25315EFC2B100E63391 /* FSNSMutableDictionary.m in Sources */,
+				CD6FF25515EFC2B100E63391 /* FSNSMutableString.m in Sources */,
+				CD6FF25715EFC2B100E63391 /* FSNSNumber.m in Sources */,
+				CD6FF25915EFC2B100E63391 /* FSNSObject.m in Sources */,
+				CD6FF25C15EFC2B100E63391 /* FSNSProxy.m in Sources */,
+				CD6FF25E15EFC2B100E63391 /* FSNSSet.m in Sources */,
+				CD6FF26015EFC2B100E63391 /* FSNSString.m in Sources */,
+				CD6FF26315EFC2B100E63391 /* FSNSValue-iOS.m in Sources */,
+				CD6FF26515EFC2B100E63391 /* FSNumber.m in Sources */,
+				CD6FF26715EFC2B100E63391 /* FSObjectFormatter.m in Sources */,
+				CD6FF26915EFC2B100E63391 /* FSObjectPointer.m in Sources */,
+				CD6FF26C15EFC2B100E63391 /* FSPattern.m in Sources */,
+				CD6FF26E15EFC2B100E63391 /* FSPointer.m in Sources */,
+				CD6FF27115EFC2B100E63391 /* FSReplacementForCoderForClass.m in Sources */,
+				CD6FF27315EFC2B100E63391 /* FSReplacementForCoderForNilInArray.m in Sources */,
+				CD6FF27515EFC2B100E63391 /* FSReturnSignal.m in Sources */,
+				CD6FF27715EFC2B100E63391 /* FSSymbolTable.m in Sources */,
+				CD6FF27915EFC2B100E63391 /* FSSystem.m in Sources */,
+				CD6FF27C15EFC2B100E63391 /* FSTranscript.m in Sources */,
+				CD6FF27E15EFC2B100E63391 /* FSUnarchiver.m in Sources */,
+				CD6FF28015EFC2B100E63391 /* FSVoid.m in Sources */,
+				CD6FF28315EFC2B100E63391 /* MessagePatternCodeNode.m in Sources */,
+				CD6FF28415EFC2B100E63391 /* Number.m in Sources */,
+				CD6FF28715EFC2B100E63391 /* Pointer.m in Sources */,
+				CD6FF28A15EFC2B100E63391 /* Space.m in Sources */,
+				CD40C80C15F0ECCB002E3A58 /* SuperInterpreterObjectBrowser.m in Sources */,
+				CD6BF729161FD99D00B8FBB0 /* SuperJSTP.m in Sources */,
+				CDDC9F8A16224697006883CE /* Geometry.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		CDF1AABF15A8D9C30038EAB7 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD6BF72A161FF01000B8FBB0 /* SuperJSTP.m in Sources */,
+				CDF1CCEB15B0C9F000D36F16 /* SuperServicesBrowser.m in Sources */,
+				CDF1CD1A15B0CDE900D36F16 /* SuperInterpreterService.m in Sources */,
+				CD0D94CD15B83D1F003A0D8B /* GCDAsyncSocket.m in Sources */,
+				CD0D94D915B84683003A0D8B /* SuperInterpreterClient.m in Sources */,
+				CD0D94DF15B84C21003A0D8B /* SuperNetworkMessage.m in Sources */,
+				CD0C658E15ECF981006DE7F3 /* SuperInterpreter.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		CDF1AAAE15A8D7760038EAB7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		CDF1AAAF15A8D7760038EAB7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CDF1AAB115A8D7760038EAB7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/SuperDBCore.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SuperDBCore/SuperDBCore-Prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_LDFLAGS = "-ObjC";
+				PREBINDING = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		CDF1AAB215A8D7760038EAB7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/SuperDBCore.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SuperDBCore/SuperDBCore-Prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				OTHER_LDFLAGS = "-ObjC";
+				PREBINDING = NO;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		CDF1AAD115A8D9C30038EAB7 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SYSTEM_APPS_DIR)/Xcode45-DP1.app/Contents/Developer/Library/Frameworks\"",
+				);
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SuperDBCoreMac/SuperDBCoreMac-Prefix.pch";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		CDF1AAD215A8D9C30038EAB7 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SYSTEM_APPS_DIR)/Xcode45-DP1.app/Contents/Developer/Library/Frameworks\"",
+				);
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SuperDBCoreMac/SuperDBCoreMac-Prefix.pch";
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				MACOSX_DEPLOYMENT_TARGET = 10.7;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CDF1AA9C15A8D7760038EAB7 /* Build configuration list for PBXProject "SuperDBCore" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CDF1AAAE15A8D7760038EAB7 /* Debug */,
+				CDF1AAAF15A8D7760038EAB7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CDF1AAB015A8D7760038EAB7 /* Build configuration list for PBXNativeTarget "SuperDBCore" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CDF1AAB115A8D7760038EAB7 /* Debug */,
+				CDF1AAB215A8D7760038EAB7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CDF1AAD015A8D9C30038EAB7 /* Build configuration list for PBXNativeTarget "SuperDBCoreMac" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CDF1AAD115A8D9C30038EAB7 /* Debug */,
+				CDF1AAD215A8D9C30038EAB7 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CDF1AA9915A8D7760038EAB7 /* Project object */;
+}

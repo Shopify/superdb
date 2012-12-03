@@ -1,0 +1,13 @@
+//
+// Prefix header for all source files of the 'SuperDBCore' target in the 'SuperDBCore' project
+//
+
+#ifdef __OBJC__
+	#import <Foundation/Foundation.h>
+#import <CoreData/CoreData.h>
+#if TARGET_OS_IPHONE
+#import <UIKit/UIKit.h>
+#import <CoreGraphics/CoreGraphics.h>
+#import "iOS-glue.h"
+#endif
+#endif
