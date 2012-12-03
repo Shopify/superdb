@@ -8,7 +8,7 @@
 
 #import "SuperInterpreterService.h"
 #import "GCDAsyncSocket.h"
-#import "JBServicesBrowser.h"
+#import "SuperServicesBrowser.h"
 #import "SuperNetworkMessage.h"
 #import "SuperInterpreter.h"
 
@@ -83,8 +83,8 @@
 - (void)publishServiceWithCallback:(SuperInterpreterServicePublishedServiceCallback)callback {
 	self.publishedServiceCallback = callback;
 	
-	self.publishedService = [[NSNetService alloc] initWithDomain:[JBServicesBrowser netServiceDomain]
-															type:[JBServicesBrowser netServiceType]
+	self.publishedService = [[NSNetService alloc] initWithDomain:[SuperServicesBrowser netServiceDomain]
+															type:[SuperServicesBrowser netServiceType]
 															name:[self serviceName]
 															port:DEFAULT_PORT];
 	

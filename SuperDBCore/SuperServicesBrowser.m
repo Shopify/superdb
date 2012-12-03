@@ -1,30 +1,30 @@
 //
-//  JBServicesBrowser.m
+//  SuperServicesBrowser.m
 //  Lecture12
 //
 //  Created by Jason Brennan on 12-03-22.
 //  Copyright (c) 2012 Jason Brennan. All rights reserved.
 //
 
-#import "JBServicesBrowser.h"
+#import "SuperServicesBrowser.h"
 
 
-@interface JBServicesBrowser () <NSNetServiceDelegate, NSNetServiceBrowserDelegate>
+@interface SuperServicesBrowser () <NSNetServiceDelegate, NSNetServiceBrowserDelegate>
 
-@property (nonatomic, copy) JBServicesBrowserCallback servicesCallback;
-@property (nonatomic, copy) JBServicesBrowserPublishedServiceCallback publishedServiceCallback;
+@property (nonatomic, copy) SuperServicesBrowserCallback servicesCallback;
+@property (nonatomic, copy) SuperServicesBrowserPublishedServiceCallback publishedServiceCallback;
 @property (nonatomic, strong) NSNetServiceBrowser *servicesBrowser;
 @property (nonatomic, strong) NSMutableArray *foundServices;
 
 @end
 
 
-@implementation JBServicesBrowser {
+@implementation SuperServicesBrowser {
 	BOOL _alreadyConnected;
 }
 
 
-- (id)initWithServicesCallback:(JBServicesBrowserCallback)callback {
+- (id)initWithServicesCallback:(SuperServicesBrowserCallback)callback {
 	if ((self = [super init])) {
 		self.servicesCallback = callback;
 		self.foundServices = [NSMutableArray array];

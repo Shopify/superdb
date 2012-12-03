@@ -10,7 +10,7 @@
 #define SOMETHING NO
 
 
-#import "JBServicesBrowser.h"
+#import "SuperServicesBrowser.h"
 #import "SuperInterpreterService.h"
 #import "SuperInterpreterClient.h"
 #import "SuperNetworkMessage.h"

@@ -250,8 +250,8 @@
 		CD6FF28C15EFC41A00E63391 /* Array_fscript.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF28B15EFC41A00E63391 /* Array_fscript.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		CD6FF28E15EFC48C00E63391 /* Number_fscript.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF28D15EFC48C00E63391 /* Number_fscript.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		CD6FF29015EFC4BB00E63391 /* Block_fscript.h in Headers */ = {isa = PBXBuildFile; fileRef = CD6FF28F15EFC4BB00E63391 /* Block_fscript.h */; settings = {ATTRIBUTES = (Private, ); }; };
-		CDCD46A015A8DD140070D05C /* JBServicesBrowser.h in Headers */ = {isa = PBXBuildFile; fileRef = CDCD469615A8DD140070D05C /* JBServicesBrowser.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CDCD46A115A8DD140070D05C /* JBServicesBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = CDCD469715A8DD140070D05C /* JBServicesBrowser.m */; };
+		CDCD46A015A8DD140070D05C /* SuperServicesBrowser.h in Headers */ = {isa = PBXBuildFile; fileRef = CDCD469615A8DD140070D05C /* SuperServicesBrowser.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CDCD46A115A8DD140070D05C /* SuperServicesBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = CDCD469715A8DD140070D05C /* SuperServicesBrowser.m */; };
 		CDDC9F8916224697006883CE /* Geometry.h in Headers */ = {isa = PBXBuildFile; fileRef = CDDC9F8716224697006883CE /* Geometry.h */; };
 		CDDC9F8A16224697006883CE /* Geometry.m in Sources */ = {isa = PBXBuildFile; fileRef = CDDC9F8816224697006883CE /* Geometry.m */; };
 		CDF1AAA615A8D7760038EAB7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDF1AAA515A8D7760038EAB7 /* Foundation.framework */; };
@@ -259,8 +259,8 @@
 		CDF1AABE15A8D9240038EAB7 /* SuperDBCore.h in Headers */ = {isa = PBXBuildFile; fileRef = CDF1AAAA15A8D7760038EAB7 /* SuperDBCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CDF1AAC515A8D9C30038EAB7 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDF1AAC415A8D9C30038EAB7 /* Cocoa.framework */; };
 		CDF1CCEA15B0C83900D36F16 /* SuperDBCore.h in Headers */ = {isa = PBXBuildFile; fileRef = CDF1AAAA15A8D7760038EAB7 /* SuperDBCore.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CDF1CCEB15B0C9F000D36F16 /* JBServicesBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = CDCD469715A8DD140070D05C /* JBServicesBrowser.m */; };
-		CDF1CCEC15B0C9F800D36F16 /* JBServicesBrowser.h in Headers */ = {isa = PBXBuildFile; fileRef = CDCD469615A8DD140070D05C /* JBServicesBrowser.h */; settings = {ATTRIBUTES = (Private, ); }; };
+		CDF1CCEB15B0C9F000D36F16 /* SuperServicesBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = CDCD469715A8DD140070D05C /* SuperServicesBrowser.m */; };
+		CDF1CCEC15B0C9F800D36F16 /* SuperServicesBrowser.h in Headers */ = {isa = PBXBuildFile; fileRef = CDCD469615A8DD140070D05C /* SuperServicesBrowser.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		CDF1CD1715B0CDE900D36F16 /* SuperInterpreterService.h in Headers */ = {isa = PBXBuildFile; fileRef = CDF1CD1515B0CDE900D36F16 /* SuperInterpreterService.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		CDF1CD1815B0CDE900D36F16 /* SuperInterpreterService.h in Headers */ = {isa = PBXBuildFile; fileRef = CDF1CD1515B0CDE900D36F16 /* SuperInterpreterService.h */; };
 		CDF1CD1915B0CDE900D36F16 /* SuperInterpreterService.m in Sources */ = {isa = PBXBuildFile; fileRef = CDF1CD1615B0CDE900D36F16 /* SuperInterpreterService.m */; };
@@ -513,8 +513,8 @@
 		CD6FF28B15EFC41A00E63391 /* Array_fscript.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Array_fscript.h; sourceTree = "<group>"; };
 		CD6FF28D15EFC48C00E63391 /* Number_fscript.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Number_fscript.h; sourceTree = "<group>"; };
 		CD6FF28F15EFC4BB00E63391 /* Block_fscript.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Block_fscript.h; sourceTree = "<group>"; };
-		CDCD469615A8DD140070D05C /* JBServicesBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JBServicesBrowser.h; sourceTree = "<group>"; };
-		CDCD469715A8DD140070D05C /* JBServicesBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JBServicesBrowser.m; sourceTree = "<group>"; };
+		CDCD469615A8DD140070D05C /* SuperServicesBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuperServicesBrowser.h; sourceTree = "<group>"; };
+		CDCD469715A8DD140070D05C /* SuperServicesBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuperServicesBrowser.m; sourceTree = "<group>"; };
 		CDDC9F8716224697006883CE /* Geometry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Geometry.h; sourceTree = "<group>"; };
 		CDDC9F8816224697006883CE /* Geometry.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Geometry.m; sourceTree = "<group>"; };
 		CDF1AAA215A8D7760038EAB7 /* libSuperDBCore.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSuperDBCore.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -811,8 +811,8 @@
 		CDCD46AC15A8DD390070D05C /* Network layer */ = {
 			isa = PBXGroup;
 			children = (
-				CDCD469615A8DD140070D05C /* JBServicesBrowser.h */,
-				CDCD469715A8DD140070D05C /* JBServicesBrowser.m */,
+				CDCD469615A8DD140070D05C /* SuperServicesBrowser.h */,
+				CDCD469715A8DD140070D05C /* SuperServicesBrowser.m */,
 				CD0D94C815B83D1F003A0D8B /* GCDAsyncSocket.h */,
 				CD0D94C915B83D1F003A0D8B /* GCDAsyncSocket.m */,
 				CD6BF726161FD99D00B8FBB0 /* SuperJSTP.h */,
@@ -918,7 +918,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CDF1AABE15A8D9240038EAB7 /* SuperDBCore.h in Headers */,
-				CDCD46A015A8DD140070D05C /* JBServicesBrowser.h in Headers */,
+				CDCD46A015A8DD140070D05C /* SuperServicesBrowser.h in Headers */,
 				CDF1CD1715B0CDE900D36F16 /* SuperInterpreterService.h in Headers */,
 				CD0D94D615B84683003A0D8B /* SuperInterpreterClient.h in Headers */,
 				CD0D94DC15B84C21003A0D8B /* SuperNetworkMessage.h in Headers */,
@@ -1052,7 +1052,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CDF1CCEA15B0C83900D36F16 /* SuperDBCore.h in Headers */,
-				CDF1CCEC15B0C9F800D36F16 /* JBServicesBrowser.h in Headers */,
+				CDF1CCEC15B0C9F800D36F16 /* SuperServicesBrowser.h in Headers */,
 				CD6BF72B161FF02000B8FBB0 /* SuperJSTP.h in Headers */,
 				CDF1CD1815B0CDE900D36F16 /* SuperInterpreterService.h in Headers */,
 				CD0D94CB15B83D1F003A0D8B /* GCDAsyncSocket.h in Headers */,
@@ -1146,7 +1146,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CDCD46A115A8DD140070D05C /* JBServicesBrowser.m in Sources */,
+				CDCD46A115A8DD140070D05C /* SuperServicesBrowser.m in Sources */,
 				CDF1CD1915B0CDE900D36F16 /* SuperInterpreterService.m in Sources */,
 				CD0D94CC15B83D1F003A0D8B /* GCDAsyncSocket.m in Sources */,
 				CD0D94D815B84683003A0D8B /* SuperInterpreterClient.m in Sources */,
@@ -1259,7 +1259,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CD6BF72A161FF01000B8FBB0 /* SuperJSTP.m in Sources */,
-				CDF1CCEB15B0C9F000D36F16 /* JBServicesBrowser.m in Sources */,
+				CDF1CCEB15B0C9F000D36F16 /* SuperServicesBrowser.m in Sources */,
 				CDF1CD1A15B0CDE900D36F16 /* SuperInterpreterService.m in Sources */,
 				CD0D94CD15B83D1F003A0D8B /* GCDAsyncSocket.m in Sources */,
 				CD0D94D915B84683003A0D8B /* SuperInterpreterClient.m in Sources */,
