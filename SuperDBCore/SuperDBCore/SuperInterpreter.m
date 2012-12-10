@@ -78,7 +78,7 @@
 	[self addRequestHandlerForResource:kSuperNetworkMessageResourceInterpreter requestHandler:^SuperNetworkMessage *(SuperNetworkMessage *request) {
 		
 		NSString *input = [[request body] objectForKey:kSuperNetworkMessageBodyInputKey];
-		FSInterpreterResult *result = [weakSelf.interpreter execute:input];
+		FSInterpreterResult *result = [weakSelf interpreterResultForInput:input logResult:YES];
 		
 		NSMutableDictionary *body = [@{} mutableCopy];
 		
@@ -136,7 +136,7 @@
 		NSString *input = [[request body] objectForKey:kSuperNetworkMessageBodyInputKey];
 		SuperInterpreterObjectBrowser *objectBrowser = [SuperInterpreterObjectBrowser new];
 		
-		FSInterpreterResult *result = [weakSelf.interpreter execute:input];
+		FSInterpreterResult *result = [weakSelf interpreterResultForInput:input logResult:YES];
 		
 		
 		NSLog(@"[SERVER]: Loading properties for input: %@", input);
@@ -166,7 +166,7 @@
 		NSString *input = [[request body] objectForKey:kSuperNetworkMessageBodyInputKey];
 		SuperInterpreterObjectBrowser *objectBrowser = [SuperInterpreterObjectBrowser new];
 		
-		FSInterpreterResult *result = [weakSelf.interpreter execute:input];
+		FSInterpreterResult *result = [weakSelf interpreterResultForInput:input logResult:YES];
 		
 		
 		NSLog(@"[SERVER]: Loading methods for input: %@", input);
@@ -209,7 +209,7 @@
 		
 		// Evaluate self and get the result to be returned to the client
 		// Sure, could just pass in the actual view controller, but I'd rather hear it straight from the interpreter.
-		FSInterpreterResult *result = [weakSelf.interpreter execute:@"self"];
+		FSInterpreterResult *result = [weakSelf interpreterResultForInput:@"self" logResult:YES];
 		if ([result isOK]) {
 			[body setObject:kSuperNetworkMessageBodyStatusOK forKey:kSuperNetworkMessageBodyStatusKey];
 			[body setObject:[[result result] description] forKey:kSuperNetworkMessageBodyOutputKey];
@@ -229,6 +229,32 @@
 
 - (void)setCurrentSelfPointerBlock:(SuperInterpreterServiceUpdateSelfPointerBlock)currentSelfPointerBlock {
 	_currentSelfPointerBlock = [currentSelfPointerBlock copy];
+}
+
+
+- (FSInterpreterResult *)interpreterResultForInput:(NSString *)input logResult:(BOOL)shouldLog {
+	FSInterpreterResult *result = [self.interpreter execute:input];
+	
+	if (shouldLog) {
+		NSCalendar *cal = [NSCalendar currentCalendar];
+		
+		NSDate *date = [NSDate date];
+		NSDateComponents *comps = [cal components:(NSEraCalendarUnit | NSYearCalendarUnit | NSMonthCalendarUnit | NSDayCalendarUnit)
+										 fromDate:date];
+		NSDate *today = [cal dateFromComponents:comps];
+		NSString *logKey = [today description];
+		
+		NSString *logForToday = [[NSUserDefaults standardUserDefaults] stringForKey:logKey];
+		if (!logForToday) {
+			logForToday = @"";
+		}
+		
+		NSString *resultString = [result isOK]? [result result] : [result errorMessage];
+		NSString *newLog = [NSString stringWithFormat:@"%@\n%@", logForToday, resultString];
+		[[NSUserDefaults standardUserDefaults] setValue:newLog forKey:logKey];
+	}
+	
+	return result;
 }
 
 

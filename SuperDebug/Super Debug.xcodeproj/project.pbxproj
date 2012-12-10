@@ -41,47 +41,12 @@
 			remoteGlobalIDString = 8DC2EF5B0486A6940098B216;
 			remoteInfo = ParseKit;
 		};
-		CD7353D0166FF624002D52D3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CD7353BE166FF624002D52D3 /* ParseKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = D389F1CE0F1965E600558235;
-			remoteInfo = JSParseKit;
-		};
-		CD7353D2166FF624002D52D3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CD7353BE166FF624002D52D3 /* ParseKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = D3FDC5830FFC4BFC00F1F797;
-			remoteInfo = ParseKitMobile;
-		};
 		CD7353D4166FF624002D52D3 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = CD7353BE166FF624002D52D3 /* ParseKit.xcodeproj */;
 			proxyType = 2;
 			remoteGlobalIDString = D37D8DC61571A4F700CDB822;
 			remoteInfo = Tests;
-		};
-		CD7353D6166FF624002D52D3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CD7353BE166FF624002D52D3 /* ParseKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = D33494100E2963FD00406085;
-			remoteInfo = DemoApp;
-		};
-		CD7353D8166FF624002D52D3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CD7353BE166FF624002D52D3 /* ParseKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = D34185040E520D3F0081B0DC;
-			remoteInfo = DebugApp;
-		};
-		CD7353DA166FF624002D52D3 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CD7353BE166FF624002D52D3 /* ParseKit.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = D389F2030F196A7500558235;
-			remoteInfo = JSDemoApp;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -178,12 +143,7 @@
 			isa = PBXGroup;
 			children = (
 				CD7353CF166FF624002D52D3 /* ParseKit.framework */,
-				CD7353D1166FF624002D52D3 /* JSParseKit.framework */,
-				CD7353D3166FF624002D52D3 /* libparsekit.a */,
 				CD7353D5166FF624002D52D3 /* Tests.octest */,
-				CD7353D7166FF624002D52D3 /* DemoApp.app */,
-				CD7353D9166FF624002D52D3 /* DebugApp.app */,
-				CD7353DB166FF624002D52D3 /* JSDemoApp.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -345,46 +305,11 @@
 			remoteRef = CD7353CE166FF624002D52D3 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		CD7353D1166FF624002D52D3 /* JSParseKit.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = JSParseKit.framework;
-			remoteRef = CD7353D0166FF624002D52D3 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		CD7353D3166FF624002D52D3 /* libparsekit.a */ = {
-			isa = PBXReferenceProxy;
-			fileType = archive.ar;
-			path = libparsekit.a;
-			remoteRef = CD7353D2166FF624002D52D3 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		CD7353D5166FF624002D52D3 /* Tests.octest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
 			path = Tests.octest;
 			remoteRef = CD7353D4166FF624002D52D3 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		CD7353D7166FF624002D52D3 /* DemoApp.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = DemoApp.app;
-			remoteRef = CD7353D6166FF624002D52D3 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		CD7353D9166FF624002D52D3 /* DebugApp.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = DebugApp.app;
-			remoteRef = CD7353D8166FF624002D52D3 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		CD7353DB166FF624002D52D3 /* JSDemoApp.app */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.application;
-			path = JSDemoApp.app;
-			remoteRef = CD7353DA166FF624002D52D3 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
