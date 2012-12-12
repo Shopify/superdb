@@ -44,12 +44,12 @@
 }
 
 
-- (void)setCurrentViewControllerBlock:(SuperInterpreterServiceUpdateSelfPointerBlock)currentViewControllerBlock {
-	self.interpreter.currentSelfPointerBlock = currentViewControllerBlock;
+- (void)setCurrentSelfPointerBlock:(SuperInterpreterServiceUpdateSelfPointerBlock)currentSelfPointerBlock {
+	self.interpreter.currentSelfPointerBlock = currentSelfPointerBlock;
 }
 
 
-- (SuperInterpreterServiceUpdateSelfPointerBlock)currentViewControllerBlock {
+- (SuperInterpreterServiceUpdateSelfPointerBlock)currentSelfPointerBlock {
 	return self.interpreter.currentSelfPointerBlock;
 }
 
