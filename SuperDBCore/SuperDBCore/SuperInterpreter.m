@@ -98,7 +98,7 @@
 			
 			if (nil == [result result]) {
 				NSLog(@"[ERROR]: [result result] was nil... result is: %@", result);
-				[body setObject:@"Empty result. This usually means you sent a message to the wrong view controller. Try calling `.self` and trying again." forKey:kSuperNetworkMessageBodyOutputKey];
+				[body setObject:@"Empty result. This usually means you sent a message to a nil pointer." forKey:kSuperNetworkMessageBodyOutputKey];
 			} else {
 				[body setObject:[[result result] description] forKey:kSuperNetworkMessageBodyOutputKey];
 			}
