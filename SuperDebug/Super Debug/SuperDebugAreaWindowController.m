@@ -97,8 +97,7 @@
 	
 	[self.shellContainer.shellView setNumberDragHandler:^(id draggedItem) {
 		[self.networkClient requestWithStringToEvaluate:draggedItem responseHandler:^(SuperNetworkMessage *response) {
-			NSLog(@"%@", draggedItem);
-			[response log];
+			// Do something with the response if you'd like.
 		}];
 	}];
 	
