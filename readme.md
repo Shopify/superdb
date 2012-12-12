@@ -16,7 +16,7 @@ Installation
 
 1. Add the repository as a submodule to your Project's repository
 
-		\>git submodule add https://github.com/Shopify/superdb.git MyApp/Libraries/superdb
+		>git submodule add https://github.com/Shopify/superdb.git MyApp/Libraries/superdb
 
 2. Find the superdbCore project in Finder and drag it in to your currently open Xcode project. This will add it as a subproject.
 
