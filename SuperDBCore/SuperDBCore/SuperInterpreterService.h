@@ -29,7 +29,7 @@ typedef id(^SuperInterpreterServiceUpdateSelfPointerBlock)(void);
 
 @property (nonatomic, assign) NSUInteger maximumConnectedClients; // defaults to NSUIntegerMax
 @property (nonatomic, weak) id<SuperInterpreterServiceDelegate> delegate;
-@property (nonatomic, copy) SuperInterpreterServiceUpdateSelfPointerBlock currentViewControllerBlock;
+@property (nonatomic, copy) SuperInterpreterServiceUpdateSelfPointerBlock currentSelfPointerBlock;
 
 - (BOOL)startServer;
 - (void)stopServer;
