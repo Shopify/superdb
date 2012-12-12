@@ -17,6 +17,9 @@
 #import "Geometry.h"
 
 
+#define kSuperDebuggerDeviceLogDefaultsKey @"org.superdb.device.log_settings"
+#define USE_LOGGING [[NSUserDefaults standardUserDefaults] boolForKey:kSuperDebuggerDeviceLogDefaultsKey]
+
 @interface SuperInterpreter ()
 @property (nonatomic, strong) NSMutableDictionary *requestHandlers;
 @property (nonatomic, strong) FSInterpreter *interpreter;
@@ -68,6 +71,13 @@
 	
 	// Add custom classes to the environment
 	[self.interpreter setObject:[Geometry class] forIdentifier:NSStringFromClass([Geometry class])];
+	
+	
+	// Enable logging by default
+	if ([[NSUserDefaults standardUserDefaults] objectForKey:kSuperDebuggerDeviceLogDefaultsKey] == nil) {
+		NSLog(@"[SuperDB]: Enabling device-side logs of interpreter input+output. These are stored in the defaults. To turn off, use `.logging off`");
+		[[NSUserDefaults standardUserDefaults] setBool:YES forKey:kSuperDebuggerDeviceLogDefaultsKey];
+	}
 }
 
 
@@ -78,7 +88,7 @@
 	[self addRequestHandlerForResource:kSuperNetworkMessageResourceInterpreter requestHandler:^SuperNetworkMessage *(SuperNetworkMessage *request) {
 		
 		NSString *input = [[request body] objectForKey:kSuperNetworkMessageBodyInputKey];
-		FSInterpreterResult *result = [weakSelf interpreterResultForInput:input logResult:YES];
+		FSInterpreterResult *result = [weakSelf interpreterResultForInput:input logResult:USE_LOGGING];
 		
 		NSMutableDictionary *body = [@{} mutableCopy];
 		
@@ -88,7 +98,7 @@
 			
 			if (nil == [result result]) {
 				NSLog(@"[ERROR]: [result result] was nil... result is: %@", result);
-				[body setObject:@"Empty result. This usually means you sent a message to the wrong view controller. Try calling `.self` and trying again." forKey:kSuperNetworkMessageBodyOutputKey];
+				[body setObject:@"Empty result. This usually means you sent a message to a nil pointer." forKey:kSuperNetworkMessageBodyOutputKey];
 			} else {
 				[body setObject:[[result result] description] forKey:kSuperNetworkMessageBodyOutputKey];
 			}
@@ -117,7 +127,7 @@
 	
 	[self addRequestHandlerForResource:kSuperNetworkMessageResourceClassList requestHandler:^SuperNetworkMessage *(SuperNetworkMessage *request) {
 		NSArray *classList = classNames();
-		if ([self.projectPrefix length])
+		if ([weakSelf.projectPrefix length])
 			classList = [classList filteredArrayUsingPredicate:[NSPredicate predicateWithFormat:@"SELF like[c] %@", [NSString stringWithFormat:@"%@*", self.projectPrefix]]];
 		
 		NSMutableDictionary *body = [@{} mutableCopy];
@@ -136,7 +146,7 @@
 		NSString *input = [[request body] objectForKey:kSuperNetworkMessageBodyInputKey];
 		SuperInterpreterObjectBrowser *objectBrowser = [SuperInterpreterObjectBrowser new];
 		
-		FSInterpreterResult *result = [weakSelf interpreterResultForInput:input logResult:YES];
+		FSInterpreterResult *result = [weakSelf interpreterResultForInput:input logResult:USE_LOGGING];
 		
 		
 		NSLog(@"[SERVER]: Loading properties for input: %@", input);
@@ -166,7 +176,7 @@
 		NSString *input = [[request body] objectForKey:kSuperNetworkMessageBodyInputKey];
 		SuperInterpreterObjectBrowser *objectBrowser = [SuperInterpreterObjectBrowser new];
 		
-		FSInterpreterResult *result = [weakSelf interpreterResultForInput:input logResult:YES];
+		FSInterpreterResult *result = [weakSelf interpreterResultForInput:input logResult:USE_LOGGING];
 		
 		
 		NSLog(@"[SERVER]: Loading methods for input: %@", input);
@@ -191,7 +201,7 @@
 	}];
 	
 	
-	[self addRequestHandlerForResource:kSuperNetworkMessageResourceUpdateCurrentViewController requestHandler:^SuperNetworkMessage *(SuperNetworkMessage *request) {
+	[self addRequestHandlerForResource:kSuperNetworkMessageResourceUpdateCurrentSelfPointer requestHandler:^SuperNetworkMessage *(SuperNetworkMessage *request) {
 		NSLog(@"[SERVER]: Updating the current view controller.");
 		NSMutableDictionary *body = [@{} mutableCopy];
 #if !TARGET_OS_IPHONE
@@ -200,8 +210,8 @@
 		// Defaults to the window's rootViewController
 		id newSelf = [[[UIApplication sharedApplication] keyWindow] rootViewController];
 #endif
-		if (self.currentSelfPointerBlock) {
-			newSelf = self.currentSelfPointerBlock();
+		if (weakSelf.currentSelfPointerBlock) {
+			newSelf = weakSelf.currentSelfPointerBlock();
 		}
 		
 		// Assign this view controller in the environment
@@ -209,7 +219,7 @@
 		
 		// Evaluate self and get the result to be returned to the client
 		// Sure, could just pass in the actual view controller, but I'd rather hear it straight from the interpreter.
-		FSInterpreterResult *result = [weakSelf interpreterResultForInput:@"self" logResult:YES];
+		FSInterpreterResult *result = [weakSelf interpreterResultForInput:@"self" logResult:USE_LOGGING];
 		if ([result isOK]) {
 			[body setObject:kSuperNetworkMessageBodyStatusOK forKey:kSuperNetworkMessageBodyStatusKey];
 			[body setObject:[[result result] description] forKey:kSuperNetworkMessageBodyOutputKey];
@@ -221,6 +231,28 @@
 			NSRange range = [result errorRange];
 			[body setObject:NSStringFromRange(range) forKey:kSuperNetworkMessageBodyErrorRange];
 		}
+		SuperNetworkMessage *response = [SuperNetworkMessage messageWithHeader:request.header body:body];
+		return response;
+	}];
+	
+	
+	[self addRequestHandlerForResource:kSuperNetworkMessageResourceDeviceLoggingSettings requestHandler:^SuperNetworkMessage *(SuperNetworkMessage *request) {
+		
+		NSString *input = [[request body] objectForKey:kSuperNetworkMessageBodyInputKey];
+		
+		BOOL shouldSet = NO;
+		if ([input compare:@"on" options:NSCaseInsensitiveSearch] == NSOrderedSame) {
+			shouldSet = YES;
+		}
+		[[NSUserDefaults standardUserDefaults] setBool:shouldSet forKey:kSuperDebuggerDeviceLogDefaultsKey];
+		NSString *output = [NSString stringWithFormat:@"Device logging is %@.", shouldSet? @"on" : @"off"];
+		
+		NSMutableDictionary *body = [@{} mutableCopy];
+		
+		[body setObject:kSuperNetworkMessageBodyStatusOK forKey:kSuperNetworkMessageBodyStatusKey];
+		[body setObject:output forKey:kSuperNetworkMessageBodyOutputKey];
+		
+		
 		SuperNetworkMessage *response = [SuperNetworkMessage messageWithHeader:request.header body:body];
 		return response;
 	}];
