@@ -66,7 +66,7 @@ NSString *const kContentLengthKey = @"Content-Length: ";
 #pragma mark - GCDAsyncSocketDelegate methods
 
 - (void)socket:(GCDAsyncSocket *)sock didReadData:(NSData *)data withTag:(long)tag {
-	
+	NSLog(@"[JSTP]: READ TAG: %lu", tag);
 	if (kJSTPHeaderTag == tag) {
 		
 		// Read in the header to figure out how many bytes ahead we have to read

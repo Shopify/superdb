@@ -153,9 +153,10 @@
 		response = [self.interpreter responseForRequest:message];
 		
 	} else {
-		// Let the delegate process the message and return a response
-		NSLog(@"[SERVER]: Going to let the delegate try...");
-		response = [self.delegate responseMessageByProcessingRequestMessage:message];
+//		// Let the delegate process the message and return a response
+//		NSLog(@"[SERVER]: Going to let the delegate try...");
+//		response = [self.delegate responseMessageByProcessingRequestMessage:message];
+		response = [SuperNetworkMessage messageWithType:SuperNetworkMessageTypeHandshake body:@{ @"debug" : @"OK" }];
 	}
 	
 	return [response JSONData];
