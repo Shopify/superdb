@@ -22,7 +22,7 @@ Installation
 
 3. In your Target's settings, expand the "Link with Libraries" section, press the + icon, and add the libSuperDBCore.a library.
 
-4. Also add the `CFNetwork.framework` in the same way.
+4. Also add the `CFNetwork`, `Security` and `CoreData` frameworks in the same way.
 
 5. On the "Build Settings" for your Target, find the "Header Search Paths" setting and add an entry (for at least your Debug configuration or optionally all configurations). This entry should be for `$(BUILT_PRODUCTS_DIR)` and it should be marked as `recursive`.
 
