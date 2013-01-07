@@ -34,6 +34,7 @@
 // ignoring these warnings until it can be fixed, for build servers.
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-w"
+#ifndef __clang_analyzer__
 
 struct sort_elem
 {
@@ -1297,3 +1298,4 @@ static int comp(const void *a,const void *b)
 
 @end
 #pragma clang diagnostic pop
+#endif // not __clang_analyzer__

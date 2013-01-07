@@ -36,6 +36,7 @@
 // ignoring these warnings until it can be fixed, for build servers.
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-w"
+#ifndef __clang_analyzer__
 
 @class _NSZombie, NSFault, NSRTFD;
 
@@ -574,3 +575,4 @@ void printIntegerTypeInfo(void)
 }
 
 #pragma clang diagnostic pop
+#endif // not __clang_analyzer__

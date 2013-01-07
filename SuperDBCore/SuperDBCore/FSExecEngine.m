@@ -63,6 +63,7 @@
 // ignoring these warnings until it can be fixed, for build servers.
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-w"
+#ifndef __clang_analyzer__
 
 static NSMutableSet *issuedWarnings;
 
@@ -1637,3 +1638,4 @@ id execute_rec(FSCNBase *codeNode, FSSymbolTable *localSymbolTable, NSInteger *e
   return nil; // W
 }
 #pragma clang diagnostic pop
+#endif // not __clang_analyzer__

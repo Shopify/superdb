@@ -1,5 +1,6 @@
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-w"
+#ifndef __clang_analyzer__
 
 #if !TARGET_IPHONE_SIMULATOR
 
@@ -322,3 +323,4 @@ ffi_prep_closure_loc (ffi_closure* closure,
 }
 #endif
 #pragma clang diagnostic pop
+#endif // not __clang_analyzer__

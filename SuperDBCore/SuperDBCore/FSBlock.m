@@ -29,6 +29,7 @@
 // ignoring these warnings until it can be fixed, for build servers.
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-w"
+#ifndef __clang_analyzer__
 
 void __attribute__ ((constructor)) initializeFSBlock(void) 
 {
@@ -883,3 +884,4 @@ NSString *FS_Block_keyOfSetValueForKeyMessage(FSBlock *s)
 
 @end
 #pragma clang diagnostic pop
+#endif // not __clang_analyzer__

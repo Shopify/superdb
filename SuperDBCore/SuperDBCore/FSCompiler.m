@@ -38,6 +38,7 @@
 // ignoring these warnings until it can be fixed, for build servers.
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-w"
+#ifndef __clang_analyzer__
 
 #define isnonascii(c) ((((unsigned int)(c)) & 0x80) != 0)
 
@@ -1813,3 +1814,4 @@ static NSString *FSOperatorFromObjCOperatorName(NSString *operatorName)  // ex: 
 
 @end
 #pragma clang diagnostic pop
+#endif // not __clang_analyzer__
