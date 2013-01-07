@@ -10,6 +10,10 @@
 #import "ArrayPrivate.h"
 #import "ArrayRepDouble.h"
 
+// ignoring these warnings until it can be fixed, for build servers.
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-w"
+
 @interface NSNumber(FSNSNumberPrivate)
 - (BOOL) hasFrac_bool;
 @end
@@ -499,3 +503,4 @@
 }  
 
 @end
+#pragma clang diagnostic pop

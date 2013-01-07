@@ -31,6 +31,10 @@
 	_a < _b ? _a : _b; })
 #endif
 
+// ignoring these warnings until it can be fixed, for build servers.
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-w"
+
 struct sort_elem
 {
   NSUInteger index;
@@ -1292,3 +1296,4 @@ static int comp(const void *a,const void *b)
 
 
 @end
+#pragma clang diagnostic pop

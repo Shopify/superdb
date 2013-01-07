@@ -60,6 +60,10 @@
 # import "FScriptTextView.h"
 #endif
 
+// ignoring these warnings until it can be fixed, for build servers.
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-w"
+
 static NSMutableSet *issuedWarnings;
 
 void __attribute__ ((constructor)) initializeFSExecEngine(void) 
@@ -1631,4 +1635,5 @@ id execute_rec(FSCNBase *codeNode, FSSymbolTable *localSymbolTable, NSInteger *e
 
   assert(0);
   return nil; // W
-}  
+}
+#pragma clang diagnostic pop

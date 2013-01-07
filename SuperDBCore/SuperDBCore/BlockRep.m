@@ -29,6 +29,10 @@
 #import "FSCNKeywordMessage.h"
 #import "FSCNPrecomputedObject.h"
 
+// ignoring these warnings until it can be fixed, for build servers.
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-w"
+
 @implementation BlockRep
 
 + (void)initialize 
@@ -641,3 +645,4 @@
 }
 
 @end
+#pragma clang diagnostic pop

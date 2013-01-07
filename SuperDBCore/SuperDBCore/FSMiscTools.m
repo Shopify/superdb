@@ -33,6 +33,10 @@
 # import "FSCollectionInspector.h"
 #endif
 
+// ignoring these warnings until it can be fixed, for build servers.
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-w"
+
 @class _NSZombie, NSFault, NSRTFD;
 
 static ffi_type ffi_type_NSRange, ffi_type_NSPoint, ffi_type_NSRect, ffi_type_NSSize, ffi_type_CGAffineTransform;
@@ -568,3 +572,5 @@ void printIntegerTypeInfo(void)
     printf("Unsigned long long min: 0 max: %llu\n",
         ULLONG_MAX);
 }
+
+#pragma clang diagnostic pop

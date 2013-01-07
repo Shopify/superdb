@@ -27,6 +27,10 @@
 	_a < _b ? _a : _b; })
 #endif
 
+// ignoring these warnings until it can be fixed, for build servers.
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-w"
+
 @implementation ArrayRepBoolean
 
 ////////////////////////////// USER METHODS SUPPORT /////////////////////////////
@@ -321,3 +325,4 @@
 - (enum ArrayRepType)repType {return BOOLEAN;}
 
 @end
+#pragma clang diagnostic pop

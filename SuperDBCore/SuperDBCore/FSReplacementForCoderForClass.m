@@ -4,6 +4,10 @@
 #import "FSReplacementForCoderForClass.h"
 #import <Foundation/Foundation.h>
 
+// ignoring these warnings until it can be fixed, for build servers.
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-w"
+
 void __attribute__ ((constructor)) initializeFSReplacementForCoderForClass(void) 
 {
   [NSKeyedUnarchiver setClass:[FSReplacementForCoderForClass class] forClassName:@"ReplacementForCoderForClass"];
@@ -72,3 +76,5 @@ void __attribute__ ((constructor)) initializeFSReplacementForCoderForClass(void)
 }
   
 @end
+
+#pragma clang diagnostic pop

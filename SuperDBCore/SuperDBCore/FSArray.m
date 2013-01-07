@@ -29,6 +29,10 @@
 #import "FSNSMutableArray.h"
 #import "FSReplacementForCoderForNilInArray.h"
 
+// ignoring these warnings until it can be fixed, for build servers.
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-w"
+
 @interface FSArray(ArrayPrivateInternal)
 - (void) addObjectsFromFSArray:(FSArray *)otherArray;
 - (NSUInteger)indexOfObject:(id)anObject inRange:(NSRange)range identical:(BOOL)identical;
@@ -721,3 +725,4 @@ typedef struct fs_objc_object {
 }
 
 @end
+#pragma clang diagnostic pop

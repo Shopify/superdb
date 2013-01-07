@@ -26,6 +26,10 @@
 # import "BlockInspector.h"
 #endif
 
+// ignoring these warnings until it can be fixed, for build servers.
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-w"
+
 void __attribute__ ((constructor)) initializeFSBlock(void) 
 {
   [NSKeyedUnarchiver setClass:[FSBlock class] forClassName:@"Block"];
@@ -878,3 +882,4 @@ NSString *FS_Block_keyOfSetValueForKeyMessage(FSBlock *s)
 }       
 
 @end
+#pragma clang diagnostic pop

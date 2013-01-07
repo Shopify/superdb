@@ -45,6 +45,9 @@
 	_a < _b ? _a : _b; })
 #endif
 
+// ignoring these warnings until it can be fixed, for build servers.
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-w"
 
 @interface ArrayRepId(ArrayRepIdPrivate)
 - (void) addObjectsFromFSArray:(FSArray *)otherArray;
@@ -768,3 +771,4 @@
 }
 
 @end
+#pragma clang diagnostic pop

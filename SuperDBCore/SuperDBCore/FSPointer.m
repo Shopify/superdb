@@ -14,6 +14,10 @@
 #import "FSObjectPointer.h"
 #import "FSObjectPointerPrivate.h"
 
+// ignoring these warnings until it can be fixed, for build servers.
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-w"
+
 void FSPointer_validateDereferencingWithSelector_index(FSPointer *s, SEL selector, id i)  // Would be simpler to implement as a method, but here I want to experiment about not poluting the method's space of user objects
 {
   if (s == nil) return;
@@ -142,3 +146,4 @@ void FSPointer_validateDereferencingWithSelector_index(FSPointer *s, SEL selecto
 
 @end
 
+#pragma clang diagnostic pop

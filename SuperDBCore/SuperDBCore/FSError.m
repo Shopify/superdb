@@ -3,6 +3,10 @@
 
 #import "FSError.h"
 #import "FSBoolean.h"
+
+// ignoring these warnings until it can be fixed, for build servers.
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-w"
  
 @implementation FSError
 
@@ -36,3 +40,4 @@
 
 
 @end
+#pragma clang diagnostic pop

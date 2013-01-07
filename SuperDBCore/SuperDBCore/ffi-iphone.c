@@ -1,11 +1,13 @@
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-w"
 
 #if !TARGET_IPHONE_SIMULATOR
 
 
 /* -----------------------------------------------------------------------
    ffi.c - Copyright (c) 1998, 2008  Red Hat, Inc.
-   
-   ARM Foreign Function Interface 
+ 
+   ARM Foreign Function Interface
 
    Permission is hereby granted, free of charge, to any person obtaining
    a copy of this software and associated documentation files (the
@@ -34,6 +36,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <libkern/OSCacheControl.h>
+
 
 /* ffi_prep_args is called by the assembly routine once stack space
    has been allocated for the function's arguments */
@@ -193,8 +196,9 @@ void ffi_call(ffi_cif *cif, void (*fn)(void), void *rvalue, void **avalue)
       FFI_ASSERT(0);
       break;
     }
-  if (small_struct)
-    memcpy (rvalue, &temp, cif->rtype->size);
+	if (small_struct && rvalue != NULL) {
+		memcpy (rvalue, &temp, cif->rtype->size);
+	}
 }
 
 /** private members **/
@@ -316,5 +320,5 @@ ffi_prep_closure_loc (ffi_closure* closure,
 
   return FFI_OK;
 }
-
 #endif
+#pragma clang diagnostic pop

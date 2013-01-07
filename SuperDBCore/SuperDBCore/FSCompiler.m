@@ -35,6 +35,9 @@
 #import "FSVoid.h"
 #import "FSCNDictionary.h"
 
+// ignoring these warnings until it can be fixed, for build servers.
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-w"
 
 #define isnonascii(c) ((((unsigned int)(c)) & 0x80) != 0)
 
@@ -1809,3 +1812,4 @@ static NSString *FSOperatorFromObjCOperatorName(NSString *operatorName)  // ex: 
 }
 
 @end
+#pragma clang diagnostic pop
