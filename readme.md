@@ -24,7 +24,7 @@ Installation
 
 4. Also add the `CFNetwork`, `Security` and `CoreData` frameworks in the same way.
 
-5. On the "Build Settings" for your Target, find the "Header Search Paths" setting and add an entry (for at least your Debug configuration or optionally all configurations). This entry should be for `$(BUILT_PRODUCTS_DIR)` and it should be marked as `recursive`.
+5. On the "Build Settings" for your Target, find the "Header Search Paths" setting and add an entry (for at least your Debug configuration or optionally all configurations). This entry should be for `"path/to/superdb/SuperDBCore"`  (relative to your project's root... this is the same path you used when specifying where to put the submodule) and it should be marked as `recursive`.
 
 6. Next, pick which class is going to house your Interpreter service. A good spot for this is your AppDelegate.
 
