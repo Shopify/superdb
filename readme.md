@@ -58,8 +58,6 @@ You should be good to go. Fire up the app in either the Simulator or on a device
 Demo application
 ----------------
 
-Contributing
-------------
 
 Using
 -----
@@ -68,3 +66,60 @@ Using
 ###Updating the `self` pointer
 ###Dragging
 ###Dot commands
+
+Contributing
+------------
+
+Contributions are absolutely welcomed. The shell works well enough for everyday use, but there's definitely room to grow. If you'd like to fix a bug or implement a feature, do the following:
+
+1. Create a fork of this project.
+2. Take note that the default branch we work on is `develop`, **not** `master`. If your fork doesn't default to using `develop`, you can set this in your fork's Settings page.
+3. Create a topic branch in your fork and try to give it a meaningful name like `feature/device-pairing` or `bugfix/network-timouts`.
+4. Write code (or better, delete some!) on your branch. **Important**: Keep the code style consistent with surrounding code. If your code deviates too far from this, you'll be asked to clean it up.
+5. When ready, make a Pull Request for your topic branch to the main repository's `develop` branch.
+6. Feel good about yourself because you just made a contribution to this project, and that's really awesome!
+
+Details for Nerds
+-----------------
+
+The history of superdb is as follows:
+
+Philippe Mougin wrote a piece of software called `F-Script`, which applies a Smalltalk-like syntax on top of the Cocoa (OS X) object system. It's a great tool for exploring Cocoa objects, he calls it a "Finder for your Objects".
+
+GitHub user @pablomarx got a version of F-Script running on iOS with a very basic user interface.
+
+I took the project and cleaned it up (the iOS fork needed substantial work to get running with Clang), created a modern [Cocoa Shell](https://github.com/jbrennan/JBShellView) and slapped a network layer between the two.
+
+The result is an F-Script interpreter which runs on iOS, a shell program which runs on OS X, and `JSTP`, a simple JSON-based transfer protocol between the two (`JSTP` looks quite a lot like `HTTP` except every session is essentially a `POST` and it's bi-directional). You can send messages to your objects from the shell and they'll execute on the device without the need for breakpoints.
+
+The F-Script code is still pretty old and rough. It needs major overhauling to be modernized to new Objective C style (it's still manually memory managed), and there are lots of leaks or little bugs, but it works well enough.
+
+License
+-------
+
+SuperDB is licensed under a **BSD**-3-clause license:
+
+Copyright (c) 2012-2013, Shopify, Inc.
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions are met:
+	* Redistributions of source code must retain the above copyright
+	  notice, this list of conditions and the following disclaimer.
+	* Redistributions in binary form must reproduce the above copyright
+	  notice, this list of conditions and the following disclaimer in the
+	  documentation and/or other materials provided with the distribution.
+	* Neither the name of the Shopify, Inc. nor the
+	  names of its contributors may be used to endorse or promote products
+	  derived from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
+ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
+WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+DISCLAIMED. IN NO EVENT SHALL Shopify, Inc. BE LIABLE FOR ANY
+DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
+(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
+LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
+SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
