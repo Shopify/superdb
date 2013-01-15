@@ -95,6 +95,11 @@
 		NSLog(@"ERROR setting up environment: %@", [result errorMessage]);
 	}
 	
+	result = [self.interpreter execute:@"self := UIApplication sharedApplication delegate"];
+	if (![result isOK]) {
+		NSLog(@"ERROR setting up environment: %@", [result errorMessage]);
+	}
+	
 	// Add custom classes to the environment
 	[self.interpreter setObject:[Geometry class] forIdentifier:NSStringFromClass([Geometry class])];
 	
