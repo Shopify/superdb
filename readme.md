@@ -16,13 +16,13 @@ Installation
 
 1. Set up git settings (you might want to do this in a fresh branch...`git checkout feature/superdb`):
 	
-		1. Add the repository as a submodule to your Project's repository
+	1. Add the repository as a submodule to your Project's repository
 
-				git submodule add https://github.com/Shopify/superdb.git MyApp/Libraries/superdb
+			git submodule add https://github.com/Shopify/superdb.git MyApp/Libraries/superdb
 	
-		2. Initialize all of superdb's submodules, too (if you get stuck, use a graphical tool like Gitbox. It makes submodules so much easier).
+	2. Initialize all of superdb's submodules, too (if you get stuck, use a graphical tool like Gitbox. It makes submodules so much easier).
 		
-				git submodule update --init --recursive
+			git submodule update --init --recursive
 
 2. Find the superdbCore project in Finder and drag it in to your currently open Xcode project. This will add it as a subproject.
 
