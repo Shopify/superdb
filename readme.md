@@ -88,9 +88,37 @@ Using
 -----
 
 ###Sending messages
+
+Message syntax is quite a bit like Objective C but not quite exactly. It's actually a lot closer to Smalltalk (this means everythig is an object, there are no primitive values, `3` is an `NSNumber`, not an `int`, but thankfully the interpreter takes care of most of the boxing). This gives lots of flexibility but also means you can't directly call functions or directly access variables. You've got to send *messages* to *objects*.
+
+In Objective C:
+
+	[object message]
+	[object messageWithName:@"Jason"]
+	[object messageWithName:[other name]]
+	id name = [object name]
+
+In superdb:
+
+	object message
+	object messageWithName:"Jason"
+	object messageWithName:(other name)
+	name := object name
+
 ###Updating the `self` pointer
+
+By default, the debugger doesn't have a pointer to a variable called `self`, but you can update this by using the built-in `.self` command (debugger commands are prefixed with a dot). 
+
+When you issue this commmand, the interpreter (running inside your app) executes the block you passed in when configuring it in your app (see above). `self` will then point to whatever you returned from that block. You'll likely want to always return whatever your "current" view controller is, so that block should return the top of your nav stack, or currently selected tab, or whatever you decide. When you switch screens in your app, issue `.self` again to have the pointer update.
+
+You can then message `self` like any other object.
+
 ###Dragging
-###Dot commands
+
+When sending a message with numbers you'll see the result appear instantly. After you've sent the message once, you can then drag your mouse left and right over the number to see it shrink or grow instantly.
+
+Right now this only works with integers, so if you've got a method where you need a floating point (say something between 0 and 1), then you need to be a little tricksy and just divide. Instead of `view setProgress:0.5`, you could say `view setProgress:1/100`, allowing you to still drag properly.
+
 
 Contributing
 ------------
