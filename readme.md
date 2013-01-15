@@ -72,6 +72,17 @@ You should be good to go. Fire up the app in either the Simulator or on a device
 Demo application
 ----------------
 
+If you'd like to quickly test out some of the features, there's an included demo application found in the `Debug Me` directory. Open the `SuperWorkspace` file and build the `Debug Me` target, either for your simulator or for a device, and run the demo app and then run the `Super Debugger` target. The app provides some instructions on how to use the debugger but here they are for posterity:
+
+1. In the Mac app, issue the command `.self` (note the leading dot). This updates the `self pointer`, which will execute a Block in the App delegate that returns whatever we want to be pointed to by the variable `self`. In this case (and in most cases), we want `self` to point to the current view controller. For `Debug Me`, that means it points to our instance of `DBMEViewController` after we issue this command.
+
+2. Now that our pointer is set up, we can send a message to that pointer. Type `self redView layer setMasksToBounds:YES`. This sends a chain of messages in `F-Script` syntax. In Objective C, it would look like `[[[self redView] layer] setMasksToBounds:YES]`. Here we omit the braces because of our syntax.
+
+	We do use parentheis sometimes, when passing the result of a message send would be ambiguous, for example something like this in Objective C: `[view setBackgroundColor:[UIColor purpleColor]]` would be `view setBackgroundColor:(UIColor purpleColor)` in our syntax. Read more about `F-Script` below.
+
+3. The previous step has no visible result, so lets make a change. Type `self redView layer setCornerRadius:15` and see the red view get nice rounded corners!
+
+4. Now for the **impressive** part. Move your mouse over the number `15` and see it highlight. Now click and drag left or right, and see the view's corner radius update **in real time**. Awesome, huh?
 
 Using
 -----
