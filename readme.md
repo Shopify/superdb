@@ -9,7 +9,7 @@ You can then send messages to your live objects as the app is running on the dev
 
 The debugger will even let you rapidly resend messages involving numeric values. When trying to tweak an interface measurement, for example, you can just click and drag on the value and see the changes reflected instantly on the device.
 
-![Super Debugger running on a Mac debugging an included iOS app.](/path/img.jpg "Super Debugger running on a Mac debugging an included iOS app.")
+![Super Debugger running on a Mac debugging an included iOS app.](https://raw.github.com/Shopify/superdb/develop/screenshot.png "Super Debugger running on a Mac debugging an included iOS app.")
 
 See below for precise installation instructions, how to make use of the debugger, and how you can contribute.
 
