@@ -94,7 +94,7 @@ Philippe Mougin wrote a piece of software called `F-Script`, which applies a Sma
 
 GitHub user @pablomarx got a version of F-Script running on iOS with a very basic user interface.
 
-I took the project and cleaned it up (the iOS fork needed substantial work to get running with Clang), created a modern [Cocoa Shell](https://github.com/jbrennan/JBShellView) and slapped a network layer between the two.
+I took the project and cleaned it up (the iOS fork needed substantial work to get running with Clang), created a modern [Cocoa Shell](https://github.com/jbrennan/JBShellView) and slapped a network layer between the two. Although the project uses `F-Script`, not all of the desktop features are supported. Because it's such a large codebase, even I don't fully know what it's capable of. I'm learning and I'm modernizing it as I go. For more information, check out [F-Script's homepage](http://www.fscript.org) and its [Programming Guide in particular (PDF)](http://www.fscript.org/documentation/FScriptGuide.pdf).
 
 The result is an F-Script interpreter which runs on iOS, a shell program which runs on OS X, and `JSTP`, a simple JSON-based transfer protocol between the two (`JSTP` looks quite a lot like `HTTP` except every session is essentially a `POST` and it's bi-directional). You can send messages to your objects from the shell and they'll execute on the device without the need for breakpoints.
 
