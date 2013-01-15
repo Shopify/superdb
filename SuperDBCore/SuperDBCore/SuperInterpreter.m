@@ -304,11 +304,6 @@
 }
 
 
-- (void)setCurrentSelfPointerBlock:(SuperInterpreterServiceUpdateSelfPointerBlock)currentSelfPointerBlock {
-	_currentSelfPointerBlock = [currentSelfPointerBlock copy];
-}
-
-
 - (FSInterpreterResult *)interpreterResultForInput:(NSString *)input logResult:(BOOL)shouldLog {
 	FSInterpreterResult *result = [self.interpreter execute:input];
 	
