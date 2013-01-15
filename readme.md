@@ -14,15 +14,21 @@ See below for precise installation instructions, how to make use of the debugger
 Installation
 ------------
 
-1. Add the repository as a submodule to your Project's repository
+1. Set up git settings (you might want to do this in a fresh branch...`git checkout feature/superdb`):
+	
+		1. Add the repository as a submodule to your Project's repository
 
-		>git submodule add https://github.com/Shopify/superdb.git MyApp/Libraries/superdb
+				git submodule add https://github.com/Shopify/superdb.git MyApp/Libraries/superdb
+	
+		2. Initialize all of superdb's submodules, too (if you get stuck, use a graphical tool like Gitbox. It makes submodules so much easier).
+		
+				git submodule update --init --recursive
 
 2. Find the superdbCore project in Finder and drag it in to your currently open Xcode project. This will add it as a subproject.
 
 3. In your Target's settings, expand the "Link with Libraries" section, press the + icon, and add the libSuperDBCore.a library.
 
-4. Also add the `CFNetwork`, `Security` and `CoreData` frameworks in the same way.
+4. Also add the `CFNetwork`, `Security`, `CoreData` and `CoreGraphics` frameworks in the same way.
 
 5. On the "Build Settings" for your Target, find the "Header Search Paths" setting and add an entry (for at least your Debug configuration or optionally all configurations). This entry should be for `"path/to/superdb/SuperDBCore"`  (relative to your project's root... this is the same path you used when specifying where to put the submodule) and it should be marked as `recursive`.
 
