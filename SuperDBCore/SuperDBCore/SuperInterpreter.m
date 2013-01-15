@@ -109,6 +109,23 @@
 }
 
 
+- (void)setCurrentSelfPointerBlock:(SuperInterpreterServiceUpdateSelfPointerBlock)currentSelfPointerBlock {
+	if (_currentSelfPointerBlock == currentSelfPointerBlock)
+		return;
+	
+	_currentSelfPointerBlock = [currentSelfPointerBlock copy];
+	
+	if (_currentSelfPointerBlock == nil)
+		return;
+	
+	// Automatically set up the environment to have a pointer to `self` which executes the block passed in, automatically.
+	
+	id newSelf = _currentSelfPointerBlock();
+	
+	[self.interpreter setObject:newSelf forIdentifier:@"self"];
+}
+
+
 - (void)setupResponseHandlers {
 	self.requestHandlers = [@{} mutableCopy];
 	
