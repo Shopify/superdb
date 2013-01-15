@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:Debug Me/Debug Me.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:SuperDebug/Super Debug.xcodeproj">
    </FileRef>
    <FileRef

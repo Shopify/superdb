@@ -1,0 +1,318 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		CD4ABB7516A5E43400CAF459 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD4ABB7416A5E43400CAF459 /* UIKit.framework */; };
+		CD4ABB7716A5E43400CAF459 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD4ABB7616A5E43400CAF459 /* Foundation.framework */; };
+		CD4ABB7916A5E43400CAF459 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD4ABB7816A5E43400CAF459 /* CoreGraphics.framework */; };
+		CD4ABB7F16A5E43400CAF459 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = CD4ABB7D16A5E43400CAF459 /* InfoPlist.strings */; };
+		CD4ABB8116A5E43400CAF459 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CD4ABB8016A5E43400CAF459 /* main.m */; };
+		CD4ABB8516A5E43400CAF459 /* DBMEAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = CD4ABB8416A5E43400CAF459 /* DBMEAppDelegate.m */; };
+		CD4ABB8716A5E43400CAF459 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = CD4ABB8616A5E43400CAF459 /* Default.png */; };
+		CD4ABB8916A5E43400CAF459 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD4ABB8816A5E43400CAF459 /* Default@2x.png */; };
+		CD4ABB8B16A5E43400CAF459 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD4ABB8A16A5E43400CAF459 /* Default-568h@2x.png */; };
+		CD4ABB8E16A5E43400CAF459 /* DBMEViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD4ABB8D16A5E43400CAF459 /* DBMEViewController.m */; };
+		CD4ABB9116A5E43400CAF459 /* DBMEViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD4ABB8F16A5E43400CAF459 /* DBMEViewController.xib */; };
+		CD4ABB9B16A5E64200CAF459 /* libSuperDBCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CD4ABB9716A5E64200CAF459 /* libSuperDBCore.a */; };
+		CD4ABB9C16A5E64200CAF459 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD4ABB9816A5E64200CAF459 /* CFNetwork.framework */; };
+		CD4ABB9D16A5E64200CAF459 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD4ABB9916A5E64200CAF459 /* CoreData.framework */; };
+		CD4ABB9E16A5E64200CAF459 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD4ABB9A16A5E64200CAF459 /* Security.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		CD4ABB7016A5E43400CAF459 /* Debug Me.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Debug Me.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CD4ABB7416A5E43400CAF459 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		CD4ABB7616A5E43400CAF459 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		CD4ABB7816A5E43400CAF459 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		CD4ABB7C16A5E43400CAF459 /* Debug Me-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Debug Me-Info.plist"; sourceTree = "<group>"; };
+		CD4ABB7E16A5E43400CAF459 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		CD4ABB8016A5E43400CAF459 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		CD4ABB8216A5E43400CAF459 /* Debug Me-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Debug Me-Prefix.pch"; sourceTree = "<group>"; };
+		CD4ABB8316A5E43400CAF459 /* DBMEAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBMEAppDelegate.h; sourceTree = "<group>"; };
+		CD4ABB8416A5E43400CAF459 /* DBMEAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBMEAppDelegate.m; sourceTree = "<group>"; };
+		CD4ABB8616A5E43400CAF459 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		CD4ABB8816A5E43400CAF459 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		CD4ABB8A16A5E43400CAF459 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		CD4ABB8C16A5E43400CAF459 /* DBMEViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBMEViewController.h; sourceTree = "<group>"; };
+		CD4ABB8D16A5E43400CAF459 /* DBMEViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBMEViewController.m; sourceTree = "<group>"; };
+		CD4ABB9016A5E43400CAF459 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/DBMEViewController.xib; sourceTree = "<group>"; };
+		CD4ABB9716A5E64200CAF459 /* libSuperDBCore.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = libSuperDBCore.a; path = "../SuperDBCore/build/Release-iphoneos/libSuperDBCore.a"; sourceTree = "<group>"; };
+		CD4ABB9816A5E64200CAF459 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		CD4ABB9916A5E64200CAF459 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
+		CD4ABB9A16A5E64200CAF459 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		CD4ABB6D16A5E43400CAF459 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD4ABB9B16A5E64200CAF459 /* libSuperDBCore.a in Frameworks */,
+				CD4ABB9C16A5E64200CAF459 /* CFNetwork.framework in Frameworks */,
+				CD4ABB9D16A5E64200CAF459 /* CoreData.framework in Frameworks */,
+				CD4ABB9E16A5E64200CAF459 /* Security.framework in Frameworks */,
+				CD4ABB7516A5E43400CAF459 /* UIKit.framework in Frameworks */,
+				CD4ABB7716A5E43400CAF459 /* Foundation.framework in Frameworks */,
+				CD4ABB7916A5E43400CAF459 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		CD4ABB6516A5E43400CAF459 = {
+			isa = PBXGroup;
+			children = (
+				CD4ABB9716A5E64200CAF459 /* libSuperDBCore.a */,
+				CD4ABB9816A5E64200CAF459 /* CFNetwork.framework */,
+				CD4ABB9916A5E64200CAF459 /* CoreData.framework */,
+				CD4ABB9A16A5E64200CAF459 /* Security.framework */,
+				CD4ABB7A16A5E43400CAF459 /* Debug Me */,
+				CD4ABB7316A5E43400CAF459 /* Frameworks */,
+				CD4ABB7116A5E43400CAF459 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		CD4ABB7116A5E43400CAF459 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CD4ABB7016A5E43400CAF459 /* Debug Me.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CD4ABB7316A5E43400CAF459 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				CD4ABB7416A5E43400CAF459 /* UIKit.framework */,
+				CD4ABB7616A5E43400CAF459 /* Foundation.framework */,
+				CD4ABB7816A5E43400CAF459 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CD4ABB7A16A5E43400CAF459 /* Debug Me */ = {
+			isa = PBXGroup;
+			children = (
+				CD4ABB8316A5E43400CAF459 /* DBMEAppDelegate.h */,
+				CD4ABB8416A5E43400CAF459 /* DBMEAppDelegate.m */,
+				CD4ABB8C16A5E43400CAF459 /* DBMEViewController.h */,
+				CD4ABB8D16A5E43400CAF459 /* DBMEViewController.m */,
+				CD4ABB8F16A5E43400CAF459 /* DBMEViewController.xib */,
+				CD4ABB7B16A5E43400CAF459 /* Supporting Files */,
+			);
+			path = "Debug Me";
+			sourceTree = "<group>";
+		};
+		CD4ABB7B16A5E43400CAF459 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				CD4ABB7C16A5E43400CAF459 /* Debug Me-Info.plist */,
+				CD4ABB7D16A5E43400CAF459 /* InfoPlist.strings */,
+				CD4ABB8016A5E43400CAF459 /* main.m */,
+				CD4ABB8216A5E43400CAF459 /* Debug Me-Prefix.pch */,
+				CD4ABB8616A5E43400CAF459 /* Default.png */,
+				CD4ABB8816A5E43400CAF459 /* Default@2x.png */,
+				CD4ABB8A16A5E43400CAF459 /* Default-568h@2x.png */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		CD4ABB6F16A5E43400CAF459 /* Debug Me */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CD4ABB9416A5E43400CAF459 /* Build configuration list for PBXNativeTarget "Debug Me" */;
+			buildPhases = (
+				CD4ABB6C16A5E43400CAF459 /* Sources */,
+				CD4ABB6D16A5E43400CAF459 /* Frameworks */,
+				CD4ABB6E16A5E43400CAF459 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Debug Me";
+			productName = "Debug Me";
+			productReference = CD4ABB7016A5E43400CAF459 /* Debug Me.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		CD4ABB6716A5E43400CAF459 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				CLASSPREFIX = DBME;
+				LastUpgradeCheck = 0450;
+				ORGANIZATIONNAME = "Jason Brennan";
+			};
+			buildConfigurationList = CD4ABB6A16A5E43400CAF459 /* Build configuration list for PBXProject "Debug Me" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = CD4ABB6516A5E43400CAF459;
+			productRefGroup = CD4ABB7116A5E43400CAF459 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				CD4ABB6F16A5E43400CAF459 /* Debug Me */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CD4ABB6E16A5E43400CAF459 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD4ABB7F16A5E43400CAF459 /* InfoPlist.strings in Resources */,
+				CD4ABB8716A5E43400CAF459 /* Default.png in Resources */,
+				CD4ABB8916A5E43400CAF459 /* Default@2x.png in Resources */,
+				CD4ABB8B16A5E43400CAF459 /* Default-568h@2x.png in Resources */,
+				CD4ABB9116A5E43400CAF459 /* DBMEViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		CD4ABB6C16A5E43400CAF459 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CD4ABB8116A5E43400CAF459 /* main.m in Sources */,
+				CD4ABB8516A5E43400CAF459 /* DBMEAppDelegate.m in Sources */,
+				CD4ABB8E16A5E43400CAF459 /* DBMEViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		CD4ABB7D16A5E43400CAF459 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CD4ABB7E16A5E43400CAF459 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		CD4ABB8F16A5E43400CAF459 /* DBMEViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				CD4ABB9016A5E43400CAF459 /* en */,
+			);
+			name = DBMEViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		CD4ABB9216A5E43400CAF459 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		CD4ABB9316A5E43400CAF459 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		CD4ABB9516A5E43400CAF459 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Debug Me/Debug Me-Prefix.pch";
+				HEADER_SEARCH_PATHS = "../SuperDBCore/SuperDBCore/**";
+				INFOPLIST_FILE = "Debug Me/Debug Me-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		CD4ABB9616A5E43400CAF459 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Debug Me/Debug Me-Prefix.pch";
+				HEADER_SEARCH_PATHS = "../SuperDBCore/SuperDBCore/**";
+				INFOPLIST_FILE = "Debug Me/Debug Me-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		CD4ABB6A16A5E43400CAF459 /* Build configuration list for PBXProject "Debug Me" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CD4ABB9216A5E43400CAF459 /* Debug */,
+				CD4ABB9316A5E43400CAF459 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		CD4ABB9416A5E43400CAF459 /* Build configuration list for PBXNativeTarget "Debug Me" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CD4ABB9516A5E43400CAF459 /* Debug */,
+				CD4ABB9616A5E43400CAF459 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = CD4ABB6716A5E43400CAF459 /* Project object */;
+}
