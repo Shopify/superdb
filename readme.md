@@ -1,8 +1,6 @@
 superdb: The Super Debugger
 ===========================
 
-Instructions forthcoming…
-
 The Super Debugger (`superdb` for short) is a dynamic, wireless debugger for iOS (and theoretically, Mac) apps. It works as two parts: a static library that runs built in to your app and a Mac app to send commands to the app, wirelessly. Your app starts up the debugger via this library, which broadcasts itself on your local network. The Mac app can discover these debug sessions via Bonjour and connect to them.
 
 You can then send messages to your live objects as the app is running on the device (or Simulator). No need to set any break points. Any message you can send in code can also be sent this way. This allows you to rapidly test changes and see their results, without the need to recompile and deploy.
