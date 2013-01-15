@@ -59,6 +59,12 @@ Installation
 			return _customMenuSystem.rootViewController;
 		}];
 
+Now all that's left is to get the Mac component running. Provided you've got your `submodules` all updated:
+
+1. Open the `SuperWorkspace.xcworkspace` file (found wherever you cloned the `superdb` submodule to).
+2. Build and run the `Super Debugger` target (which will build the library component for the Mac, as well).
+
+
 You should be good to go. Fire up the app in either the Simulator or on a device, and launch the Super Debugger Mac app, double click your app in the list, and debug away! The only requirement is the apps be on the same local network (This could potentially work over a WAN, too, but for now we use Bonjour for finding devices. WAN would have higher latency, too).
 
 Demo application
