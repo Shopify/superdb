@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]-->
+<!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]-->
+<!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"> <!--<![endif]-->
+<head>
+
+	<!-- Basic Page Needs
+  ================================================== -->
+	<meta charset="utf-8">
+	<title>SuperDB: The Super Debugger for iOS applications</title>
+	<meta name="description" content="SuperDB is the Super Debugger, a wireless debugging tool for developing apps for iPhone, iPad or any iOS platform.">
+	<meta name="author" content="shopify">
+
+	<!-- Mobile Specific Metas
+  ================================================== -->
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+	<!-- CSS
+  ================================================== -->
+  	<script type="text/javascript" src="//use.typekit.net/ozp3hoq.js"></script>
+  	<script type="text/javascript">try{Typekit.load();}catch(e){}</script>
+	<link rel="stylesheet" href="stylesheets/base.css">
+	<link rel="stylesheet" href="stylesheets/skeleton.css">
+	<link rel="stylesheet" href="stylesheets/layout.css">
+
+	<!--[if lt IE 9]>
+		<script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+	<![endif]-->
+	<style>
+	
+	/*
+		Please do remember I'm primarily *not* a web developer.
+		I know I should bust this out into its own CSS file.
+		But hey, there are deadlines and I'd rather be improving iOS.
+		This works, but if you have constructive improvements, please email me at jbrennan@nearthespeedoflight.com
+	*/
+	
+	body {
+		text-align: center;
+		font-style: normal;
+	}
+	.full-width {
+		width: 100%;
+		padding-top: 200px;
+		padding-bottom: 200px;
+		/* background-color: #bde565; */
+	}
+	
+	.logo-title {
+		font-family: "league-gothic",helvetica,verdana,sans-serif;
+	}
+	
+	#mast {
+		text-transform: uppercase;
+		font-size: 8em;
+	}
+	
+	
+	#subtitle {
+		text-transform: uppercase;
+		text-align: left;
+		font-style: italic;
+		color: white;
+		background-color: #1a1513;
+		margin-top: .7em;
+		margin-left: 1em;
+		margin-right: 1em;
+		letter-spacing: 0.25em;
+	}
+	
+	.justify {
+		text-align: justify;
+	}
+	.headline-block {
+		padding-top: 300px;
+		padding-bottom: 300px;
+	}
+	#block1 {
+		
+		font-style: italic;
+		text-align: left;
+		color: #222222;
+		background-color: #FFFFFF;
+	}
+	
+	#block1 h1 {
+		margin-left: 20px;
+	}
+	
+	#block2, #block2 h1 {
+		color: #48023D;
+		background-color: #FE4444;
+	}
+	#block3, #block3 h1 {
+		color: #222222;
+		background-color: #FBFAF5;
+	}
+	
+	iframe {
+		width: 480px;
+		height: 360px;
+	}
+	#block4, #block4 h1 {
+		background-color: #EEB111;
+		color: #542F1A;
+	}
+	#block5, #block5 h1 {
+		color: #333333;
+		background-color: #FCFAF2;
+		/* red accent: #CB0000 */
+	}
+	
+	#block5 h3 {
+		color: #CB0000;
+		background-color: transparent;
+	}
+	#block6, #block6 h1 {
+		color: #FFBB6C;
+		/* darker: background-color: #262436; */
+		background-color: #503C53;
+	}
+	#block7, #block7 h1 {
+		color: #625F7E;
+		background-color: #E3E4E6;
+		/* accents: purple-grey: #625F7E */
+		/* 			yellow-orange: #E2861D */
+		/* 			rust: #B74309 */
+	}
+	#article7 strong {
+		color: #B74309;
+	}
+	#block8, #block8 h1 {
+		color: #E5AA0A;
+		background-color: #097F9C;
+	}
+	
+	#block8 a {
+		color: #E5AA0A;
+		text-decoration: none;
+	}
+	#block9, #block9 h1 {
+		color: #000000;
+		background-color: #F5F5F5;
+	}
+	#article9 {
+		width: auto;
+	}
+	
+	.article {
+		margin: 0 auto;
+		width: 205px;
+	}
+	
+	.article h3 {
+		font-family: "pt-sans";
+		margin-top: 17px;
+		margin-bottom: 17px;
+	}
+	
+	.article p {
+		text-align: justify;
+	}
+	
+	.article strong {
+		color: #CB0000;
+	}
+	
+	code {
+		font-family: Menlo, Consolas, Monaco, "Lucida Console", monospace;
+	}
+	
+	#fork-button {
+		font-size: 16px;
+		margin: 32px auto;
+	}
+	
+	a#fork-button {
+		color: #00303D;
+	}
+	
+	a#github-button {
+		color: white;
+	}
+	
+	#github-button {
+		font-style: normal;
+		font-size: 18px;
+		background-color: #222;
+		border: 1px solid #222;
+		border-top: 1px solid #222;
+		border-left: 1px solid #222;
+		-moz-border-radius: 3px;
+		-webkit-border-radius: 3px;
+		border-radius: 3px;
+		display: inline-block;
+		font-weight: bold;
+		text-decoration: none;
+		cursor: pointer;
+		margin: 20px auto;
+		line-height: normal;
+		padding: 8px 10px;
+		font-family: "HelveticaNeue", "Helvetica Neue", Helvetica, sans-serif;
+	 }
+	
+	#github-button:hover {
+		color: #222;
+		background: #ddd; /* Old browsers */
+	}
+	
+	#github-button:active {
+		border: 1px solid #666;
+		background: #ccc; /* Old browsers */
+	}
+		
+	
+	#shopify_logo {
+		background-image: -webkit-image-set(
+			url(images/shopify.png) 1x,
+			url(images/shopify@2x.png) 2x
+		);
+		background-size: 256px 256px;
+		width: 256px;
+		height: 256px;
+		margin: 0px auto;
+	}
+	
+	@media only screen and (min-width: 768px) and (max-width: 959px) {
+		.container .ten.columns {
+			font-size: 88%;
+		}
+		
+		#subtitle {
+			font-size: 215%;
+		}
+	}
+	
+	@media only screen and (max-width: 767px) {
+		.container .ten.columns {
+			font-size: 84%;
+		}
+		
+		#subtitle {
+			font-size: 205%;
+		}
+		
+		.full-width {
+			padding-top: 100px;
+			padding-bottom: 100px;
+		}
+		
+		.logo-title {
+			line-height: 1em;
+		}
+		
+		iframe {
+			width: 400px;
+			height: 400px;
+		}
+	}
+	
+	
+	@media only screen and (max-width: 479px) {
+		.container .ten.columns {
+			font-size: 90%;
+			text-align: center;
+			font-style: normal;
+		}
+		
+		#block1 h1 {
+			margin-left: 0px;
+		}
+		
+		#subtitle {
+			font-size: 205%;
+			text-align: center;
+			font-style: normal;
+			letter-spacing: 0.1em;
+			word-spacing: 0.26em;
+		}
+		
+		.full-width {
+			padding-top: 60px;
+			padding-bottom: 60px;
+		}
+		
+		h1#mast.remove-bottom.logo-title {
+			font-size: 650%;
+		}
+		
+		iframe {
+			width: 200px;
+			height: 200px;
+		}
+	}
+	
+	
+	</style>
+</head>
+<body>
+
+
+	<div class="super-container full-width" id="block1">
+		<div class="container">
+			<div class="ten columns offset-by-three">
+				<div class="row">
+					<div class="three columns alpha"></div>
+					<div class="ten columns">
+						<h1 class="remove-bottom logo-title" style="margin-top: 40px;" id="mast">Super Debugger</h1>
+						<h3 class="logo-title" id="subtitle"><span class="justify">The iOS Wireless Debugging System</span></h3>
+						<div style="text-align: center;">
+							<a href="https://github.com/Shopify/superdb" id="github-button">Github</a>
+						</div>
+					</div>
+					<div class="three columns omega"></div>
+				</div>
+			</div>
+		</div>
+	</div><!-- super-container -->
+	
+	
+	<div class="super-container full-width headline-block" id="block2">
+		<div class="container">
+			<div class="sixteen columns">
+				<div class="row">
+					<h1 class="remove-bottom logo-title" style="margin-top: 40px" id="mast">In Action</h1>
+				</div>
+			</div>
+		</div>
+	</div><!-- super-container -->
+	
+	<div class="super-container full-width" id="block3">
+		<div class="container">
+			<div class="sixteen columns">
+				<div class="row">
+					<iframe src="http://www.youtube.com/embed/tvu77GHR1h0?rel=0" frameborder="0" allowfullscreen></iframe>
+				</div>
+			</div>
+		</div>
+	</div><!-- super-container -->
+	
+	
+	<div class="super-container full-width headline-block" id="block4">
+		<div class="container">
+			<div class="sixteen columns">
+				<div class="row">
+					<h1 class="remove-bottom logo-title" style="margin-top: 40px;" id="mast">State of the Art?</h1>
+				</div>
+			</div>
+		</div>
+	</div><!-- super-container -->
+	
+	
+	<div class="super-container full-width" id="block5">
+		<div class="container">
+			<div class="sixteen columns">
+				<div class="row">
+						<section class="article">
+							<h3 class="article-title">It’s about state.</h3>
+							<p>LLDB is the current state of the art for iOS debugging, but it’s clunky and cumbersome and doesn’t work well with objects.</p>
+							
+							<p>The <a href="https://github.com/Shopify/superdb"><strong>Super Debugger</strong></a> (superdb) lets you debug in new ways lldb can’t: it allows you to send messages to the objects in your app, without the need to stop on breakpoints.</p>
+							
+							<p>Use the powerful Shell on your Mac to inspect your objects, see changes instantly, and <strong>speed up development</strong>.</p>
+							
+							<p>Install the Super Debugger in your app in minutes and test changes immediately. <a href="https://github.com/Shopify/superdb">Fork the project on Github</a>. This is just the beginning.</p>
+						</section>
+				</div>
+			</div>
+		</div>
+	</div><!-- super-container -->
+	
+	
+	<div class="super-container full-width headline-block" id="block6">
+		<div class="container">
+			<div class="sixteen columns">
+				<div class="row">
+					<h1 class="remove-bottom logo-title" style="margin-top: 40px" id="mast">Iterate Instantly</h1>
+				</div>
+			</div>
+		</div>
+	</div><!-- super-container -->
+	
+	
+	<div class="super-container full-width" id="block7">
+		<div class="container">
+			<div class="sixteen columns">
+				<div class="row">
+					<section class="article" id="article7">
+						<h3 class="article-title">Change. Compile.</h3>
+						<p>How much time have you wasted trying to get a view’s corner radius to look <em>right</em>? You test it out, make a change. Build and run. But you don’t feel like you’re <em>running</em>, do you?</p>
+						
+						<p>With Super Debugger, you see your changes <strong>as you make them</strong>. Set a corner radius. Or a line thickness. Or a colour. And see the app refresh before your eyes.</p>
+						
+						<p>Super Debugger even allows you to <strong>drag</strong> your numbers left and right to see them grow and shrink. Minutes of compiling just became <em>seconds</em> of testing.</p>
+					</section>
+				</div>
+			</div>
+		</div>
+	</div><!-- super-container -->
+	
+	
+	<div class="super-container full-width headline-block" id="block8">
+		<div class="container">
+			<div class="sixteen columns">
+				<div class="row">
+					<h1 class="remove-bottom logo-title" style="margin-top: 40px" id="mast"><a href="https://github.com/Shopify/superdb">Github</a></h1>
+					<a href="https://github.com/Shopify/superdb" class="button" id="fork-button">Fork on Github</a>
+				</div>
+			</div>
+		</div>
+	</div><!-- super-container -->
+	
+	
+	<div class="super-container full-width" id="block9">
+		<div class="container">
+			<div class="sixteen columns">
+				<div class="row">
+					<section class="article" id="article9">
+						<a href="http://shopify.com"><div id="shopify_logo"></div></a>
+						<h3 class="article-title">Made by <a href="https://github.com/jbrennan">Jason Brennan</a> at <a href="http://shopify.com">Shopify</a>.</h3>
+						<a href="mailto:jbrennan@nearthespeedoflight.com?subject=Super%20Debugger" class="button" id="fork-button">Email me</a>
+					</section>
+					
+				</div>
+			</div>
+		</div>
+	</div><!-- super-container -->
+	
+
+</body>
+</html>
