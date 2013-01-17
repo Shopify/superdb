@@ -275,6 +275,7 @@
 				GCC_PREFIX_HEADER = "Debug Me/Debug Me-Prefix.pch";
 				HEADER_SEARCH_PATHS = "../SuperDBCore/SuperDBCore/**";
 				INFOPLIST_FILE = "Debug Me/Debug Me-Info.plist";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -287,6 +288,7 @@
 				GCC_PREFIX_HEADER = "Debug Me/Debug Me-Prefix.pch";
 				HEADER_SEARCH_PATHS = "../SuperDBCore/SuperDBCore/**";
 				INFOPLIST_FILE = "Debug Me/Debug Me-Info.plist";
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
