@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		B6D2D6D719274342A853E8EF /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C0CC6410D333406B850B27D6 /* libPods.a */; };
 		CD4ABB7516A5E43400CAF459 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD4ABB7416A5E43400CAF459 /* UIKit.framework */; };
 		CD4ABB7716A5E43400CAF459 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD4ABB7616A5E43400CAF459 /* Foundation.framework */; };
 		CD4ABB7916A5E43400CAF459 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD4ABB7816A5E43400CAF459 /* CoreGraphics.framework */; };
@@ -18,13 +19,14 @@
 		CD4ABB8B16A5E43400CAF459 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = CD4ABB8A16A5E43400CAF459 /* Default-568h@2x.png */; };
 		CD4ABB8E16A5E43400CAF459 /* DBMEViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD4ABB8D16A5E43400CAF459 /* DBMEViewController.m */; };
 		CD4ABB9116A5E43400CAF459 /* DBMEViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD4ABB8F16A5E43400CAF459 /* DBMEViewController.xib */; };
-		CD4ABB9B16A5E64200CAF459 /* libSuperDBCore.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CD4ABB9716A5E64200CAF459 /* libSuperDBCore.a */; };
 		CD4ABB9C16A5E64200CAF459 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD4ABB9816A5E64200CAF459 /* CFNetwork.framework */; };
 		CD4ABB9D16A5E64200CAF459 /* CoreData.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD4ABB9916A5E64200CAF459 /* CoreData.framework */; };
 		CD4ABB9E16A5E64200CAF459 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD4ABB9A16A5E64200CAF459 /* Security.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1A7E5BC188804509A5951B97 /* Pods.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.xcconfig; path = Pods/Pods.xcconfig; sourceTree = SOURCE_ROOT; };
+		C0CC6410D333406B850B27D6 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD4ABB7016A5E43400CAF459 /* Debug Me.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Debug Me.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CD4ABB7416A5E43400CAF459 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		CD4ABB7616A5E43400CAF459 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -41,7 +43,6 @@
 		CD4ABB8C16A5E43400CAF459 /* DBMEViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DBMEViewController.h; sourceTree = "<group>"; };
 		CD4ABB8D16A5E43400CAF459 /* DBMEViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DBMEViewController.m; sourceTree = "<group>"; };
 		CD4ABB9016A5E43400CAF459 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/DBMEViewController.xib; sourceTree = "<group>"; };
-		CD4ABB9716A5E64200CAF459 /* libSuperDBCore.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = libSuperDBCore.a; path = "../SuperDBCore/build/Release-iphoneos/libSuperDBCore.a"; sourceTree = "<group>"; };
 		CD4ABB9816A5E64200CAF459 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
 		CD4ABB9916A5E64200CAF459 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = System/Library/Frameworks/CoreData.framework; sourceTree = SDKROOT; };
 		CD4ABB9A16A5E64200CAF459 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
@@ -52,29 +53,36 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CD4ABB9B16A5E64200CAF459 /* libSuperDBCore.a in Frameworks */,
 				CD4ABB9C16A5E64200CAF459 /* CFNetwork.framework in Frameworks */,
 				CD4ABB9D16A5E64200CAF459 /* CoreData.framework in Frameworks */,
 				CD4ABB9E16A5E64200CAF459 /* Security.framework in Frameworks */,
 				CD4ABB7516A5E43400CAF459 /* UIKit.framework in Frameworks */,
 				CD4ABB7716A5E43400CAF459 /* Foundation.framework in Frameworks */,
 				CD4ABB7916A5E43400CAF459 /* CoreGraphics.framework in Frameworks */,
+				B6D2D6D719274342A853E8EF /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7416280516B6E2980047F019 /* Essential */ = {
+			isa = PBXGroup;
+			children = (
+				CD4ABB7416A5E43400CAF459 /* UIKit.framework */,
+				CD4ABB7616A5E43400CAF459 /* Foundation.framework */,
+				CD4ABB7816A5E43400CAF459 /* CoreGraphics.framework */,
+			);
+			name = Essential;
+			sourceTree = "<group>";
+		};
 		CD4ABB6516A5E43400CAF459 = {
 			isa = PBXGroup;
 			children = (
-				CD4ABB9716A5E64200CAF459 /* libSuperDBCore.a */,
-				CD4ABB9816A5E64200CAF459 /* CFNetwork.framework */,
-				CD4ABB9916A5E64200CAF459 /* CoreData.framework */,
-				CD4ABB9A16A5E64200CAF459 /* Security.framework */,
 				CD4ABB7A16A5E43400CAF459 /* Debug Me */,
 				CD4ABB7316A5E43400CAF459 /* Frameworks */,
 				CD4ABB7116A5E43400CAF459 /* Products */,
+				1A7E5BC188804509A5951B97 /* Pods.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -89,9 +97,11 @@
 		CD4ABB7316A5E43400CAF459 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				CD4ABB7416A5E43400CAF459 /* UIKit.framework */,
-				CD4ABB7616A5E43400CAF459 /* Foundation.framework */,
-				CD4ABB7816A5E43400CAF459 /* CoreGraphics.framework */,
+				CD4ABB9816A5E64200CAF459 /* CFNetwork.framework */,
+				CD4ABB9916A5E64200CAF459 /* CoreData.framework */,
+				CD4ABB9A16A5E64200CAF459 /* Security.framework */,
+				7416280516B6E2980047F019 /* Essential */,
+				C0CC6410D333406B850B27D6 /* libPods.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -133,6 +143,7 @@
 				CD4ABB6C16A5E43400CAF459 /* Sources */,
 				CD4ABB6D16A5E43400CAF459 /* Frameworks */,
 				CD4ABB6E16A5E43400CAF459 /* Resources */,
+				F69D040FDB22473DAD5FF8C7 /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -184,6 +195,23 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		F69D040FDB22473DAD5FF8C7 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Pods-resources.sh\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		CD4ABB6C16A5E43400CAF459 /* Sources */ = {
@@ -240,6 +268,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -261,6 +290,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				SDKROOT = iphoneos;
@@ -270,12 +300,12 @@
 		};
 		CD4ABB9516A5E43400CAF459 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1A7E5BC188804509A5951B97 /* Pods.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Debug Me/Debug Me-Prefix.pch";
-				HEADER_SEARCH_PATHS = "../SuperDBCore/SuperDBCore/**";
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "Debug Me/Debug Me-Info.plist";
-				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -283,12 +313,12 @@
 		};
 		CD4ABB9616A5E43400CAF459 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1A7E5BC188804509A5951B97 /* Pods.xcconfig */;
 			buildSettings = {
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Debug Me/Debug Me-Prefix.pch";
-				HEADER_SEARCH_PATHS = "../SuperDBCore/SuperDBCore/**";
+				HEADER_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "Debug Me/Debug Me-Info.plist";
-				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -313,6 +343,7 @@
 				CD4ABB9616A5E43400CAF459 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -1,3 +1,13 @@
+CAVEATS
+=======
+
+This fork should take advantage of CocoaPods.
+
+Due to lack of per-file `-fobjc-arc` feature, you should set it manually for SuperDBCore files starting with `Super*` every time you do `pod install`.
+
+This is work-in-progress.
+
+
 superdb: The Super Debugger
 ===========================
 
