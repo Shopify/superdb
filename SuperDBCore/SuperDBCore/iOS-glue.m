@@ -7,7 +7,7 @@
  *
  */
 
-#include "iOS-glue.h"
+#import "iOS-glue.h"
 
 void *
 NSAllocateCollectable(NSUInteger size, NSUInteger options)

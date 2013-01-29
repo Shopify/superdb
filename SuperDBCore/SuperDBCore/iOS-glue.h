@@ -1,11 +1,4 @@
-/*
- *  allocations.h
- *  FScript-iOS
- *
- *  Created by Steve White on 8/16/11.
- *  Copyright 2011 Steve White. All rights reserved.
- *
- */
+#ifdef __OBJC__
 
 #import <Foundation/NSObjCRuntime.h>
 
@@ -21,3 +14,5 @@ void *
 NSReallocateCollectable(void *ptr, NSUInteger size, NSUInteger options); 
 
 void *objc_memmove_collectable(void *dst, const void *src, size_t size);
+
+#endif
