@@ -1,0 +1,4 @@
+platform :osx, '10.8'
+
+pod 'JBShellView'
+pod 'SuperDBCore/OSXClient', :local => '../'

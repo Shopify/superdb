@@ -1,3 +1,3 @@
 platform :ios, '6.0'
 
-pod 'SuperDBCore', :local => '../'
+pod 'SuperDBCore/iOS', :local => '../'
