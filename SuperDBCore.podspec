@@ -9,7 +9,6 @@ Pod::Spec.new do |s|
 
   s.source       = { :git => s.homepage + ".git", :branch => "pods" }
 
-  s.prefix_header_contents = nil
   
   s.subspec 'iOS' do |ios|
     ios.source_files = FileList[
