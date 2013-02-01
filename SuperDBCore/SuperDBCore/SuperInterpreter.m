@@ -41,6 +41,7 @@
 #import "FSMiscTools.h"
 #import "SuperInterpreterObjectBrowser.h"
 #import "Geometry.h"
+#import "NSData+Base64.h"
 
 
 #define kSuperDebuggerDeviceLogDefaultsKey @"org.superdb.device.log_settings"
@@ -186,6 +187,52 @@
 
 	}];
 	
+	[self addRequestHandlerForResource:kSuperNetworkMessageResourceImageData
+                        requestHandler:^SuperNetworkMessage *(SuperNetworkMessage *request)
+     {
+         NSMutableDictionary *body = [@{} mutableCopy];
+         NSString *input = [[request body] objectForKey:kSuperNetworkMessageBodyInputKey];
+         
+         FSInterpreterResult *result = [weakSelf interpreterResultForInput:input logResult:USE_LOGGING];
+         
+         NSLog(@"[SERVER]: Transfering data for image: %@", input);
+         
+         if ([result isOK]) {
+             NSLog(@"FSOK: %@", [result result]);
+             
+#if TARGET_OS_IPHONE
+             id object = [result result];
+             if ([object isKindOfClass:[UIImage class]])
+             {
+                 NSData *imgRep = UIImageJPEGRepresentation(object, 0.8);
+                 [body setObject:kSuperNetworkMessageBodyStatusOK forKey:kSuperNetworkMessageBodyStatusKey];
+                 [body setObject:[imgRep base64EncodedString] forKey:kSuperNetworkMessageBodyOutputKey];
+             }
+             else
+             {
+                 NSString *noImageError = @"The result is not an image.";
+                 [body setObject:kSuperNetworkMessageBodyStatusError forKey:kSuperNetworkMessageBodyStatusKey];
+                 [body setObject:noImageError forKey:kSuperNetworkMessageBodyErrorMessageKey];
+                 
+                 NSRange range = NSMakeRange(0, 1);
+                 [body setObject:NSStringFromRange(range) forKey:kSuperNetworkMessageBodyErrorRange];
+             }
+#else
+             [body setObject:kSuperNetworkMessageBodyStatusError forKey:kSuperNetworkMessageBodyStatusKey];
+#endif
+         } else {
+             NSLog(@"FSBAD: %@", [result errorMessage]);
+             [body setObject:kSuperNetworkMessageBodyStatusError forKey:kSuperNetworkMessageBodyStatusKey];
+             [body setObject:[result errorMessage] forKey:kSuperNetworkMessageBodyErrorMessageKey];
+             
+             NSRange range = [result errorRange];
+             [body setObject:NSStringFromRange(range) forKey:kSuperNetworkMessageBodyErrorRange];
+         }
+         
+         SuperNetworkMessage *response = [SuperNetworkMessage messageWithHeader:request.header body:body];
+         return response;
+     }];
+    
 	[self addRequestHandlerForResource:kSuperNetworkMessageResourcePropertyList requestHandler:^SuperNetworkMessage *(SuperNetworkMessage *request) {
 		NSMutableDictionary *body = [@{} mutableCopy];
 		NSString *input = [[request body] objectForKey:kSuperNetworkMessageBodyInputKey];
