@@ -188,8 +188,8 @@
 	}];
 	
 	[self addRequestHandlerForResource:kSuperNetworkMessageResourceImageData
-                        requestHandler:^SuperNetworkMessage *(SuperNetworkMessage *request)
-     {
+                        requestHandler:^SuperNetworkMessage *(SuperNetworkMessage *request) {
+                            
          NSMutableDictionary *body = [@{} mutableCopy];
          NSString *input = [[request body] objectForKey:kSuperNetworkMessageBodyInputKey];
          
@@ -202,14 +202,12 @@
              
 #if TARGET_OS_IPHONE
              id object = [result result];
-             if ([object isKindOfClass:[UIImage class]])
-             {
+             if ([object isKindOfClass:[UIImage class]]) {
+                 
                  NSData *imgRep = UIImageJPEGRepresentation(object, 0.8);
                  [body setObject:kSuperNetworkMessageBodyStatusOK forKey:kSuperNetworkMessageBodyStatusKey];
                  [body setObject:[imgRep base64EncodedString] forKey:kSuperNetworkMessageBodyOutputKey];
-             }
-             else
-             {
+             } else {
                  NSString *noImageError = @"The result is not an image.";
                  [body setObject:kSuperNetworkMessageBodyStatusError forKey:kSuperNetworkMessageBodyStatusKey];
                  [body setObject:noImageError forKey:kSuperNetworkMessageBodyErrorMessageKey];

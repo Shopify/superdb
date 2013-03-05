@@ -89,16 +89,13 @@
                     // TODO: move this hardcoded command to a header file,
                     // common with the super interpreter.
                     // Ask Jason about that.
-                    if ([choppedCommand isEqualToString:@".image"])
-                    {
+                    if ([choppedCommand isEqualToString:@".image"]) {
                         NSString *output = [[response body] objectForKey:kSuperNetworkMessageBodyOutputKey];
                         NSString *bodyDataRep = output;
                         NSData *bodyData = [NSData dataFromBase64String:bodyDataRep];
                         weakSelf.imageViewer.image = [[NSImage alloc] initWithData:bodyData];
                         [[weakSelf.imageViewer window] makeKeyAndOrderFront:weakSelf];
-                    }
-                    else
-                    {
+                    } else {
                         NSString *output = [[response body] objectForKey:kSuperNetworkMessageBodyOutputKey];
                         [sender appendOutputWithNewlines:[output description]];
 //                        [weakSelf.suggestionWindowController beginForParentTextView:sender];
