@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E1C7FE816BBD4E100C2F881 /* NSData+Base64.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E1C7FE516BBD4E100C2F881 /* NSData+Base64.h */; };
+		4E1C7FE916BBD4E100C2F881 /* NSData+Base64.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E1C7FE516BBD4E100C2F881 /* NSData+Base64.h */; };
+		4E1C7FEA16BBD4E100C2F881 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E1C7FE616BBD4E100C2F881 /* NSData+Base64.m */; };
+		4E1C7FEB16BBD4E100C2F881 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E1C7FE616BBD4E100C2F881 /* NSData+Base64.m */; };
+		4E5E4B9716E5CFC7004210DA /* UIView+SDBScreenshot.h in Headers */ = {isa = PBXBuildFile; fileRef = 4E5E4B9516E5CFC7004210DA /* UIView+SDBScreenshot.h */; };
+		4E5E4B9816E5CFC7004210DA /* UIView+SDBScreenshot.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E5E4B9616E5CFC7004210DA /* UIView+SDBScreenshot.m */; };
 		CD0C658B15ECF981006DE7F3 /* SuperInterpreter.h in Headers */ = {isa = PBXBuildFile; fileRef = CD0C658915ECF981006DE7F3 /* SuperInterpreter.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		CD0C658C15ECF981006DE7F3 /* SuperInterpreter.h in Headers */ = {isa = PBXBuildFile; fileRef = CD0C658915ECF981006DE7F3 /* SuperInterpreter.h */; };
 		CD0C658D15ECF981006DE7F3 /* SuperInterpreter.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0C658A15ECF981006DE7F3 /* SuperInterpreter.m */; };
@@ -281,6 +287,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4E1C7FE516BBD4E100C2F881 /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
+		4E1C7FE616BBD4E100C2F881 /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
+		4E5E4B9516E5CFC7004210DA /* UIView+SDBScreenshot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+SDBScreenshot.h"; sourceTree = "<group>"; };
+		4E5E4B9616E5CFC7004210DA /* UIView+SDBScreenshot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+SDBScreenshot.m"; sourceTree = "<group>"; };
 		CD0C658915ECF981006DE7F3 /* SuperInterpreter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuperInterpreter.h; sourceTree = "<group>"; };
 		CD0C658A15ECF981006DE7F3 /* SuperInterpreter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuperInterpreter.m; sourceTree = "<group>"; };
 		CD0C659015ECFADF006DE7F3 /* SuperNetworkMessageTypes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuperNetworkMessageTypes.h; sourceTree = "<group>"; };
@@ -558,6 +568,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4E1C7FE416BBD4E100C2F881 /* NSData-Base64 */ = {
+			isa = PBXGroup;
+			children = (
+				4E1C7FE516BBD4E100C2F881 /* NSData+Base64.h */,
+				4E1C7FE616BBD4E100C2F881 /* NSData+Base64.m */,
+			);
+			name = "NSData-Base64";
+			path = "../../SuperDebug/Super Debug/Libraries/NSData-Base64";
+			sourceTree = "<group>";
+		};
 		CD0D94E215B871D6003A0D8B /* F-Script */ = {
 			isa = PBXGroup;
 			children = (
@@ -804,6 +824,8 @@
 				CD40C80A15F0ECCB002E3A58 /* SuperInterpreterObjectBrowser.m */,
 				CDDC9F8716224697006883CE /* Geometry.h */,
 				CDDC9F8816224697006883CE /* Geometry.m */,
+				4E5E4B9516E5CFC7004210DA /* UIView+SDBScreenshot.h */,
+				4E5E4B9616E5CFC7004210DA /* UIView+SDBScreenshot.m */,
 			);
 			name = SuperInterpreter;
 			sourceTree = "<group>";
@@ -869,6 +891,7 @@
 				CD0D94E215B871D6003A0D8B /* F-Script */,
 				CDF1AAAA15A8D7760038EAB7 /* SuperDBCore.h */,
 				CDCD46AC15A8DD390070D05C /* Network layer */,
+				4E1C7FE416BBD4E100C2F881 /* NSData-Base64 */,
 				CDF1AAA815A8D7760038EAB7 /* Supporting Files */,
 			);
 			path = SuperDBCore;
@@ -1044,6 +1067,8 @@
 				CD6FF28915EFC2B100E63391 /* Space.h in Headers */,
 				CD6BF728161FD99D00B8FBB0 /* SuperJSTP.h in Headers */,
 				CDDC9F8916224697006883CE /* Geometry.h in Headers */,
+				4E1C7FE816BBD4E100C2F881 /* NSData+Base64.h in Headers */,
+				4E5E4B9716E5CFC7004210DA /* UIView+SDBScreenshot.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1060,6 +1085,7 @@
 				CD0D94DD15B84C21003A0D8B /* SuperNetworkMessage.h in Headers */,
 				CD0C658C15ECF981006DE7F3 /* SuperInterpreter.h in Headers */,
 				CD0C659215ECFADF006DE7F3 /* SuperNetworkMessageTypes.h in Headers */,
+				4E1C7FE916BBD4E100C2F881 /* NSData+Base64.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1252,6 +1278,8 @@
 				CD40C80C15F0ECCB002E3A58 /* SuperInterpreterObjectBrowser.m in Sources */,
 				CD6BF729161FD99D00B8FBB0 /* SuperJSTP.m in Sources */,
 				CDDC9F8A16224697006883CE /* Geometry.m in Sources */,
+				4E1C7FEA16BBD4E100C2F881 /* NSData+Base64.m in Sources */,
+				4E5E4B9816E5CFC7004210DA /* UIView+SDBScreenshot.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1266,6 +1294,7 @@
 				CD0D94D915B84683003A0D8B /* SuperInterpreterClient.m in Sources */,
 				CD0D94DF15B84C21003A0D8B /* SuperNetworkMessage.m in Sources */,
 				CD0C658E15ECF981006DE7F3 /* SuperInterpreter.m in Sources */,
+				4E1C7FEB16BBD4E100C2F881 /* NSData+Base64.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

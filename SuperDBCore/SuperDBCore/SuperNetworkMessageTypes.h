@@ -60,6 +60,7 @@ extern NSString *kSuperNetworkMessageResourcePropertyList;
 extern NSString *kSuperNetworkMessageResourceMethodList;
 extern NSString *kSuperNetworkMessageResourceUpdateCurrentSelfPointer;
 extern NSString *kSuperNetworkMessageResourceDeviceLoggingSettings;
+extern NSString *kSuperNetworkMessageResourceImageData;
 
 #pragma mark - JSTP defines
 #define kJSTPHeaderTag 6000

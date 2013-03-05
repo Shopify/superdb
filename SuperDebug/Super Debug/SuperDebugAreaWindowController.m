@@ -35,9 +35,11 @@
 #import "JBShellViewBlockTypedefs.h"
 #import "JBSuggestionWindowController.h"
 #import "SuperDraggableShellView.h"
+#import "NSData+Base64.h"
 
 
 @interface SuperDebugAreaWindowController () <NSNetServiceDelegate>
+@property (nonatomic, weak) IBOutlet NSImageView *imageViewer;
 @property (nonatomic, strong) SuperInterpreterClient *networkClient;
 @property (nonatomic, strong) JBShellContainerView *shellContainer;
 @property (nonatomic, strong) NSColorPanel *colorPanel;
@@ -76,14 +78,32 @@
 		
 		
 		if ([self isCommand:input]) {
-			NSString *choppedInput = [self inputFromCommand:input];
+			NSString *choppedInput = [self longInputFromCommand:input];
 			NSString *choppedCommand = [self commandFromCommand:input];
 			
+            // FIXME: the pointer to self should be weak here. But, for some reason, we "cannot
+            // form weak reference to instance of class SuperDebugAreaWindowController" according
+            // to the runtime… Needs to be investigated.
+//            __weak __typeof__(self) weakSelf = self;
+            __typeof__(self) weakSelf = self;
+            
 			[self.networkClient requestWithCommand:choppedCommand input:choppedInput responseHandler:^(SuperNetworkMessage *response) {
 				if ([[[response body] objectForKey:kSuperNetworkMessageBodyStatusKey] isEqualToString:kSuperNetworkMessageBodyStatusOK]) {
-					NSString *output = [[response body] objectForKey:kSuperNetworkMessageBodyOutputKey];
-					[sender appendOutputWithNewlines:[output description]];
-//					[self.suggestionWindowController beginForParentTextView:sender];
+                    
+                    // TODO: move this hardcoded command to a header file,
+                    // common with the super interpreter.
+                    // Ask Jason about that.
+                    if ([choppedCommand isEqualToString:@".image"]) {
+                        NSString *output = [[response body] objectForKey:kSuperNetworkMessageBodyOutputKey];
+                        NSString *bodyDataRep = output;
+                        NSData *bodyData = [NSData dataFromBase64String:bodyDataRep];
+                        weakSelf.imageViewer.image = [[NSImage alloc] initWithData:bodyData];
+                        [[weakSelf.imageViewer window] makeKeyAndOrderFront:weakSelf];
+                    } else {
+                        NSString *output = [[response body] objectForKey:kSuperNetworkMessageBodyOutputKey];
+                        [sender appendOutputWithNewlines:[output description]];
+//                        [weakSelf.suggestionWindowController beginForParentTextView:sender];
+                    }
 				} else {
 					// there was an error, show it.
 					NSString *errorMessage = [[response body] objectForKey:kSuperNetworkMessageBodyErrorMessageKey];
@@ -154,6 +174,16 @@
 - (NSString *)inputFromCommand:(NSString *)inputCommand {
 	NSArray *words = [inputCommand componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
 	return [words lastObject];
+}
+
+
+- (NSString *)longInputFromCommand:(NSString *)inputCommand {
+	NSArray *words = [inputCommand componentsSeparatedByCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    NSMutableArray *mutWords = [words mutableCopy];
+	if ([words count] < 2)
+        return @"";
+    [mutWords removeObjectAtIndex:0];
+	return [mutWords componentsJoinedByString:@" "];
 }
 
 

@@ -38,6 +38,10 @@
 #import "SuperInterpreterClient.h"
 #import "SuperNetworkMessage.h"
 
+#if TARGET_OS_IPHONE
+#    import "UIView+SDBScreenshot.h"
+#endif
+
 #import "FSInterpreter.h"
 #import "FSInterpreterResult.h"
 #import "FSMiscTools.h"
