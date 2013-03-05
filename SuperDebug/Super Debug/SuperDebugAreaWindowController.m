@@ -81,8 +81,12 @@
 			NSString *choppedInput = [self longInputFromCommand:input];
 			NSString *choppedCommand = [self commandFromCommand:input];
 			
-            __weak __typeof__(self) weakSelf = self;
-
+            // FIXME: the pointer to self should be weak here. But, for some reason, we "cannot
+            // form weak reference to instance of class SuperDebugAreaWindowController" according
+            // to the runtime… Needs to be investigated.
+//            __weak __typeof__(self) weakSelf = self;
+            __typeof__(self) weakSelf = self;
+            
 			[self.networkClient requestWithCommand:choppedCommand input:choppedInput responseHandler:^(SuperNetworkMessage *response) {
 				if ([[[response body] objectForKey:kSuperNetworkMessageBodyStatusKey] isEqualToString:kSuperNetworkMessageBodyStatusOK]) {
                     
