@@ -57,6 +57,7 @@ NSString *kSuperNetworkMessageResourcePropertyList = @"property_list";
 NSString *kSuperNetworkMessageResourceMethodList = @"method_list";
 NSString *kSuperNetworkMessageResourceUpdateCurrentSelfPointer = @"update_current_self_pointer";
 NSString *kSuperNetworkMessageResourceDeviceLoggingSettings = @"device_logging";
+NSString *kSuperNetworkMessageResourceImageData = @"image_data";
 
 
 @interface SuperNetworkMessage ()
@@ -73,7 +74,8 @@ NSString *kSuperNetworkMessageResourceDeviceLoggingSettings = @"device_logging";
 						@".classes" : kSuperNetworkMessageResourceClassList,
 						@".methods" : kSuperNetworkMessageResourceMethodList,
 						@".self" : kSuperNetworkMessageResourceUpdateCurrentSelfPointer,
-						@".logging" : kSuperNetworkMessageResourceDeviceLoggingSettings};
+						@".logging" : kSuperNetworkMessageResourceDeviceLoggingSettings,
+    					@".image" : kSuperNetworkMessageResourceImageData};
 }
 
 

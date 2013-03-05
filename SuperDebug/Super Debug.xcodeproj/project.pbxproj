@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4E1C7FF116BBD6B800C2F881 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 4E1C7FEF16BBD6B800C2F881 /* NSData+Base64.m */; };
+		4E1C7FF216BBD6B800C2F881 /* NSData+Base64.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 4E1C7FF016BBD6B800C2F881 /* NSData+Base64.podspec */; };
 		CD0D94D215B84482003A0D8B /* SuperDebugAreaWindowController.m in Sources */ = {isa = PBXBuildFile; fileRef = CD0D94D015B84482003A0D8B /* SuperDebugAreaWindowController.m */; };
 		CD0D94D315B84482003A0D8B /* SuperDebugAreaWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = CD0D94D115B84482003A0D8B /* SuperDebugAreaWindowController.xib */; };
 		CD0D94E115B859C4003A0D8B /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CD0D94E015B859C4003A0D8B /* Security.framework */; };
@@ -51,6 +53,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4E1C7FEE16BBD6B800C2F881 /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
+		4E1C7FEF16BBD6B800C2F881 /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
+		4E1C7FF016BBD6B800C2F881 /* NSData+Base64.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "NSData+Base64.podspec"; sourceTree = "<group>"; };
 		CD0D94CF15B84482003A0D8B /* SuperDebugAreaWindowController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SuperDebugAreaWindowController.h; sourceTree = "<group>"; };
 		CD0D94D015B84482003A0D8B /* SuperDebugAreaWindowController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SuperDebugAreaWindowController.m; sourceTree = "<group>"; };
 		CD0D94D115B84482003A0D8B /* SuperDebugAreaWindowController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SuperDebugAreaWindowController.xib; sourceTree = "<group>"; };
@@ -112,6 +117,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4E1C7FED16BBD6B800C2F881 /* NSData-Base64 */ = {
+			isa = PBXGroup;
+			children = (
+				4E1C7FEE16BBD6B800C2F881 /* NSData+Base64.h */,
+				4E1C7FEF16BBD6B800C2F881 /* NSData+Base64.m */,
+				4E1C7FF016BBD6B800C2F881 /* NSData+Base64.podspec */,
+			);
+			path = "NSData-Base64";
+			sourceTree = "<group>";
+		};
 		CD0D975915B8869B003A0D8B /* Shell */ = {
 			isa = PBXGroup;
 			children = (
@@ -237,6 +252,7 @@
 		CDDC9F8C16224CFC006883CE /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				4E1C7FED16BBD6B800C2F881 /* NSData-Base64 */,
 				CD7353BE166FF624002D52D3 /* ParseKit.xcodeproj */,
 				CDA3FFBD166D07EC007C892F /* Shell */,
 			);
@@ -325,6 +341,7 @@
 				CDD65BD415A8D07800505C37 /* SuperDeviceSelectionWindowController.xib in Resources */,
 				CD0D94D315B84482003A0D8B /* SuperDebugAreaWindowController.xib in Resources */,
 				CD360F6F1638696400617446 /* JBSuggestionsTableView.xib in Resources */,
+				4E1C7FF216BBD6B800C2F881 /* NSData+Base64.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -349,6 +366,7 @@
 				CDA3FFC6166D0884007C892F /* JBShellContainerView.m in Sources */,
 				CDA3FFC7166D0884007C892F /* JBShellView.m in Sources */,
 				CDA3FFCA166D0899007C892F /* JBTextEditorProcessor.m in Sources */,
+				4E1C7FF116BBD6B800C2F881 /* NSData+Base64.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
