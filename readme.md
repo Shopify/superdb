@@ -32,13 +32,15 @@ Installation
 
 5. On the "Build Settings" for your Target, find the "Header Search Paths" setting and add an entry (for at least your Debug configuration or optionally all configurations). This entry should be for `"path/to/superdb/SuperDBCore"`  (relative to your project's root... this is the same path you used when specifying where to put the submodule) and it should be marked as `recursive`.
 
-6. Next, pick which class is going to house your Interpreter service. A good spot for this is your AppDelegate.
+6. Still in your "Build Settings", search for "Other Linker Flags" and add `-ObjC` for all configurations. This lets Super Debug's Categories load in your application.
 
-7. In your file, add `#import <SuperDBCore/SuperDBCore.h>`.
+7. Next, pick which class is going to house your Interpreter service. A good spot for this is your AppDelegate.
 
-8. Create an instance variable or property for `SuperInterpreterService *_interpreterService;`
+8. In your file, add `#import <SuperDBCore/SuperDBCore.h>`.
 
-9. Initialze as follows:
+9. Create an instance variable or property for `SuperInterpreterService *_interpreterService;`
+
+10. Initialze as follows:
 
 		_interpreterService = [SuperInterpreterService new];
 		if ([_interpreterService startServer]) {
