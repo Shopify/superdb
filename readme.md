@@ -82,6 +82,8 @@ If you'd like to quickly test out some of the features, there's an included demo
 
 4. Now for the **impressive** part. Move your mouse over the number `15` and see it highlight. Now click and drag left or right, and see the view's corner radius update **in real time**. Awesome, huh?
 
+5. If you want to display an image from the iOS app, use the `.image` command. In our example, you can type `.image self redView generateImage`; the `generateImage` method will create a screenshot of the redView and the `.image` command will transfer it to the Mac app. This command works with any kind of image, you can do something like: `.image UIImage imageNamed:'Default.png'`.
+
 Using
 -----
 
