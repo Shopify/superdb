@@ -1,3 +1,3 @@
 [submodule "SuperDebug/Super Debug/Libraries/JBShellView"]
 	path = SuperDebug/Super Debug/Libraries/JBShellView
-	url = git://github.com/jbrennan/JBShellView.git
+	url = https://github.com/jbrennan/JBShellView.git
