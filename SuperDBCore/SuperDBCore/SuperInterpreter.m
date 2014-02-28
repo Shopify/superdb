@@ -134,8 +134,15 @@
 	[self addRequestHandlerForResource:kSuperNetworkMessageResourceInterpreter requestHandler:^SuperNetworkMessage *(SuperNetworkMessage *request) {
 		
 		NSString *input = [[request body] objectForKey:kSuperNetworkMessageBodyInputKey];
+
+        // Fixed issue with F-Script mac editor using curly ' to wrap text
+        // .... replace ‘ and ’ with '
+        input = [input stringByReplacingOccurrencesOfString:@"‘" withString:@"'"];
+        input = [input stringByReplacingOccurrencesOfString:@"’" withString:@"'"];
+
 		FSInterpreterResult *result = [weakSelf interpreterResultForInput:input logResult:USE_LOGGING];
-		
+        
+        
 		NSMutableDictionary *body = [@{} mutableCopy];
 		
 		
